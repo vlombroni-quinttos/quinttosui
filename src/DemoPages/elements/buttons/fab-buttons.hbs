@@ -1,0 +1,93 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-buttons-fab=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <div class="row">
+            <div class="col-12">
+
+                <!-- ── Primary ────────────────────────────────────────────── -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="main-card card">
+                            <div class="card-body">
+                                <h5 class="card-title">Primary</h5>
+
+                                <!-- Expanded -->
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Expanded</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Hover</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded is-hover">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Pressed</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded active">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded disabled" disabled>
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Collapsed -->
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Collapsed</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Hover</span>
+                                            <button type="button" class="btn btn-primary btn-fab is-hover">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Pressed</span>
+                                            <button type="button" class="btn btn-primary btn-fab active">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab disabled" disabled>
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

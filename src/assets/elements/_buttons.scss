@@ -1,0 +1,660 @@
+// ============================================================
+// Buttons — Quinttos Design System
+// Figma: dCEtw9coTRcbLRS4YZtQ1n / node 38:995
+// ============================================================
+
+// ── Design tokens ─────────────────────────────────────────────
+$btn-primary-default:    #423ffe;
+$btn-primary-hover:      #1815bc;
+$btn-primary-pressed:    #020078;
+$btn-primary-text:       #fdfdfd;
+
+$btn-tint:               #ececff;   // light primary tint (secondary/tertiary pressed bg)
+$btn-focus-ring:         #c2c0ff;   // Primary-200 — focus outline
+$btn-pressed-text:       #020078;   // text on tint bg
+
+$btn-destructive-default: #f3164e;
+$btn-destructive-hover:   #cc0f40;
+$btn-destructive-pressed: #af0932;
+$btn-destructive-focus-ring: #fddbe1;  // Error-100 — focus outline destructive
+
+$btn-disabled-fill:      #a7b1bb;   // bg for filled disabled (primary, destructive)
+$btn-disabled-muted:     #a7b1bb;   // border+text for outlined disabled
+$btn-disabled-ghost:     #86909c;   // text for ghost/link disabled
+
+// ── Base ──────────────────────────────────────────────────────
+.btn {
+  font-size: 1rem;      // 16px – Medium
+  font-weight: 500;
+  line-height: 1.5;
+
+  &:focus,
+  &.focus {
+    outline-width: 4px !important;   // Primary-200 focus ring — overrides generic-base reset
+    outline-style: solid !important;
+    outline-color: $btn-focus-ring !important;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 1; // suppress Bootstrap's default 65% opacity — we handle states explicitly
+    cursor: not-allowed;
+    pointer-events: all;
+
+    &:focus,
+    &.focus {
+      outline: none;  // sin focus ring en estado disabled
+    }
+  }
+}
+
+.btn-sm {
+  font-size: 0.75rem;   // 12px – Small
+}
+
+// ── Primary ───────────────────────────────────────────────────
+.btn-primary {
+  background-color: $btn-primary-default;
+  border-color: transparent;
+  color: $btn-primary-text;
+
+  &:hover,
+  &.is-hover {
+    background-color: $btn-primary-hover;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    background-color: $btn-primary-pressed;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+
+  &:focus,
+  &.focus {
+    background-color: $btn-primary-default;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: $btn-disabled-fill;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+}
+
+// ── Secondary (outlined) ──────────────────────────────────────
+// Figma node 2377:34194 — Hover: bg #ececff, border+text #433fff
+.btn-secondary {
+  background-color: transparent;
+  border: 1.5px solid $btn-primary-default;
+  color: $btn-primary-default;
+
+  &:hover,
+  &.is-hover {
+    background-color: $btn-tint;         // #ececff — tint bg en hover
+    border-color: $btn-primary-default;  // #423ffe — borde mantiene primary
+    color: $btn-primary-default;         // #423ffe — texto mantiene primary
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    background-color: $btn-tint;
+    border-color: $btn-pressed-text;
+    color: $btn-pressed-text;
+  }
+
+  &:focus,
+  &.focus {
+    background-color: transparent;
+    border-color: $btn-primary-default;
+    color: $btn-primary-default;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: transparent;
+    border-color: $btn-disabled-muted;
+    color: $btn-disabled-muted;
+  }
+}
+
+// ── Tertiary (ghost) ──────────────────────────────────────────
+.btn-tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  color: $btn-primary-default;
+
+  &:hover,
+  &.is-hover {
+    background-color: $btn-tint;
+    border-color: transparent;
+    color: $btn-primary-hover;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    background-color: $btn-tint;
+    border-color: transparent;
+    color: $btn-pressed-text;
+  }
+
+  &:focus,
+  &.focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: $btn-primary-default;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: $btn-disabled-ghost;
+  }
+}
+
+// ── Destructive ───────────────────────────────────────────────
+.btn-destructive {
+  background-color: $btn-destructive-default;
+  border-color: transparent;
+  color: $btn-primary-text;
+
+  &:hover,
+  &.is-hover {
+    background-color: $btn-destructive-hover;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    background-color: $btn-destructive-pressed;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+
+  &:focus,
+  &.focus {
+    background-color: $btn-destructive-default;
+    border-color: transparent;
+    color: $btn-primary-text;
+    outline-color: $btn-destructive-focus-ring !important;  // Error-100 override
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: $btn-disabled-fill;
+    border-color: transparent;
+    color: $btn-primary-text;
+  }
+}
+
+// ── Link ──────────────────────────────────────────────────────
+.btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: $btn-primary-default;
+  text-decoration: underline;
+  padding-left: 0;
+  padding-right: 0;
+
+  &:hover,
+  &.is-hover {
+    color: $btn-primary-hover;
+    text-decoration: underline;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active {
+    color: $btn-pressed-text;
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &.focus {
+    color: $btn-primary-default;
+    text-decoration: underline;
+    border-radius: 8px;  // outline sigue el border-radius → ring rectangular redondeado
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-disabled-ghost;
+    text-decoration: underline;
+  }
+
+  .btn-link-icon {
+    font-size: 0.625em;
+    vertical-align: middle;
+    margin-left: 0.25rem;
+  }
+}
+
+// ── Material icon inside button ───────────────────────────────
+.btn-icon-ms {
+  font-size: 1.1em;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: .125rem;
+}
+
+.btn-sm .btn-icon-ms {
+  font-size: 1em;
+}
+
+// ── Icon-only button ──────────────────────────────────────────
+// Square circular button — icon only, no label
+.btn-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+  line-height: 1;
+
+  .material-symbols-rounded {
+    font-size: 1.375rem; // 22px
+    line-height: 1;
+    margin: 0;
+  }
+
+  &.btn-sm {
+    width: 32px;
+    height: 32px;
+
+    .material-symbols-rounded {
+      font-size: 1rem; // 16px
+    }
+  }
+}
+
+// ── FAB (Floating Action Button) ─────────────────────────────
+// Primary only — single size — two display modes: expanded & collapsed
+.btn-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  min-width: 60px;
+  padding: 10px;
+  border-radius: 48px;
+  border-color: transparent;
+  line-height: 1;
+  gap: 0;
+  box-shadow: 0px 4px 6px 0px rgba(18, 18, 23, 0.08),
+              0px 2px 4px 0px rgba(18, 18, 23, 0.06);
+
+  &:disabled,
+  &.disabled {
+    box-shadow: none;
+  }
+
+  .material-symbols-rounded {
+    font-size: 2rem;   // 32px icon
+    line-height: 1;
+    margin: 0;
+    padding: 4px;      // 4px wrapper padding → icon area = 40×40px
+    flex-shrink: 0;
+  }
+
+  // Expanded mode: icon + label
+  &.btn-fab--expanded {
+    padding-left: 8px;
+    padding-right: 19px;
+    min-width: 62px;
+  }
+
+  .btn-fab__label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fdfdfd;
+    white-space: nowrap;
+    line-height: 1.5;
+  }
+}
+
+// ── Export button ─────────────────────────────────────────────
+// Neutral outlined button: download icon + label + dropdown caret
+// Border-radius 8px (NOT pill) — intentionally different from standard buttons
+.btn-export {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 1px 17px 1px 9px;
+  border-radius: 8px;
+  border: 1px solid #c9d1d8;
+  background-color: #ffffff;
+  color: #65717e;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+
+  .material-symbols-rounded {
+    font-size: 1.375rem; // 22px
+    line-height: 1;
+    padding: 4px;
+    margin: 0;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .btn-export__caret {
+    font-size: 1.25rem;
+    padding: 0;
+    flex-shrink: 0;
+    margin-left: 2px;
+    line-height: 1;
+  }
+
+  &:hover,
+  &.is-hover {
+    background-color: #f6f8fa;
+    border-color: #c9d1d8;
+    color: #65717e;
+    outline: none;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active {
+    background-color: #eaeef2;
+    border-color: #86909c;
+    color: #65717e;
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: #eaeef2;
+    border-color: #c9d1d8;
+    color: #a7b1bb;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: all;
+  }
+}
+
+// ── Badge button ───────────────────────────────────────────────
+// Primary-tinted outlined chip: attach icon + label
+// Border-radius 8px — used for file-attach / tag actions
+.btn-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 1px 9px 1px 1px;
+  border-radius: 8px;
+  border: 1px solid #423ffe;
+  background-color: #ffffff;
+  color: #423ffe;
+  font-size: 0.875rem; // 14px
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+
+  .material-symbols-rounded {
+    font-size: 1.375rem; // 22px
+    line-height: 1;
+    padding: 4px;
+    margin: 0;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  &:hover,
+  &.is-hover {
+    background-color: #ececff;
+    border-color: #423ffe;
+    color: #423ffe;
+    outline: none;
+  }
+
+  &:active,
+  &.active,
+  &.is-pressed,
+  &:not(:disabled):not(.disabled):active {
+    background-color: #ececff;
+    border-color: #1815bc;
+    color: #1815bc;
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: #ffffff;
+    border-color: #a7b1bb;
+    color: #a7b1bb;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: all;
+  }
+}
+
+// ── Icon Button ───────────────────────────────────────────────
+// Figma: icon-button component — square button with icon only
+// Sizes: md (40×40px), sm (32×32px)
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+  transition: background .15s;
+
+  .material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    line-height: 1;
+  }
+
+  // Size — medium (default)
+  &,
+  &--md {
+    width: 40px;
+    height: 40px;
+    .material-symbols-rounded { font-size: 22px; }
+  }
+
+  // Size — small
+  &--sm {
+    width: 32px;
+    height: 32px;
+    .material-symbols-rounded { font-size: 22px; }
+  }
+
+  // Variant — tertiary (no bg, no border)
+  &--tertiary {
+    color: #3b424b;  // Neutral-800
+    &:hover  { background: #f0f2f5; color: #3b424b; }
+    &:active { background: #e5e8ec; color: #2e353d; }
+    &:disabled, &.disabled { color: #a7b1bb; pointer-events: none; }
+  }
+}
+
+// ── Split Button ──────────────────────────────────────────────
+// Dos partes independientes separadas por 2px — izquierda: acción, derecha: dropdown
+// Variantes: --primary, --secondary (outline). Tamaños: default (44px), --sm (32px).
+.btn-split {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  .dropdown-toggle::after { display: none; }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 99px 0 0 99px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+
+    .material-symbols-rounded {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    &:focus { outline: none; box-shadow: none; }
+    &:disabled, &.disabled { cursor: not-allowed; pointer-events: all; }
+  }
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 34px;
+    padding: 8px 4px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    border: none;
+
+    .material-symbols-rounded {
+      font-size: 1.375rem;
+      line-height: 1;
+    }
+
+    &:focus { outline: none; box-shadow: none; }
+    &:disabled, &.disabled { cursor: not-allowed; pointer-events: all; }
+  }
+
+  // ── Primary
+  &--primary {
+    .btn-split__action {
+      background: $btn-primary-default;
+      color: $btn-primary-text;
+      &:hover, &.is-hover    { background: $btn-primary-hover;   color: $btn-primary-text; }
+      &:active, &.is-pressed,
+      &:not(:disabled):not(.disabled):active { background: $btn-primary-pressed; color: $btn-primary-text; }
+      &:disabled, &.disabled  { background: $btn-disabled-fill;  color: $btn-primary-text; }
+    }
+    .btn-split__toggle {
+      background: $btn-primary-default;
+      color: $btn-primary-text;
+      &:hover, &.is-hover    { background: $btn-primary-hover;   color: $btn-primary-text; }
+      &:active, &.is-pressed,
+      &:not(:disabled):not(.disabled):active { background: $btn-primary-pressed; color: $btn-primary-text; }
+      &:disabled, &.disabled  { background: $btn-disabled-fill;  color: $btn-primary-text; }
+    }
+    .dropdown.show .btn-split__toggle {
+      background: $btn-primary-pressed;
+      color: $btn-primary-text;
+    }
+  }
+
+  // ── Secondary (outline)
+  &--secondary {
+    .btn-split__action {
+      background: #fdfdfd;
+      border: 1.5px solid $btn-primary-default;
+      color: $btn-primary-default;
+      &:hover, &.is-hover    { background: $btn-tint;  border-color: $btn-primary-default; color: $btn-primary-default; }
+      &:active, &.is-pressed,
+      &:not(:disabled):not(.disabled):active { background: $btn-tint; border-color: $btn-pressed-text; color: $btn-pressed-text; }
+      &:disabled, &.disabled  { background: #fdfdfd; border-color: $btn-disabled-muted; color: $btn-disabled-muted; }
+    }
+    .btn-split__toggle {
+      background: #fdfdfd;
+      border: 1.5px solid $btn-primary-default;
+      color: $btn-primary-default;
+      &:hover, &.is-hover    { background: $btn-tint;  border-color: $btn-primary-default; color: $btn-primary-default; }
+      &:active, &.is-pressed,
+      &:not(:disabled):not(.disabled):active { background: $btn-tint; border-color: $btn-pressed-text; color: $btn-pressed-text; }
+      &:disabled, &.disabled  { background: #fdfdfd; border-color: $btn-disabled-muted; color: $btn-disabled-muted; }
+    }
+    .dropdown.show .btn-split__toggle {
+      background: $btn-tint;
+      border-color: $btn-pressed-text;
+      color: $btn-pressed-text;
+    }
+  }
+
+  // ── Small size
+  &--sm {
+    .btn-split__action {
+      height: 32px;
+      padding: 0 12px;
+      font-size: 0.875rem;
+      .material-symbols-rounded { font-size: 1.25rem; margin-right: 6px; }
+    }
+    .btn-split__toggle {
+      height: 32px;
+      width: 26px;
+      padding: 4px;
+      .material-symbols-rounded { font-size: 1.25rem; }
+    }
+  }
+}
+
+// ── Dropdown toggle (keep for UI components) ──────────────────
+.dropdown-toggle {
+  &::after {
+    position: relative;
+    top: 2px;
+    opacity: .8;
+  }
+}
+
+.dropright .dropdown-toggle::after {
+  top: 0;
+}
+
+.dropdown-toggle-split {
+  border-left: rgba(255, 255, 255, .1) solid 1px;
+}

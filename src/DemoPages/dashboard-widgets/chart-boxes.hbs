@@ -1,0 +1,1076 @@
+{{#> base }}
+{{> AppSidebar/sidebar widgets-chart-boxes=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">Basic</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">Grids</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">Comparing</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                <!-- Cada columna tiene su etiqueta pegada arriba del card -->
+                <div class="row">
+                    <!-- Variant 1: Básico -->
+                    <div class="col-12 col-sm-6 col-lg">
+                        <span class="cb-stat-variant-label">básico</span>
+                        <div class="cb-stat">
+                            <div class="cb-stat__info">
+                                <div class="cb-stat__label">Calificaciones 2026</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                            </div>
+                            <div class="cb-stat__number">34</div>
+                        </div>
+                    </div>
+                    <!-- Variant 2: Destacado con ícono vertical -->
+                    <div class="col-12 col-sm-6 col-lg">
+                        <span class="cb-stat-variant-label">destacado con ícono vertical</span>
+                        <div class="cb-stat cb-stat--vertical">
+                            <div class="cb-stat__icon-btn">
+                                <i class="pe-7s-medal"></i>
+                            </div>
+                            <div class="cb-stat__number">34</div>
+                            <div class="cb-stat__label">Calificaciones 2026</div>
+                            <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                        </div>
+                    </div>
+                    <!-- Variant 3: Destacado con ícono horizontal -->
+                    <div class="col-12 col-sm-6 col-lg">
+                        <span class="cb-stat-variant-label">destacado con ícono horizontal</span>
+                        <div class="cb-stat">
+                            <div class="cb-stat__icon-btn">
+                                <i class="pe-7s-medal"></i>
+                            </div>
+                            <div class="cb-stat__info">
+                                <div class="cb-stat__label">Calificaciones 2026</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                            </div>
+                            <div class="cb-stat__number">34</div>
+                        </div>
+                    </div>
+                    <!-- Variant 4: Con gráfico -->
+                    <div class="col-12 col-sm-6 col-lg">
+                        <span class="cb-stat-variant-label">con gráfico</span>
+                        <div class="cb-stat cb-stat--chart">
+                            <div class="cb-stat__chart-top">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Facturación anual</div>
+                                    <div class="cb-stat__subtitle">$ 111.111,00</div>
+                                </div>
+                                <div class="cb-stat__number">0%</div>
+                            </div>
+                            <div class="cb-stat__track">
+                                <div class="cb-stat__fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="cb-stat__chart-bottom">
+                                <span class="cb-stat__caption">Cobrado en el año</span>
+                                <span class="cb-stat__caption">$0,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Variant 5: Básico vertical (Card/Main Figma 2539:2028) -->
+                    <div class="col-12 col-sm-6 col-lg">
+                        <span class="cb-stat-variant-label">básico vertical</span>
+                        <div class="cb-stat cb-stat--simple-v">
+                            <div class="cb-stat__label">Calificaciones 2026</div>
+                            <div class="cb-stat__number">34</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+
+                <!-- ══ Stack básico ══════════════════════════════════════════════════ -->
+                <span class="cb-stat-variant-label">Stack básico</span>
+                <!-- 2 col → mitad de ancho -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cb-stat-grid cb-stat-grid--2 mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat">
+                                        <div class="cb-stat__info">
+                                            <div class="cb-stat__label">Calificaciones 2026</div>
+                                            <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                        </div>
+                                        <div class="cb-stat__number">34</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat">
+                                        <div class="cb-stat__info">
+                                            <div class="cb-stat__label">Calificaciones 2026</div>
+                                            <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                        </div>
+                                        <div class="cb-stat__number">34</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--3 mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--4 mb-4">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ Stack destacado con ícono vertical ════════════════════════════ -->
+                <span class="cb-stat-variant-label">Stack destacado con ícono vertical</span>
+                <!-- 2 col, 1 fila → mitad de ancho -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cb-stat-grid cb-stat-grid--2 mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-mail"></i></div>
+                                        <div class="cb-stat__number">2</div>
+                                        <div class="cb-stat__label">Buzón de entrada</div>
+                                        <a href="javascript:void(0);" class="cb-stat__link">Ver mensajes</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-hourglass"></i></div>
+                                        <div class="cb-stat__number">10</div>
+                                        <div class="cb-stat__label">Pendientes de validación</div>
+                                        <a href="javascript:void(0);" class="cb-stat__link">Ver pendientes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 col, 1 fila → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--3 mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-mail"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Buzón de entrada</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver mensajes</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-hourglass"></i></div>
+                                <div class="cb-stat__number">10</div>
+                                <div class="cb-stat__label">Pendientes de validación</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver pendientes</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-bell"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Notificaciones</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver notificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 col, 2 filas → mitad de ancho -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cb-stat-grid cb-stat-grid--2 mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-mail"></i></div>
+                                        <div class="cb-stat__number">2</div>
+                                        <div class="cb-stat__label">Buzón de entrada</div>
+                                        <a href="javascript:void(0);" class="cb-stat__link">Ver mensajes</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-hourglass"></i></div>
+                                        <div class="cb-stat__number">10</div>
+                                        <div class="cb-stat__label">Pendientes de validación</div>
+                                        <a href="javascript:void(0);" class="cb-stat__link">Ver pendientes</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-bell"></i></div>
+                                        <div class="cb-stat__number">2</div>
+                                        <div class="cb-stat__label">Notificaciones</div>
+                                        <a href="javascript:void(0);" class="cb-stat__link">Ver notificaciones</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--vertical">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-paper-plane"></i></div>
+                                        <div class="cb-stat__number">+57k</div>
+                                        <div class="cb-stat__label">Mensajes enviados por todos los usuarios</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 col, 2 filas → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--3 mb-4">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-mail"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Buzón de entrada</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver mensajes</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-hourglass"></i></div>
+                                <div class="cb-stat__number">10</div>
+                                <div class="cb-stat__label">Pendientes de validación</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver pendientes</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-mail"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Buzón de entrada</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver mensajes</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-bell"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Notificaciones</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver notificaciones</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-paper-plane"></i></div>
+                                <div class="cb-stat__number">+57k</div>
+                                <div class="cb-stat__label">Mensajes enviados por todos los usuarios</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--vertical">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-bell"></i></div>
+                                <div class="cb-stat__number">2</div>
+                                <div class="cb-stat__label">Notificaciones</div>
+                                <a href="javascript:void(0);" class="cb-stat__link">Ver notificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ Stack destacado con ícono horizontal ══════════════════════════ -->
+                <span class="cb-stat-variant-label">Stack destacado con ícono horizontal</span>
+                <!-- 2 col → mitad de ancho -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cb-stat-grid cb-stat-grid--2 mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                        <div class="cb-stat__info">
+                                            <div class="cb-stat__label">Calificaciones 2026</div>
+                                            <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                        </div>
+                                        <div class="cb-stat__number">34</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat">
+                                        <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                        <div class="cb-stat__info">
+                                            <div class="cb-stat__label">Calificaciones 2026</div>
+                                            <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                        </div>
+                                        <div class="cb-stat__number">34</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--3 mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--4 mb-4">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat">
+                                <div class="cb-stat__icon-btn"><i class="pe-7s-medal"></i></div>
+                                <div class="cb-stat__info">
+                                    <div class="cb-stat__label">Calificaciones 2026</div>
+                                    <a href="javascript:void(0);" class="cb-stat__link">+ info</a>
+                                </div>
+                                <div class="cb-stat__number">34</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ Stack con gráfico ══════════════════════════════════════════════ -->
+                <span class="cb-stat-variant-label">Stack con gráfico</span>
+                <!-- 2 col → mitad de ancho -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cb-stat-grid cb-stat-grid--2 mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--chart">
+                                        <div class="cb-stat__chart-top">
+                                            <div class="cb-stat__info">
+                                                <div class="cb-stat__label">Facturación anual</div>
+                                                <div class="cb-stat__subtitle">$ 111.111,00</div>
+                                            </div>
+                                            <div class="cb-stat__number">0%</div>
+                                        </div>
+                                        <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 0%;"></div></div>
+                                        <div class="cb-stat__chart-bottom">
+                                            <span class="cb-stat__caption">Cobrado en el año</span>
+                                            <span class="cb-stat__caption">$0,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 cb-stat-grid__cell">
+                                    <div class="cb-stat cb-stat--chart">
+                                        <div class="cb-stat__chart-top">
+                                            <div class="cb-stat__info">
+                                                <div class="cb-stat__label">Cuotas Creadas</div>
+                                                <div class="cb-stat__subtitle">46.987</div>
+                                            </div>
+                                            <div class="cb-stat__number">0,64%</div>
+                                        </div>
+                                        <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 1%;"></div></div>
+                                        <div class="cb-stat__chart-bottom">
+                                            <span class="cb-stat__caption">Cuotas vencidas</span>
+                                            <span class="cb-stat__caption">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--3 mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Facturación anual</div>
+                                        <div class="cb-stat__subtitle">$ 111.111,00</div>
+                                    </div>
+                                    <div class="cb-stat__number">0%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 0%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Cobrado en el año</span>
+                                    <span class="cb-stat__caption">$0,00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Cuotas Creadas</div>
+                                        <div class="cb-stat__subtitle">46.987</div>
+                                    </div>
+                                    <div class="cb-stat__number">0,64%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 1%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Cuotas vencidas</span>
+                                    <span class="cb-stat__caption">200</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Clientes Activos</div>
+                                        <div class="cb-stat__subtitle">1.234</div>
+                                    </div>
+                                    <div class="cb-stat__number">5%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 5%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Nuevos Clientes este año</span>
+                                    <span class="cb-stat__caption">150</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 col → ancho completo -->
+                <div class="cb-stat-grid cb-stat-grid--4 mb-4">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Facturación anual</div>
+                                        <div class="cb-stat__subtitle">$ 111.111,00</div>
+                                    </div>
+                                    <div class="cb-stat__number">0%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 0%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Cobrado en el año</span>
+                                    <span class="cb-stat__caption">$0,00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Cuotas Creadas</div>
+                                        <div class="cb-stat__subtitle">46.987</div>
+                                    </div>
+                                    <div class="cb-stat__number">0,64%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 1%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Cuotas vencidas</span>
+                                    <span class="cb-stat__caption">200</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Clientes Activos</div>
+                                        <div class="cb-stat__subtitle">1.234</div>
+                                    </div>
+                                    <div class="cb-stat__number">5%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 5%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Nuevos Clientes este año</span>
+                                    <span class="cb-stat__caption">150</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 cb-stat-grid__cell">
+                            <div class="cb-stat cb-stat--chart">
+                                <div class="cb-stat__chart-top">
+                                    <div class="cb-stat__info">
+                                        <div class="cb-stat__label">Proyectos Completados</div>
+                                        <div class="cb-stat__subtitle">89</div>
+                                    </div>
+                                    <div class="cb-stat__number">3,20%</div>
+                                </div>
+                                <div class="cb-stat__track"><div class="cb-stat__fill" style="width: 3%;"></div></div>
+                                <div class="cb-stat__chart-bottom">
+                                    <span class="cb-stat__caption">Proyectos en curso</span>
+                                    <span class="cb-stat__caption">12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane tabs-animation fade" id="tab-content-2" role="tabpanel">
+
+                <!-- ── Comparing data ────────────────────────────────────────── -->
+                <p class="cb-section-label">Comparing data</p>
+                <div class="row">
+
+                    <!-- Tipo 1: 2 períodos con prefijo $ (sin btn en fila de referencia) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 2: 3 períodos con botones en filas 2 y 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2024</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">706.834.682,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--up-green">
+                                        <span class="material-symbols-rounded">arrow_upward</span>
+                                    </button>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 3: Breakdown con barra de progreso -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Cuotas y matrícula (2026)</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row cb-compare__row--bar">
+                                    <div class="cb-compare__bar-top">
+                                        <span class="cb-compare__bar-label">Pagada</span>
+                                        <span class="cb-compare__bar-value">454</span>
+                                    </div>
+                                    <div class="cb-compare__bar-track">
+                                        <div class="cb-compare__bar-fill cb-compare__bar-fill--green" style="width:83%"></div>
+                                    </div>
+                                    <div class="cb-compare__bar-bottom">
+                                        <span class="cb-compare__bar-caption"></span>
+                                        <span class="cb-compare__bar-caption">83,46%</span>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row cb-compare__row--bar">
+                                    <div class="cb-compare__bar-top">
+                                        <span class="cb-compare__bar-label">Vencida</span>
+                                        <span class="cb-compare__bar-value">90</span>
+                                    </div>
+                                    <div class="cb-compare__bar-track">
+                                        <div class="cb-compare__bar-fill cb-compare__bar-fill--red" style="width:17%"></div>
+                                    </div>
+                                    <div class="cb-compare__bar-bottom">
+                                        <span class="cb-compare__bar-caption">Cobrado en el año</span>
+                                        <span class="cb-compare__bar-caption">16,54%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ── Stack comparing data ──────────────────────────────────── -->
+                <p class="cb-section-label mt-3">Stack comparing data</p>
+
+                <!-- 1 columna -->
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 columnas -->
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Plazo promedio de cobranzas</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">5,79</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">0,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 columnas -->
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Plazo promedio de cobranzas</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">5,79</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">0,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="cb-compare">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Antigüedad promedio de la deuda</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">245,15</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">27,50</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 columnas (variante --sm, fuentes más pequeñas) -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="cb-compare cb-compare--sm">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Pagos</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">606.834.682,00</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__prefix">$</span>
+                                        <span class="cb-compare__value">691.393,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-red">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="cb-compare cb-compare--sm">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Plazo promedio de cobranzas</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">5,79</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">0,00</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="cb-compare cb-compare--sm">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Antigüedad promedio de la deuda</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">245,15</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">27,50</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="cb-compare cb-compare--sm">
+                            <div class="cb-compare__head">
+                                <span class="cb-compare__title">Antigüedad promedio de la deuda</span>
+                                <span class="material-symbols-rounded cb-compare__help">help_outline</span>
+                            </div>
+                            <div class="cb-compare__rows">
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2025</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">245,15</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="cb-compare__row">
+                                    <div class="cb-compare__row-body">
+                                    <span class="cb-compare__year">2026</span>
+                                    <div class="cb-compare__metric">
+                                        <span class="cb-compare__value">27,50</span>
+                                        <span class="cb-compare__suffix">días</span>
+                                    </div>
+                                    </div>
+                                    <button class="cb-compare__icon-btn cb-compare__icon-btn--down-green">
+                                        <span class="material-symbols-rounded">arrow_downward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

@@ -1,0 +1,3000 @@
+// ── Templates — Quinttos Design System ───────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2889-65264 (Base template - Tables)
+// Componentes: Buscador · tpl-table (header, tools, tabla, pagination)
+
+// ── Table Elements — tokens semánticos ───────────────────────────────────────
+// Capa semántica: cada $te-* referencia un primitivo de _variables.scss.
+// Para cambiar un color, modificá el primitivo — acá solo viven los alias.
+
+// Colores de fondo
+$te-bg:               $neutral-0;        // fondo de celda (off-white)
+$te-bg-gray:          $light;            // fondo celda gris: #f6f8fa
+$te-bg-selected:      $primary-200;      // fondo celda seleccionada/hover
+$te-border:           $gray-300;         // borde celda
+$te-divider:          $gray-100;         // separador entre filas
+$te-text:             $gray-800;         // texto de celda
+$te-text-header:      $gray-900;         // títulos fuertes
+$te-text-secondary:   $gray-600;         // texto secundario
+$te-text-label:       $gray-500;         // etiquetas pequeñas
+$te-avatar-bg:        $primary-tint;     // fondo del avatar
+$te-avatar-color:     $primary-600;      // iniciales del avatar
+$te-action-color:     $primary;          // ícono de acción
+$te-action-dark:      $primary-600;      // ícono hover (más oscuro que primary)
+$te-action-hover-bg:  $te-bg-selected;   // fondo hover del botón acción
+$te-bullet:           darken($danger, 10%); // indicador de alerta rojo
+$te-danger:           $danger;           // acción destructiva
+
+// Font sizes (referencias a la escala tipográfica de _variables.scss)
+$te-fs-section:       $font-size-18;     // 1.125rem — título de sección
+$te-fs-base:          $font-size-base;   // 0.875rem — texto de celda
+$te-fs-header:        $font-size-16;     // 1rem     — título de header
+$te-fs-small:         $font-size-12;     // 0.75rem  — texto reducido
+$te-fs-label:         $font-size-11;     // 0.6875rem — etiquetas, badges
+$te-fs-title:         $font-size-20;     // 1.25rem  — título de tabla (H5)
+
+// Badge semantic tints (Figma)
+$te-badge-default-bg:   $primary-900;
+$te-badge-default-text: $te-bg;
+$te-badge-info-bg:      $gray-200;
+$te-badge-info-text:    $te-text;
+$te-badge-danger-bg:    $danger-100;
+$te-badge-danger-text:  $danger-900;
+$te-badge-success-bg:   $success-100;
+$te-badge-success-text: $success-900;
+$te-badge-warning-bg:   $warning-100;
+$te-badge-warning-text: $warning-900;
+
+// Shadows & overlays
+$te-shadow-gradient:  $shadow-table;     // gradiente sombra columna sticky
+$te-menu-shadow:      $shadow-float;     // sombra del menú desplegable
+$te-menu-hover-bg:    $primary-100;      // hover ítem de menú
+$te-action-pressed:   $primary-700;      // pressed state (primary muy oscuro)
+
+// Table metrics
+$te-row-height:       56px;                     // alto de fila estándar
+$te-header-height:    40px;                     // alto de fila de header
+$te-control-height:   40px;                     // alto de controles (search, select, btn)
+$te-action-btn-size:  32px;                     // botón de acción de fila
+$te-btn-size:         38px;                     // botón de paginación
+$te-toolbar-height:   64px;                     // alto de la toolbar
+$te-search-width:     320px;                    // ancho del campo de búsqueda
+$te-table-min-width:  800px;                    // min-width de la tabla Bootstrap
+$te-badge-radius:     4px;                      // border-radius del badge
+$te-menu-radius:      12px;                     // border-radius del menú desplegable
+
+// Icon sizes (en px para usar en font-size de Material Symbols)
+$te-icon-xs:          16px;
+$te-icon-sm:          18px;
+$te-icon-md:          20px;
+$te-icon-lg:          22px;
+$te-icon-xl:          24px;
+$te-actions-gap:      8px;          // gap entre icon-buttons de acción (celda y header)
+
+// Column widths — clases .tpl-col--*
+$tpl-col-xxs:          80px;    // Bootstrap table checkbox
+$tpl-col-xs:          100px;    // flex table checkbox
+$tpl-col-s:           120px;    // Bootstrap table small
+$tpl-col-ms:          140px;    // Bootstrap table medium-small
+$tpl-col-sm:          150px;    // flex table category
+$tpl-col-md:          160px;    // Bootstrap table actions
+$tpl-col-ml:          190px;    // flex table status
+$tpl-col-lg:          240px;    // flex table user/description
+
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Fix: app-main__outer es un flex item con min-width:auto por defecto.
+// Cuando hay contenido wide (flex rows con ancho fijo) el min-content se propaga
+// y expande el layout más allá del viewport. min-width:0 permite que el flex
+// item shrinkee correctamente al espacio disponible.
+.app-main__outer {
+  min-width: 0;
+}
+
+// ── Buscador (filtros de búsqueda) ───────────────────────────────────────────
+
+.tpl-buscador {
+  background: $te-bg;
+  border: 1px solid $te-border;
+  border-radius: $border-radius;
+  margin-bottom: $grid-gutter-width;
+  overflow: hidden;    // border-radius funciona sobre el header oscuro
+
+  // ── Header ─────────────────────────────────────────────────────────────
+  // Mismo lenguaje visual que el AppHeader (Figma TopNav):
+  // fondo $dark, altura unificada, botones de acción con bg $gray-700.
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;                 // igual que $app-header-height
+    padding: 0 $grid-gutter-width;
+    background: $hd-bg;           // $dark — #2e353d
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: $te-fs-title;      // 1.25rem — 20px
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: $hd-context-color;     // $blue-light — #f6f8fa
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  &__btn-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: auto;            // empuja los botones a la derecha
+  }
+
+  // Mismo estilo que app-header__action-btn (TopNav)
+  &__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $hd-action-size;       // 44px
+    height: $hd-action-size;
+    border-radius: 30px;          // igual que TopNav
+    background: $hd-action-bg;   // $gray-700 — #4f5863
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-xl;     // 24px
+      color: $blue-light;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover  { background: lighten($hd-action-bg, 8%); }
+    &:active { background: $gray-800; }
+  }
+
+  // ── Body (filtros en fila) ────────────────────────────────────────────────
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-gutter-width;
+    align-items: flex-end;
+    padding: $grid-gutter-width;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 0 200px;
+    min-width: 0;
+  }
+
+  &__label {
+    font-size: $te-fs-base;    // 14px
+    font-weight: 400;
+    line-height: 1.43;
+    color: $te-text-header;    // $gray-900 — #2e353d
+    margin: 0;
+  }
+
+}
+
+// ── Tabla con listado ─────────────────────────────────────────────────────────
+
+.tpl-table {
+  background: $te-bg;
+  border: 1px solid $te-border;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  // ── Header ("Listado") ────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    padding: 0 $grid-gutter-width;   // igual que tpl-form__header
+    border-bottom: 1px solid $te-border;
+  }
+
+  &__title {
+    font-size: $te-fs-title;      // 20px — H5
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    color: $te-text-header;
+    margin: 0;
+  }
+
+  // ── Toolbar ───────────────────────────────────────────────────────────────
+  // Desktop: [search 320px] [Mostrar 10▼ resultados] [spacer] [Descargar ▼]
+  // Mobile:  row1=[search full-width]  row2=[10▼ result.] [spacer] [Descargar ▼]
+  &__tools {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: $te-toolbar-height;
+    padding: 0 $grid-gutter-width;
+    border-bottom: 1px solid $te-border;
+    flex-shrink: 0;
+
+    @media (max-width: 576px) {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 8px $grid-gutter-width;
+      gap: 8px;
+    }
+  }
+
+  // Spacer grows between "Mostrar" block and "Descargar" button
+  &__tools-spacer {
+    flex: 1;
+    min-width: 0;
+    @media (max-width: 576px) { flex: 1 0 0; }
+  }
+
+  // Search input
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: $te-control-height;
+    padding: 9px;
+    background: $te-bg;
+    border: 1px solid $te-border;
+    border-radius: $border-radius;
+    width: $te-search-width;
+    max-width: 100%;
+    flex-shrink: 0;
+
+    @media (max-width: 576px) {
+      flex: 1 1 100%;   // ocupa toda la primera fila en mobile
+      width: 100%;
+      max-width: none;
+    }
+
+    .material-symbols-rounded {
+      font-size: $te-icon-md;
+      color: $te-text-label;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      flex-shrink: 0;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      flex: 1;
+      min-width: 0;
+      font-size: $te-fs-header;
+      font-family: inherit;
+      line-height: 24px;
+      color: $te-text-header;
+      background: transparent;
+
+      &::placeholder { color: $te-text-label; }
+    }
+
+    @media (max-width: 576px) { width: 100%; }
+  }
+
+  // "Mostrar X resultados"
+  &__show {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  // Etiquetas "Mostrar" y "resultados" — se ocultan en mobile
+  &__show-text {
+    font-size: $te-fs-base;
+    font-weight: 400;
+    line-height: 20px;
+    color: $te-text-header;
+    white-space: nowrap;
+
+    @media (max-width: 576px) { display: none; }
+  }
+
+  &__count-select {
+    display: inline-flex;
+    align-items: center;
+    height: $te-control-height;
+    padding: 0 9px 0 17px;
+    background: $te-bg;
+    border: 1px solid $te-border;
+    border-radius: $border-radius;
+    cursor: pointer;
+    gap: 4px;
+
+    span {
+      font-size: $te-fs-header;
+      line-height: 24px;
+      color: $gray-700;
+    }
+
+    .material-symbols-rounded {
+      font-size: $te-icon-md;
+      color: $gray-700;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+  }
+
+  // Descargar button
+  &__download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: $te-control-height;
+    padding: 0 17px 0 9px;
+    background: $te-bg;
+    border: 1px solid $te-border;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $te-fs-header;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 24px;
+    color: $te-text-secondary;
+    white-space: nowrap;
+    transition: background .15s, border-color .15s;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-lg;
+      color: $te-text-secondary;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover {
+      background: $light;
+      border-color: $te-text-label;
+    }
+  }
+
+  // ── Scroll wrapper ────────────────────────────────────────────────────────
+  &__wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;   // necesario para que overflow-x: auto funcione con contenido flex
+  }
+
+  // Variante con altura fija y scroll vertical interno (~5 filas visibles).
+  // Usar en widgets/cards donde el scroll debe quedar contenido en el componente.
+  &__wrapper--scroll {
+    max-height: calc(#{$te-row-height} * 7); // ≈ 2 filas de encabezado + 5 de datos
+    overflow-y: auto;
+  }
+
+  // ── Tabla ─────────────────────────────────────────────────────────────────
+  table {
+    width: 100%;
+    min-width: $te-table-min-width;
+    border-collapse: collapse;
+  }
+
+  // Celdas: solo bordes internos (el contenedor .tpl-table provee el borde exterior)
+  th {
+    background: $te-bg;
+    border-bottom: 1px solid $te-border;
+    border-right: 1px solid $te-border;
+    padding: 0 $grid-gutter-width;
+    height: $te-header-height;
+    font-size: $te-fs-header;         // 16px — Body/L Strong
+    font-weight: 600;
+    line-height: 24px;
+    color: $te-text;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: middle;
+
+    &:last-child { border-right: none; }
+    &.tpl-table__sticky-col { text-align: center; }   // override especificidad
+  }
+
+  td {
+    background: $te-bg;
+    border-bottom: 1px solid $te-border;
+    border-right: 1px solid $te-border;
+    padding: 0 $grid-gutter-width;
+    height: $te-row-height;
+    font-size: $te-fs-base;     // 14px — Body/M Regular
+    font-weight: 400;
+    line-height: 20px;
+    color: $te-text;
+    vertical-align: middle;
+
+    &:last-child { border-right: none; }
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;     // la pagination row provee el separador inferior
+  }
+
+  tbody tr:nth-child(even) td {
+    background: $te-bg-gray;
+  }
+
+  // Columna de sorting (th con sort icon)
+  // display:flex + width:100% para que ocupe todo el th y el ícono quede siempre a la derecha
+  &__sort-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-sm;
+      color: $te-text-label;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      transition: color .15s;
+    }
+
+    &:hover .material-symbols-rounded { color: $te-text-header; }
+
+    // Columna activa — ícono resaltado en color primario
+    &--asc,
+    &--desc {
+      .material-symbols-rounded { color: $te-action-color; }
+    }
+  }
+
+  // Checkbox dentro de celda — estilos Figma heredados de _forms.scss input[type="checkbox"]
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  // Badges de estado
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: $te-badge-radius;
+    font-size: $te-fs-label;    // 11px — Caption
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &--active   { background: $te-badge-success-bg; color: $te-badge-success-text; }
+    &--inactive { background: $te-badge-danger-bg;  color: $te-badge-danger-text;  }
+    &--pending  { background: $te-badge-warning-bg; color: $te-badge-warning-text; }
+  }
+
+  // Badge de conteo circular en el título del header (ej: "Mis Cursos · 5")
+  &__count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 .375rem;
+    border-radius: 50rem;
+    font-size: $te-fs-label;    // 11px
+    font-weight: 700;
+    line-height: 1;
+    background: $te-badge-success-bg;  // $success-100
+    color: $te-badge-success-text;     // $success-900
+    vertical-align: middle;
+    margin-left: .5rem;
+  }
+
+  // Fila de filtros por columna (segunda fila del <thead>)
+  &__filter-row td {
+    padding: 6px $grid-gutter-width;
+    background: $te-bg;
+    border-bottom: 1px solid $te-border;
+    border-right: 1px solid $te-border;
+
+    select.form-control-sm {
+      height: $input-height-sm;
+      font-size: $te-fs-base;
+      color: $te-text;
+      border-color: $te-border;
+      background-color: $te-bg;
+    }
+  }
+
+  // Columna de acciones sticky (fijada a la derecha en scroll horizontal)
+  // Nota: box-shadow queda oculto por los fondos de las celdas adyacentes.
+  // Solución: ::after = borde (siempre), ::before = sombra gradiente (solo con overflow).
+  // Mobile (≤575px): sin sticky — el usuario scrollea la tabla completa.
+  &__sticky-col {
+    position: sticky;
+    right: 0;
+    background: $te-bg;
+    z-index: 1;
+    text-align: center;
+
+    // Mobile: columna sin sticky, sin pseudo-elementos
+    @media (max-width: 575px) {
+      position: relative;
+    }
+  }
+
+  // Sombra gradiente — visible desde el inicio cuando hay overflow
+  &--scrollable &__sticky-col {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 100%; bottom: 0;
+      width: 24px;
+      background: linear-gradient(to right, transparent, $te-shadow-gradient);
+      pointer-events: none;
+    }
+    @media (max-width: 575px) { &::before { display: none; } }
+  }
+
+  // Separador 1px — solo cuando scrolleó (reemplaza el border-right que quedó oculto)
+  &--scrolled &__sticky-col {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 1px;
+      background: $te-border;
+      pointer-events: none;
+    }
+    @media (max-width: 575px) { &::after { display: none; } }
+  }
+
+  // Botones de acción en filas
+  &__row-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // gap viene de te-cell--actions que se agrega junto a esta clase en el HTML
+  }
+
+  &__action-btn {
+    width: $te-action-btn-size;
+    height: $te-action-btn-size;
+    padding: 0;                    // reset Bootstrap default padding
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: $btn-border-radius;           // pill — tertiary
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-md;
+      color: $te-action-color;              // tertiary — enabled
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      transition: color .15s;
+    }
+
+    &:hover {
+      background: $te-action-hover-bg;         // tertiary — hover bg
+
+      .material-symbols-rounded { color: $te-action-dark; }  // tertiary — hover icon
+    }
+
+    &:active {
+      background: $te-action-hover-bg;         // tertiary — pressed bg
+
+      .material-symbols-rounded { color: $te-action-pressed; }  // tertiary — pressed icon
+    }
+
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: all;
+
+      .material-symbols-rounded { color: $te-text-label; }  // tertiary — disabled
+    }
+  }
+
+  // Botón de acción con texto tipo "Calificaciones" — pill filled primary.
+  // Reemplaza a un botón simple en la columna de acciones cuando el clic abre
+  // un dropdown con sub-opciones (ej: Por materia / Por alumno).
+  &__cal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    height: $te-action-btn-size;        // 32px — mismo alto que action-btn
+    padding: 0 .875rem;
+    font-size: $te-fs-base;             // 14px
+    font-weight: 500;
+    line-height: 1;
+    color: $neutral-0;                  // texto blanco sobre primary
+    background: $primary;
+    border: none;
+    border-radius: 50rem;               // pill
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    &:hover  { background: $primary-600; color: $neutral-0; }
+    &:active { background: $primary-700; color: $neutral-0; }
+    &:focus  { outline: none; box-shadow: none; }
+
+    // Ocultar caret nativo de Bootstrap cuando es .dropdown-toggle
+    &.dropdown-toggle::after { display: none; }
+
+    // Chevron inline
+    .material-symbols-rounded {
+      font-size: $te-icon-sm;           // 18px
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+  }
+
+  // ── Pagination ─────────────────────────────────────────────────────────────
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $grid-gutter-width;
+    background: $te-bg;
+    border-top: 1px solid $te-border;
+
+    @media (max-width: 576px) {
+      // Figma mobile: botones centrados arriba, info debajo centrada
+      flex-direction: column-reverse; // DOM: info primero → visualmente queda abajo
+      gap: 8px;
+      align-items: center;
+    }
+  }
+
+  &__pagination-info {
+    font-size: $te-fs-label;    // 11px — Caption
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    color: $te-text-header;
+    white-space: nowrap;
+  }
+
+  &__pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__page-btn {
+    width: $te-btn-size;
+    height: $te-btn-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $te-bg;
+    border: 1px solid $te-text-label;
+    border-radius: $border-radius;
+    font-size: $te-fs-base;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 20px;
+    color: $gray-700;
+    cursor: pointer;
+    transition: background .1s;
+    flex-shrink: 0;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-xs;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 16;
+      color: $gray-700;
+    }
+
+    &--active {
+      background: $te-action-color;
+      border-color: $te-action-color;
+      color: $light;
+    }
+
+    &:hover:not(.tpl-table__page-btn--active) { background: $light; }
+  }
+
+  // Cuando el botón Descargar (u otro __download-btn) actúa como dropdown toggle,
+  // ocultar la flecha ::after que añade Bootstrap
+  &__download-btn.dropdown-toggle::after { display: none; }
+}
+
+// Chevron inline para botones outline con dropdown (ej: "Acciones ▾")
+// Más pequeño que tpl-select__chevron (24px) — usa $te-icon-sm (18px)
+.tpl-btn-chevron {
+  font-size: $te-icon-sm;
+  font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+// ── Flex Table (tpl-flex-table) ──────────────────────────────────────────────
+// Tabla con anchos de columna fijos usando te-* cells en filas flex.
+// Las celdas usan sus propios estilos (border, bg, padding…) sin overrides.
+// Los anchos se definen con las clases .tpl-col--* (ver utilidades más abajo)
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 3016-11294
+.tpl-flex-table {
+  // filas impares > .te-cell (el header usa te-hcell, así que esta regla no lo afecta)
+  &__row:nth-child(odd) > .te-cell { background: $te-bg-gray; }
+
+  &__row {
+    display: flex;
+
+    // Collapse de bordes adyacentes — solo quitar los duplicados, sin hardcodear color
+    // Sin border-left en ninguna celda — el contenedor (tpl-table) provee el borde exterior izquierdo
+    > .te-hcell,
+    > .te-cell { border-left: none; }
+
+    // Sin border-top en filas posteriores (collapse vertical)
+    &:not(:first-child) > .te-hcell,
+    &:not(:first-child) > .te-cell { border-top: none; }
+
+    // Columna sticky — sin border-right (el contenedor provee el borde exterior derecho)
+    > .te-hcell:last-child,
+    > .te-cell:last-child {
+      border-right: none;
+      position: sticky;
+      right: 0;
+      z-index: 2;
+    }
+
+    > .te-hcell:last-child { z-index: 3; }
+  }
+}
+
+// Sombra gradiente del flex table — visible desde el inicio cuando hay overflow
+.tpl-table--scrollable .tpl-flex-table__row {
+  > .te-hcell:last-child,
+  > .te-cell:last-child {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 100%; bottom: 0;
+      width: 24px;
+      background: linear-gradient(to right, transparent, $te-shadow-gradient);
+      pointer-events: none;
+    }
+    @media (max-width: 575px) { &::before { display: none; } }
+  }
+}
+
+// Separador 1px del flex table — solo cuando scrolleó
+.tpl-table--scrolled .tpl-flex-table__row {
+  > .te-hcell:last-child,
+  > .te-cell:last-child {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 1px;
+      background: $te-border;
+      pointer-events: none;
+    }
+    @media (max-width: 575px) { &::after { display: none; } }
+  }
+}
+
+// tpl-table dentro de un Widget Card (card > card-body.p-0 > .tpl-table)
+// La card ya provee borde y border-radius — se eliminan los del tpl-table
+// para evitar doble borde/radio anidado.
+.card-body.p-0 > .tpl-table {
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+// ── Select customizado (dropdown con menú vertical) ──────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2905-64580 (Input/DropdownList)
+// Reemplaza el <select> nativo para usar el design system de menús
+
+.tpl-select {
+  position: relative;
+
+  // ── Trigger — aplica .form-control como clase HTML; acá solo overrides ───
+  // El botón lleva class="form-control tpl-select__trigger" en el HTML,
+  // así hereda altura, borde, fuente, color, focus state sin duplicar CSS.
+  &__trigger {
+    &.form-control {                   // especificidad 0,2,0 > .form-control solo (0,1,0)
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      text-align: left;
+      padding-right: 9px;             // espacio para el ícono
+
+      &[aria-expanded="true"] {
+        border: 3px solid $te-avatar-bg;
+        padding: 8px 8px 8px 12px;
+      }
+    }
+
+    &::after { display: none; }       // oculta el caret de Bootstrap
+  }
+
+  &__value {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+
+    &--ph { color: $te-text-label; }
+  }
+
+  &__chevron {
+    font-size: $te-icon-xl;           // 24px — chevron icon, opsz 24
+    color: $gray-700;
+    flex-shrink: 0;
+    // FILL:1 = triángulo relleno — igual que $select-icon en _forms.scss
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    transition: transform .2s ease;
+  }
+
+  // Rota el chevron cuando el menú está abierto (Bootstrap pone aria-expanded)
+  &__trigger[aria-expanded="true"] &__chevron {
+    transform: rotate(180deg);
+  }
+
+  // ── Menú desplegable ──────────────────────────────────────────────────────
+  // margin-top/bottom se aplican según x-placement para no tapar el trigger
+  // Popper.js setea x-placement="bottom-start" | "top-start" según el espacio disponible
+  &__menu {
+    width: 100%;
+    padding: $border-radius !important;
+    border: 1px solid $te-border !important;
+    border-radius: $te-menu-radius !important;
+    background-color: $te-bg;
+    box-shadow: 0 4px 20px $te-menu-shadow;
+    max-height: 260px;
+    overflow-y: auto;
+
+    // El margen es 0 porque el gap entre trigger y menú lo calcula el JS (GAP = 4px)
+    // usando position:fixed relativo al viewport — sin depender de Popper.js
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    // Cancela la animación fade-in2 del template base (aplica translateY que
+    // desplaza el menú de la posición calculada por el JS de smart-positioning)
+    animation: none !important;
+  }
+
+  // ── Ítem del menú ─────────────────────────────────────────────────────────
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    padding: 0 $border-radius;
+    font-size: $te-fs-base;             // 14px — Body/M Regular
+    font-weight: 400;
+    line-height: 20px;
+    color: $te-text;
+    border-bottom: 1px solid $te-border;
+    border-radius: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+    transition: background .1s;
+
+    &:last-child { border-bottom: none; }
+
+    &:hover  { background-color: $te-menu-hover-bg; color: $te-text-header; }
+    &:active { background-color: $te-action-hover-bg; }
+
+    &.active {
+      background-color: $te-action-hover-bg;
+      color: $te-action-color;
+      font-weight: 500;
+    }
+
+    // ── Ícono dentro del ítem (Material Symbols) ────────────────────────────
+    &-icon {
+      font-size: $te-icon-sm;
+      vertical-align: -4px;
+      margin-right: 6px;
+    }
+
+    // ── Variante destructiva (rojo) ─────────────────────────────────────────
+    &--danger {
+      color: $te-danger;
+
+      .tpl-select__item-icon { color: $te-danger; }
+    }
+  }
+}
+
+// ── Column width utilities ────────────────────────────────────────────────────
+// Usadas en th, te-hcell y te-cell para definir el ancho de columna sin inline styles
+// Variables definidas en el bloque de tokens $tpl-col-* más arriba
+.tpl-col--xxs  { width: $tpl-col-xxs; min-width: $tpl-col-xxs; }
+.tpl-col--xs   { width: $tpl-col-xs;  min-width: $tpl-col-xs;  }
+.tpl-col--s    { width: $tpl-col-s;   min-width: $tpl-col-s;   }
+.tpl-col--ms   { width: $tpl-col-ms;  min-width: $tpl-col-ms;  }
+.tpl-col--sm   { width: $tpl-col-sm;  min-width: $tpl-col-sm;  }
+.tpl-col--md   { width: $tpl-col-md;  min-width: $tpl-col-md;  }
+.tpl-col--ml   { width: $tpl-col-ml;  min-width: $tpl-col-ml;  }
+.tpl-col--lg   { width: $tpl-col-lg;  min-width: $tpl-col-lg;  }
+// Columna fill: crece para ocupar el espacio disponible. Mínimo = $tpl-col-lg.
+// Usar en la columna "nombre/usuario" de un flex table para evitar huecos en pantallas anchas.
+.tpl-col--fill { flex: 1 0 $tpl-col-lg; min-width: $tpl-col-lg; }
+
+// Alineación vertical del checkbox en celdas de tabla
+.tpl-checkbox-align { padding-top: 12px; }
+
+// ── Formulario simple ─────────────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2905-66205 (Base template - Simple Form)
+
+// ── tpl-card (sub-tarjeta reutilizable dentro del form complejo) ──────────────
+
+.tpl-card {
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+
+  &__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                  // Figma: 16px entre secciones de la card
+  }
+
+  // Título de sección dentro del cuerpo de la card
+  &__title {
+    font-size: 1rem;            // 16px — H6
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e353d;
+    margin: 0;
+  }
+
+  // Fila de título + acciones (botones pequeños)
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // Modifier: fondo neutro Neutral-50 (para bloques dentro de mailbox)
+  &--neutral {
+    background: #f6f8fa;    // Neutral-50
+  }
+
+  // Botón pequeño (sm) dentro de la card
+  &__btn-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 32px;
+    padding: 0 12px;
+    background: #433fff;
+    border: 1px solid #433fff;
+    border-radius: 38px;
+    font-size: 0.75rem;         // 12px
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 16px;
+    color: #fdfdfd;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+
+    &:hover  { background: #1815bc; border-color: #1815bc; }
+    &:active { background: #020078; border-color: #020078; }
+    &:focus  { outline: none; }
+
+    &--outline {
+      background: #fdfdfd;
+      color: #433fff;
+      &:hover  { background: #ececff; }
+      &:active { background: #ececff; color: #020078; border-color: #020078; }
+    }
+  }
+}
+
+// ── tpl-block-header (encabezado de bloque editable en sección mailbox) ───────
+
+.tpl-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;                  // Figma: gap-[16px]
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__label {
+    font-size: 1rem;            // 16px — Figma: text-[16px] Medium
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e353d;
+    white-space: nowrap;
+  }
+
+  &__name {
+    font-size: 1.25rem;         // 20px — Figma: text-[20px] Medium tracking-[-0.04px]
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    color: #2e353d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// ── tpl-toggle-field (campo de toggle switch con label) ───────────────────────
+
+.tpl-toggle-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  // Sobreescribe estilos de Bootstrap 4 custom-switch para alinear con el DS
+  .custom-control-label {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #2e353d;
+    cursor: pointer;
+
+    &::before {
+      width: 43px;
+      height: 24px;
+      border-radius: 32px;
+      top: 0;
+      left: -51px;
+      border-color: #c9d1d8;
+      background-color: #c9d1d8;
+    }
+
+    &::after {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 3px;
+      left: -48px;
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #433fff;
+    border-color: #433fff;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(19px);
+  }
+}
+
+// ── tpl-inline-select (dropdown pequeño + unidad de texto al lado) ────────────
+
+.tpl-inline-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  // El .tpl-select dentro es auto en ancho
+  .tpl-select {
+    min-width: 100px;
+    flex-shrink: 0;
+
+    .form-control.tpl-select__trigger {
+      width: auto;
+      min-width: 100px;
+    }
+  }
+
+  &__unit {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 20px;
+    color: #4f5863;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+// ── tpl-tag (chip/etiqueta de selección) ──────────────────────────────────────
+
+.tpl-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 38px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 20px;
+  color: #3b424b;
+  white-space: nowrap;
+
+  &--active {
+    background: #ececff;
+    border-color: #433fff;
+    color: #433fff;
+    font-weight: 500;
+  }
+}
+
+.tpl-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0 4px;
+}
+
+// ── tpl-tags-field (label + fila de tags) ─────────────────────────────────────
+
+.tpl-tags-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// ── tpl-summary (sub-card de resumen con título, botones y pares clave-valor) ──
+
+.tpl-summary {
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+  padding: 16px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e353d;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // Botón pequeño (reutiliza estilos de tpl-card__btn-sm)
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    background: #433fff;
+    border: 1px solid #433fff;
+    border-radius: 38px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 16px;
+    color: #fdfdfd;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+
+    &:hover  { background: #1815bc; border-color: #1815bc; }
+    &:active { background: #020078; border-color: #020078; }
+    &:focus  { outline: none; }
+  }
+
+  &__cols {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  &__col {
+    flex: 1;
+    min-width: 120px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #2e353d;
+  }
+
+  &__key {
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 0 4px;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    color: #2e353d;
+  }
+}
+
+// ── tpl-cform-wrapper (wrapper transparente del formulario complejo) ──────────
+// Apila cards con gap=16px directamente sobre el fondo de página, sin bg propio
+
+.tpl-cform-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ── Padding inferior — todas las páginas de templates (espacio antes del footer) ─
+
+#tab-tables,
+#tab-forms,
+#tab-complex-forms {
+  padding-bottom: 24px;
+}
+
+// ── tpl-badge-field (campo de etiquetas en estilo badge rectangular) ──────────
+// Figma: container bg #eaeef2 (Neutral-100), badge bg #dbe3ea (Neutral-200), radius 8px
+
+.tpl-badge-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    font-size: 0.875rem;    // 14px — Body/M Regular (mismo que tpl-form__label)
+    font-weight: 400;
+    line-height: 20px;
+    color: #2e353d;
+    margin: 0;
+  }
+
+  &__strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: #eaeef2;    // Neutral-100
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    background: #dbe3ea;    // Neutral-200
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.875rem;    // 14px
+    font-weight: 400;
+    line-height: 20px;
+    color: #3b424b;
+    white-space: nowrap;
+  }
+}
+
+// ── tpl-mailbox (sección de bloques de configuración de envío) ────────────────
+// Figma: node 2905-63532 — card con bg #fdfdfd, border, radius 8px, padding 16px 0
+
+.tpl-mailbox {
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e353d;
+    margin: 0;
+    padding: 0 16px;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 16px;                  // Figma: 16px entre bloques
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 16px;
+
+    > .tpl-card {
+      flex: 1;
+      min-width: 280px;
+    }
+  }
+}
+
+// ── tpl-form ──────────────────────────────────────────────────────────────────
+
+.tpl-form {
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+
+  // Modifier: header standalone sin divider inferior (usado en formularios complejos)
+  &--header-only {
+    .tpl-form__header {
+      border-bottom: none;
+    }
+  }
+
+  // ── Header ───────────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+    padding: 0 16px;
+    border-bottom: 1px solid #c9d1d8;
+    flex-shrink: 0;
+    gap: 8px;
+
+    @media (max-width: 576px) {
+      flex-wrap: wrap;
+      padding: 12px 16px;
+    }
+  }
+
+  &__title {
+    font-size: 1.25rem;        // 20px — H5
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    color: #2e353d;
+    margin: 0;
+  }
+
+  &__header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // Botón outline (ej. "Cancelar")
+  &__btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 17px;
+    background: #fdfdfd;
+    border: 1px solid #433fff;
+    border-radius: 38px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 24px;
+    color: #433fff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+
+    &:hover  { background: #ececff; }
+    &:active { background: #ececff; color: #020078; border-color: #020078; }
+    &:focus  { outline: none; }
+  }
+
+  // Botón primario (ej. "Guardar")
+  &__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 17px;
+    background: #433fff;
+    border: 1px solid #433fff;
+    border-radius: 38px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 24px;
+    color: #fdfdfd;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 22px;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover  { background: #1815bc; border-color: #1815bc; }
+    &:active { background: #020078; border-color: #020078; }
+    &:focus  { outline: none; }
+  }
+
+  // ── Body ─────────────────────────────────────────────────────────────────
+  &__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                  // Figma: 16px entre secciones del form
+  }
+
+  // Fila de campos — flex row con wrap responsivo
+  &__row {
+    display: flex;
+    gap: 16px;                  // Figma: 16px entre columnas de inputs
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  // Campo individual (label + control)
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+
+    &--full {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+  }
+
+  // Label del campo
+  &__label {
+    font-size: 0.875rem;       // 14px — Body/M Regular
+    font-weight: 400;
+    line-height: 20px;
+    color: #2e353d;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  &__required {
+    color: #f3164e;
+  }
+
+  // ── Sección adjuntar archivo ──────────────────────────────────────────────
+  &__attachments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  &__attachment-hint {
+    font-size: 0.75rem;        // 12px — Body/S
+    font-weight: 400;
+    line-height: 16px;
+    color: #2e353d;
+    margin: 0;
+  }
+}
+
+// ── Date Picker (qdp) ─────────────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 748-8426
+// "Docked input date picker [desktop]"
+// Los botones del footer usan el sistema de botones del proyecto (btn-sm).
+
+// Campo trigger (wrapper con posición relativa para el panel flotante)
+.qdp-field {
+  position: relative;
+  width: 100%;
+
+  // Input visual (reemplaza <input type="date">)
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    height: 44px;
+    padding: 0 12px;
+
+    .material-symbols-rounded {
+      font-size: 18px;
+      color: #86909c;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      flex-shrink: 0;
+    }
+  }
+
+  // Texto del valor / placeholder
+  &__value {
+    font-size: 0.875rem;      // 14px
+    color: #86909c;           // placeholder
+    line-height: 20px;
+
+    &--has-value {
+      color: #2e353d;
+    }
+  }
+}
+
+// Panel flotante del calendario
+.qdp {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 9999;
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 16px;
+  width: 332px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+  display: none;
+  animation: none !important;   // previene la fade-in2 del template base
+
+  &.is-open { display: block; }
+
+  // Smart positioning: abre hacia arriba si no hay espacio abajo
+  &.is-up {
+    top: auto;
+    bottom: calc(100% + 4px);
+  }
+
+  // ── Header ────────────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 0 8px;
+
+    &--simple { justify-content: center; }
+    &--nav    { justify-content: space-between; }
+  }
+
+  &__title {
+    font-size: 1rem;           // 16px — H6 Medium
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e353d;
+    text-align: center;
+  }
+
+  // Botones de navegación ← → (48×48, círculo)
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 18px;
+      color: #2e353d;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+
+    &:hover  { background: #f6f8fa; }
+    &:active { background: #eaeef2; }
+  }
+
+  // Menu button: "Agosto 2025 ▾" — pill, texto + flecha
+  &__menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 4px 10px 8px;
+    border-radius: 100px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;       // 14px
+    font-weight: 400;
+    color: #2e353d;
+    font-family: inherit;
+    line-height: 20px;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 16px;
+      color: #2e353d;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+
+    &:hover  { background: #f6f8fa; }
+    &:active { background: #eaeef2; }
+
+    &:disabled {
+      opacity: 0.38;
+      cursor: default;
+      &:hover { background: transparent; }
+    }
+  }
+
+  // ── Vistas (calendar / months / years) ────────────────────────────────────
+  &__view         { display: none; }
+  &__view--active { display: block; }
+
+  // ── Vista: Calendario ─────────────────────────────────────────────────────
+  &__calendar { padding: 0 12px 12px; }
+
+  &__weekdays {
+    display: flex;
+    height: 48px;
+    align-items: center;
+  }
+
+  &__weekday {
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;           // 16px
+    font-weight: 400;
+    color: #2e353d;
+    line-height: 24px;
+  }
+
+  &__week {
+    display: flex;
+    height: 48px;
+    align-items: center;
+  }
+
+  // Celda exterior (1/7 del row)
+  &__day-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Círculo del día (40×40)
+  &__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0.875rem;       // 14px
+    font-weight: 400;
+    color: #2e353d;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background .15s;
+    user-select: none;
+
+    &:hover { background: #ececff; }
+
+    &--selected {
+      background: #433fff;
+      color: #fdfdfd;
+      font-weight: 600;
+      &:hover { background: #1815bc; }
+    }
+
+    // Hoy: borde primary
+    &--today:not(&--selected) {
+      font-weight: 600;
+      border: 1.5px solid #433fff;
+    }
+
+    // Días del mes anterior/siguiente
+    &--adjacent {
+      opacity: 0.38;
+      cursor: default;
+      &:hover { background: transparent; }
+    }
+  }
+
+  // ── Vista: Meses / Años (grilla 3 cols × 4 rows) ──────────────────────────
+  &__grid {
+    padding: 0 12px 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__grid-row {
+    display: flex;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__grid-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Ítem de mes o año (36×72, pill)
+  &__grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 72px;
+    border-radius: 100px;
+    font-size: 0.875rem;       // 14px
+    font-weight: 400;
+    color: #3b424b;
+    cursor: pointer;
+    transition: background .15s;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    line-height: 20px;
+    user-select: none;
+
+    &:hover { background: #ececff; }
+
+    &--selected {
+      background: #433fff;
+      color: #fdfdfd;
+      font-weight: 600;
+      &:hover { background: #1815bc; }
+    }
+  }
+
+  // ── Footer: botones Cancelar / Aceptar ────────────────────────────────────
+  // Usa el sistema de botones del proyecto (btn-secondary + btn-primary, btn-sm)
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 4px 16px 16px;
+  }
+}
+
+// ── Date Range Picker (qdpr) ──────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2956-13225
+// "Docked input date picker [desktop]/Selected"
+// Doble calendario + sidebar de presets + footer de acciones.
+
+// Campo trigger
+.qdpr-field {
+  position: relative;
+  width: 100%;
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    height: 44px;
+    padding: 0 12px;
+
+    .material-symbols-rounded {
+      font-size: 18px;
+      color: #86909c;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      flex-shrink: 0;
+    }
+  }
+
+  &__value {
+    font-size: 0.875rem;
+    color: #86909c;
+    line-height: 20px;
+
+    &--has-value { color: #2e353d; }
+  }
+}
+
+// Panel flotante del range picker
+.qdpr {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 9999;
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+  display: none;
+  animation: none !important;   // previene fade-in2 del template base
+
+  &.is-open { display: flex; flex-direction: column; }
+  &.is-up   { top: auto; bottom: calc(100% + 4px); }
+
+  // ── Body: sidebar + calendarios ───────────────────────────────────────────
+  &__body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  // ── Sidebar de presets ─────────────────────────────────────────────────────
+  &__sidebar {
+    width: 177px;
+    flex-shrink: 0;
+    padding: 16px;
+    border-right: 1px solid #c9d1d8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__preset {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;            // 16px — Figma spec
+    font-weight: 400;
+    color: #2e353d;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 24px;
+    transition: background .15s;
+
+    &:hover  { background: #f6f8fa; }
+    &:active { background: #eaeef2; }
+
+    &--active {
+      background: #ececff;
+      color: #423ffe;
+      font-weight: 500;
+    }
+  }
+
+  // ── Área de calendarios ────────────────────────────────────────────────────
+  &__calendars {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__cal {
+    width: 332px;
+    flex-shrink: 0;
+  }
+
+  &__divider {
+    width: 1px;
+    background: #c9d1d8;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  // ── Header del calendario ──────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 8px;
+  }
+
+  // Botones de navegación ← → (48×48, círculo)
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 18px;
+      color: #2e353d;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+
+    &:hover  { background: #f6f8fa; }
+    &:active { background: #eaeef2; }
+
+    // Botón fantasma — ocupa espacio pero es invisible (Figma spec)
+    &--hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  // Título del mes (solo texto, no interactivo)
+  &__cal-title {
+    font-size: 0.875rem;        // 14px
+    font-weight: 500;
+    color: #2e353d;
+    line-height: 20px;
+    text-align: center;
+    flex: 1;
+  }
+
+  // ── Grilla del calendario ──────────────────────────────────────────────────
+  &__calendar { padding: 0 12px 12px; }
+
+  &__weekdays {
+    display: flex;
+    height: 48px;
+    align-items: center;
+  }
+
+  &__weekday {
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2e353d;
+    line-height: 24px;
+  }
+
+  &__week {
+    display: flex;
+    height: 48px;
+    align-items: center;
+  }
+
+  // Celda exterior (1/7 del row) — contiene el strip de rango + el círculo
+  &__day-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 48px;
+
+    // Strip horizontal de rango (se pinta via ::before)
+    &::before {
+      content: '';
+      position: absolute;
+      height: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 50%;
+      right: 50%;
+      background: transparent;
+      z-index: 0;
+    }
+
+    // Inicio del rango → strip hacia la derecha
+    &.is-range-start::before  { background: #ececff; left: 50%; right: 0; }
+    // Mitad del rango → strip completo
+    &.is-range-middle::before { background: #ececff; left: 0;   right: 0; }
+    // Fin del rango → strip hacia la izquierda
+    &.is-range-end::before    { background: #ececff; left: 0;   right: 50%; }
+  }
+
+  // Círculo del día (40×40) — encima del strip (z-index: 1)
+  &__day {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0.875rem;        // 14px
+    font-weight: 400;
+    color: #2e353d;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background .15s;
+    user-select: none;
+
+    &:hover { background: #ececff; }
+
+    // Extremo del rango (inicio o fin)
+    &--selected {
+      background: #433fff;
+      color: #fdfdfd;
+      font-weight: 600;
+      &:hover { background: #1815bc; }
+    }
+
+    // Hoy: borde primary
+    &--today:not(&--selected) {
+      font-weight: 600;
+      border: 1.5px solid #433fff;
+    }
+
+    // Días del mes anterior/siguiente
+    &--adjacent {
+      opacity: 0.38;
+      cursor: default;
+      &:hover { background: transparent; }
+    }
+  }
+
+  // ── Footer ─────────────────────────────────────────────────────────────────
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-top: 1px solid #c9d1d8;
+  }
+
+  &__count {
+    font-size: 0.75rem;         // 12px
+    font-weight: 400;
+    color: #2e353d;
+    font-family: inherit;
+  }
+
+  &__footer-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+// ── ch: ContainerHeader ───────────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2946-10889
+// Header reutilizable que vive en la parte superior de cualquier card/container.
+// Estructura: .ch > .ch__header [+ .ch__alert] [+ .ch__filters]
+
+.ch {
+  background: #fdfdfd;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+  overflow: visible;
+
+  // ── Fila principal: título + acciones ─────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #c9d1d8;
+    gap: 8px;
+  }
+
+  // Sin borde inferior cuando no hay contenido debajo del header
+  &--header-only > &__header {
+    border-bottom: none;
+    border-radius: 8px;
+  }
+
+  &__title {
+    font-size: 1.25rem;       // 20px — H5
+    font-weight: 500;
+    line-height: 1.4;         // 28px
+    letter-spacing: -0.01em;
+    color: #2e353d;
+    margin: 0;
+    white-space: nowrap;
+    flex: 1 0 0;
+    min-width: 0;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    // Todo dropdown dentro de ch__actions abre alineado a la derecha
+    // sin necesidad de agregar dropdown-menu-right en cada uso
+    .dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  // Botón solo ícono (secondary outline)
+  &__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fdfdfd;
+    border: 1px solid #423ffe;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+    color: #423ffe;
+
+    .material-symbols-rounded {
+      font-size: 1.375rem;  // 22px
+      line-height: 1;
+      color: #423ffe;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    &:hover { background: #ececff; }
+    &:active { background: #d8d8ff; }
+
+    // Sin caret cuando se usa como dropdown-toggle (ícono ⋮)
+    &.dropdown-toggle::after { display: none; }
+  }
+
+  // Botón terciario (texto + ícono opcional, sin fondo)
+  &__tertiary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 8px;
+    background: transparent;
+    border: none;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #423ffe;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 1.5rem;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    &:hover { background: #ececff; }
+    &:active { background: #d8d8ff; }
+  }
+
+  // ── Alert pill (inline en ch__actions) ───────────────────────────────────
+  &__alert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    height: 46px;
+    min-width: 200px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid;
+    font-size: 0.875rem;   // 14px
+    line-height: 1.43;
+    flex-shrink: 0;
+    color: #3b424b;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .material-symbols-rounded {
+        font-size: 1.25rem;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+    }
+
+    &__right {
+      font-size: 1rem;     // 16px
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    // Variantes de color
+    &--info {
+      background: #eaf3ff;
+      border-color: #b3cfef;
+      .ch__alert__left .material-symbols-rounded { color: #395bd7; }
+      .ch__alert__right { color: #395bd7; }
+    }
+    &--warning {
+      background: #fff8e6;
+      border-color: #f5d99a;
+      .ch__alert__left .material-symbols-rounded { color: #ffc233; }
+      .ch__alert__right { color: #8a5c00; }
+    }
+    &--danger {
+      background: #fef0f4;
+      border-color: #f98ba6;
+      .ch__alert__left .material-symbols-rounded { color: #f3164e; }
+      .ch__alert__right { color: #f3164e; }
+    }
+    &--success {
+      background: #eafaf2;
+      border-color: #9fe0c1;
+      .ch__alert__left .material-symbols-rounded { color: #2dca72; }
+      .ch__alert__right { color: #1a7a47; }
+    }
+  }
+
+  // ── Fila de filtros ───────────────────────────────────────────────────────
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #c9d1d8;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    // Sin borde si es el último elemento de la card
+    &:last-child { border-bottom: none; }
+  }
+
+  &__filters-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex: 1 0 0;
+    min-width: 0;
+  }
+
+  &__filters-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  // Search input dentro de los filtros
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 13px;
+    background: #fdfdfd;
+    border: 1px solid #c9d1d8;
+    border-radius: 8px;
+    min-width: 200px;
+    max-width: 320px;
+    color: #86909c;
+    font-size: 1rem;
+    transition: border-color .15s;
+
+    .material-symbols-rounded {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      color: #86909c;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1rem;
+      color: #2e353d;
+      width: 100%;
+      font-family: inherit;
+      &::placeholder { color: #86909c; }
+    }
+    &:focus-within { border-color: #423ffe; }
+  }
+
+  // Toggle switch inline
+  &__toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #2e353d;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  // ── Body (contenido de la card) ───────────────────────────────────────────
+  &__body {
+    padding: 24px 16px 16px;
+  }
+
+  // ── Subtítulo H6 (para múltiples containers) ──────────────────────────────
+  &__subtitle {
+    font-size: 1rem;      // 16px — H6
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2e353d;
+    margin: 0;
+    padding: 16px 16px 0;
+  }
+}
+
+// ── ch-demo: utilidades del showcase (Advanced Cards page) ───────────────────
+.ch-demo {
+  &__section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2e353d;
+    margin: 0 0 4px;
+  }
+  &__section-desc {
+    font-size: 0.875rem;
+    color: #65717e;
+    margin: 0 0 24px;
+  }
+  &__case-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #86909c;
+    margin-bottom: 6px;
+  }
+  &__rule {
+    font-size: 0.8125rem;
+    color: #65717e;
+    margin-top: 8px;
+    line-height: 1.5;
+
+    strong { color: #2e353d; font-weight: 600; }
+
+    &--warn {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      color: #8a5c00;
+      background: #fff8e6;
+      border: 1px solid #f5d99a;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      font-size: 0.8125rem;
+
+      .material-symbols-rounded { font-size: 1rem; line-height: 1.5; flex-shrink: 0; color: #ffc233; }
+    }
+  }
+  // Contenedor demo que muestra solo el header de la card
+  &__preview {
+    border: 1px solid #c9d1d8;
+    border-radius: 8px;
+    overflow: visible;
+    background: #fdfdfd;
+
+    // Área de contenido placeholder debajo del header
+    .ch-demo__content-placeholder {
+      background: #f6f8fa;
+      height: 80px;
+      border-radius: 0 0 8px 8px;
+    }
+  }
+}
+
+// ── Responsive: ch en mobile (<576px) ────────────────────────────────────────
+@media (max-width: 575px) {
+
+  // Header row: wrap en 2 líneas (título arriba, acciones abajo)
+  .ch__header {
+    flex-wrap: wrap;
+    min-height: 62px;    // mobile: 62px (desktop: 70px)
+    gap: 16px;           // mobile: 16px (desktop: 8px)
+    padding: 12px 16px;
+  }
+
+  // Título: H6 en mobile (16px/500), min-width 300px fuerza el wrap
+  .ch__title {
+    font-size: 1rem;     // 16px — H6 en mobile
+    line-height: 1.5;    // 24px
+    letter-spacing: 0;   // sin tracking en mobile
+    white-space: normal;
+    flex: 1 0 300px;     // ocupa toda la línea → acciones caen a siguiente fila
+  }
+
+  // Acciones: segunda fila, alineadas a la izquierda
+  .ch__actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  // Alert pill: full width en mobile
+  .ch__alert {
+    flex: 1 0 250px;
+    width: 100%;
+    min-width: unset;
+  }
+
+  // Filtros: columna apilada en mobile
+  .ch__filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ch__filters-left {
+    flex-direction: column;
+    align-items: stretch;
+    flex: none;
+  }
+  .ch__filters-right {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  // Buscador: full width en mobile
+  .ch__search {
+    min-width: unset;
+    max-width: none;
+    width: 100%;
+  }
+
+  // tpl-form header: mismo patrón mobile que ch__header
+  .tpl-form__title {
+    font-size: 1rem;      // 16px — H6 en mobile (igual que ch__title)
+    font-weight: 500;
+    letter-spacing: 0;
+    white-space: normal;
+    flex: 1 0 200px;      // ocupa toda la línea → acciones caen a la siguiente fila
+  }
+
+  .tpl-form__header-actions {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    // Dropdown dentro de header-actions alineado a la derecha
+    .dropdown-menu { right: 0; left: auto; }
+  }
+
+  // Botón primario mobile: ancho automático (no full-width, junto al ⋮)
+  .tpl-form__btn-primary {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+// ── Table Elements Documentation (.te-doc) ───────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2980-19204
+// Showcase de variantes de Table Cells y Table Headers
+
+// ── Wrapper principal ────────────────────────────────────────────────────────
+.te-doc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 4px;
+}
+
+// ── Sección (Table Cells / Table Headers) ────────────────────────────────────
+.te-section {
+  background: $te-bg;
+  border: 1px solid $te-border;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &__title {
+    font-size: $te-fs-section;
+    font-weight: 600;
+    color: $te-text-header;
+    padding: 20px 24px;
+    border-bottom: 1px solid $te-border;
+    margin: 0;
+  }
+}
+
+// ── Subsección (Desktop / Mobile) ────────────────────────────────────────────
+.te-subsection {
+  padding: 0 24px 8px;
+
+  &__title {
+    font-size: $te-fs-label;
+    font-weight: 600;
+    color: $te-text-label;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 16px 0 4px;
+    margin: 0;
+  }
+
+  & + & {
+    border-top: 2px solid $te-divider;
+  }
+}
+
+// ── Fila de tipo ──────────────────────────────────────────────────────────────
+.te-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid $te-divider;
+
+  &:last-child { border-bottom: 0; }
+
+  &__label {
+    width: 156px;
+    flex-shrink: 0;
+    padding-top: 6px;
+  }
+
+  &__name {
+    display: block;
+    font-size: $te-fs-base;
+    font-weight: 600;
+    color: $te-text-header;
+    margin-bottom: 4px;
+  }
+
+  &__desc {
+    font-size: $te-fs-label;
+    color: $te-text-secondary;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__cells {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+  }
+}
+
+// ── Celda (Tables / Cell) ─────────────────────────────────────────────────────
+// Los anchos (width / min-width) se definen en el HTML de cada tabla, no aquí.
+.te-cell {
+  border: 1px solid $te-border;
+  min-height: 56px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $te-bg;
+  flex-shrink: 0;
+
+  // color variants
+  &--gray  { background: $te-bg-gray; }
+  &--blue  { background: $te-bg-selected; }
+
+  // size variants (solo comportamiento, sin ancho fijo)
+  &--wide     {}
+  &--narrow   {}
+  // celda de usuario con badges que wrappean debajo del texto
+  &--user-wrap {
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    overflow: hidden;
+
+    .te-cell__content {
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .te-cell__labels {
+      flex-shrink: 1;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+  }
+  &--multiline {
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  // centrado (acciones) — gap entre icon buttons
+  &--actions {
+    gap: $te-actions-gap;
+    justify-content: center;
+  }
+
+  // ID / checkbox
+  &--id {}
+
+  // Avatar
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $te-avatar-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  &__initials {
+    font-size: $te-fs-small;
+    font-weight: 600;
+    color: $te-avatar-color;
+    line-height: 1;
+  }
+
+  // Content wrapper: texto + labels
+  &__content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    align-items: center;
+  }
+
+  // Texto
+  &__text {
+    font-size: $te-fs-base;
+    font-weight: 400;
+    color: $te-text;
+    line-height: 20px;
+    white-space: nowrap;
+
+    &--sm      { font-size: $te-fs-small; line-height: 16px; }
+    &--multi   { white-space: normal; }
+    &--truncated {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+  }
+
+  // Fila de badges
+  &__labels {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // Selector dropdown
+  &__selector {
+    flex: 1;
+    height: 36px;
+    border: 1px solid $te-border;
+    border-radius: 8px;
+    background: $te-bg;
+    padding: 0 4px 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 120px;
+  }
+
+  &__selector-val {
+    font-size: $te-fs-small;
+    font-weight: 600;
+    color: $te-text-secondary;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__selector-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    .material-symbols-rounded {
+      font-size: 20px;
+      color: $te-text-secondary;
+      font-variation-settings: 'FILL' 0, 'wght' 300;
+    }
+  }
+
+  // Indicador visual (flecha de cambio de estado — no es botón interactivo)
+  &__icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    .material-symbols-rounded {
+      font-size: 18px;
+      color: $te-text-label;
+      font-variation-settings: 'FILL' 0, 'wght' 300;
+    }
+  }
+
+  // Botón "Más ▾" (toggle de dropdown)
+  &__mas {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: $te-action-color;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    .material-symbols-rounded {
+      font-size: 16px;
+      color: $te-action-color;
+    }
+
+    // Ocultar el caret nativo de Bootstrap
+    &.dropdown-toggle::after { display: none; }
+  }
+
+  // Checkbox
+  // Checkbox personalizado — usa <input type="checkbox"> con appearance:none
+  &__checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid $te-text-label;
+    border-radius: 6px;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: $te-bg;
+    transition: background .15s, border-color .15s;
+
+    &:checked {
+      background-color: $te-action-color;
+      border-color: $te-action-color;
+      // checkmark SVG blanco inline
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.5' d='M3 8l3.5 3.5 6.5-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 12px;
+    }
+
+    &:indeterminate {
+      background-color: $te-action-color;
+      border-color: $te-action-color;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.5' d='M3 8h10'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 12px;
+    }
+  }
+
+  // Número (ID)
+  &__num {
+    font-size: $te-fs-base;
+    font-weight: 400;
+    color: $te-text;
+    line-height: 20px;
+    flex: 1;
+  }
+}
+
+// ── Badges (te-badge) ─────────────────────────────────────────────────────────
+.te-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: $te-fs-label;
+  line-height: 14px;
+  letter-spacing: 0.11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &--default { background: $te-badge-default-bg; color: $te-badge-default-text; font-weight: 600; }
+  &--info    { background: $te-badge-info-bg;    color: $te-badge-info-text;    font-weight: 400; }
+  &--danger  { background: $te-badge-danger-bg;  color: $te-badge-danger-text;  font-weight: 600; }
+  &--success { background: $te-badge-success-bg; color: $te-badge-success-text; font-weight: 600; }
+  &--warning { background: $te-badge-warning-bg; color: $te-badge-warning-text; font-weight: 600; }
+}
+
+// ── Header cell (Tables / Header Cell) ───────────────────────────────────────
+// Los anchos (width / min-width) se definen en el HTML de cada tabla, no aquí.
+.te-hcell {
+  border: 1px solid $te-border;
+  background: $te-bg;
+  padding: 8px $grid-gutter-width;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: stretch;
+  justify-content: center;  // centra el contenido cuando la celda se estira en flex row
+  flex-shrink: 0;
+
+  // Headers con fila de acciones: padding 16px simétrico, gap 12px, min-height 92px
+  // (Figma showcase: 16+24+12+24+16 = 92px)
+  &:has(.te-hcell__actions) {
+    padding: 16px;
+    gap: 12px;
+    min-height: 92px;
+  }
+
+  // Fila: label + sort — 24px fijo (Figma showcase)
+  // space-between empuja el sort icon siempre a la derecha
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    width: 100%;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  // Container: bullet + texto + tooltip
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  // Punto rojo
+  &__bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $te-bullet;
+    flex-shrink: 0;
+  }
+
+  // Texto del header
+  &__text {
+    font-size: $te-fs-header;
+    font-weight: 600;
+    color: $te-text;
+    line-height: 24px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &--mobile { font-size: $te-fs-base; line-height: 20px; }
+  }
+
+  // Icono tooltip
+  &__tooltip {
+    flex-shrink: 0;
+    .material-symbols-rounded {
+      font-size: 20px;
+      color: $te-text-secondary;
+      font-variation-settings: 'FILL' 0, 'wght' 300;
+    }
+  }
+
+  // Botón sort — siempre alineado a la derecha por space-between del __header
+  &__sort {
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    transition: opacity .15s;
+
+    .material-symbols-rounded {
+      font-size: $te-icon-md;
+      color: $te-text-secondary;
+      font-variation-settings: 'FILL' 0, 'wght' 300;
+      transition: color .15s;
+    }
+
+    &:hover .material-symbols-rounded { color: $te-text-header; }
+
+    // Columna activa (asc o desc) — ícono resaltado
+    &--asc,
+    &--desc {
+      .material-symbols-rounded { color: $te-action-color; }
+    }
+  }
+
+  // Fila de acciones — 24px (icons 24×24 en showcase Figma), gap 12px, alineados izquierda
+  &__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    height: 24px;
+    flex-shrink: 0;
+    width: 100%;
+
+    // Reducir botones al tamaño del showcase (24×24)
+    .tpl-table__action-btn {
+      width: 24px;
+      height: 24px;
+      .material-symbols-rounded { font-size: 1.125rem; }
+    }
+  }
+
+  &__action {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    .material-symbols-rounded {
+      font-size: 20px;
+      color: $te-text-secondary;
+      font-variation-settings: 'FILL' 0, 'wght' 300;
+    }
+  }
+
+  // Variante "Acciones" — hereda padding del base, centrado horizontal
+  &--actions {
+    align-items: center;
+    justify-content: center; // título centrado cuando no hay descripciones
+
+    // Con descripciones: título arriba, labels abajo
+    &:has(.te-hcell__descriptions) {
+      justify-content: space-between;
+    }
+
+    // Gap de descripciones = gap entre icon buttons de la celda de datos
+    .te-hcell__descriptions { gap: $te-actions-gap; }
+  }
+
+  &__actions-title {
+    font-size: $te-fs-header;
+    font-weight: 600;
+    color: $te-text;
+    text-align: center;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 0; // el <p> de Bootstrap tiene margin-bottom: 1rem por defecto
+
+    &--mobile { font-size: $te-fs-base; line-height: 20px; }
+  }
+
+  &__descriptions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: $grid-gutter-width;
+
+    span {
+      font-size: $te-fs-label;
+      font-weight: 400;
+      color: $te-text;
+      text-align: center;
+      letter-spacing: 0.11px;
+      line-height: 14px;   // Figma: wrapper row 14px alto
+      flex: 1;
+    }
+  }
+}
+
+// ── Sección colores ───────────────────────────────────────────────────────────
+.te-colors {
+  padding: 12px 0 4px;
+
+  &__title {
+    font-size: $te-fs-base;
+    font-weight: 600;
+    color: $te-text-header;
+    margin-bottom: 12px;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 24px;
+    margin-bottom: 16px;
+  }
+
+  &__label {
+    font-size: $te-fs-small;
+    color: $te-text-secondary;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,436 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-navigation-bars=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <!-- ── Page Tabs ──────────────────────────────────────────────────── -->
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-side-nav" data-toggle="tab" href="#tab-content-side-nav">Side Nav</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-top-nav" data-toggle="tab" href="#tab-content-top-nav">Top Nav</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <!-- ════════════════════════════════════════════════════════════
+                 TAB 1 — SIDE NAV
+                 ════════════════════════════════════════════════════════════ -->
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-side-nav" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Side Navigation Bar</h5>
+                                <div class="navbars-showcase">
+
+                                    <!-- ── Collapsed (icon-only, 56px) ──── -->
+                                    <div>
+                                        <p class="mm-showcase-label">Collapsed</p>
+                                        <nav class="snav snav--collapsed" style="height:500px;">
+                                            <div class="snav__header">
+                                                <button class="snav__toggle">
+                                                    <span class="material-symbols-rounded">menu</span>
+                                                </button>
+                                            </div>
+                                            <div class="snav__body">
+                                                <div class="snav__group">
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">home</span></span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">school</span></span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">calendar_month</span></span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">grading</span></span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">settings</span></span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                    </div>
+
+                                    <!-- ── Expanded — no subsections ──────── -->
+                                    <div>
+                                        <p class="mm-showcase-label">Expanded</p>
+                                        <nav class="snav snav--expanded" style="height:500px;">
+                                            <div class="snav__header">
+                                                <span class="snav__logo">Quinttos</span>
+                                                <button class="snav__toggle">
+                                                    <span class="material-symbols-rounded">menu_open</span>
+                                                </button>
+                                            </div>
+                                            <div class="snav__body">
+                                                <div class="snav__group">
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">home</span></span>
+                                                            <span class="snav__label">Dashboard</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">school</span></span>
+                                                            <span class="snav__label">Gestión Académica</span>
+                                                        </div>
+                                                        <span class="snav__arrow"><span class="material-symbols-rounded">chevron_right</span></span>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">calendar_month</span></span>
+                                                            <span class="snav__label">Cronograma</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">grading</span></span>
+                                                            <span class="snav__label">Calificaciones</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="snav__divider"></div>
+                                                <div class="snav__group">
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">settings</span></span>
+                                                            <span class="snav__label">Configuración</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                    </div>
+
+                                    <!-- ── Expanded — with full subsection tree ── -->
+                                    <div>
+                                        <p class="mm-showcase-label">Expanded with subsections</p>
+                                        <nav class="snav snav--expanded" style="height:600px;overflow-y:auto;">
+                                            <div class="snav__header">
+                                                <span class="snav__logo">Quinttos</span>
+                                                <button class="snav__toggle">
+                                                    <span class="material-symbols-rounded">menu_open</span>
+                                                </button>
+                                            </div>
+                                            <div class="snav__body">
+                                                <div class="snav__group">
+
+                                                    <!-- Dashboard -->
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">home</span></span>
+                                                            <span class="snav__label">Dashboard</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <!-- Gestión Académica header -->
+                                                    <a class="snav__item" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__icon"><span class="material-symbols-rounded">school</span></span>
+                                                            <span class="snav__label">Gestión Académica</span>
+                                                        </div>
+                                                        <span class="snav__arrow"><span class="material-symbols-rounded">expand_more</span></span>
+                                                    </a>
+
+                                                    <!-- Level 1 sub-items -->
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Cursadas</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Cursos</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Cronograma</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <!-- Presentismo (expandable level 1) -->
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Presentismo</span>
+                                                        </div>
+                                                        <span class="snav__arrow"><span class="material-symbols-rounded">expand_more</span></span>
+                                                    </a>
+
+                                                    <!-- Level 2 sub-sub-items -->
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Asistencia Rápida</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Anteriores</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Planilla por curso</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Importar por curso</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Por fecha</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Planilla por materia</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Docentes</span>
+                                                        </div>
+                                                        <span class="snav__badge">Beta</span>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub2" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Reemplazos</span>
+                                                        </div>
+                                                        <span class="snav__badge">Beta</span>
+                                                    </a>
+
+                                                    <!-- Remaining level 1 items -->
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Exámenes online</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Calificaciones</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Actas de examen</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Seguimientos</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Boletines</span>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                                <div class="snav__divider"></div>
+                                                <div class="snav__group">
+                                                    <a class="snav__item snav__item--sub" href="#">
+                                                        <div class="snav__item-content">
+                                                            <span class="snav__bar"></span>
+                                                            <span class="snav__label">Configuración</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                    </div>
+
+                                </div><!-- /navbars-showcase -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tab-pane side-nav -->
+
+
+            <!-- ════════════════════════════════════════════════════════════
+                 TAB 2 — TOP NAV
+                 ════════════════════════════════════════════════════════════ -->
+            <div class="tab-pane tabs-animation fade" id="tab-content-top-nav" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Top Navigation Bar</h5>
+
+                                <!-- ── Desktop — Responsable ───────────────────────────────────── -->
+                                <!-- Figma: dCEtw9coTRcbLRS4YZtQ1n · node 151:9313 -->
+                                <p class="mm-showcase-label mb-3">Desktop · Responsable</p>
+                                <nav class="tnav mb-4">
+                                    <!-- Left: solo texto (Responsable no tiene botón de búsqueda) -->
+                                    <div class="tnav__left">
+                                        <span class="tnav__title">Ciclo Lectivo de Trabajo: 2025</span>
+                                    </div>
+                                    <!-- Right: botones con badge numérico + separador + usuario -->
+                                    <div class="tnav__right">
+                                        <div class="tnav__buttons">
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Home">
+                                                    <span class="material-symbols-rounded">home</span>
+                                                </button>
+                                            </div>
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Mensajes">
+                                                    <span class="material-symbols-rounded">mail</span>
+                                                </button>
+                                                <span class="tnav__badge">1</span>
+                                            </div>
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Notificaciones">
+                                                    <span class="material-symbols-rounded">notifications</span>
+                                                </button>
+                                                <span class="tnav__badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="tnav__divider"></div>
+                                        <div class="tnav__user">
+                                            <button class="tnav__user-trigger">
+                                                <div class="tnav__avatar">GJ</div>
+                                                <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
+                                            </button>
+                                            <div class="tnav__user-info">
+                                                <span class="tnav__user-name">Gonzalo Jiménez</span>
+                                                <div class="tnav__user-role-row">
+                                                    <span class="tnav__user-role">Responsable</span>
+                                                    <span class="material-symbols-rounded tnav__user-role-icon">expand_more</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+
+                                <!-- ── Desktop — Administrador ──────────────────────────────────── -->
+                                <p class="mm-showcase-label mb-3">Desktop · Administrador</p>
+                                <nav class="tnav mb-4">
+                                    <!-- Left: botón de búsqueda + texto (variante Admin) -->
+                                    <div class="tnav__left">
+                                        <div class="tnav__btn-wrapper">
+                                            <button class="tnav__icon-btn" title="Buscar">
+                                                <span class="material-symbols-rounded">search</span>
+                                            </button>
+                                        </div>
+                                        <span class="tnav__title">Ciclo Lectivo de Trabajo: 2025</span>
+                                    </div>
+                                    <div class="tnav__right">
+                                        <div class="tnav__buttons">
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Home">
+                                                    <span class="material-symbols-rounded">home</span>
+                                                </button>
+                                            </div>
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Mensajes">
+                                                    <span class="material-symbols-rounded">mail</span>
+                                                </button>
+                                                <span class="tnav__badge">1</span>
+                                            </div>
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Notificaciones">
+                                                    <span class="material-symbols-rounded">notifications</span>
+                                                </button>
+                                                <span class="tnav__badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="tnav__divider"></div>
+                                        <div class="tnav__user">
+                                            <button class="tnav__user-trigger">
+                                                <div class="tnav__avatar tnav__avatar--admin">MA</div>
+                                                <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
+                                            </button>
+                                            <div class="tnav__user-info">
+                                                <span class="tnav__user-name">Mercedes Aumenta</span>
+                                                <div class="tnav__user-role-row">
+                                                    <span class="tnav__user-role">Administrador</span>
+                                                    <span class="material-symbols-rounded tnav__user-role-icon">expand_more</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+
+                                <!-- ── Mobile ────────────────────────────────────────────────────── -->
+                                <p class="mm-showcase-label mb-3">Mobile</p>
+                                <nav class="tnav tnav--mobile" style="width: 412px;">
+                                    <div class="tnav__left">
+                                        <div class="tnav__btn-wrapper">
+                                            <button class="tnav__icon-btn" title="Abrir menú">
+                                                <span class="material-symbols-rounded">dehaze</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="tnav__right">
+                                        <div class="tnav__buttons">
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Mensajes">
+                                                    <span class="material-symbols-rounded">mail</span>
+                                                </button>
+                                                <span class="tnav__badge">1</span>
+                                            </div>
+                                            <div class="tnav__btn-wrapper">
+                                                <button class="tnav__icon-btn" title="Notificaciones">
+                                                    <span class="material-symbols-rounded">notifications</span>
+                                                </button>
+                                                <span class="tnav__badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="tnav__divider"></div>
+                                        <div class="tnav__user">
+                                            <button class="tnav__user-trigger">
+                                                <div class="tnav__avatar">GJ</div>
+                                                <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tab-pane top-nav -->
+
+        </div><!-- /tab-content -->
+    </div>
+</div>
+{{/ base }}

@@ -1,0 +1,690 @@
+// ─── Foundations pages ──────────────────────────────────────────────────────
+
+// ── Shared layout ────────────────────────────────────────────────────────────
+
+.foundations-section {
+  margin-bottom: 2.5rem;
+}
+
+.foundations-section__title {
+  font-size: .6875rem; // 11px
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: 1.5rem;
+  padding-bottom: .625rem;
+  border-bottom: 2px solid $gray-200;
+}
+
+// ── Radius page ──────────────────────────────────────────────────────────────
+
+.radius-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  align-items: flex-start;
+}
+
+.radius-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.radius-tile__box {
+  width: 128px;
+  height: 128px;
+  border: 1px solid #eaeef2;
+  overflow: hidden;
+  flex-shrink: 0;
+  // Grid background — replicates Figma tile pattern
+  background-color: #f0f5fb;
+  background-image:
+    linear-gradient(to right, #dae6f0 1px, transparent 1px),
+    linear-gradient(to bottom, #dae6f0 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.radius-tile__label {
+  font-size: 0.875rem;  // 14px
+  font-weight: 500;
+  line-height: 1.4;
+  color: #65717e;       // Neutral-600
+}
+
+.radius-tile__value {
+  font-size: 0.75rem;   // 12px
+  font-weight: 400;
+  line-height: 1.4;
+  color: #a7b1bb;       // Neutral-400
+  margin-top: -.5rem;
+}
+
+// ── Typography page ──────────────────────────────────────────────────────────
+
+.type-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $gray-500;
+    padding: .625rem 1rem;
+    border-bottom: 1px solid $gray-200;
+    background-color: $gray-100;
+    white-space: nowrap;
+
+    &:first-child { border-radius: .5rem 0 0 0; padding-left: 1.5rem; }
+    &:last-child  { border-radius: 0 .5rem 0 0; }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $gray-100;
+    transition: background-color .1s;
+
+    &:hover { background-color: rgba($gray-100, .5); }
+    &:last-child { border-bottom: none; }
+  }
+
+  tbody td {
+    padding: .875rem 1rem;
+    vertical-align: middle;
+
+    &:first-child { padding-left: 1.5rem; }
+  }
+}
+
+.type-table__sample {
+  color: $gray-900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.type-table__token {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .75rem;
+  color: $brand;
+  background-color: rgba($brand, .07);
+  padding: .125rem .5rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+}
+
+.type-table__meta {
+  font-size: .8125rem;
+  color: $gray-600;
+  white-space: nowrap;
+}
+
+.type-table__weight-badge {
+  display: inline-block;
+  font-size: .6875rem;
+  font-weight: 600;
+  padding: .125rem .5rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+
+  &--regular  { background: $gray-100; color: $gray-600; }
+  &--medium   { background: rgba($brand, .1); color: darken($brand, 5%); }
+  &--semibold { background: rgba($brand, .18); color: darken($brand, 8%); }
+}
+
+.type-table__underline { text-decoration: underline; }
+
+// Section divider rows
+.type-table__divider td {
+  padding: .375rem 1rem .375rem 1.5rem;
+  background-color: $gray-100;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: $gray-500;
+  border-bottom: 1px solid $gray-200;
+}
+
+// ── Color page ───────────────────────────────────────────────────────────────
+
+.color-scale {
+  display: flex;
+  gap: 0;
+  border-radius: .625rem;
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+
+.color-swatch {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+
+  &__block {
+    height: 56px;
+    transition: transform .15s;
+
+    &:hover { transform: scaleY(1.15); transform-origin: bottom; }
+  }
+
+  &__label {
+    padding: .375rem .25rem .5rem;
+    text-align: center;
+    background: #fff;
+  }
+
+  &__step {
+    display: block;
+    font-size: .625rem;
+    font-weight: 600;
+    color: $gray-500;
+    line-height: 1.4;
+  }
+
+  &__hex {
+    display: block;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: .5625rem;
+    color: $gray-600;
+    line-height: 1.4;
+  }
+}
+
+// Highlight the "brand" step in each scale
+.color-swatch--active .color-swatch__block {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $gray-800;
+  }
+}
+
+.color-swatch--active .color-swatch__step {
+  color: $gray-900;
+  font-weight: 700;
+}
+
+// ── Icons page ───────────────────────────────────────────────────────────────
+
+.icon-config-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .625rem;
+  padding: 1rem 1.5rem;
+  background: $gray-100;
+  border-radius: .625rem;
+  margin-bottom: 1.5rem;
+
+  &__label {
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: $gray-500;
+    margin-right: .25rem;
+    white-space: nowrap;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    font-size: .8125rem;
+    font-weight: 600;
+    color: $brand;
+    background: rgba($brand, .08);
+    padding: .25rem .75rem;
+    border-radius: 50rem;
+    white-space: nowrap;
+
+    .material-symbols-rounded {
+      font-size: 1rem;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+  }
+}
+
+.icon-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: .875rem;
+  background: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: .625rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+
+  &__icon {
+    font-size: 1.375rem;
+    line-height: 1;
+    color: #d48806;
+    flex-shrink: 0;
+    margin-top: .0625rem;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  &__body {
+    font-size: .9375rem;
+    line-height: 1.55;
+    color: #7c5000;
+
+    strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: .125rem;
+    }
+
+    a {
+      color: #7c5000;
+      text-decoration: underline;
+      font-weight: 600;
+
+      &:hover { color: #5c3a00; }
+    }
+  }
+}
+
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 88px;
+  padding: .75rem .5rem;
+  border-radius: .5rem;
+  cursor: default;
+  transition: background .12s;
+  text-align: center;
+
+  &:hover {
+    background: rgba($brand, .06);
+
+    .icon-item__name {
+      color: $brand;
+    }
+  }
+
+  .material-symbols-rounded {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: $gray-800;
+    margin-bottom: .375rem;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+
+  &__name {
+    font-size: .625rem;
+    font-weight: 500;
+    color: $gray-500;
+    line-height: 1.3;
+    word-break: break-all;
+    transition: color .12s;
+  }
+}
+
+// ── Spacing page ─────────────────────────────────────────────────────────────
+
+.spacing-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $gray-500;
+    padding: .875rem 1.5rem;
+    background-color: $gray-100;
+    white-space: nowrap;
+
+    &:first-child { border-radius: .5rem 0 0 .5rem; }
+    &:last-child  { border-radius: 0 .5rem .5rem 0; }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $gray-100;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  tbody td {
+    padding: .5rem 1.5rem;
+    vertical-align: middle;
+  }
+}
+
+.spacing-table__visual {
+  width: 220px;
+}
+
+.spacing-bar {
+  width: 120px;
+  background-color: #9795ff;   // Primary-300
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.spacing-table__name {
+  font-size: .875rem;
+  font-weight: 500;
+  color: $gray-700;
+}
+
+.spacing-table__token {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .75rem;
+  color: $brand;
+  background-color: rgba($brand, .07);
+  padding: .125rem .5rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+}
+
+// ── Button showcase (elements/buttons/standard page) ─────────────────────────
+
+.btn-showcase-group {
+  margin-bottom: 1.75rem;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.btn-showcase-label {
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: .875rem;
+  padding-bottom: .375rem;
+  border-bottom: 1px solid $gray-100;
+}
+
+.btn-showcase-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1rem;
+}
+
+.btn-showcase-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .625rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-showcase-state {
+  font-size: .6875rem;
+  font-weight: 600;
+  color: $gray-400;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: .125rem;
+}
+
+// ── Tokens page ──────────────────────────────────────────────────────────────
+
+.tokens-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $gray-500;
+    padding: .625rem 1rem;
+    border-bottom: 1px solid $gray-200;
+    background-color: $gray-100;
+    white-space: nowrap;
+
+    &:first-child { border-radius: .5rem 0 0 0; padding-left: 1.5rem; }
+    &:last-child  { border-radius: 0 .5rem 0 0; }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $gray-100;
+    transition: background-color .1s;
+
+    &:hover { background-color: rgba($gray-100, .5); }
+    &:last-child { border-bottom: none; }
+  }
+
+  tbody td {
+    padding: .75rem 1rem;
+    vertical-align: middle;
+
+    &:first-child { padding-left: 1.5rem; }
+  }
+}
+
+// Separador de sección dentro de la tabla (ej: "Neutrales", "Primary")
+.tokens-table__group td {
+  padding: .375rem 1rem .375rem 1.5rem;
+  background-color: $gray-100;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: $gray-500;
+  border-bottom: 1px solid $gray-200;
+}
+
+// code inline dentro de la tabla (usa el mismo estilo que __var)
+.tokens-table code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .75rem;
+  color: $brand;
+  background-color: rgba($brand, .07);
+  padding: .125rem .5rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+}
+
+// Nombre de variable — fuente mono
+.tokens-table__var {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .75rem;
+  color: $brand;
+  background-color: rgba($brand, .07);
+  padding: .125rem .5rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+}
+
+// Valor hex / numérico
+.tokens-table__value {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .75rem;
+  color: $gray-600;
+  white-space: nowrap;
+}
+
+// Descripción en lenguaje natural
+.tokens-table__desc {
+  font-size: .8125rem;
+  color: $gray-500;
+  line-height: 1.45;
+}
+
+// Swatch circular de color
+.token-swatch {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  flex-shrink: 0;
+  vertical-align: middle;
+
+  &--sm {
+    width: 20px;
+    height: 20px;
+  }
+
+  &--shadow {
+    border-radius: .375rem;
+    background: #fff;
+    width: 48px;
+    height: 28px;
+  }
+}
+
+// ── Paletas de color-tokens: bandas verticales por familia ───────────────────
+// Cada familia (Primary, Error, Warning, Success, Info, Neutral) es una columna
+// con una banda de color por step. El fondo de la banda ES el color del token.
+
+.tg-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.tg-palette {
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.tg-palette__name {
+  padding: .625rem 1rem;
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: $gray-500;
+  background: $gray-100;
+  border-bottom: 1px solid $gray-200;
+}
+
+// Cada banda = un step de la escala
+.tg-band {
+  display: flex;
+  align-items: center;
+  padding: .45rem 1rem;
+  gap: .625rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  // Step número
+  &__step {
+    font-size: .6875rem;
+    font-weight: 700;
+    width: 28px;
+    flex-shrink: 0;
+    opacity: .75;
+  }
+
+  // Nombre del token SCSS
+  &__token {
+    font-size: .625rem;
+    flex: 1;
+    opacity: .85;
+  }
+
+  // Valor hex
+  &__hex {
+    font-size: .625rem;
+    opacity: .7;
+  }
+
+  // Texto oscuro — para fondos claros (steps 0–400 aprox.)
+  &--on-light { color: $gray-900; }
+
+  // Texto claro — para fondos oscuros (steps 500–900 aprox.)
+  &--on-dark  { color: #fff; }
+}
+
+// ── Button side card (content type variants) ──────────────────────────────────
+
+.btn-type-group {
+  margin-bottom: 1.5rem;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.btn-type-label {
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: .75rem;
+  padding-bottom: .375rem;
+  border-bottom: 1px solid $gray-100;
+}
+
+.btn-type-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+}
+
+// ── Destructive warning banner ────────────────────────────────────────────────
+
+.btn-destructive-warning {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f3164e;
+  color: #fdfdfd;
+  padding: .875rem 1.75rem;
+  border-radius: 50rem;
+
+  &__icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    color: #fdfdfd;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: .9375rem;
+    line-height: 1.55;
+    color: #fdfdfd;
+
+    span {
+      display: block;
+      font-weight: 400;
+    }
+
+    strong {
+      display: block;
+      font-weight: 600;
+      color: #fdfdfd;
+    }
+  }
+}

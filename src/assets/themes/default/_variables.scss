@@ -1,0 +1,361 @@
+// GENERIC
+
+$enable-caret: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-grid-classes: true;
+$enable-print-styles: false;
+
+$body-bg: #fff;
+
+// Colors
+// Neutral scale from Figma Foundations
+// Los tokens canónicos usan el nombre $neutral-N.
+// Los aliases $gray-N se mantienen para compatibilidad con Bootstrap 4.
+
+$white: #fff;
+$neutral-50:  #f6f8fa;
+$neutral-100: #eaeef2;
+$neutral-200: #dbe3ea;
+$neutral-300: #c9d1d8;
+$neutral-400: #a7b1bb;
+$neutral-500: #86909c;
+$neutral-600: #65717e;
+$neutral-700: #4f5863;
+$neutral-800: #3b424b;
+$neutral-900: #2e353d;
+$black: #000;
+
+// Aliases Bootstrap — apuntan a los tokens neutrales
+$gray-100: $neutral-100;
+$gray-200: $neutral-200;
+$gray-300: $neutral-300;
+$gray-400: $neutral-400;
+$gray-500: $neutral-500;
+$gray-600: $neutral-600;
+$gray-700: $neutral-700;
+$gray-800: $neutral-800;
+$gray-900: $neutral-900;
+
+$grays: ();
+
+$grays: map-merge(
+                (
+                        "100": $gray-100,
+                        "200": $gray-200,
+                        "300": $gray-300,
+                        "400": $gray-400,
+                        "500": $gray-500,
+                        "600": $gray-600,
+                        "700": $gray-700,
+                        "800": $gray-800,
+                        "900": $gray-900
+                ),
+                $grays
+);
+
+// Brand palette from Figma Foundations
+$brand: #423ffe;      // Primary-500
+$blue: #395bd7;       // Info-600
+$indigo: #444054;
+$purple: #6c6afe;     // Primary-400
+$pink: #fe4a6b;       // Secondary-400
+$red: #f3164e;        // Error-600
+$orange: #fd7e14;
+$yellow: #ffc233;     // Warning-500
+$green: #2dca72;      // Success-500
+$teal: #16E0BD;
+$cyan: #537ce4;       // Info-500
+$blue-light: #f6f8fa; // Neutral-0
+
+// ── Palette extensions — primitivos no cubiertos por el scale de Bootstrap ───
+// Estas variables son la fuente de verdad para colores que no forman parte de
+// la escala de grises de Bootstrap ni de los colores semánticos principales.
+
+// Neutral
+$neutral-0:         #fdfdfd;   // Neutral-0  — fondo off-white de celdas
+
+// Primary scale — Figma Foundations (50→900)
+$primary-50:        #ececff;
+$primary-100:       #dadaff;
+$primary-200:       #c2c0ff;
+$primary-300:       #9795ff;
+$primary-400:       #6c6aff;
+// $primary-500 = $brand (#423ffe) — se asigna más abajo como $primary
+$primary-600:       #2020de;
+$primary-700:       #1b1b8c;
+$primary-800:       #020078;
+$primary-900:       #090247;
+
+// Aliases semánticos — apuntan a la escala
+$primary-tint:      $primary-100;  // fondo de avatares (#dadaff)
+
+// Feedback scales — Figma Foundations (50→900)
+
+// Error
+$error-50:  #fef0f4;
+$error-100: #fddbe1;
+$error-200: #fbb1c4;
+$error-300: #f98ba8;
+$error-400: #f76488;
+$error-500: #f3164e;   // = $red / $danger
+$error-600: #d40b3e;
+$error-700: #af0832;
+$error-800: #870625;
+$error-900: #5e0419;
+
+// Warning
+$warning-50:  #fff7e8;
+$warning-100: #fff3d6;
+$warning-200: #ffe7a8;
+$warning-300: #ffd978;
+$warning-400: #ffcc50;
+$warning-500: #ffc233;   // = $yellow / $warning
+$warning-600: #f2a800;
+$warning-700: #c98800;
+$warning-800: #9e6b00;
+$warning-900: #6b4800;
+
+// Success
+$success-50:  #f0fbf5;
+$success-100: #d0f5e2;
+$success-200: #9eecc4;
+$success-300: #64e4a4;
+$success-400: #48d98b;
+$success-500: #2dca72;   // = $green / $success
+$success-600: #20a85c;
+$success-700: #178549;
+$success-800: #0e6237;
+$success-900: #074024;
+
+// Info
+$info-50:  #f1f5fd;
+$info-100: #d6e4fa;
+$info-200: #aecaf5;
+$info-300: #86aef0;
+$info-400: #6595ec;
+$info-500: #537ce4;   // = $cyan
+$info-600: #395bd7;   // = $blue / $info
+$info-700: #2943b4;
+$info-800: #1b2f8c;
+$info-900: #0f1d62;
+
+// Aliases Bootstrap — apuntan a las escalas feedback
+$danger-100: $error-100;
+$danger-900: $error-700;
+
+// Avatar role tints (Figma dCEtw9coTRcbLRS4YZtQ1n · node 151:9313)
+$avatar-responsable-bg:    #dfe8fa;  // Responsable — bg (azul claro)
+$avatar-responsable-color: #29377f;  // Responsable — iniciales (azul navy)
+$avatar-warning-bg:        #fff3d6;  // Docente / Alumno — bg (ámbar claro)
+$avatar-warning-text:      #8a6100;  // Docente / Alumno — iniciales (ámbar oscuro)
+// Admin usa los primitivos existentes: $danger-100 / $danger-900
+
+// Shadows
+$shadow-table:      rgba(18, 18, 23, 0.12);  // sombra columna sticky
+$shadow-float:      rgba(0, 0, 0, 0.08);     // sombra de menús flotantes
+
+// ── Type scale primitives ─────────────────────────────────────────────────────
+// Escala tipográfica en rem. Base = 0.875rem (14px) definida más abajo.
+$font-size-11:      0.6875rem;  // 11px — Caption
+$font-size-12:      0.75rem;    // 12px — Body/S
+// $font-size-14 → usa $font-size-base (se define abajo) — Body/M
+$font-size-16:      1rem;       // 16px — Body/L, H6
+$font-size-18:      1.125rem;   // 18px — Body/XL
+$font-size-20:      1.25rem;    // 20px — H5
+$font-size-24:      1.5rem;     // 24px — H4
+$font-size-32:      2rem;       // 32px — H3
+$font-size-40:      2.5rem;     // 40px — H2
+$font-size-48:      3rem;       // 48px — H1
+
+$font-weight-regular:  400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+
+// Type scale — cada step bundlea size + line-height + letter-spacing
+// Uso: map-get(map-get($type-scales, 48), size)  → 3rem
+$type-scales: (
+  48: (size: 3rem,       lh: 3.5rem,    ls: 0),
+  40: (size: 2.5rem,     lh: 3rem,      ls: 0),
+  32: (size: 2rem,       lh: 2.5rem,    ls: 0),
+  24: (size: 1.5rem,     lh: 2rem,      ls: -0.4px),
+  20: (size: 1.25rem,    lh: 1.75rem,   ls: -0.2px),
+  18: (size: 1.125rem,   lh: 1.75rem,   ls: 0),
+  16: (size: 1rem,       lh: 1.5rem,    ls: 0),
+  14: (size: 0.875rem,   lh: 1.25rem,   ls: 0),
+  12: (size: 0.75rem,    lh: 1rem,      ls: 0),
+  11: (size: 0.6875rem,  lh: 0.875rem,  ls: 0),
+);
+
+$primary: $brand;       // #423ffe
+$secondary: $pink;      // #fe4a6b
+$success: $green;       // #2dca72
+$info: $blue;           // #395bd7
+$warning: $yellow;      // #ffc233
+$danger: $red;          // #f3164e
+$light: $blue-light;    // #f6f8fa
+$dark: $gray-900;       // #2e353d
+$focus: $indigo;
+$alt: $purple;
+
+$theme-colors: ();
+
+$theme-colors: map-merge(
+                (
+                        "primary": $primary,
+                        "secondary": $secondary,
+                        "success": $success,
+                        "info": $info,
+                        "warning": $warning,
+                        "danger": $danger,
+                        "light": $light,
+                        "dark": $dark,
+                        "focus": $focus,
+                        "alternate": $alt
+                ),
+                $theme-colors
+);
+
+// BOOTSTRAP OVERWRITES
+
+$font-family-sans-serif: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-family-base:       $font-family-sans-serif;
+
+$headings-font-weight: 600;
+
+$font-size-base: 0.875rem; // 14px
+$font-size-lg: ($font-size-base * 1.25);
+$font-size-sm: ($font-size-base * 1.1);
+$font-size-xs: ($font-size-base / 1.1);
+
+$btn-border-radius:    38px;
+$btn-border-radius-lg: 38px;
+$btn-border-radius-sm: 38px;
+
+$btn-padding-y:        0.625rem;   // 10px → h ≈ 44px (medium)
+$btn-padding-x:        1.0625rem;  // 17px
+$btn-padding-y-sm:     0.4375rem;  // 7px  → h ≈ 32px (small)
+$btn-padding-x-sm:     0.8125rem;  // 13px
+
+// ── Spacing — Figma nodes 2353:3643 (desktop) + 2270:50174 (mobile) ──────────
+$grid-gutter-width: 16px;   // gap entre cards: 16px (8px per col side)
+
+$btn-transition: color .15s, background-color .15s, border-color .15s, box-shadow .15s;
+$btn-focus-width: 0;
+$btn-focus-box-shadow: none;
+
+$pagination-focus-box-shadow: none;
+
+$body-color: $gray-700;
+
+$border-radius:             8px;
+$border-radius-lg:          8px;
+$border-radius-sm:          6px;
+$card-border-radius:        8px;
+$card-inner-border-radius:  7px;  // must override Bootstrap's stale calc(4px - 1px)
+$card-cap-bg: $white;
+$card-border-color: $gray-300;  // Neutral-300 #c9d1d8
+
+$dropdown-min-width: 15rem;
+$dropdown-link-hover-bg: #e0f3ff;
+$dropdown-item-padding-y: .4rem;
+$dropdown-padding-y: .65rem;
+
+$box-shadow-default: 0 0.46875rem 2.1875rem rgba(darken($primary, 50%), .03), 0 0.9375rem 1.40625rem rgba(darken($primary, 50%), .03), 0 0.25rem 0.53125rem rgba(darken($primary, 50%), .05), 0 0.125rem 0.1875rem rgba(darken($primary, 50%), .03);
+
+$box-shadow-default-right: 0.46875rem 0 2.1875rem rgba(darken($primary, 50%), .03),
+0.9375rem 0 1.40625rem rgba(darken($primary, 50%), .03),
+0.25rem 0 0.53125rem rgba(darken($primary, 50%), .05),
+0.125rem 0 0.1875rem rgba(darken($primary, 50%), .03);
+
+$box-shadow-default-inverse: 0 -0.46875rem 2.1875rem rgba(darken($primary, 50%), .03), 0 -0.9375rem 1.40625rem rgba(darken($primary, 50%), .03), 0 -0.25rem 0.53125rem rgba(darken($primary, 50%), .05), 0 -0.125rem 0.1875rem rgba(darken($primary, 50%), .03);
+
+$box-shadow-lg-default: 0 0.76875rem 2.4875rem rgba($gray-800, .3), 0 1.3375rem 1.70625rem rgba($gray-800, .3), 0 0.55rem 0.53125rem rgba(darken($gray-800, 50%), .05), 0 0.225rem 0.4375rem rgba($gray-800, .3);
+
+$form-check-input-margin-y: 0.3rem;
+
+$input-group-addon-bg: lighten($dropdown-link-hover-bg, 3%);
+
+// Tables
+
+$table-accent-bg: rgba($black, .03);
+$table-hover-bg: $dropdown-link-hover-bg;
+$table-active-bg: $table-hover-bg;
+$table-border-color: $gray-200;
+$table-head-bg: $gray-100;
+$table-head-color: $gray-600;
+$table-cell-padding: .55rem;
+$table-cell-padding-sm: .3rem;
+
+// Modals
+
+$modal-content-border-width:     0;
+$modal-content-border-color:     transparent;
+$modal-content-border-radius:    1rem;        // 16px
+$modal-header-border-width:      0;
+$modal-footer-border-width:      0;
+$modal-header-padding:           1rem 1.5rem; // 16px 24px
+$modal-inner-padding:            1.5rem;      // 24px
+
+// Popovers
+
+$popover-max-width: 320px;
+$popover-box-shadow: $box-shadow-default;
+$popover-border-color: $card-border-color;
+$popover-header-bg: $white;
+
+// Color Modifiers
+
+$link-color: theme-color("primary");
+$component-active-bg: theme-color("primary");
+$custom-control-indicator-checked-disabled-bg: rgba(theme-color("primary"), .5);
+$form-feedback-valid-color: theme-color("success");
+$form-feedback-invalid-color: theme-color("danger");
+$progress-bar-bg: theme-color("primary");
+$input-btn-focus-color: rgba($component-active-bg, .25);
+$input-focus-border-color: lighten($component-active-bg, 25%);
+$custom-control-indicator-checked-bg: $component-active-bg;
+$custom-control-indicator-active-bg: lighten($component-active-bg, 35%);
+$custom-checkbox-indicator-indeterminate-bg: $component-active-bg;
+$custom-range-thumb-bg: $component-active-bg;
+$custom-range-thumb-active-bg: lighten($component-active-bg, 35%);
+$dropdown-link-active-bg: $component-active-bg;
+$nav-pills-link-active-bg: $component-active-bg;
+$pagination-active-bg: $component-active-bg;
+$list-group-active-bg: $component-active-bg;
+
+$list-group-border-color: rgba($primary, .08) !default;
+
+// Mixins
+
+@mixin box-shadow-architect($shadow) {
+  box-shadow: 0 0.66875rem 2.3875rem rgba($shadow, .03), 0 1.1375rem 1.60625rem rgba($shadow, .03), 0 0.45rem 0.73125rem rgba($shadow, .05), 0 0.325rem 0.3875rem rgba($shadow, .03);
+}
+
+// Border
+
+@each $color, $value in $theme-colors {
+  .border-#{$color} {
+    border-color: $value;
+  }
+}
+
+// List Group
+
+@each $color, $value in $theme-colors {
+  @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+}
+
+// Background
+
+@each $color, $value in $theme-colors {
+  @include bg-variant(".bg-#{$color}", $value);
+}
+
+@if $enable-gradients {
+  @each $color, $value in $theme-colors {
+    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+}

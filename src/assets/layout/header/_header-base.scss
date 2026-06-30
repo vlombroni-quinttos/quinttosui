@@ -1,0 +1,273 @@
+// ── Header Base ───────────────────────────────────────────────────────────────
+// Figma: JJRaDPCaiJ2bFAA1skwxP4 · node 151:9313 (TopNav)
+// Fondo: $dark (#2e353d) · Alto: 60px · Padding-H: 32px
+
+// ── Tokens ───────────────────────────────────────────────────────────────────
+$hd-bg:            $gray-900;        // #2e353d — fondo del header
+$hd-action-bg:     $gray-700;        // #4f5863 — fondo de icon-buttons
+$hd-separator-color: $gray-700;      // #4f5863 — separador vertical
+$hd-context-color: $blue-light;      // #f6f8fa — texto de contexto (left)
+$hd-chevron-color: $gray-400;        // #a7b1bb — chevron / expand icons
+$hd-user-name:     $neutral-0;       // #fdfdfd — nombre de usuario
+$hd-user-role:     $gray-200;        // #dbe3ea — subtítulo de rol
+$hd-avatar-bg:     $primary-tint;    // #dadaff — fondo avatar por defecto
+$hd-avatar-color:  $primary-600;     // #1815bc — iniciales avatar
+$hd-alert-dot:     #e33454;          // punto de notificación (rojo)
+$hd-action-size:   44px;             // tamaño botón de acción
+$hd-padding-x:     2rem;             // 32px — padding horizontal del header
+
+// ── Contenedor principal ──────────────────────────────────────────────────────
+.app-header {
+  height: $app-header-height;   // 60px (definido en _layout-variables.scss)
+  display: flex;
+  align-items: center;
+  background: $hd-bg;
+  position: relative;
+  z-index: 10;
+  transition: background .2s;
+
+  .app-header__content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: $app-header-height;
+    padding: 0 $hd-padding-x;
+  }
+
+  .app-header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .app-header-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+}
+
+// ── Logo ──────────────────────────────────────────────────────────────────────
+.app-header__logo {
+  padding: 0 $layout-spacer-x;
+  height: $app-header-height;
+  width: $app-sidebar-width;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: width .2s;
+
+  .logo-src {
+    height: $logo-height;
+    width: $logo-width;
+    // Fondo oscuro → usar variante inversa del logo
+    background: url('utils/images/logo-mark-inverse.svg') no-repeat center left;
+    background-size: contain;
+  }
+
+  // Hamburger sobre fondo oscuro — líneas blancas
+  .hamburger-inner,
+  .hamburger.is-active .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    background: $neutral-0 !important;  // #fdfdfd
+  }
+}
+
+// ── Context selector (left) ───────────────────────────────────────────────────
+.app-header__context {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.app-header__context-text {
+  font-size: $font-size-16;    // 1rem — 16px
+  font-weight: 400;
+  color: $hd-context-color;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.app-header__context-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+
+  .material-symbols-rounded {
+    font-size: 24px;
+    color: $hd-context-color;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    transition: color .15s;
+  }
+
+  &:hover .material-symbols-rounded { color: $blue-light; }
+}
+
+// ── Botones de acción (right) ─────────────────────────────────────────────────
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-header__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $hd-action-size;    // 44px
+  height: $hd-action-size;
+  background: $hd-action-bg;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: background .15s;
+
+  .material-symbols-rounded {
+    font-size: 24px;
+    color: $blue-light;
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+
+  &:hover  { background: $gray-600; }   // lighten($gray-700, 8%) ≈ #65717e
+  &:active { background: $gray-800; }
+
+}
+
+// ── Separador vertical ────────────────────────────────────────────────────────
+.app-header__separator {
+  width: 1px;
+  height: 40px;
+  background: $hd-separator-color;
+  flex-shrink: 0;
+}
+
+// ── Sección usuario ───────────────────────────────────────────────────────────
+// Layout: [avatar 44px] [gap 11px] [chevron 28px] — todo dentro del trigger
+//         [user-info] — fuera del trigger, al costado del .dropdown
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: 16px;   // distancia trigger → user-info
+
+  // Ocultar la flecha nativa de Bootstrap .dropdown-toggle
+  .dropdown-toggle::after { display: none; }
+}
+
+.app-header__user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 11px;   // avatar → chevron
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: opacity .15s;
+
+  &:hover { opacity: .9; }
+  &:focus { outline: none; }
+}
+
+.app-header__avatar {
+  width: $hd-action-size;     // 44px
+  height: $hd-action-size;
+  border-radius: 38px;        // full circle
+  background: $hd-avatar-bg;
+  color: $hd-avatar-color;
+  font-size: $font-size-20;   // 20px — iniciales legibles
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  user-select: none;
+
+  // Modificadores de rol (Figma TopNav · node 151:9313)
+  &--responsable { background: $avatar-responsable-bg;  color: $avatar-responsable-color; }
+  &--admin       { background: $danger-100;          color: $danger-900; }
+  &--docente,
+  &--alumno      { background: $avatar-warning-bg;   color: $avatar-warning-text; }
+}
+
+// Chevron 28px — dentro del trigger, al costado del avatar
+.app-header__user-chevron {
+  font-size: 28px;
+  color: $hd-chevron-color;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  flex-shrink: 0;
+}
+
+.app-header__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.app-header__user-name {
+  font-size: $font-size-16;   // 16px
+  font-weight: 500;
+  color: $hd-user-name;
+  white-space: nowrap;
+  line-height: 1.5;           // 24px / 16px
+}
+
+.app-header__user-meta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  // Reset button styles (el trigger es un <button>)
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.app-header__user-role {
+  font-size: $font-size-base; // 14px
+  font-weight: 400;
+  color: $hd-user-role;
+  line-height: 1.43;          // ≈ 20px / 14px
+}
+
+// Ícono 20px en la fila de rol (expand_more junto al rol)
+.app-header__user-meta-icon {
+  font-size: 20px;
+  color: $hd-chevron-color;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+}
+
+// ── Mobile menu toggle ────────────────────────────────────────────────────────
+.app-header__menu,
+.app-header__mobile-menu {
+  display: none;
+  padding: 0 $layout-spacer-x;
+  height: $app-header-height;
+  align-items: center;
+}
+
+// ── Menú de cambio de rol (anclado al header, borde derecho) ─────────────────
+.app-header__role-menu {
+  position: fixed !important;
+  top: $app-header-height !important;
+  right: $hd-padding-x !important;
+  left: auto !important;
+  transform: none !important;
+  width: 200px !important;
+}
+
+// Header Modifiers
+@import "modifiers/fixed-header";
+
+// Header Themes (legacy — mantenidos por compatibilidad, no usados en la UI actual)

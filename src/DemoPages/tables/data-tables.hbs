@@ -1,0 +1,1423 @@
+{{#> base }}
+    {{> AppSidebar/sidebar tables-data-tables=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> AppMain/page-title }}
+
+            <!-- ── Tab Nav ──────────────────────────────────────────────────── -->
+            <ul class="nav tab-nav mb-3" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tab-examples" role="tab" aria-selected="true">
+                        Table Examples
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab-elements" role="tab" aria-selected="false">
+                        Table Elements
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <!-- ══════════════════════════════════════════════════════════ -->
+                <!-- Tab 1: Table Examples                                     -->
+                <!-- ══════════════════════════════════════════════════════════ -->
+                <div class="tab-pane fade show active" id="tab-examples" role="tabpanel">
+
+                    <div class="tpl-table">
+
+                        <!-- Tools -->
+                        <div class="tpl-table__tools">
+                            <div class="tpl-table__search">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" placeholder="Buscar">
+                            </div>
+                            <div class="tpl-table__show">
+                                <span class="tpl-table__show-text">Mostrar</span>
+                                <div class="tpl-table__count-select">
+                                    <span>10</span>
+                                    <span class="material-symbols-rounded">expand_more</span>
+                                </div>
+                                <span class="tpl-table__show-text">resultados</span>
+                            </div>
+                            <div class="tpl-table__tools-spacer"></div>
+                            <button class="tpl-table__download-btn">
+                                <span class="material-symbols-rounded">download</span>
+                                Descargar
+                                <span class="material-symbols-rounded">expand_more</span>
+                            </button>
+                        </div>
+
+                        <!-- Tabla -->
+                        <div class="tpl-table__wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="tpl-col--xxs">
+                                            <div class="tpl-table__check">
+                                                <input type="checkbox" id="bs-select-all" title="Seleccionar todo">
+                                                <span>#</span>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <button class="tpl-table__sort-btn" data-sort="1">
+                                                Nombre
+                                                <span class="material-symbols-rounded">swap_vert</span>
+                                            </button>
+                                        </th>
+                                        <th>
+                                            <button class="tpl-table__sort-btn" data-sort="2">
+                                                Email
+                                                <span class="material-symbols-rounded">swap_vert</span>
+                                            </button>
+                                        </th>
+                                        <th class="tpl-col--s">
+                                            <button class="tpl-table__sort-btn" data-sort="3">
+                                                Estado
+                                                <span class="material-symbols-rounded">swap_vert</span>
+                                            </button>
+                                        </th>
+                                        <th class="tpl-col--ms">
+                                            <button class="tpl-table__sort-btn" data-sort="4">
+                                                Fecha alta
+                                                <span class="material-symbols-rounded">swap_vert</span>
+                                            </button>
+                                        </th>
+                                        <th>
+                                            <button class="tpl-table__sort-btn" data-sort="5">
+                                                Categoría
+                                                <span class="material-symbols-rounded">swap_vert</span>
+                                            </button>
+                                        </th>
+                                        <th class="tpl-table__sticky-col tpl-col--md">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>1</span></div></td>
+                                        <td>Ana García López</td>
+                                        <td>ana.garcia@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--active">Activo</span></td>
+                                        <td>12/01/2025</td>
+                                        <td>Administración</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>2</span></div></td>
+                                        <td>Carlos Martínez</td>
+                                        <td>c.martinez@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--pending">Pendiente</span></td>
+                                        <td>18/01/2025</td>
+                                        <td>Ventas</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>3</span></div></td>
+                                        <td>Lucía Fernández Ruiz</td>
+                                        <td>l.fernandez@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--active">Activo</span></td>
+                                        <td>22/01/2025</td>
+                                        <td>Marketing</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>4</span></div></td>
+                                        <td>Miguel Torres Vega</td>
+                                        <td>m.torres@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--inactive">Inactivo</span></td>
+                                        <td>05/02/2025</td>
+                                        <td>Soporte</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>5</span></div></td>
+                                        <td>Sofía Herrera Blanco</td>
+                                        <td>s.herrera@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--active">Activo</span></td>
+                                        <td>10/02/2025</td>
+                                        <td>Finanzas</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>6</span></div></td>
+                                        <td>Diego Ramírez Ortiz</td>
+                                        <td>d.ramirez@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--pending">Pendiente</span></td>
+                                        <td>14/02/2025</td>
+                                        <td>Administración</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>7</span></div></td>
+                                        <td>Valeria Cruz Morales</td>
+                                        <td>v.cruz@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--active">Activo</span></td>
+                                        <td>20/02/2025</td>
+                                        <td>Ventas</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>8</span></div></td>
+                                        <td>Andrés Jiménez Pardo</td>
+                                        <td>a.jimenez@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--inactive">Inactivo</span></td>
+                                        <td>25/02/2025</td>
+                                        <td>Marketing</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>9</span></div></td>
+                                        <td>Isabella Vargas Ríos</td>
+                                        <td>i.vargas@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--active">Activo</span></td>
+                                        <td>03/03/2025</td>
+                                        <td>Soporte</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="tpl-table__check"><input type="checkbox"><span>10</span></div></td>
+                                        <td>Roberto Navarro Sanz</td>
+                                        <td>r.navarro@empresa.com</td>
+                                        <td><span class="tpl-table__badge tpl-table__badge--pending">Pendiente</span></td>
+                                        <td>07/03/2025</td>
+                                        <td>Finanzas</td>
+                                        <td class="tpl-table__sticky-col">
+                                            <div class="tpl-table__row-actions te-cell--actions">
+                                                <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                                <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                                <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="tpl-table__pagination">
+                            <span class="tpl-table__pagination-info">1 - 10 de 125 registros</span>
+                            <div class="tpl-table__pagination-pages">
+                                <button class="tpl-table__page-btn" title="Anterior">
+                                    <span class="material-symbols-rounded">chevron_left</span>
+                                </button>
+                                <button class="tpl-table__page-btn tpl-table__page-btn--active">1</button>
+                                <button class="tpl-table__page-btn">2</button>
+                                <button class="tpl-table__page-btn">3</button>
+                                <button class="tpl-table__page-btn" title="Siguiente">
+                                    <span class="material-symbols-rounded">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div><!-- /.tpl-table -->
+
+
+                    <!-- ══════════════════════════════════════════════════════════ -->
+                    <!-- Table 2: Template con ancho de columnas (Figma 3016-11294) -->
+                    <!-- ══════════════════════════════════════════════════════════ -->
+                    <div class="tpl-table mt-4">
+
+                        <!-- Título -->
+                        <div class="tpl-table__header">
+                            <h6 class="tpl-table__title">Listado con acciones en columna, descripción de acciones y elección de ancho de columnas</h6>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="tpl-table__tools">
+                            <div class="tpl-table__search">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" placeholder="Buscar">
+                            </div>
+                            <div class="tpl-table__show">
+                                <span class="tpl-table__show-text">Mostrar</span>
+                                <div class="tpl-table__count-select">
+                                    <span>10</span>
+                                    <span class="material-symbols-rounded">expand_more</span>
+                                </div>
+                                <span class="tpl-table__show-text">resultados</span>
+                            </div>
+                            <div class="tpl-table__tools-spacer"></div>
+                            <!-- Elementos visibles -->
+                            <div class="dropdown">
+                                <button type="button" class="tpl-table__download-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="material-symbols-rounded">visibility</span>
+                                    Elementos visibles
+                                    <span class="material-symbols-rounded">expand_more</span>
+                                </button>
+                                <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                    <button type="button" class="dropdown-item tpl-select__item">Nombre</button>
+                                    <button type="button" class="dropdown-item tpl-select__item">Estado</button>
+                                    <button type="button" class="dropdown-item tpl-select__item">Descripción</button>
+                                    <button type="button" class="dropdown-item tpl-select__item">Categoría</button>
+                                </div>
+                            </div>
+                            <button class="tpl-table__download-btn">
+                                <span class="material-symbols-rounded">download</span>
+                                Descargar
+                                <span class="material-symbols-rounded">expand_more</span>
+                            </button>
+                        </div>
+
+                        <!-- Flex Table -->
+                        <div class="tpl-table__wrapper">
+
+                            <!-- ── Fila header ─────────────────────────────── -->
+                            <div class="tpl-flex-table__row" id="flex-table-header">
+                                <!-- # / checkbox — 100px -->
+                                <div class="te-hcell tpl-col--xs">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <input type="checkbox" class="te-cell__checkbox" id="flex-select-all" title="Seleccionar todo">
+                                            <span class="te-hcell__text">#</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Usuario — fill -->
+                                <div class="te-hcell tpl-col--fill">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <span class="te-hcell__text">Usuario</span>
+                                        </div>
+                                        <button type="button" class="te-hcell__sort" data-sort="1" title="Ordenar">
+                                            <span class="material-symbols-rounded">swap_vert</span>
+                                        </button>
+                                    </div>
+                                    <div class="te-hcell__actions">
+                                        <button class="tpl-table__action-btn" title="Filtrar"><span class="material-symbols-rounded">filter_list</span></button>
+                                    </div>
+                                </div>
+                                <!-- Marca — 150px -->
+                                <div class="te-hcell tpl-col--sm">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <span class="te-hcell__text">Marca</span>
+                                        </div>
+                                        <button type="button" class="te-hcell__sort" data-sort="2" title="Ordenar">
+                                            <span class="material-symbols-rounded">swap_vert</span>
+                                        </button>
+                                    </div>
+                                    <div class="te-hcell__actions">
+                                        <button class="tpl-table__action-btn" title="Filtrar"><span class="material-symbols-rounded">filter_list</span></button>
+                                    </div>
+                                </div>
+                                <!-- Estado — 190px -->
+                                <div class="te-hcell tpl-col--ml">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <span class="te-hcell__text">Estado</span>
+                                        </div>
+                                        <button type="button" class="te-hcell__sort" data-sort="3" title="Ordenar">
+                                            <span class="material-symbols-rounded">swap_vert</span>
+                                        </button>
+                                    </div>
+                                    <div class="te-hcell__actions">
+                                        <button class="tpl-table__action-btn" title="Filtrar"><span class="material-symbols-rounded">filter_list</span></button>
+                                    </div>
+                                </div>
+                                <!-- Descripción — 240px -->
+                                <div class="te-hcell tpl-col--lg">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <span class="te-hcell__text">Descripción</span>
+                                        </div>
+                                        <button type="button" class="te-hcell__sort" data-sort="4" title="Ordenar">
+                                            <span class="material-symbols-rounded">swap_vert</span>
+                                        </button>
+                                    </div>
+                                    <div class="te-hcell__actions">
+                                        <button class="tpl-table__action-btn" title="Filtrar"><span class="material-symbols-rounded">filter_list</span></button>
+                                    </div>
+                                </div>
+                                <!-- Categoría — 150px -->
+                                <div class="te-hcell tpl-col--sm">
+                                    <div class="te-hcell__header">
+                                        <div class="te-hcell__label">
+                                            <span class="te-hcell__text">Categoría</span>
+                                        </div>
+                                        <button type="button" class="te-hcell__sort" data-sort="5" title="Ordenar">
+                                            <span class="material-symbols-rounded">swap_vert</span>
+                                        </button>
+                                    </div>
+                                    <div class="te-hcell__actions">
+                                        <button class="tpl-table__action-btn" title="Filtrar"><span class="material-symbols-rounded">filter_list</span></button>
+                                    </div>
+                                </div>
+                                <!-- Acciones — 240px -->
+                                <div class="te-hcell te-hcell--actions tpl-col--lg">
+                                    <p class="te-hcell__actions-title">Acciones</p>
+                                    <div class="te-hcell__descriptions">
+                                        <span>Ver</span>
+                                        <span>Edit</span>
+                                        <span>More</span>
+                                        <span>Del</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 1 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">1</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">AG</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Ana García López</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">P</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--success">Etiqueta</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento uno</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Administración</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 2 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">2</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">CM</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Carlos Martínez</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">Q</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--warning">Insignia</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento dos</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Ventas</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 3 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">3</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">LF</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Lucía Fernández</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">R</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--info">Identificador</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento tres</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Marketing</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 4 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">4</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">MT</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Miguel Torres Vega</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">S</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--success">Etiqueta</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento cuatro</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Soporte</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 5 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">5</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">SH</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Sofía Herrera Blanco</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">T</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--warning">Distintivo</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento cinco</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Finanzas</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 6 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">6</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">DR</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Diego Ramírez Ortiz</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">U</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--success">Etiqueta</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento seis</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Administración</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 7 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">7</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">VC</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Valeria Cruz Morales</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">V</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--warning">Insignia</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento siete</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Ventas</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 8 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">8</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">AJ</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Andrés Jiménez Pardo</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">W</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--info">Identificador</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento ocho</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Marketing</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 9 ───────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">9</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">IV</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Isabella Vargas Ríos</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">X</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--success">Etiqueta</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento nueve</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Soporte</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                            <!-- ── Fila 10 ──────────────────────────────────── -->
+                            <div class="tpl-flex-table__row">
+                                <div class="te-cell te-cell--id tpl-col--xs">
+                                    <input type="checkbox" class="te-cell__checkbox">
+                                    <span class="te-cell__num">10</span>
+                                </div>
+                                <div class="te-cell tpl-col--fill">
+                                    <div class="te-cell__avatar"><span class="te-cell__initials">RN</span></div>
+                                    <div class="te-cell__content"><span class="te-cell__text">Roberto Navarro Sanz</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--default">Y</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--ml">
+                                    <div class="te-cell__content"><span class="te-badge te-badge--warning">Distintivo</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--lg">
+                                    <div class="te-cell__content"><span class="te-cell__text te-cell__text--truncated">Descripción del elemento diez</span></div>
+                                </div>
+                                <div class="te-cell tpl-col--sm">
+                                    <div class="te-cell__content"><span class="te-cell__text">Finanzas</span></div>
+                                </div>
+                                <div class="te-cell te-cell--actions tpl-col--lg">
+                                    <button class="tpl-table__action-btn" title="Ver"><span class="material-symbols-rounded">visibility</span></button>
+                                    <button class="tpl-table__action-btn" title="Editar"><span class="material-symbols-rounded">edit</span></button>
+                                    <button class="tpl-table__action-btn" title="Añadir"><span class="material-symbols-rounded">add_circle</span></button>
+                                    <button class="tpl-table__action-btn" title="Eliminar"><span class="material-symbols-rounded">delete</span></button>
+                                </div>
+                            </div>
+
+                        </div><!-- /.tpl-table__wrapper -->
+
+                        <!-- Pagination -->
+                        <div class="tpl-table__pagination">
+                            <span class="tpl-table__pagination-info">1 - 10 de 87 registros</span>
+                            <div class="tpl-table__pagination-pages">
+                                <button class="tpl-table__page-btn" title="Anterior">
+                                    <span class="material-symbols-rounded">chevron_left</span>
+                                </button>
+                                <button class="tpl-table__page-btn tpl-table__page-btn--active">1</button>
+                                <button class="tpl-table__page-btn">2</button>
+                                <button class="tpl-table__page-btn">3</button>
+                                <button class="tpl-table__page-btn" title="Siguiente">
+                                    <span class="material-symbols-rounded">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div><!-- /.tpl-table (Template con ancho de columnas) -->
+
+                </div><!-- /#tab-examples -->
+
+
+                <!-- ══════════════════════════════════════════════════════════ -->
+                <!-- Tab 2: Table Elements                                     -->
+                <!-- ══════════════════════════════════════════════════════════ -->
+                <div class="tab-pane fade" id="tab-elements" role="tabpanel">
+                    <div class="te-doc">
+
+                        <!-- ─────────────────────────────────────────────────── -->
+                        <!-- SECTION: Table Cells                               -->
+                        <!-- ─────────────────────────────────────────────────── -->
+                        <div class="te-section">
+                            <h5 class="te-section__title">Table Cells</h5>
+
+                            <!-- ── Desktop ──────────────────────────────────── -->
+                            <div class="te-subsection">
+                                <p class="te-subsection__title">Desktop</p>
+
+                                <!-- user -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">user</span>
+                                        <p class="te-row__desc">Avatar (foto o iniciales). Puede tener badges; si la columna es estrecha los badges van debajo del texto.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <!-- solo avatar + nombre -->
+                                        <div class="te-cell">
+                                            <div class="te-cell__avatar">
+                                                <span class="te-cell__initials">MG</span>
+                                            </div>
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text">Texto</span>
+                                            </div>
+                                        </div>
+                                        <!-- avatar + nombre + badges (celda angosta → badges wrappean debajo) -->
+                                        <div class="te-cell te-cell--user-wrap">
+                                            <div class="te-cell__avatar">
+                                                <span class="te-cell__initials">MG</span>
+                                            </div>
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text">Texto</span>
+                                                <div class="te-cell__labels">
+                                                    <span class="te-badge te-badge--default">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- avatar + nombre + badges + acción -->
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__avatar">
+                                                <span class="te-cell__initials">MG</span>
+                                            </div>
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text">Texto</span>
+                                                <div class="te-cell__labels">
+                                                    <span class="te-badge te-badge--default">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                </div>
+                                            </div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- normal text -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">normal text</span>
+                                        <p class="te-row__desc">Solo texto, con icon button de acción, múltiples líneas o texto truncado.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text">Texto</span>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text">Texto</span>
+                                            </div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                        <div class="te-cell te-cell--multiline tpl-col--lg">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--multi">Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto</span>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--truncated">Texto Texto Texto Texto Texto Texto Texto Texto</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- badge -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">badge</span>
+                                        <p class="te-row__desc">Solo, con icon button de acción, con cambio de estado o con cambio de estado + icon button.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <!-- info solo -->
+                                        <div class="te-cell">
+                                            <span class="te-badge te-badge--info">Label</span>
+                                        </div>
+                                        <!-- danger + acción -->
+                                        <div class="te-cell">
+                                            <span class="te-badge te-badge--danger">Label</span>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                        <!-- success → warning (cambio de estado, arrow es indicador visual) -->
+                                        <div class="te-cell te-cell--wide">
+                                            <span class="te-badge te-badge--success">Label</span>
+                                            <div class="te-cell__icon"><span class="material-symbols-rounded">arrow_forward</span></div>
+                                            <span class="te-badge te-badge--warning">Label</span>
+                                        </div>
+                                        <!-- success → warning + acción -->
+                                        <div class="te-cell te-cell--wide">
+                                            <span class="te-badge te-badge--success">Label</span>
+                                            <div class="te-cell__icon"><span class="material-symbols-rounded">arrow_forward</span></div>
+                                            <span class="te-badge te-badge--warning">Label</span>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- selector -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">selector</span>
+                                        <p class="te-row__desc">Solo selector o con icon button de acción.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__selector">
+                                                <span class="te-cell__selector-val">—</span>
+                                                <div class="te-cell__selector-arrow">
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__selector">
+                                                <span class="te-badge te-badge--danger">AUS</span>
+                                                <div class="te-cell__selector-arrow">
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </div>
+                                            </div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- actions -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">actions</span>
+                                        <p class="te-row__desc">Máximo 4 icon-buttons. Si hay más se agrega el botón "Más" con dropdown menu.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <!-- 4 iconos -->
+                                        <div class="te-cell te-cell--actions">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">visibility</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">delete</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                        <!-- 3 iconos + Más con dropdown -->
+                                        <div class="te-cell te-cell--actions">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">visibility</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">delete</span></button>
+                                            <div class="dropdown">
+                                                <button class="te-cell__mas dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Más
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                    <button type="button" class="dropdown-item tpl-select__item">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">download</span>Descargar
+                                                    </button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">content_copy</span>Duplicar
+                                                    </button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">share</span>Compartir
+                                                    </button>
+                                                    <button type="button" class="dropdown-item tpl-select__item tpl-select__item--danger">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">delete</span>Eliminar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- checkbox -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">checkbox</span>
+                                        <p class="te-row__desc">Solo checkbox, con chevron para desplegar fila o con numeral para indicar filas anidadas.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <!-- solo checkbox -->
+                                        <div class="te-cell te-cell--id">
+                                            <input type="checkbox" class="te-cell__checkbox">
+                                        </div>
+                                        <!-- checkbox + chevron (desplegar fila) -->
+                                        <div class="te-cell te-cell--id">
+                                            <input type="checkbox" class="te-cell__checkbox">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">expand_more</span></button>
+                                        </div>
+                                        <!-- checkbox + número -->
+                                        <div class="te-cell te-cell--id">
+                                            <input type="checkbox" class="te-cell__checkbox">
+                                            <span class="te-cell__num">4</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- colores -->
+                                <div class="te-colors">
+                                    <p class="te-colors__title">Colores</p>
+                                    <div class="te-colors__grid">
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">cell normal white</span>
+                                            <div class="te-cell te-cell--wide">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text">Texto</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">cell normal gray</span>
+                                            <div class="te-cell te-cell--wide te-cell--gray">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text">Texto</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">fila desplegada</span>
+                                            <div class="te-cell te-cell--wide te-cell--blue">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text">Texto</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.te-subsection Desktop cells -->
+
+                            <!-- ── Mobile ────────────────────────────────────── -->
+                            <div class="te-subsection">
+                                <p class="te-subsection__title">Mobile</p>
+
+                                <!-- user mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">user</span>
+                                        <p class="te-row__desc">Avatar (foto o iniciales). Badges debajo si la columna es estrecha.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell">
+                                            <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                            <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                        </div>
+                                        <div class="te-cell te-cell--user-wrap">
+                                            <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--sm">Texto</span>
+                                                <div class="te-cell__labels">
+                                                    <span class="te-badge te-badge--default">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--sm">Texto</span>
+                                                <div class="te-cell__labels">
+                                                    <span class="te-badge te-badge--default">Label</span>
+                                                    <span class="te-badge te-badge--info">Label</span>
+                                                </div>
+                                            </div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- normal text mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">normal text</span>
+                                        <p class="te-row__desc">Solo texto, con icon button de acción, múltiples líneas o texto truncado.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell">
+                                            <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                        </div>
+                                        <div class="te-cell">
+                                            <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                        <div class="te-cell te-cell--multiline tpl-col--lg">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--sm te-cell__text--multi">Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto</span>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell">
+                                            <div class="te-cell__content">
+                                                <span class="te-cell__text te-cell__text--sm te-cell__text--truncated">Texto Texto Texto Texto Texto Texto Texto Texto</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- badge mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">badge</span>
+                                        <p class="te-row__desc">Solo, con acción, con cambio de estado o combinado.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell"><span class="te-badge te-badge--info">Label</span></div>
+                                        <div class="te-cell">
+                                            <span class="te-badge te-badge--danger">Label</span>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                        <div class="te-cell te-cell--wide">
+                                            <span class="te-badge te-badge--success">Label</span>
+                                            <div class="te-cell__icon"><span class="material-symbols-rounded">arrow_forward</span></div>
+                                            <span class="te-badge te-badge--warning">Label</span>
+                                        </div>
+                                        <div class="te-cell te-cell--wide">
+                                            <span class="te-badge te-badge--success">Label</span>
+                                            <div class="te-cell__icon"><span class="material-symbols-rounded">arrow_forward</span></div>
+                                            <span class="te-badge te-badge--warning">Label</span>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- selector mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">selector</span>
+                                        <p class="te-row__desc">Solo selector o con icon button de acción.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__selector">
+                                                <span class="te-cell__selector-val">—</span>
+                                                <div class="te-cell__selector-arrow"><span class="material-symbols-rounded">expand_more</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="te-cell te-cell--wide">
+                                            <div class="te-cell__selector">
+                                                <span class="te-badge te-badge--danger">AUS</span>
+                                                <div class="te-cell__selector-arrow"><span class="material-symbols-rounded">expand_more</span></div>
+                                            </div>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- actions mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">actions</span>
+                                        <p class="te-row__desc">Máximo 3 icon-buttons en mobile. Si hay más se agrega el botón "Más".</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell te-cell--actions">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">visibility</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">delete</span></button>
+                                        </div>
+                                        <div class="te-cell te-cell--actions">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">visibility</span></button>
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">edit</span></button>
+                                            <div class="dropdown">
+                                                <button class="te-cell__mas dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Más
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                    <button type="button" class="dropdown-item tpl-select__item">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">download</span>Descargar
+                                                    </button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">content_copy</span>Duplicar
+                                                    </button>
+                                                    <button type="button" class="dropdown-item tpl-select__item tpl-select__item--danger">
+                                                        <span class="material-symbols-rounded tpl-select__item-icon">delete</span>Eliminar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- checkbox mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">checkbox</span>
+                                        <p class="te-row__desc">Solo checkbox, con chevron o con numeral.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-cell te-cell--id"><input type="checkbox" class="te-cell__checkbox"></div>
+                                        <div class="te-cell te-cell--id">
+                                            <input type="checkbox" class="te-cell__checkbox">
+                                            <button class="tpl-table__action-btn"><span class="material-symbols-rounded">expand_more</span></button>
+                                        </div>
+                                        <div class="te-cell te-cell--id">
+                                            <input type="checkbox" class="te-cell__checkbox">
+                                            <span class="te-cell__num">4</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- colores mobile -->
+                                <div class="te-colors">
+                                    <p class="te-colors__title">Colores</p>
+                                    <div class="te-colors__grid">
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">cell normal white</span>
+                                            <div class="te-cell te-cell--wide">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">cell normal gray</span>
+                                            <div class="te-cell te-cell--wide te-cell--gray">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="te-colors__item">
+                                            <span class="te-colors__label">cell hover</span>
+                                            <div class="te-cell te-cell--wide te-cell--blue">
+                                                <div class="te-cell__avatar"><span class="te-cell__initials">MG</span></div>
+                                                <div class="te-cell__content"><span class="te-cell__text te-cell__text--sm">Texto</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.te-subsection Mobile cells -->
+
+                        </div><!-- /.te-section Table Cells -->
+
+
+                        <!-- ─────────────────────────────────────────────────── -->
+                        <!-- SECTION: Table Headers                             -->
+                        <!-- ─────────────────────────────────────────────────── -->
+                        <div class="te-section">
+                            <h5 class="te-section__title">Table Headers</h5>
+
+                            <!-- ── Desktop ──────────────────────────────────── -->
+                            <div class="te-subsection">
+                                <p class="te-subsection__title">Desktop</p>
+
+                                <!-- Headers info -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers info</span>
+                                        <p class="te-row__desc">Pueden tener distintos elementos que convivan.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <!-- solo texto -->
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text">Label</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- texto + sort -->
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- bullet + texto + sort -->
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <div class="te-hcell__bullet"></div>
+                                                    <span class="te-hcell__text">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- bullet + texto + info + sort -->
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <div class="te-hcell__bullet"></div>
+                                                    <span class="te-hcell__text">Label</span>
+                                                    <div class="te-hcell__tooltip">
+                                                        <span class="material-symbols-rounded">info</span>
+                                                    </div>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Headers info con acciones -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers info con acciones</span>
+                                        <p class="te-row__desc">Todos los elementos de header info más hasta 5 acciones debajo.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                            <div class="te-hcell__actions">
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Headers acciones -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers acciones</span>
+                                        <p class="te-row__desc">Hasta 4 labels de acciones o sin labels.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-hcell te-hcell--actions">
+                                            <p class="te-hcell__actions-title">Acciones</p>
+                                        </div>
+                                        <div class="te-hcell te-hcell--actions">
+                                            <p class="te-hcell__actions-title">Acciones</p>
+                                            <div class="te-hcell__descriptions">
+                                                <span>Text</span>
+                                                <span>Text</span>
+                                                <span>Text</span>
+                                                <span>Text</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.te-subsection Desktop headers -->
+
+                            <!-- ── Mobile ────────────────────────────────────── -->
+                            <div class="te-subsection">
+                                <p class="te-subsection__title">Mobile</p>
+
+                                <!-- Headers info mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers info</span>
+                                        <p class="te-row__desc">Distintos elementos que convivan.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text te-hcell__text--mobile">Label</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text te-hcell__text--mobile">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <div class="te-hcell__bullet"></div>
+                                                    <span class="te-hcell__text te-hcell__text--mobile">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <div class="te-hcell__bullet"></div>
+                                                    <span class="te-hcell__text te-hcell__text--mobile">Label</span>
+                                                    <div class="te-hcell__tooltip">
+                                                        <span class="material-symbols-rounded">info</span>
+                                                    </div>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Headers info con acciones mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers info con acciones</span>
+                                        <p class="te-row__desc">Hasta 5 acciones debajo del label.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-hcell">
+                                            <div class="te-hcell__header">
+                                                <div class="te-hcell__label">
+                                                    <span class="te-hcell__text te-hcell__text--mobile">Label</span>
+                                                </div>
+                                                <div class="te-hcell__sort">
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </div>
+                                            </div>
+                                            <div class="te-hcell__actions">
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                <button class="tpl-table__action-btn"><span class="material-symbols-rounded">settings</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Headers acciones mobile -->
+                                <div class="te-row">
+                                    <div class="te-row__label">
+                                        <span class="te-row__name">Headers acciones</span>
+                                        <p class="te-row__desc">Hasta 3 labels de acciones o sin labels.</p>
+                                    </div>
+                                    <div class="te-row__cells">
+                                        <div class="te-hcell te-hcell--actions">
+                                            <p class="te-hcell__actions-title te-hcell__actions-title--mobile">Acciones</p>
+                                        </div>
+                                        <div class="te-hcell te-hcell--actions">
+                                            <p class="te-hcell__actions-title te-hcell__actions-title--mobile">Acciones</p>
+                                            <div class="te-hcell__descriptions">
+                                                <span>Text</span>
+                                                <span>Text</span>
+                                                <span>Text</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.te-subsection Mobile headers -->
+
+                        </div><!-- /.te-section Table Headers -->
+
+                    </div><!-- /.te-doc -->
+                </div><!-- /#tab-elements -->
+
+            </div><!-- /.tab-content -->
+
+        </div>
+        {{> AppFooter/footer }}
+    </div>
+{{/ base }}

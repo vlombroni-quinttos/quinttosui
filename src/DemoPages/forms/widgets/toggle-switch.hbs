@@ -1,0 +1,129 @@
+{{#> base }}
+    {{> AppSidebar/sidebar forms-toggle-switch=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> AppMain/page-title }}
+            <div class="row">
+                <!-- Basic -->
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic</h5>
+                            <div class="custom-control custom-switch mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-basic-off">
+                                <label class="custom-control-label" for="csw-basic-off">Off</label>
+                            </div>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="csw-basic-on" checked>
+                                <label class="custom-control-label" for="csw-basic-on">On</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Colors -->
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Colors</h5>
+                            <div class="custom-control custom-switch mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-primary" checked>
+                                <label class="custom-control-label" for="csw-primary">Primary</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-secondary mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-secondary" checked>
+                                <label class="custom-control-label" for="csw-secondary">Secondary</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-success mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-success" checked>
+                                <label class="custom-control-label" for="csw-success">Success</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-danger mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-danger" checked>
+                                <label class="custom-control-label" for="csw-danger">Danger</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-warning mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-warning" checked>
+                                <label class="custom-control-label" for="csw-warning">Warning</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-info mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-info" checked>
+                                <label class="custom-control-label" for="csw-info">Info</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-dark">
+                                <input type="checkbox" class="custom-control-input" id="csw-dark" checked>
+                                <label class="custom-control-label" for="csw-dark">Dark</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Sizing -->
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sizing</h5>
+                            <div class="custom-control custom-switch custom-switch-lg mb-3">
+                                <input type="checkbox" class="custom-control-input" id="csw-lg" checked>
+                                <label class="custom-control-label" for="csw-lg">Large</label>
+                            </div>
+                            <div class="custom-control custom-switch mb-3">
+                                <input type="checkbox" class="custom-control-input" id="csw-normal" checked>
+                                <label class="custom-control-label" for="csw-normal">Normal</label>
+                            </div>
+                            <div class="custom-control custom-switch custom-switch-sm">
+                                <input type="checkbox" class="custom-control-input" id="csw-sm" checked>
+                                <label class="custom-control-label" for="csw-sm">Small</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Disabled -->
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Disabled</h5>
+                            <div class="custom-control custom-switch mb-2">
+                                <input type="checkbox" class="custom-control-input" id="csw-dis-off" disabled>
+                                <label class="custom-control-label" for="csw-dis-off">Disabled off</label>
+                            </div>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="csw-dis-on" disabled checked>
+                                <label class="custom-control-label" for="csw-dis-on">Disabled on</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Inline Toggles -->
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Inline Toggles</h5>
+                            <div class="d-flex align-items-center flex-wrap" style="gap: 1.5rem;">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="csw-inline1" checked>
+                                    <label class="custom-control-label" for="csw-inline1">Enabled on</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="csw-inline2">
+                                    <label class="custom-control-label" for="csw-inline2">Enabled off</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="csw-inline3" disabled>
+                                    <label class="custom-control-label" for="csw-inline3">Disabled off</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="csw-inline4" disabled checked>
+                                    <label class="custom-control-label" for="csw-inline4">Disabled on</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> AppFooter/footer }}
+    </div>
+{{/ base }}

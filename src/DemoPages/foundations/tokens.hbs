@@ -1,0 +1,593 @@
+{{#> base }}
+{{> AppSidebar/sidebar foundations-tokens=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tokens-tab-color" data-toggle="tab" href="#tokens-pane-color">Color</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tokens-tab-tipografia" data-toggle="tab" href="#tokens-pane-tipografia">Tipografía</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tokens-tab-sombras" data-toggle="tab" href="#tokens-pane-sombras">Sombras</a>
+            </li>
+        </ul>
+
+        <div class="tabs-animation">
+            <div class="tab-content">
+
+                        <!-- ════════════════════════════════════════════════
+                             TAB: COLOR
+                             ════════════════════════════════════════════ -->
+                        <div class="tab-pane tabs-animation fade show active" id="tokens-pane-color" role="tabpanel">
+                        <div class="main-card mb-3 card"><div class="card-body">
+                        <div class="foundations-section mb-5">
+
+                            <!-- ── Paletas de color ───────────────────────── -->
+                            <p class="mm-showcase-label mb-3">Colores — primitivos</p>
+                            <div class="tg-palette-grid">
+
+                                <!-- Primary -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Primary</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#ececff"><span class="tg-band__step">50</span><span class="tg-band__token">$primary-50</span><span class="tg-band__hex">#ececff</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#dadaff"><span class="tg-band__step">100</span><span class="tg-band__token">$primary-100</span><span class="tg-band__hex">#dadaff</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#c2c0ff"><span class="tg-band__step">200</span><span class="tg-band__token">$primary-200</span><span class="tg-band__hex">#c2c0ff</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#9795ff"><span class="tg-band__step">300</span><span class="tg-band__token">$primary-300</span><span class="tg-band__hex">#9795ff</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#6c6aff"><span class="tg-band__step">400</span><span class="tg-band__token">$primary-400</span><span class="tg-band__hex">#6c6aff</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#423ffe"><span class="tg-band__step">500</span><span class="tg-band__token">$primary-500</span><span class="tg-band__hex">#423ffe</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#2020de"><span class="tg-band__step">600</span><span class="tg-band__token">$primary-600</span><span class="tg-band__hex">#2020de</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#1b1b8c"><span class="tg-band__step">700</span><span class="tg-band__token">$primary-700</span><span class="tg-band__hex">#1b1b8c</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#020078"><span class="tg-band__step">800</span><span class="tg-band__token">$primary-800</span><span class="tg-band__hex">#020078</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#090247"><span class="tg-band__step">900</span><span class="tg-band__token">$primary-900</span><span class="tg-band__hex">#090247</span></div>
+                                </div>
+
+                                <!-- Error -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Error</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#fef0f4"><span class="tg-band__step">50</span><span class="tg-band__token">$error-50</span><span class="tg-band__hex">#fef0f4</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#fddbe1"><span class="tg-band__step">100</span><span class="tg-band__token">$error-100</span><span class="tg-band__hex">#fddbe1</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#fbb1c4"><span class="tg-band__step">200</span><span class="tg-band__token">$error-200</span><span class="tg-band__hex">#fbb1c4</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#f98ba8"><span class="tg-band__step">300</span><span class="tg-band__token">$error-300</span><span class="tg-band__hex">#f98ba8</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#f76488"><span class="tg-band__step">400</span><span class="tg-band__token">$error-400</span><span class="tg-band__hex">#f76488</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#f3164e"><span class="tg-band__step">500</span><span class="tg-band__token">$error-500</span><span class="tg-band__hex">#f3164e</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#d40b3e"><span class="tg-band__step">600</span><span class="tg-band__token">$error-600</span><span class="tg-band__hex">#d40b3e</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#af0832"><span class="tg-band__step">700</span><span class="tg-band__token">$error-700</span><span class="tg-band__hex">#af0832</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#870625"><span class="tg-band__step">800</span><span class="tg-band__token">$error-800</span><span class="tg-band__hex">#870625</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#5e0419"><span class="tg-band__step">900</span><span class="tg-band__token">$error-900</span><span class="tg-band__hex">#5e0419</span></div>
+                                </div>
+
+                                <!-- Warning -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Warning</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#fff7e8"><span class="tg-band__step">50</span><span class="tg-band__token">$warning-50</span><span class="tg-band__hex">#fff7e8</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#fff3d6"><span class="tg-band__step">100</span><span class="tg-band__token">$warning-100</span><span class="tg-band__hex">#fff3d6</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#ffe7a8"><span class="tg-band__step">200</span><span class="tg-band__token">$warning-200</span><span class="tg-band__hex">#ffe7a8</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#ffd978"><span class="tg-band__step">300</span><span class="tg-band__token">$warning-300</span><span class="tg-band__hex">#ffd978</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#ffcc50"><span class="tg-band__step">400</span><span class="tg-band__token">$warning-400</span><span class="tg-band__hex">#ffcc50</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#ffc233"><span class="tg-band__step">500</span><span class="tg-band__token">$warning-500</span><span class="tg-band__hex">#ffc233</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#f2a800"><span class="tg-band__step">600</span><span class="tg-band__token">$warning-600</span><span class="tg-band__hex">#f2a800</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#c98800"><span class="tg-band__step">700</span><span class="tg-band__token">$warning-700</span><span class="tg-band__hex">#c98800</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#9e6b00"><span class="tg-band__step">800</span><span class="tg-band__token">$warning-800</span><span class="tg-band__hex">#9e6b00</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#6b4800"><span class="tg-band__step">900</span><span class="tg-band__token">$warning-900</span><span class="tg-band__hex">#6b4800</span></div>
+                                </div>
+
+                                <!-- Success -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Success</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#f0fbf5"><span class="tg-band__step">50</span><span class="tg-band__token">$success-50</span><span class="tg-band__hex">#f0fbf5</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#d0f5e2"><span class="tg-band__step">100</span><span class="tg-band__token">$success-100</span><span class="tg-band__hex">#d0f5e2</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#9eecc4"><span class="tg-band__step">200</span><span class="tg-band__token">$success-200</span><span class="tg-band__hex">#9eecc4</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#64e4a4"><span class="tg-band__step">300</span><span class="tg-band__token">$success-300</span><span class="tg-band__hex">#64e4a4</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#48d98b"><span class="tg-band__step">400</span><span class="tg-band__token">$success-400</span><span class="tg-band__hex">#48d98b</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#2dca72"><span class="tg-band__step">500</span><span class="tg-band__token">$success-500</span><span class="tg-band__hex">#2dca72</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#20a85c"><span class="tg-band__step">600</span><span class="tg-band__token">$success-600</span><span class="tg-band__hex">#20a85c</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#178549"><span class="tg-band__step">700</span><span class="tg-band__token">$success-700</span><span class="tg-band__hex">#178549</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#0e6237"><span class="tg-band__step">800</span><span class="tg-band__token">$success-800</span><span class="tg-band__hex">#0e6237</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#074024"><span class="tg-band__step">900</span><span class="tg-band__token">$success-900</span><span class="tg-band__hex">#074024</span></div>
+                                </div>
+
+                                <!-- Info -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Info</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#f1f5fd"><span class="tg-band__step">50</span><span class="tg-band__token">$info-50</span><span class="tg-band__hex">#f1f5fd</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#d6e4fa"><span class="tg-band__step">100</span><span class="tg-band__token">$info-100</span><span class="tg-band__hex">#d6e4fa</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#aecaf5"><span class="tg-band__step">200</span><span class="tg-band__token">$info-200</span><span class="tg-band__hex">#aecaf5</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#86aef0"><span class="tg-band__step">300</span><span class="tg-band__token">$info-300</span><span class="tg-band__hex">#86aef0</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#6595ec"><span class="tg-band__step">400</span><span class="tg-band__token">$info-400</span><span class="tg-band__hex">#6595ec</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#537ce4"><span class="tg-band__step">500</span><span class="tg-band__token">$info-500</span><span class="tg-band__hex">#537ce4</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#395bd7"><span class="tg-band__step">600</span><span class="tg-band__token">$info-600</span><span class="tg-band__hex">#395bd7</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#2943b4"><span class="tg-band__step">700</span><span class="tg-band__token">$info-700</span><span class="tg-band__hex">#2943b4</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#1b2f8c"><span class="tg-band__step">800</span><span class="tg-band__token">$info-800</span><span class="tg-band__hex">#1b2f8c</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#0f1d62"><span class="tg-band__step">900</span><span class="tg-band__token">$info-900</span><span class="tg-band__hex">#0f1d62</span></div>
+                                </div>
+
+                                <!-- Neutral -->
+                                <div class="tg-palette">
+                                    <div class="tg-palette__name">Neutral</div>
+                                    <div class="tg-band tg-band--on-light" style="background:#f6f8fa"><span class="tg-band__step">50</span><span class="tg-band__token">$neutral-50</span><span class="tg-band__hex">#f6f8fa</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#eaeef2"><span class="tg-band__step">100</span><span class="tg-band__token">$neutral-100</span><span class="tg-band__hex">#eaeef2</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#dbe3ea"><span class="tg-band__step">200</span><span class="tg-band__token">$neutral-200</span><span class="tg-band__hex">#dbe3ea</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#c9d1d8"><span class="tg-band__step">300</span><span class="tg-band__token">$neutral-300</span><span class="tg-band__hex">#c9d1d8</span></div>
+                                    <div class="tg-band tg-band--on-light" style="background:#a7b1bb"><span class="tg-band__step">400</span><span class="tg-band__token">$neutral-400</span><span class="tg-band__hex">#a7b1bb</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#86909c"><span class="tg-band__step">500</span><span class="tg-band__token">$neutral-500</span><span class="tg-band__hex">#86909c</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#65717e"><span class="tg-band__step">600</span><span class="tg-band__token">$neutral-600</span><span class="tg-band__hex">#65717e</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#4f5863"><span class="tg-band__step">700</span><span class="tg-band__token">$neutral-700</span><span class="tg-band__hex">#4f5863</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#3b424b"><span class="tg-band__step">800</span><span class="tg-band__token">$neutral-800</span><span class="tg-band__hex">#3b424b</span></div>
+                                    <div class="tg-band tg-band--on-dark"  style="background:#2e353d"><span class="tg-band__step">900</span><span class="tg-band__token">$neutral-900</span><span class="tg-band__hex">#2e353d</span></div>
+                                </div>
+
+                            </div>
+                            <div style="display:none"><!-- legacy removed
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Primary</th>
+                                        <th>Error</th>
+                                        <th>Warning</th>
+                                        <th>Success</th>
+                                        <th>Info</th>
+                                        <th>Neutral</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td><span class="tg-empty">—</span></td>
+                                        <td><span class="tg-empty">—</span></td>
+                                        <td><span class="tg-empty">—</span></td>
+                                        <td><span class="tg-empty">—</span></td>
+                                        <td><span class="tg-empty">—</span></td>
+                                        <td><span class="tg-cell"><code>$neutral-0</code><span class="token-swatch token-swatch--sm" style="background:#fdfdfd;border:1px solid #ddd;"></span><code class="tg-hex">#fdfdfd</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td><span class="tg-cell"><code>$primary-50</code><span class="token-swatch token-swatch--sm" style="background:#ececff;"></span><code class="tg-hex">#ececff</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-50</code><span class="token-swatch token-swatch--sm" style="background:#fef0f4;border:1px solid #f0d0d8;"></span><code class="tg-hex">#fef0f4</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-50</code><span class="token-swatch token-swatch--sm" style="background:#fff7e8;border:1px solid #ede0cc;"></span><code class="tg-hex">#fff7e8</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-50</code><span class="token-swatch token-swatch--sm" style="background:#f0fbf5;border:1px solid #cce8d8;"></span><code class="tg-hex">#f0fbf5</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-50</code><span class="token-swatch token-swatch--sm" style="background:#f1f5fd;border:1px solid #d0daf0;"></span><code class="tg-hex">#f1f5fd</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-50</code><span class="token-swatch token-swatch--sm" style="background:#f6f8fa;border:1px solid #eaeef2;"></span><code class="tg-hex">#f6f8fa</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>100</td>
+                                        <td><span class="tg-cell"><code>$primary-100</code><span class="token-swatch token-swatch--sm" style="background:#dadaff;"></span><code class="tg-hex">#dadaff</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-100</code><span class="token-swatch token-swatch--sm" style="background:#fddbe1;border:1px solid #f0c0cc;"></span><code class="tg-hex">#fddbe1</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-100</code><span class="token-swatch token-swatch--sm" style="background:#fff3d6;border:1px solid #eddfbc;"></span><code class="tg-hex">#fff3d6</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-100</code><span class="token-swatch token-swatch--sm" style="background:#d0f5e2;border:1px solid #b0e8cc;"></span><code class="tg-hex">#d0f5e2</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-100</code><span class="token-swatch token-swatch--sm" style="background:#d6e4fa;border:1px solid #b8ccf0;"></span><code class="tg-hex">#d6e4fa</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-100</code><span class="token-swatch token-swatch--sm" style="background:#eaeef2;"></span><code class="tg-hex">#eaeef2</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>200</td>
+                                        <td><span class="tg-cell"><code>$primary-200</code><span class="token-swatch token-swatch--sm" style="background:#c2c0ff;"></span><code class="tg-hex">#c2c0ff</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-200</code><span class="token-swatch token-swatch--sm" style="background:#fbb1c4;"></span><code class="tg-hex">#fbb1c4</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-200</code><span class="token-swatch token-swatch--sm" style="background:#ffe7a8;border:1px solid #e0d090;"></span><code class="tg-hex">#ffe7a8</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-200</code><span class="token-swatch token-swatch--sm" style="background:#9eecc4;"></span><code class="tg-hex">#9eecc4</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-200</code><span class="token-swatch token-swatch--sm" style="background:#aecaf5;"></span><code class="tg-hex">#aecaf5</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-200</code><span class="token-swatch token-swatch--sm" style="background:#dbe3ea;"></span><code class="tg-hex">#dbe3ea</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>300</td>
+                                        <td><span class="tg-cell"><code>$primary-300</code><span class="token-swatch token-swatch--sm" style="background:#9795ff;"></span><code class="tg-hex">#9795ff</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-300</code><span class="token-swatch token-swatch--sm" style="background:#f98ba8;"></span><code class="tg-hex">#f98ba8</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-300</code><span class="token-swatch token-swatch--sm" style="background:#ffd978;"></span><code class="tg-hex">#ffd978</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-300</code><span class="token-swatch token-swatch--sm" style="background:#64e4a4;"></span><code class="tg-hex">#64e4a4</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-300</code><span class="token-swatch token-swatch--sm" style="background:#86aef0;"></span><code class="tg-hex">#86aef0</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-300</code><span class="token-swatch token-swatch--sm" style="background:#c9d1d8;"></span><code class="tg-hex">#c9d1d8</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>400</td>
+                                        <td><span class="tg-cell"><code>$primary-400</code><span class="token-swatch token-swatch--sm" style="background:#6c6aff;"></span><code class="tg-hex">#6c6aff</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-400</code><span class="token-swatch token-swatch--sm" style="background:#f76488;"></span><code class="tg-hex">#f76488</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-400</code><span class="token-swatch token-swatch--sm" style="background:#ffcc50;"></span><code class="tg-hex">#ffcc50</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-400</code><span class="token-swatch token-swatch--sm" style="background:#48d98b;"></span><code class="tg-hex">#48d98b</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-400</code><span class="token-swatch token-swatch--sm" style="background:#6595ec;"></span><code class="tg-hex">#6595ec</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-400</code><span class="token-swatch token-swatch--sm" style="background:#a7b1bb;"></span><code class="tg-hex">#a7b1bb</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>500</td>
+                                        <td><span class="tg-cell"><code>$primary-500</code><span class="token-swatch token-swatch--sm" style="background:#423ffe;"></span><code class="tg-hex">#423ffe</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-500</code><span class="token-swatch token-swatch--sm" style="background:#f3164e;"></span><code class="tg-hex">#f3164e</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-500</code><span class="token-swatch token-swatch--sm" style="background:#ffc233;"></span><code class="tg-hex">#ffc233</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-500</code><span class="token-swatch token-swatch--sm" style="background:#2dca72;"></span><code class="tg-hex">#2dca72</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-500</code><span class="token-swatch token-swatch--sm" style="background:#537ce4;"></span><code class="tg-hex">#537ce4</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-500</code><span class="token-swatch token-swatch--sm" style="background:#86909c;"></span><code class="tg-hex">#86909c</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>600</td>
+                                        <td><span class="tg-cell"><code>$primary-600</code><span class="token-swatch token-swatch--sm" style="background:#2020de;"></span><code class="tg-hex">#2020de</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-600</code><span class="token-swatch token-swatch--sm" style="background:#d40b3e;"></span><code class="tg-hex">#d40b3e</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-600</code><span class="token-swatch token-swatch--sm" style="background:#f2a800;"></span><code class="tg-hex">#f2a800</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-600</code><span class="token-swatch token-swatch--sm" style="background:#20a85c;"></span><code class="tg-hex">#20a85c</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-600</code><span class="token-swatch token-swatch--sm" style="background:#395bd7;"></span><code class="tg-hex">#395bd7</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-600</code><span class="token-swatch token-swatch--sm" style="background:#65717e;"></span><code class="tg-hex">#65717e</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>700</td>
+                                        <td><span class="tg-cell"><code>$primary-700</code><span class="token-swatch token-swatch--sm" style="background:#1b1b8c;"></span><code class="tg-hex">#1b1b8c</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-700</code><span class="token-swatch token-swatch--sm" style="background:#af0832;"></span><code class="tg-hex">#af0832</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-700</code><span class="token-swatch token-swatch--sm" style="background:#c98800;"></span><code class="tg-hex">#c98800</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-700</code><span class="token-swatch token-swatch--sm" style="background:#178549;"></span><code class="tg-hex">#178549</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-700</code><span class="token-swatch token-swatch--sm" style="background:#2943b4;"></span><code class="tg-hex">#2943b4</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-700</code><span class="token-swatch token-swatch--sm" style="background:#4f5863;"></span><code class="tg-hex">#4f5863</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>800</td>
+                                        <td><span class="tg-cell"><code>$primary-800</code><span class="token-swatch token-swatch--sm" style="background:#020078;"></span><code class="tg-hex">#020078</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-800</code><span class="token-swatch token-swatch--sm" style="background:#870625;"></span><code class="tg-hex">#870625</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-800</code><span class="token-swatch token-swatch--sm" style="background:#9e6b00;"></span><code class="tg-hex">#9e6b00</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-800</code><span class="token-swatch token-swatch--sm" style="background:#0e6237;"></span><code class="tg-hex">#0e6237</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-800</code><span class="token-swatch token-swatch--sm" style="background:#1b2f8c;"></span><code class="tg-hex">#1b2f8c</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-800</code><span class="token-swatch token-swatch--sm" style="background:#3b424b;"></span><code class="tg-hex">#3b424b</code></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>900</td>
+                                        <td><span class="tg-cell"><code>$primary-900</code><span class="token-swatch token-swatch--sm" style="background:#090247;"></span><code class="tg-hex">#090247</code></span></td>
+                                        <td><span class="tg-cell"><code>$error-900</code><span class="token-swatch token-swatch--sm" style="background:#5e0419;"></span><code class="tg-hex">#5e0419</code></span></td>
+                                        <td><span class="tg-cell"><code>$warning-900</code><span class="token-swatch token-swatch--sm" style="background:#6b4800;"></span><code class="tg-hex">#6b4800</code></span></td>
+                                        <td><span class="tg-cell"><code>$success-900</code><span class="token-swatch token-swatch--sm" style="background:#074024;"></span><code class="tg-hex">#074024</code></span></td>
+                                        <td><span class="tg-cell"><code>$info-900</code><span class="token-swatch token-swatch--sm" style="background:#0f1d62;"></span><code class="tg-hex">#0f1d62</code></span></td>
+                                        <td><span class="tg-cell"><code>$neutral-900</code><span class="token-swatch token-swatch--sm" style="background:#2e353d;"></span><code class="tg-hex">#2e353d</code></span></td>
+                                    </tr>
+                            --></div>
+
+                        </div><!-- /foundations-section color -->
+                        </div></div><!-- /card -->
+                        </div><!-- /tab-pane color -->
+                        <div style="display:none"><!-- Theme colors, Header tokens, Body/Layout removidos de este tab -->
+                            <p class="mm-showcase-label mb-2">Theme colors</p>
+                            <table class="tokens-table mb-4">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Muestra</th>
+                                        <th>Primitivo</th>
+                                        <th>Valor</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>$primary</code></td>
+                                        <td><span class="token-swatch" style="background:#423ffe;"></span></td>
+                                        <td><code>$brand</code></td>
+                                        <td><code>#423ffe</code></td>
+                                        <td>Color de acción principal, botones, links</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$secondary</code></td>
+                                        <td><span class="token-swatch" style="background:#fe4a6b;"></span></td>
+                                        <td><code>$pink</code></td>
+                                        <td><code>#fe4a6b</code></td>
+                                        <td>Acciones secundarias, highlights</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$success</code></td>
+                                        <td><span class="token-swatch" style="background:#2dca72;"></span></td>
+                                        <td><code>$green</code></td>
+                                        <td><code>#2dca72</code></td>
+                                        <td>Estados positivos, confirmaciones</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$info</code></td>
+                                        <td><span class="token-swatch" style="background:#395bd7;"></span></td>
+                                        <td><code>$blue</code></td>
+                                        <td><code>#395bd7</code></td>
+                                        <td>Información, tooltips</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$warning</code></td>
+                                        <td><span class="token-swatch" style="background:#ffc233;"></span></td>
+                                        <td><code>$yellow</code></td>
+                                        <td><code>#ffc233</code></td>
+                                        <td>Advertencias, estados pendientes</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$danger</code></td>
+                                        <td><span class="token-swatch" style="background:#f3164e;"></span></td>
+                                        <td><code>$red</code></td>
+                                        <td><code>#f3164e</code></td>
+                                        <td>Errores, acciones destructivas</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$light</code></td>
+                                        <td><span class="token-swatch" style="background:#f6f8fa;border:1px solid #e0e0e0;"></span></td>
+                                        <td><code>$blue-light</code></td>
+                                        <td><code>#f6f8fa</code></td>
+                                        <td>Fondos claros, superficies neutras</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$dark</code></td>
+                                        <td><span class="token-swatch" style="background:#2e353d;"></span></td>
+                                        <td><code>$gray-900</code></td>
+                                        <td><code>#2e353d</code></td>
+                                        <td>Fondos oscuros, texto principal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- ── Header tokens ──────────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Header tokens <span class="text-muted" style="font-size:.75rem;font-weight:400;text-transform:none;letter-spacing:0;">($hd-*)</span></p>
+                            <table class="tokens-table mb-4">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Muestra</th>
+                                        <th>Primitivo</th>
+                                        <th>Valor</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>$hd-bg</code></td>
+                                        <td><span class="token-swatch" style="background:#2e353d;"></span></td>
+                                        <td><code>$gray-900</code></td>
+                                        <td><code>#2e353d</code></td>
+                                        <td>Fondo del app header</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-action-bg</code></td>
+                                        <td><span class="token-swatch" style="background:#4f5863;"></span></td>
+                                        <td><code>$gray-700</code></td>
+                                        <td><code>#4f5863</code></td>
+                                        <td>Fondo de icon-buttons en el header</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-separator-color</code></td>
+                                        <td><span class="token-swatch" style="background:#4f5863;"></span></td>
+                                        <td><code>$gray-700</code></td>
+                                        <td><code>#4f5863</code></td>
+                                        <td>Separador vertical derecho</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-context-color</code></td>
+                                        <td><span class="token-swatch" style="background:#f6f8fa;border:1px solid #e0e0e0;"></span></td>
+                                        <td><code>$blue-light</code></td>
+                                        <td><code>#f6f8fa</code></td>
+                                        <td>Texto de contexto (left side)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-chevron-color</code></td>
+                                        <td><span class="token-swatch" style="background:#a7b1bb;"></span></td>
+                                        <td><code>$gray-400</code></td>
+                                        <td><code>#a7b1bb</code></td>
+                                        <td>Chevrons e íconos expand</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-user-name</code></td>
+                                        <td><span class="token-swatch" style="background:#fdfdfd;border:1px solid #e0e0e0;"></span></td>
+                                        <td><code>$neutral-0</code></td>
+                                        <td><code>#fdfdfd</code></td>
+                                        <td>Nombre de usuario en header</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-user-role</code></td>
+                                        <td><span class="token-swatch" style="background:#dbe3ea;border:1px solid #e0e0e0;"></span></td>
+                                        <td><code>$gray-200</code></td>
+                                        <td><code>#dbe3ea</code></td>
+                                        <td>Subtítulo de rol de usuario</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-avatar-bg</code></td>
+                                        <td><span class="token-swatch" style="background:#dadaff;border:1px solid #e0e0e0;"></span></td>
+                                        <td><code>$primary-tint</code></td>
+                                        <td><code>#dadaff</code></td>
+                                        <td>Fondo avatar por defecto</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-avatar-color</code></td>
+                                        <td><span class="token-swatch" style="background:#1815bc;"></span></td>
+                                        <td><code>$primary-600</code></td>
+                                        <td><code>#1815bc</code></td>
+                                        <td>Color iniciales del avatar por defecto</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-action-size</code></td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td><code>44px</code></td>
+                                        <td>Tamaño de icon-buttons del header</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$hd-padding-x</code></td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td><code>2rem (32px)</code></td>
+                                        <td>Padding horizontal del header</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- ── Body / Layout ──────────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Body / Layout</p>
+                            <table class="tokens-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Muestra</th>
+                                        <th>Primitivo</th>
+                                        <th>Valor</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>$body-color</code></td>
+                                        <td><span class="token-swatch" style="background:#4f5863;"></span></td>
+                                        <td><code>$gray-700</code></td>
+                                        <td><code>#4f5863</code></td>
+                                        <td>Color de texto base de la app</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$body-bg</code></td>
+                                        <td><span class="token-swatch" style="background:#fff;border:1px solid #e0e0e0;"></span></td>
+                                        <td>—</td>
+                                        <td><code>#ffffff</code></td>
+                                        <td>Fondo base de la app</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$card-border-color</code></td>
+                                        <td><span class="token-swatch" style="background:#c9d1d8;"></span></td>
+                                        <td><code>$gray-300</code></td>
+                                        <td><code>#c9d1d8</code></td>
+                                        <td>Bordes de cards y contenedores</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$grid-gutter-width</code></td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td><code>16px</code></td>
+                                        <td>Gap entre cards en el grid</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$border-radius</code></td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td><code>8px</code></td>
+                                        <td>Border-radius base de cards y modales</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        --></div>
+
+                        <!-- ════════════════════════════════════════════════
+                             TAB: TIPOGRAFÍA
+                             ════════════════════════════════════════════ -->
+                        <div class="tab-pane tabs-animation fade" id="tokens-pane-tipografia" role="tabpanel">
+                        <div class="main-card mb-3 card"><div class="card-body">
+                        <div class="foundations-section">
+
+                            <!-- ── Familia y pesos ────────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Familia y pesos</p>
+                            <table class="tokens-table mb-4">
+                                <thead><tr><th>Variable</th><th>Valor</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>$font-family-base</code></td><td><code>'Poppins', system-ui, sans-serif</code></td></tr>
+                                    <tr><td><code>$font-weight-regular</code></td><td><code>400</code></td></tr>
+                                    <tr><td><code>$font-weight-medium</code></td><td><code>500</code></td></tr>
+                                    <tr><td><code>$font-weight-semibold</code></td><td><code>600</code></td></tr>
+                                </tbody>
+                            </table>
+
+                            <!-- ── Escala tipográfica ─────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Escala tipográfica</p>
+                            <table class="tokens-table mb-4">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Size</th>
+                                        <th>Line height</th>
+                                        <th>Letter spacing</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>$type-48</code></td><td class="type-table__meta">48px</td><td class="type-table__meta">56px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-40</code></td><td class="type-table__meta">40px</td><td class="type-table__meta">48px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-32</code></td><td class="type-table__meta">32px</td><td class="type-table__meta">40px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-24</code></td><td class="type-table__meta">24px</td><td class="type-table__meta">32px</td><td class="type-table__meta">-0.4px</td></tr>
+                                    <tr><td><code>$type-20</code></td><td class="type-table__meta">20px</td><td class="type-table__meta">28px</td><td class="type-table__meta">-0.2px</td></tr>
+                                    <tr><td><code>$type-18</code></td><td class="type-table__meta">18px</td><td class="type-table__meta">28px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-16</code></td><td class="type-table__meta">16px</td><td class="type-table__meta">24px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-14</code></td><td class="type-table__meta">14px</td><td class="type-table__meta">20px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-12</code></td><td class="type-table__meta">12px</td><td class="type-table__meta">16px</td><td class="type-table__meta">—</td></tr>
+                                    <tr><td><code>$type-11</code></td><td class="type-table__meta">11px</td><td class="type-table__meta">14px</td><td class="type-table__meta">—</td></tr>
+                                </tbody>
+                            </table>
+
+                            <!-- ── Headings ───────────────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Headings</p>
+                            <table class="tokens-table mb-4">
+                                <thead>
+                                    <tr><th>Token</th><th>Scale</th><th>Weight</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><span class="type-table__token">Headings/H1</span></td><td><code>$type-48</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Headings/H2</span></td><td><code>$type-40</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Headings/H3</span></td><td><code>$type-32</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Headings/H4</span></td><td><code>$type-24</code></td><td><code>$font-weight-medium</code></td></tr>
+                                    <tr><td><span class="type-table__token">Headings/H5</span></td><td><code>$type-20</code></td><td><code>$font-weight-medium</code></td></tr>
+                                    <tr><td><span class="type-table__token">Headings/H6</span></td><td><code>$type-16</code></td><td><code>$font-weight-medium</code></td></tr>
+                                </tbody>
+                            </table>
+
+                            <!-- ── Body ───────────────────────────────────── -->
+                            <p class="mm-showcase-label mb-2">Body</p>
+                            <table class="tokens-table mb-0">
+                                <thead>
+                                    <tr><th>Token</th><th>Scale</th><th>Weight</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tokens-table__group"><td colspan="3">Extra Large</td></tr>
+                                    <tr><td><span class="type-table__token">Body/XL Regular</span></td><td><code>$type-18</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/XL Strong</span></td><td><code>$type-18</code></td><td><code>$font-weight-semibold</code></td></tr>
+
+                                    <tr class="tokens-table__group"><td colspan="3">Large</td></tr>
+                                    <tr><td><span class="type-table__token">Body/L Regular</span></td><td><code>$type-16</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/L Strong</span></td><td><code>$type-16</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/L Link</span></td><td><code>$type-16</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/L Link Strong</span></td><td><code>$type-16</code></td><td><code>$font-weight-semibold</code></td></tr>
+
+                                    <tr class="tokens-table__group"><td colspan="3">Medium</td></tr>
+                                    <tr><td><span class="type-table__token">Body/M Regular</span></td><td><code>$type-14</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/M Strong</span></td><td><code>$type-14</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/M Link</span></td><td><code>$type-14</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/M Link Strong</span></td><td><code>$type-14</code></td><td><code>$font-weight-semibold</code></td></tr>
+
+                                    <tr class="tokens-table__group"><td colspan="3">Small</td></tr>
+                                    <tr><td><span class="type-table__token">Body/S Regular</span></td><td><code>$type-12</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/S Strong</span></td><td><code>$type-12</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/S Link</span></td><td><code>$type-12</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/S Link Strong</span></td><td><code>$type-12</code></td><td><code>$font-weight-semibold</code></td></tr>
+
+                                    <tr class="tokens-table__group"><td colspan="3">Caption</td></tr>
+                                    <tr><td><span class="type-table__token">Body/Caption</span></td><td><code>$type-11</code></td><td><code>$font-weight-regular</code></td></tr>
+                                    <tr><td><span class="type-table__token">Body/Caption Strong</span></td><td><code>$type-11</code></td><td><code>$font-weight-semibold</code></td></tr>
+                                </tbody>
+                            </table>
+
+                        </div></div></div><!-- /card -->
+                        </div><!-- /tab-pane tipografia -->
+
+
+                        <!-- ════════════════════════════════════════════════
+                             TAB: SOMBRAS
+                             ════════════════════════════════════════════ -->
+                        <div class="tab-pane tabs-animation fade" id="tokens-pane-sombras" role="tabpanel">
+                        <div class="main-card mb-3 card"><div class="card-body">
+                        <div class="foundations-section">
+                            <p class="mm-showcase-label mb-2">Sombras</p>
+                            <table class="tokens-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Valor</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>$shadow-table</code></td>
+                                        <td><code>rgba(18,18,23, 0.12)</code></td>
+                                        <td>Sombra de columna sticky en tablas</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>$shadow-float</code></td>
+                                        <td><code>rgba(0,0,0, 0.08)</code></td>
+                                        <td>Sombra de menús flotantes y dropdowns</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div></div></div><!-- /card -->
+                        </div><!-- /tab-pane sombras -->
+
+            </div><!-- /tab-content -->
+        </div><!-- /tabs-animation -->
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

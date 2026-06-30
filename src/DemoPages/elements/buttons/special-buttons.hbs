@@ -1,0 +1,428 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-buttons-special=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <div class="row">
+            <div class="col-12">
+
+                <!-- ── FAB ────────────────────────────────────────────────── -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="main-card card">
+                            <div class="card-body">
+                                <h5 class="card-title">Floating Action Button</h5>
+
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Expanded</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Hover</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded is-hover">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Pressed</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded active">
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab btn-fab--expanded disabled" disabled>
+                                                <span class="material-symbols-rounded">add</span>
+                                                <span class="btn-fab__label">Redactar</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Collapsed</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Hover</span>
+                                            <button type="button" class="btn btn-primary btn-fab is-hover">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Pressed</span>
+                                            <button type="button" class="btn btn-primary btn-fab active">
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <button type="button" class="btn btn-primary btn-fab disabled" disabled>
+                                                <span class="material-symbols-rounded">add</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Export button ──────────────────────────────────────── -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="main-card card">
+                            <div class="card-body">
+                                <h5 class="card-title">Export Button</h5>
+
+                                <div class="btn-showcase-row">
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Enabled</span>
+                                        <button type="button" class="btn-export">
+                                            <span class="material-symbols-rounded">download</span>
+                                            <span>Exportar</span>
+                                            <span class="material-symbols-rounded btn-export__caret">arrow_drop_down</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Hover</span>
+                                        <button type="button" class="btn-export is-hover">
+                                            <span class="material-symbols-rounded">download</span>
+                                            <span>Exportar</span>
+                                            <span class="material-symbols-rounded btn-export__caret">arrow_drop_down</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Pressed</span>
+                                        <button type="button" class="btn-export is-pressed">
+                                            <span class="material-symbols-rounded">download</span>
+                                            <span>Exportar</span>
+                                            <span class="material-symbols-rounded btn-export__caret">arrow_drop_down</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Disabled</span>
+                                        <button type="button" class="btn-export disabled" disabled>
+                                            <span class="material-symbols-rounded">download</span>
+                                            <span>Exportar</span>
+                                            <span class="material-symbols-rounded btn-export__caret">arrow_drop_down</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Badge button ───────────────────────────────────────── -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="main-card card">
+                            <div class="card-body">
+                                <h5 class="card-title">Badge Button</h5>
+
+                                <div class="btn-showcase-row">
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Enabled</span>
+                                        <button type="button" class="btn-badge">
+                                            <span class="material-symbols-rounded">attach_file</span>
+                                            <span>Adjuntar archivo</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Hover</span>
+                                        <button type="button" class="btn-badge is-hover">
+                                            <span class="material-symbols-rounded">attach_file</span>
+                                            <span>Adjuntar archivo</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Pressed</span>
+                                        <button type="button" class="btn-badge is-pressed">
+                                            <span class="material-symbols-rounded">attach_file</span>
+                                            <span>Adjuntar archivo</span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-showcase-col">
+                                        <span class="btn-showcase-state">Disabled</span>
+                                        <button type="button" class="btn-badge disabled" disabled>
+                                            <span class="material-symbols-rounded">attach_file</span>
+                                            <span>Adjuntar archivo</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Split Button ───────────────────────────────────────── -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="main-card card">
+                            <div class="card-body">
+                                <h5 class="card-title">Split Button</h5>
+
+                                <!-- Primary -->
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Primary — Medium</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <div class="btn-split btn-split--primary">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">drafts</span>Guardar borrador
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Action hover</span>
+                                            <div class="btn-split btn-split--primary">
+                                                <button type="button" class="btn-split__action is-hover">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Toggle hover</span>
+                                            <div class="btn-split btn-split--primary">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle is-hover"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <div class="btn-split btn-split--primary">
+                                                <button type="button" class="btn-split__action disabled" disabled>
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle disabled" disabled
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Secondary -->
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Secondary — Medium</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Enabled</span>
+                                            <div class="btn-split btn-split--secondary">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">drafts</span>Guardar borrador
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Action hover</span>
+                                            <div class="btn-split btn-split--secondary">
+                                                <button type="button" class="btn-split__action is-hover">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Toggle hover</span>
+                                            <div class="btn-split btn-split--secondary">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle is-hover"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Disabled</span>
+                                            <div class="btn-split btn-split--secondary">
+                                                <button type="button" class="btn-split__action disabled" disabled>
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle disabled" disabled
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Small sizes -->
+                                <div class="btn-showcase-group">
+                                    <div class="btn-showcase-label">Small</div>
+                                    <div class="btn-showcase-row">
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Primary sm</span>
+                                            <div class="btn-split btn-split--primary btn-split--sm">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Secondary sm</span>
+                                            <div class="btn-split btn-split--secondary btn-split--sm">
+                                                <button type="button" class="btn-split__action">
+                                                    <span class="material-symbols-rounded">send</span>
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-showcase-col">
+                                            <span class="btn-showcase-state">Sin ícono (Primary sm)</span>
+                                            <div class="btn-split btn-split--primary btn-split--sm">
+                                                <button type="button" class="btn-split__action">
+                                                    Enviar
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn-split__toggle dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="material-symbols-rounded">arrow_drop_down</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">schedule_send</span>Programar envío
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

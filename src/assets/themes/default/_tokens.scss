@@ -1,0 +1,160 @@
+// ============================================================
+// Design Tokens — Quinttos Design System
+// Source: Figma file dCEtw9coTRcbLRS4YZtQ1n
+// Foundations: Color · Typography · Radius · Spacing
+// ============================================================
+
+:root {
+
+  // ── Color — Primary ────────────────────────────────────────
+  --color-primary-50:   #ECECFF;
+  --color-primary-100:  #DADAFF;
+  --color-primary-200:  #C2C0FF;
+  --color-primary-300:  #9795FF;
+  --color-primary-400:  #6C6AFF;
+  --color-primary-500:  #433FFF;   // brand default
+  --color-primary-600:  #2020DE;
+  --color-primary-700:  #1B1B8C;
+  --color-primary-800:  #020078;
+  --color-primary-900:  #090247;
+
+  // ── Color — Neutral ────────────────────────────────────────
+  --color-neutral-0:    #F6F8FA;
+  --color-neutral-100:  #EAEEF2;
+  --color-neutral-200:  #DBE3EA;
+  --color-neutral-300:  #C9D1D8;
+  --color-neutral-400:  #A7B1BB;
+  --color-neutral-500:  #86909C;
+  --color-neutral-600:  #65717E;
+  --color-neutral-700:  #4F5863;
+  --color-neutral-800:  #3B424B;
+  --color-neutral-900:  #2E353D;
+
+  // ── Color — Error ──────────────────────────────────────────
+  --color-error-50:    #FEF0F4;
+  --color-error-100:   #FDDBE1;
+  --color-error-200:   #FBB1C4;
+  --color-error-300:   #F98BA8;
+  --color-error-400:   #F76488;
+  --color-error-500:   #F3164E;   // danger default
+  --color-error-600:   #D40B3E;
+  --color-error-700:   #AF0832;
+  --color-error-800:   #870625;
+  --color-error-900:   #5E0419;
+
+  // ── Color — Warning ────────────────────────────────────────
+  --color-warning-50:  #FFF7E8;
+  --color-warning-100: #FFF3D6;
+  --color-warning-200: #FFE7A8;
+  --color-warning-300: #FFD978;
+  --color-warning-400: #FFCC50;
+  --color-warning-500: #FFC233;   // warning default
+  --color-warning-600: #F2A800;
+  --color-warning-700: #C98800;
+  --color-warning-800: #9E6B00;
+  --color-warning-900: #6B4800;
+
+  // ── Color — Success ────────────────────────────────────────
+  --color-success-50:  #F0FBF5;
+  --color-success-100: #D0F5E2;
+  --color-success-200: #9EECC4;
+  --color-success-300: #64E4A4;
+  --color-success-400: #48D98B;
+  --color-success-500: #2DCA72;   // success default
+  --color-success-600: #20A85C;
+  --color-success-700: #178549;
+  --color-success-800: #0E6237;
+  --color-success-900: #074024;
+
+  // ── Color — Info ───────────────────────────────────────────
+  --color-info-50:     #F1F5FD;
+  --color-info-100:    #D6E4FA;
+  --color-info-200:    #AECAF5;
+  --color-info-300:    #86AEF0;
+  --color-info-400:    #6595EC;
+  --color-info-500:    #537CE4;   // info default
+  --color-info-600:    #395BD7;
+  --color-info-700:    #2943B4;
+  --color-info-800:    #1B2F8C;
+  --color-info-900:    #0F1D62;
+
+  // ── Typography — Font family ───────────────────────────────
+  --font-family-base: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  // ── Typography — Headings ──────────────────────────────────
+  --font-size-h1:    3rem;         // 48px
+  --line-height-h1:  3.5rem;       // 56px
+  --font-weight-h1:  600;
+  --letter-spacing-h1: 0;
+
+  --font-size-h2:    2.5rem;       // 40px
+  --line-height-h2:  3rem;         // 48px
+  --font-weight-h2:  600;
+  --letter-spacing-h2: 0;
+
+  --font-size-h3:    2rem;         // 32px
+  --line-height-h3:  2.5rem;       // 40px
+  --font-weight-h3:  600;
+  --letter-spacing-h3: 0;
+
+  --font-size-h4:    1.5rem;       // 24px
+  --line-height-h4:  2rem;         // 32px
+  --font-weight-h4:  500;
+  --letter-spacing-h4: -0.025em;   // -0.4px @ 16px base
+
+  --font-size-h5:    1.25rem;      // 20px
+  --line-height-h5:  1.75rem;      // 28px
+  --font-weight-h5:  500;
+  --letter-spacing-h5: -0.0125em;  // -0.2px @ 16px base
+
+  --font-size-h6:    1rem;         // 16px
+  --line-height-h6:  1.5rem;       // 24px
+  --font-weight-h6:  500;
+  --letter-spacing-h6: 0;
+
+  // ── Typography — Body ──────────────────────────────────────
+  --font-size-body-xl:  1.125rem;  // 18px
+  --line-height-body-xl: 1.75rem;  // 28px
+
+  --font-size-body-l:   1rem;      // 16px
+  --line-height-body-l: 1.5rem;    // 24px
+
+  --font-size-body-m:   0.875rem;  // 14px
+  --line-height-body-m: 1.25rem;   // 20px
+
+  --font-size-body-s:   0.75rem;   // 12px
+  --line-height-body-s: 1rem;      // 16px
+
+  --font-size-caption:  0.6875rem; // 11px
+  --line-height-caption: 0.875rem; // 14px
+
+  // ── Typography — Font weights ──────────────────────────────
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  // ── Radius ─────────────────────────────────────────────────
+  --radius-xs:   4px;
+  --radius-s:    8px;
+  --radius-m:   16px;
+  --radius-l:   24px;
+  --radius-xl:  32px;
+  --radius-2xl: 48px;
+  --radius-full: 999px;
+
+  // ── Spacing ────────────────────────────────────────────────
+  --spacing-0-5:   2px;
+  --spacing-1:     4px;
+  --spacing-2:     8px;
+  --spacing-3:    12px;
+  --spacing-4:    16px;
+  --spacing-5:    24px;
+  --spacing-6:    32px;
+  --spacing-7:    40px;
+  --spacing-8:    48px;
+  --spacing-9:    64px;
+  --spacing-10:   80px;
+  --spacing-11:   96px;
+  --spacing-12:  128px;
+
+}

@@ -1,0 +1,115 @@
+// Modals
+
+// ── Base ─────────────────────────────────────────────────────────────────────
+
+// Centrado vertical — solo cuando está abierto
+.modal.show {
+  display: flex !important;
+  align-items: center;
+}
+
+.modal-dialog {
+  margin: auto;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+// Backdrop — Neutral-900 al 80%
+.modal-backdrop {
+  background-color: #2e353d;  // Neutral-900
+
+  &.show { opacity: 0.8; }
+}
+
+.modal-header {
+  padding: 16px 24px;
+  border-bottom: none;
+  background: $gray-100;   // #eaeef2 — Neutral-100
+  align-items: center;
+
+  .modal-title {
+    font-weight: 500;       // Poppins Medium
+    color: #3b424b;         // Neutral-800
+    line-height: 1.75rem;   // 28px
+    letter-spacing: -0.0125rem; // −0.2px
+  }
+
+  .close {
+    color: #3b424b;
+    opacity: 0.6;
+    font-size: 1rem;
+    padding: 4px;
+    margin: 0;
+
+    &:hover { opacity: 1; }
+  }
+}
+
+.modal-body {
+  padding: 24px;
+  background: #fdfdfd;
+  color: #2e353d;           // Neutral-900
+  font-size: 0.875rem;      // 14px
+  line-height: 1.25rem;     // 20px
+}
+
+.modal-footer {
+  padding: 16px;
+  border-top: none;
+  background: $gray-100;   // #eaeef2
+  justify-content: flex-end;
+  gap: 8px;
+
+}
+
+// ── Modal con acciones — Desktop ──────────────────────────────────────────────
+// .modal-dialog: .modal--action  /  ancho 900px: añadir .modal-action-size
+
+.modal--action {
+  .modal-title {
+    font-size: 1.25rem;     // H5 — 20px
+  }
+}
+
+.modal-action-size {
+  max-width: 900px;
+}
+
+// ── Modal con acciones — Móvil ────────────────────────────────────────────────
+// .modal-dialog: .modal--action .modal--mobile .modal-sm
+
+.modal--mobile {
+  .modal-title {
+    font-size: 1rem;        // H6 — 16px
+    line-height: 1.5rem;    // 24px
+    letter-spacing: 0;
+  }
+
+  .modal-body {
+    font-size: 0.75rem;     // 12px
+    line-height: 1rem;      // 16px
+  }
+}
+
+// ── Modal de confirmación — todo fondo blanco ─────────────────────────────────
+
+.modal--confirm {
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    background: #fdfdfd;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;     // H5 — 20px (desktop)
+  }
+
+  .modal-body {
+    padding-bottom: 40px;   // Figma: más espacio bajo el texto
+  }
+}

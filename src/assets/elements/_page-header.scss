@@ -1,0 +1,136 @@
+// ── Page Header — Quinttos Design System ─────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 150-8591 (Desktop) / 150-8590 (Mobile)
+
+.page-header {
+  background: #ececff;       // Primary-50
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 32px;
+  // width is handled by .app-page-header layout class (calc(100% + 64px))
+
+  // ── Heading row ───────────────────────────────────────────────────────────
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  // ── Title + subtitle inline ───────────────────────────────────────────────
+  &__title-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: 1.5rem;       // 24px — H4
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: -0.017em;
+    color: #2e353d;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;      // 20px — H5
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    color: #4f5863;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  // ── Badge ─────────────────────────────────────────────────────────────────
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    background: #01003d;
+    color: #fdfdfd;
+    font-size: 0.875rem;     // 14px — Body/M Strong
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  // ── Breadcrumb ────────────────────────────────────────────────────────────
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: '/';
+        font-size: 0.875rem;
+        line-height: 20px;
+        color: #86909c;
+        margin: 0 6px;
+      }
+
+      &:last-child::after { display: none; }
+    }
+
+    a, span {
+      font-size: 0.875rem;   // 14px — Body/M Regular
+      font-weight: 400;
+      line-height: 20px;
+      color: #433fff;        // Primary-500
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover { text-decoration: underline; }
+    }
+
+    // Último ítem (página actual) — no es enlace
+    li:last-child span {
+      color: #86909c;
+      pointer-events: none;
+    }
+  }
+
+  // ── Mobile variant ────────────────────────────────────────────────────────
+  &--mobile {
+    padding: 16px;
+    gap: 8px;
+
+    .page-header__heading { gap: 12px; }
+
+    .page-header__title {
+      font-size: 1.25rem;    // 20px — H5
+      line-height: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-header__badge {
+      font-size: 0.6875rem;  // 11px — Caption/Strong
+      font-weight: 600;
+      line-height: 14px;
+      letter-spacing: 0.01em;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+
+    .page-header__breadcrumb a,
+    .page-header__breadcrumb span {
+      color: #4f5863;        // Neutral-700 en mobile
+    }
+
+    .page-header__breadcrumb li::after {
+      color: #a7b1bb;        // Neutral-400
+    }
+  }
+}

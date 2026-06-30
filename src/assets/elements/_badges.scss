@@ -1,0 +1,636 @@
+// ── Badges — Quinttos Design System ──────────────────────────────────────────
+// Estilo base: flat / muted — sin gradientes, sin sombras.
+// Todos los variantes usan fondo tinte + texto oscuro semántico,
+// igual al patrón de los .tag--* ya definidos.
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;        // Regular — Caption weight
+  text-transform: none;
+  font-size: 0.6875rem;    // 11px — Caption/Regular
+  line-height: 14px;
+  padding: 4px 6px;
+  min-width: 19px;
+  letter-spacing: 0;
+  border-radius: 4px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+// ── Variantes semánticas (muted / tinted) ────────────────────────────────────
+
+.badge-primary {
+  background-color: #dadaff;
+  color: #1815bc;
+}
+
+.badge-secondary {
+  background-color: #dbe3ea;
+  color: #3b424b;
+}
+
+.badge-success {
+  background-color: #b2eecc;
+  color: #0f4527;
+}
+
+.badge-danger {
+  background-color: #fdd8e1;
+  color: #af0932;
+}
+
+.badge-warning {
+  background-color: #ffe7ad;
+  color: #523900;
+}
+
+.badge-info {
+  background-color: #cadaf8;
+  color: #29377f;
+}
+
+.badge-dark {
+  background-color: #2e353d;
+  color: #f6f8fa;
+}
+
+.badge-light {
+  background-color: #eaeef2;
+  color: #2e353d;
+}
+
+.badge-neutral {
+  background-color: #dbe3ea;
+  color: #3b424b;
+}
+
+// Alias semánticos del sistema ArchitectUI (usados en header, nav, etc.)
+.badge-focus  { background-color: #dadaff; color: #1815bc; }
+.badge-alt    { background-color: #fdd8e1; color: #2e353d; }
+
+// ── Pill variant ──────────────────────────────────────────────────────────────
+// Mantiene compatibilidad con .badge-pill de Bootstrap 4
+.badge-pill {
+  border-radius: 100px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+// ── Dot badges — usan color sólido (son indicadores visuales, no etiquetas) ──
+// Necesitan override de las variantes muted para mantener legibilidad como punto
+.badge-dot {
+  border-radius: 30px !important;
+  padding: 0 !important;
+
+  &.badge-primary   { background-color: $primary; }
+  &.badge-secondary { background-color: $secondary; }
+  &.badge-success   { background-color: $success; }
+  &.badge-danger    { background-color: $danger; }
+  &.badge-warning   { background-color: $warning; }
+  &.badge-info      { background-color: $info; }
+  &.badge-dark      { background-color: $dark; }
+  &.badge-light     { background-color: $light; }
+  &.badge-focus     { background-color: #433fff; }
+  &.badge-alt       { background-color: $danger; }
+}
+
+.badge-dot {
+  text-indent: -999em;
+  padding: 0;
+  width: 8px;
+  height: 8px;
+  border: transparent solid 1px;
+  @include border-radius(30px);
+  min-width: 2px;
+}
+
+.badge-dot-lg {
+  width: 10px;
+  height: 10px;
+}
+
+.badge-dot-xl {
+  width: 18px;
+  height: 18px;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    @include border-radius($border-radius);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -5px 0 0 -5px;
+    background: $white;
+  }
+}
+
+.badge-dot-sm {
+  width: 6px;
+  height: 6px;
+}
+
+.btn {
+  .badge {
+    margin-left: 8px;
+  }
+
+  .badge-dot {
+    position: absolute;
+    border: $white solid 2px;
+    top: -5px;
+    right: -5px;
+    width: 11px;
+    height: 11px;
+
+    &.badge-dot-lg {
+      width: 14px;
+      height: 14px;
+    }
+
+    &.badge-dot-sm {
+      width: 8px;
+      height: 8px;
+      border-width: 1px;
+    }
+  }
+
+  .badge-dot-inside {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.btn-sm {
+  .badge-dot-sm {
+    top: 1px;
+    right: 4px;
+  }
+
+  .badge-dot {
+    top: 0px;
+    right: 2px;
+  }
+
+  .badge-dot-lg {
+    top: -3px;
+    right: -2px;
+  }
+
+  .badge-pill {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+  }
+}
+
+.badge-abs {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+}
+
+// Avatars
+
+.avatar-icon-wrapper {
+  display: inline-block;
+  margin-right: .1rem;
+  position: relative;
+
+  .badge {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+
+    &:empty {
+      display: block;
+    }
+
+    &.badge-bottom {
+      top: auto;
+      right: -2px;
+      bottom: -2px;
+    }
+  }
+
+  .badge-dot {
+    width: 10px;
+    height: 10px;
+    border: $white solid 2px;
+
+    &.badge-dot-lg {
+      width: 14px;
+      height: 14px;
+      border: $white solid 2px;
+      top: 0;
+      right: 0;
+
+      &.badge-bottom {
+        top: auto;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.avatar-icon-add {
+
+  .avatar-icon {
+    background: $dropdown-link-hover-bg;
+    border: lighten($primary, 15%) dashed 1px;
+    color: $primary;
+    text-align: center;
+    opacity: .6;
+
+    i {
+      font-style: normal;
+      vertical-align: middle;
+      font-size: $h4-font-size;
+      display: block;
+      height: 100%;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .avatar-icon {
+      opacity: 1;
+    }
+  }
+}
+
+a.avatar-icon-wrapper {
+  &:hover {
+
+    .avatar-icon {
+      opacity: .8;
+    }
+  }
+}
+
+.avatar-icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  transition: all .2s;
+  opacity: 1;
+  @include border-radius(50px);
+
+  &.rounded {
+    @include border-radius(($border-radius-lg * 1.3) !important);
+  }
+}
+
+.avatar-icon-xl {
+  .avatar-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  &.avatar-icon-add {
+    i {
+      font-size: $h2-font-size;
+    }
+  }
+}
+
+.avatar-icon-lg {
+  .avatar-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  &.avatar-icon-add {
+    i {
+      font-size: $h3-font-size;
+    }
+  }
+}
+
+.avatar-icon-sm {
+  .avatar-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  &.avatar-icon-add {
+    i {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+.avatar-icon-xs {
+  .avatar-icon {
+    width: 26px;
+    height: 26px;
+    transition: transform .2s;
+  }
+
+  &.avatar-icon-add {
+    i {
+      line-height: 26px;
+      font-size: $font-size-base;
+    }
+  }
+
+  &:hover {
+    .avatar-icon {
+      transform: scale(2);
+    }
+  }
+}
+
+.avatar-icon {
+  border: $white solid 3px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.avatar-wrapper-overlap {
+  .avatar-icon-wrapper {
+    z-index: 5;
+    margin-left: -18px;
+
+    &:hover {
+      z-index: 7;
+    }
+
+    &.avatar-icon-xl {
+      margin-left: -30px;
+    }
+    &.avatar-icon-lg {
+      margin-left: -24px;
+    }
+    &.avatar-icon-sm {
+      margin-left: -14px;
+    }
+    &.avatar-icon-xs {
+      margin-left: -10px;
+    }
+
+    &.avatar-icon-add,
+    &:first-child {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+// ── Tag component (Figma design system) ──────────────────────────────────────
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 12px 0 6px;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  cursor: default;
+
+  .material-symbols-rounded {
+    font-size: 1rem;
+    line-height: 1;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    flex-shrink: 0;
+  }
+}
+
+.tag--no-icon  { padding-left: 12px; }
+
+.tag--icon-only {
+  width: 32px;
+  padding: 0;
+  justify-content: center;
+}
+
+.tag__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 2px;
+  margin-right: -4px;
+  color: inherit;
+  opacity: .6;
+  flex-shrink: 0;
+
+  &:hover { opacity: 1; }
+
+  .material-symbols-rounded { font-size: .875rem; }
+}
+
+.tag--new {
+  background-color: transparent !important;
+  border: 1.5px dashed #c9d1d8 !important;
+  color: #86909c !important;
+  width: 32px;
+  padding: 0;
+  justify-content: center;
+}
+
+// Small size
+.tag--sm {
+  height: 22px;
+  padding: 0 8px 0 4px;
+  border-radius: 6px;
+  font-size: .75rem;
+
+  .material-symbols-rounded { font-size: .75rem; }
+
+  &.tag--no-icon   { padding-left: 8px; }
+  &.tag--icon-only { width: 22px; padding: 0; justify-content: center; }
+  &.tag--new       { width: 22px; padding: 0; justify-content: center; }
+
+  .tag__close {
+    width: 14px;
+    height: 14px;
+    margin-right: -2px;
+    .material-symbols-rounded { font-size: .75rem; }
+  }
+}
+
+// Color variants
+.tag--primary   { background-color: #01003d; color: #fdfdfd; }
+.tag--secondary { background-color: #dbe3ea; color: #3b424b; }
+.tag--danger    { background-color: #fdd8e1; color: #af0932; }
+.tag--success   { background-color: #b2eecc; color: #0f4527; }
+.tag--warning   { background-color: #ffe7ad; color: #523900; }
+.tag--info      { background-color: #cadaf8; color: #29377f; }
+.tag--focus     { background-color: #433fff; color: #fdfdfd; }
+.tag--alt       { background-color: #fdd8e1; color: #2e353d; }
+.tag--light     { background-color: #eaeef2; color: #2e353d; }
+.tag--dark      { background-color: #2e353d; color: #f6f8fa; }
+
+// Style variants
+.tag--outline {
+  background-color: #fdfdfd;
+  border-color: #c9d1d8;
+  color: #4f5863;
+  font-weight: 400;
+}
+
+.tag--informative {
+  background-color: #dbe3ea;
+  color: #3b424b;
+  font-weight: 400;
+}
+
+// ── Notification / Dot Badge ──────────────────────────────────────────────────
+
+.badge-notify-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-notify {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 100px;
+  background-color: #d50b3e;
+  color: #fdfdfd;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  max-width: 36px;
+  // El anillo usa una variable CSS que el theme-customizer actualiza con el color
+  // exacto del header — así siempre queda invisible sin importar el fondo elegido
+  box-shadow: 0 0 0 2px var(--header-bg, #fff);
+  z-index: 5;
+  pointer-events: none;
+
+  &--dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff;
+    top: 6px;
+    right: 6px;
+  }
+
+  &--on-dark {
+    box-shadow: 0 0 0 2px #3b424b;
+  }
+}
+
+// Tag showcase layout helpers
+.tag-showcase-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  padding: .625rem 0;
+  border-bottom: 1px solid $gray-100;
+
+  &:last-child { border-bottom: none; }
+}
+
+.tag-showcase-label {
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: $gray-500;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.tag-showcase-group {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  flex-wrap: wrap;
+}
+
+.tag-showcase-divider {
+  width: 1px;
+  height: 22px;
+  background: $gray-200;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+// Badge Pulse
+
+@-webkit-keyframes sploosh {
+  0% {
+    box-shadow: 0 0 0 0px rgba(#333, .2);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(#333, 0);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  16.5% {
+    -webkit-transform: scale(1.2);
+  }
+  33% {
+    -webkit-transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.badge-pulse {
+  -webkit-animation: pulse 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    -webkit-animation: sploosh 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation-iteration-count: infinite;
+  }
+
+  &::after {
+    -webkit-animation-delay: .33s;
+    -webkit-animation-duration: 2.2s;
+  }
+}

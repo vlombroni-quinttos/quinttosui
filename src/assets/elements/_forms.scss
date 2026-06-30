@@ -1,0 +1,725 @@
+// ── Input Groups — Figma: dCEtw9coTRcbLRS4YZtQ1n · node 2902:61973 ──────────────
+// 3 variantes: Button Right · Button Left · Button Dropdown
+
+.ig-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+
+  // ── Campo de texto ──────────────────────────────────────────────────────────
+  &__field {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    background: #fdfdfd;
+    border-top: 1px solid #c9d1d8;
+    border-bottom: 1px solid #c9d1d8;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #2e353d;
+    outline: none;
+    font-family: inherit;
+    transition: border-color .15s ease, border-width .15s ease, padding .15s ease;
+
+    &::placeholder { color: #86909c; }
+
+    // Input a la izquierda (botón a la derecha)
+    &--left {
+      border-left: 1px solid #c9d1d8;
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      padding: 9px 8px 9px 13px;   // pr -1px: el borde del btn es el separador
+    }
+
+    // Input a la derecha (botón a la izquierda)
+    &--right {
+      border-right: 1px solid #c9d1d8;
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      padding: 9px 9px 9px 12px;   // pl -1px: el borde del btn es el separador
+    }
+
+    // Focus
+    &:focus {
+      border-width: 3px;
+      border-color: #dadaff;
+
+      &.ig-group__field--left  { padding: 8px 7px 8px 12px; }
+      &.ig-group__field--right { padding: 8px 8px 8px 11px; }
+    }
+  }
+
+  // ── Botón ───────────────────────────────────────────────────────────────────
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 17px;
+    height: 44px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #433fff;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 24px;
+    color: #433fff;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: background .15s, color .15s, border-color .15s;
+
+    // Botón a la izquierda
+    &--left  { border-radius: 8px 0 0 8px; }
+
+    // Botón a la derecha
+    &--right { border-radius: 0 8px 8px 0; }
+
+    // Chevron del dropdown
+    &--dropdown .material-symbols-rounded {
+      font-size: 18px;
+      color: inherit;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+
+    &:hover {
+      background: #ececff;
+      color: #1815bc;
+      border-color: #1815bc;
+    }
+
+    &:active {
+      background: #ececff;
+      color: #020078;
+      border-color: #020078;
+    }
+  }
+
+  // ── Variante Mobile / Small (node 2897:57044) ────────────────────────────────
+  // Misma altura y padding; solo tipografía más pequeña
+  &--sm &__field {
+    font-size: 0.875rem;    // 14px — Body/M
+    line-height: 20px;
+  }
+
+  &--sm &__btn {
+    font-size: 0.875rem;    // 14px — Body/M Strong
+    line-height: 20px;
+  }
+}
+
+// Bootstrap .input-group datepicker compat — sin cambios visuales
+.input-group {
+  .input-group-prepend {
+    & + div {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+    }
+  }
+
+  & > .react-datepicker-wrapper {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+
+    & > .react-datepicker__input-container > .form-control {
+      @include border-right-radius(0);
+    }
+  }
+}
+
+// Forms Legend
+
+legend {
+  font-size: $font-size-base;
+  font-weight: bold;
+}
+
+// Headings
+
+.form-heading {
+  font-size: $font-size-lg;
+  margin: 0;
+  color: $primary;
+
+  p {
+    color: $gray-600;
+    padding: 0.3rem 0 0;
+    font-size: $font-size-base;
+  }
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+// ── Quinttos Form Controls ─────────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 31:896
+
+// ── Label ─────────────────────────────────────────────────────────────────────
+label,
+.col-form-label {
+  font-size: 0.875rem;       // 14px — Body/M Regular
+  font-weight: 400;
+  line-height: 20px;
+  color: #2e353d;            // Neutral-900
+  margin-bottom: 8px;        // gap label → control
+}
+
+// ── form-control (input, textarea, select.form-control) ───────────────────────
+.form-control {
+  height: 44px;
+  padding: 9px 9px 9px 13px;
+  background-color: #fdfdfd;
+  border: 1px solid #c9d1d8; // Neutral-300
+  border-radius: 8px;
+  font-size: 1rem;            // 16px — Body/L Regular
+  font-weight: 400;
+  line-height: 24px;
+  color: #2e353d;
+  box-shadow: none;
+  transition: border-color .15s ease, border-width .15s ease, padding .15s ease;
+
+  &::placeholder { color: #86909c; }  // Neutral-500
+
+  // ── Focus — 3px Primary-100 border; compensate padding so inner size stays constant
+  &:focus {
+    border: 3px solid #dadaff;         // Primary-100
+    padding: 8px 8px 8px 12px;         // -1px each side vs default (1px → 3px delta)
+    background-color: #fdfdfd;
+    color: #2e353d;
+    box-shadow: none;
+    outline: none;
+  }
+
+  // ── Disabled / readonly
+  &:disabled,
+  &[readonly] {
+    background-color: #eaeef2;         // Neutral-100
+    border-color: #c9d1d8;
+    color: #86909c;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  // ── Invalid — keep Figma border (no red), suppress Bootstrap's red ring
+  &.is-invalid {
+    border-color: #c9d1d8;
+    background-image: none;
+    padding-right: 9px;
+    box-shadow: none;
+
+    &:focus {
+      border: 3px solid #dadaff;
+      padding: 8px 8px 8px 12px;
+      box-shadow: none;
+    }
+  }
+}
+
+.was-validated .form-control:invalid {
+  border-color: #c9d1d8;
+  background-image: none;
+  padding-right: 9px;
+  box-shadow: none;
+}
+
+// ── Textarea — auto height, same base styles ───────────────────────────────────
+textarea.form-control {
+  height: auto;
+  min-height: 100px;
+  padding: 9px 9px 9px 13px;
+  resize: vertical;
+
+  &:focus { padding: 8px 8px 8px 12px; }
+}
+
+// ── Select icon — arrow_drop_down de Material Symbols ─────────────────────────
+// Figma: node 31:897 · icon-wrapper pr-[9px] · icon 24px · color Neutral-700 #4f5863
+// SVG path: Material Symbols arrow_drop_down (filled, wght 300)
+$select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath fill='%234f5863' d='M480-360 280-560h400L480-360Z'/%3E%3C/svg%3E");
+// Deshabilitado: Neutral-500 #86909c
+$select-icon-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath fill='%2386909c' d='M480-360 280-560h400L480-360Z'/%3E%3C/svg%3E");
+
+// Mixin compartido por select.form-control y .custom-select
+@mixin select-base {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 44px;
+  padding: 9px 41px 9px 13px;       // derecha: 9px borde + 24px ícono + 8px gap
+  background-color: #fdfdfd;
+  background-image: $select-icon;
+  background-repeat: no-repeat;
+  background-position: right 9px center;  // 9px del borde derecho — igual que pr-[9px] del Figma
+  background-size: 24px 24px;
+  border: 1px solid #c9d1d8;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  color: #2e353d;
+  box-shadow: none;
+  transition: border-color .15s ease, border-width .15s ease, padding .15s ease;
+
+  &:focus {
+    border: 3px solid #dadaff;
+    padding: 8px 40px 8px 12px;      // -1px compensación de borde
+    background-position: right 8px center;
+    background-color: #fdfdfd;
+    color: #2e353d;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: #eaeef2;
+    background-image: $select-icon-disabled;
+    border-color: #c9d1d8;
+    color: #86909c;
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  &.is-invalid { border-color: #c9d1d8; box-shadow: none; }
+}
+
+// ── select.form-control ────────────────────────────────────────────────────────
+select.form-control { @include select-base; }
+
+// ── Custom Select (Bootstrap 4) ────────────────────────────────────────────────
+.custom-select { @include select-base; }
+
+// ── Error label colour (requires .has-error on .form-group) ────────────────────
+// Bootstrap puts <label> BEFORE <input> so :invalid sibling selectors don't work.
+// Use .has-error on the .form-group wrapper to drive label colour.
+.form-group.has-error label,
+.form-group.has-error .col-form-label {
+  color: #af0932;              // Danger-800
+}
+
+// ── Disabled label ─────────────────────────────────────────────────────────────
+.form-group.is-disabled label,
+.form-group.is-disabled .col-form-label {
+  color: #86909c;              // Neutral-500
+}
+
+// ── Supporting text / invalid feedback ────────────────────────────────────────
+.invalid-feedback,
+.form-text {
+  font-size: 0.75rem;          // 12px
+  line-height: 16px;
+  margin-top: 4px;
+}
+
+.invalid-feedback          { color: #af0932; }  // Danger-800
+.valid-feedback            { color: #0f4527; }  // Success dark
+.form-text.text-muted      { color: #65717e !important; }
+
+// ── Sizing variants ────────────────────────────────────────────────────────────
+
+// Large — slightly bigger than default, same design language
+.form-control-lg {
+  height: 52px;
+  padding: 13px 12px 13px 16px;
+  font-size: 1.125rem;     // 18px
+  line-height: 26px;
+  border-radius: 8px;
+
+  &:focus {
+    border-width: 3px;
+    padding: 12px 11px 12px 15px;  // -1px compensación de borde
+  }
+
+  &::placeholder { font-size: 1.125rem; }
+}
+
+.col-form-label-lg {
+  font-size: 1rem;         // 16px — Body/L
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+// Small — variante Mobile de Figma (node 2897:57044)
+// Misma altura y padding que desktop; solo cambia la tipografía
+.form-control-sm {
+  height: 44px;
+  padding: 9px 9px 9px 13px;
+  font-size: 0.875rem;     // 14px — Body/M
+  line-height: 20px;
+  border-radius: 8px;
+
+  &:focus {
+    border-width: 3px;
+    padding: 8px 8px 8px 12px;
+  }
+
+  &::placeholder { font-size: 0.875rem; }
+}
+
+.col-form-label-sm,
+.form-group-sm label,
+.form-group-sm .col-form-label {
+  font-size: 0.75rem;      // 12px — Body/S
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+// custom-select / select.form-control sizing — heredan el ícono del mixin
+select.form-control-lg,
+.custom-select-lg {
+  height: 52px;
+  padding: 13px 41px 13px 16px;
+  font-size: 1.125rem;
+  line-height: 26px;
+  background-position: right 9px center;
+
+  &:focus {
+    border-width: 3px;
+    padding: 12px 40px 12px 15px;
+    background-position: right 8px center;
+  }
+}
+
+select.form-control-sm,
+.custom-select-sm {
+  height: 44px;
+  padding: 9px 41px 9px 13px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  background-position: right 9px center;
+
+  &:focus {
+    border-width: 3px;
+    padding: 8px 40px 8px 12px;
+    background-position: right 8px center;
+  }
+}
+
+// ── Checkbox — Figma: dCEtw9coTRcbLRS4YZtQ1n · node 108:780 ──────────────────
+// Variantes: unchecked · checked · indeterminate × enabled · focused · disabled
+
+// Iconos SVG como data URIs (Material Symbols · filled · blanco #fdfdfd)
+$cb-check-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath fill='%23fdfdfd' d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
+$cb-dash-icon:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath fill='%23fdfdfd' d='M200-440v-80h560v80H200Z'/%3E%3C/svg%3E");
+
+// ── input[type="checkbox"] global ─────────────────────────────────────────────
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1.5px solid #86909c;        // Neutral-500 — unchecked enabled
+  border-radius: 6px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;          // icon 16px dentro del box 24px (4px padding c/lado)
+  cursor: pointer;
+  margin: 0;
+  vertical-align: middle;
+  transition: background-color .15s, border-color .15s;
+
+  &:focus {
+    outline: none;
+    border: 1.5px solid #433fff;       // Primary-500 — focused unchecked
+    box-shadow: none;
+  }
+
+  &:checked {
+    background-color: #433fff;         // Primary-500
+    border-color: #433fff;
+    background-image: $cb-check-icon;
+  }
+
+  &:checked:focus {
+    border: 2px solid #c2c0ff;         // Primary-200 — focused ring
+  }
+
+  &:indeterminate {
+    background-color: #433fff;
+    border-color: #433fff;
+    background-image: $cb-dash-icon;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: all;
+
+    &:not(:checked):not(:indeterminate) {
+      background-color: #f6f8fa;       // Neutral-50
+      border-color: #c9d1d8;           // Neutral-300
+    }
+
+    &:checked {
+      background-color: #a7b1bb;       // Neutral-400
+      border-color: #a7b1bb;
+      background-image: $cb-check-icon;
+    }
+
+    &:indeterminate {
+      background-color: #a7b1bb;
+      border-color: #a7b1bb;
+      background-image: $cb-dash-icon;
+    }
+  }
+}
+
+// ── .form-check — ajuste de layout para checkbox 24px ─────────────────────────
+.form-check {
+  padding-left: 2rem;                  // 32px (24px box + 8px gap)
+
+  .form-check-input {
+    margin-left: -2rem;
+    margin-top: 0.125rem;              // alineación vertical con texto
+  }
+}
+
+// ── Bootstrap .custom-checkbox — override completo ────────────────────────────
+.custom-control.custom-checkbox {
+  padding-left: 2rem;                  // 32px (24px box + 8px gap)
+  min-height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.custom-checkbox .custom-control-input {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-checkbox .custom-control-label {
+  cursor: pointer;
+  line-height: 24px;
+
+  // Box (pseudo-element visible — reemplaza el input oculto)
+  &::before {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: -2rem;
+    border: 1.5px solid #86909c;      // Neutral-500 — unchecked enabled
+    border-radius: 6px;
+    background-color: transparent;
+    box-shadow: none;
+    transition: background-color .15s, border-color .15s;
+  }
+
+  // Check / dash icon
+  &::after {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: -2rem;
+    background-size: 16px 16px;
+    background-position: center;
+  }
+}
+
+// Checked
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label {
+  &::before {
+    background-color: #433fff;
+    border-color: #433fff;
+    box-shadow: none;
+  }
+  &::after { background-image: $cb-check-icon; }
+}
+
+// Focused unchecked
+.custom-checkbox .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border: 1.5px solid #433fff;
+  box-shadow: none;
+}
+
+// Focused checked
+.custom-checkbox .custom-control-input:focus:checked ~ .custom-control-label::before {
+  border: 2px solid #c2c0ff;
+  box-shadow: none;
+}
+
+// Neutraliza el focus glow de Bootstrap
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+// Indeterminate
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label {
+  &::before {
+    background-color: #433fff;
+    border-color: #433fff;
+    box-shadow: none;
+  }
+  &::after { background-image: $cb-dash-icon; }
+}
+
+// Disabled unchecked
+.custom-checkbox .custom-control-input:disabled:not(:checked) ~ .custom-control-label {
+  cursor: not-allowed;
+  &::before {
+    background-color: #f6f8fa;        // Neutral-50
+    border-color: #c9d1d8;            // Neutral-300
+  }
+}
+
+// Disabled checked
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label {
+  cursor: not-allowed;
+  &::before {
+    background-color: #a7b1bb;        // Neutral-400
+    border-color: #a7b1bb;
+  }
+  &::after { background-image: $cb-check-icon; }
+}
+
+// Disabled label text
+.custom-checkbox .custom-control-input:disabled ~ .custom-control-label {
+  color: #86909c;                     // Neutral-500
+}
+
+// ── Radio Button — Figma: dCEtw9coTRcbLRS4YZtQ1n · node 163:9897 ──────────────
+// Variantes: unchecked · checked × enabled · focused · disabled
+// Dot = radial-gradient 70% (16.8px ÷ 24px = 70%)
+
+// ── input[type="radio"] global ────────────────────────────────────────────────
+input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1.2px solid #86909c;        // Neutral-500 — unchecked enabled
+  border-radius: 50%;
+  background-color: #fdfdfd;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  margin: 0;
+  vertical-align: middle;
+  transition: box-shadow .15s, border-color .15s;
+
+  &:focus {
+    outline: none;
+    border-color: #433fff;
+    box-shadow: 0 0 0 2.4px #c2c0ff;  // Primary-200 focus ring
+  }
+
+  &:checked {
+    border-color: #433fff;
+    background-image: radial-gradient(circle closest-side, #433fff 70%, transparent 70%);
+  }
+
+  &:checked:focus {
+    box-shadow: 0 0 0 2.4px #c2c0ff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: all;
+    border-color: #c9d1d8;             // Neutral-300 — disabled
+
+    &:not(:checked) { background-color: #fdfdfd; }
+
+    &:checked {
+      background-image: radial-gradient(circle closest-side, #c2c0ff 70%, transparent 70%);
+    }
+  }
+}
+
+// ── .form-check — padding ya ajustado para 24px en bloque checkbox ────────────
+
+// ── Bootstrap .custom-radio — override completo ────────────────────────────────
+.custom-control.custom-radio {
+  padding-left: 2rem;                  // 32px (24px box + 8px gap)
+  min-height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.custom-radio .custom-control-input {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-radio .custom-control-label {
+  cursor: pointer;
+  line-height: 24px;
+
+  &::before {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: -2rem;
+    border: 1.2px solid #86909c;      // Neutral-500 — unchecked enabled
+    border-radius: 50%;
+    background-color: #fdfdfd;
+    box-shadow: none;
+    transition: box-shadow .15s, border-color .15s;
+  }
+
+  &::after {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: -2rem;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+}
+
+// Checked
+.custom-radio .custom-control-input:checked ~ .custom-control-label {
+  &::before {
+    border-color: #433fff;
+    background-color: #fdfdfd;
+    box-shadow: none;
+  }
+  &::after {
+    background-image: radial-gradient(circle closest-side, #433fff 70%, transparent 70%);
+  }
+}
+
+// Focus — neutraliza Bootstrap y aplica Figma
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 2.4px #c2c0ff;   // Primary-200
+  border-color: #433fff;
+}
+
+// Focus checked
+.custom-radio .custom-control-input:focus:checked ~ .custom-control-label::before {
+  box-shadow: 0 0 0 2.4px #c2c0ff;
+  border-color: #433fff;
+}
+
+// Disabled unchecked
+.custom-radio .custom-control-input:disabled:not(:checked) ~ .custom-control-label {
+  cursor: not-allowed;
+  &::before {
+    border-color: #c9d1d8;            // Neutral-300
+    background-color: #fdfdfd;
+  }
+}
+
+// Disabled checked
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label {
+  cursor: not-allowed;
+  &::before {
+    border-color: #c9d1d8;            // Neutral-300
+    background-color: #fdfdfd;
+    box-shadow: none;
+  }
+  &::after {
+    background-image: radial-gradient(circle closest-side, #c2c0ff 70%, transparent 70%);
+  }
+}
+
+// Disabled label text
+.custom-radio .custom-control-input:disabled ~ .custom-control-label {
+  color: #86909c;                     // Neutral-500
+}

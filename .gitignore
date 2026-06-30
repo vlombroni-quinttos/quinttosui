@@ -2,8 +2,6 @@ node_modules/
 .DS_Store
 .claude/settings.local.json
 *.log
-**/assets/scripts/main.*.js
 *.hot-update.js
 *.hot-update.json
-main.*.js
-main.*.css
+

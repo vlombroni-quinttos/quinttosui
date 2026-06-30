@@ -1,0 +1,441 @@
+{{#> base }}
+{{> AppSidebar/sidebar widgets-color-picker=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <div class="row">
+            <!-- ── Demo interactivo ─────────────────────────────────────────── -->
+            <div class="col-md-6 col-lg-4">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <h5 class="card-title">Color Picker</h5>
+                        <p class="card-text text-muted" style="font-size:.875rem;">
+                            Hacé click en el ícono para abrir la paleta de colores.
+                        </p>
+
+                        <!-- Trigger + mini preview inline -->
+                        <div class="d-flex align-items-center" style="gap:12px;">
+
+                        <!-- Wrapper relativo que ancla los popovers -->
+                        <div class="cp-wrap">
+
+                            <!-- Trigger button -->
+                            <button class="cp-trigger" id="cpTrigger" title="Seleccionar color" aria-label="Abrir selector de color">
+                                <i class="material-symbols-rounded">palette</i>
+                            </button>
+
+                            <!-- ── Popover 1: Presets ───────────────────────── -->
+                            <div class="cp-popover cp-presets d-none" id="cpPresets">
+                                <!-- Color actual -->
+                                <div class="cp-header">
+                                    <div class="cp-header__swatch" id="cpHeaderSwatch" style="background:#0481ff;"></div>
+                                    <span class="cp-header__hex" id="cpHeaderHex">#0481FF</span>
+                                </div>
+                                <!-- Swatches de colores del Figma -->
+                                <div class="cp-swatches">
+                                    <button class="cp-swatch is-active" data-color="#0481ff" data-name="Celeste"  style="background:#0481ff;" title="Celeste"  aria-label="Celeste"></button>
+                                    <button class="cp-swatch" data-color="#3209eb" data-name="Azul"      style="background:#3209eb;" title="Azul"      aria-label="Azul"></button>
+                                    <button class="cp-swatch" data-color="#6e37d1" data-name="Violeta"   style="background:#6e37d1;" title="Violeta"   aria-label="Violeta"></button>
+                                    <button class="cp-swatch" data-color="#ff92b6" data-name="Rosa"      style="background:#ff92b6;" title="Rosa"      aria-label="Rosa"></button>
+                                    <button class="cp-swatch" data-color="#ce300d" data-name="Rojo"      style="background:#ce300d;" title="Rojo"      aria-label="Rojo"></button>
+                                    <button class="cp-swatch" data-color="#eb5e00" data-name="Naranja"   style="background:#eb5e00;" title="Naranja"   aria-label="Naranja"></button>
+                                    <button class="cp-swatch" data-color="#ffda07" data-name="Amarillo"  style="background:#ffda07;" title="Amarillo"  aria-label="Amarillo"></button>
+                                    <button class="cp-swatch" data-color="#078301" data-name="Verde"     style="background:#078301;" title="Verde"     aria-label="Verde"></button>
+                                    <button class="cp-swatch" data-color="#86e0b9" data-name="Menta"     style="background:#86e0b9;" title="Menta"     aria-label="Menta"></button>
+                                    <button class="cp-swatch" data-color="#69e2de" data-name="Cian"      style="background:#69e2de;" title="Cian"      aria-label="Cian"></button>
+                                    <button class="cp-swatch" data-color="#adb5bd" data-name="Gris"      style="background:#adb5bd;" title="Gris"      aria-label="Gris"></button>
+                                    <button class="cp-swatch cp-swatch--white" data-color="#ffffff" data-name="Blanco" style="background:#ffffff;" title="Blanco" aria-label="Blanco"></button>
+                                    <button class="cp-swatch" data-color="#000000" data-name="Negro"     style="background:#000000;" title="Negro"     aria-label="Negro"></button>
+                                    <!-- Botón personalizado -->
+                                    <button class="cp-custom-btn" id="cpOpenCustom" title="Color personalizado">
+                                        <i class="material-symbols-rounded">add</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ── Popover 2: Custom color picker ──────────── -->
+                            <div class="cp-popover cp-custom d-none" id="cpCustom">
+                                <button class="cp-back" id="cpBack">
+                                    <i class="material-symbols-rounded">arrow_back_ios</i>
+                                    Volver a presets
+                                </button>
+
+                                <!-- Canvas HSV 2D -->
+                                <div class="cp-canvas-wrap">
+                                    <canvas id="cpCanvas" width="236" height="150"></canvas>
+                                    <div class="cp-canvas-cursor" id="cpCursor"></div>
+                                </div>
+
+                                <!-- Hue slider -->
+                                <div class="cp-hue-wrap">
+                                    <input type="range" class="cp-hue-slider" id="cpHue" min="0" max="360" value="216">
+                                </div>
+
+                                <!-- HEX + RGB inputs -->
+                                <div class="cp-inputs">
+                                    <div class="cp-input-group">
+                                        <label for="cpHex">HEX</label>
+                                        <input type="text" id="cpHex" value="#0481ff" maxlength="7" placeholder="#000000">
+                                    </div>
+                                    <div class="cp-input-group">
+                                        <label for="cpR">R</label>
+                                        <input type="number" id="cpR" min="0" max="255" value="0">
+                                    </div>
+                                    <div class="cp-input-group">
+                                        <label for="cpG">G</label>
+                                        <input type="number" id="cpG" min="0" max="255" value="106">
+                                    </div>
+                                    <div class="cp-input-group">
+                                        <label for="cpB">B</label>
+                                        <input type="number" id="cpB" min="0" max="255" value="255">
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-sm cp-apply" id="cpApply">Aplicar color</button>
+                            </div>
+                        </div>
+
+                        <!-- Mini preview inline -->
+                        <div class="cp-mini-preview">
+                            <div class="cp-mini-preview__swatch" id="cpDemoSwatch" style="background:#0481ff;"></div>
+                            <span class="cp-mini-preview__hex" id="cpDemoName">Celeste</span>
+                        </div>
+
+                        </div><!-- /.d-flex -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Referencia de colores ──────────────────────────────────── -->
+            <div class="col-md-6 col-lg-8">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <h5 class="card-title">Paleta de colores predefinidos</h5>
+                        <p class="card-text text-muted" style="font-size:.875rem;">
+                            13 colores de sistema disponibles directamente en el selector.
+                        </p>
+                        <div class="cp-reference">
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#0481ff;"></div>
+                                <span class="cp-reference__hex">Celeste</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#3209eb;"></div>
+                                <span class="cp-reference__hex">Azul</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#6e37d1;"></div>
+                                <span class="cp-reference__hex">Violeta</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#ff92b6;"></div>
+                                <span class="cp-reference__hex">Rosa</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#ce300d;"></div>
+                                <span class="cp-reference__hex">Rojo</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#eb5e00;"></div>
+                                <span class="cp-reference__hex">Naranja</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#ffda07;"></div>
+                                <span class="cp-reference__hex">Amarillo</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#078301;"></div>
+                                <span class="cp-reference__hex">Verde</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#86e0b9;"></div>
+                                <span class="cp-reference__hex">Menta</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#69e2de;"></div>
+                                <span class="cp-reference__hex">Cian</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#adb5bd;"></div>
+                                <span class="cp-reference__hex">Gris</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#ffffff; box-shadow:0 0 0 1px #c9d1d8;"></div>
+                                <span class="cp-reference__hex">Blanco</span>
+                            </div>
+                            <div class="cp-reference__item">
+                                <div class="cp-reference__swatch" style="background:#000000;"></div>
+                                <span class="cp-reference__hex">Negro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{> AppFooter/footer }}
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Estado ────────────────────────────────────────────────────────────────
+  var state = { h: 211, s: 100, v: 100, hex: '#0481ff' };
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  var trigger      = document.getElementById('cpTrigger');
+  var presetsPanel = document.getElementById('cpPresets');
+  var customPanel  = document.getElementById('cpCustom');
+  var headerSwatch = document.getElementById('cpHeaderSwatch');
+  var headerHex    = document.getElementById('cpHeaderHex');
+  var demoSwatch   = document.getElementById('cpDemoSwatch');
+  var demoName     = document.getElementById('cpDemoName');
+  var canvas       = document.getElementById('cpCanvas');
+  var ctx          = canvas.getContext('2d');
+  var cursor       = document.getElementById('cpCursor');
+  var hueSlider    = document.getElementById('cpHue');
+  var hexInput     = document.getElementById('cpHex');
+  var rInput       = document.getElementById('cpR');
+  var gInput       = document.getElementById('cpG');
+  var bInput       = document.getElementById('cpB');
+  var swatches     = document.querySelectorAll('.cp-swatch[data-color]');
+
+  // ── Conversiones de color ─────────────────────────────────────────────────
+  function hsvToRgb(h, s, v) {
+    s /= 100; v /= 100;
+    var c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;
+    var r, g, b;
+    if      (h < 60)  { r=c; g=x; b=0; }
+    else if (h < 120) { r=x; g=c; b=0; }
+    else if (h < 180) { r=0; g=c; b=x; }
+    else if (h < 240) { r=0; g=x; b=c; }
+    else if (h < 300) { r=x; g=0; b=c; }
+    else              { r=c; g=0; b=x; }
+    return [Math.round((r+m)*255), Math.round((g+m)*255), Math.round((b+m)*255)];
+  }
+
+  function rgbToHsv(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r,g,b), min = Math.min(r,g,b), d = max - min;
+    var h, s = (max === 0 ? 0 : d / max), v = max;
+    if (max === min)      { h = 0; }
+    else if (max === r)   { h = ((g-b)/d + (g < b ? 6 : 0)) * 60; }
+    else if (max === g)   { h = ((b-r)/d + 2) * 60; }
+    else                  { h = ((r-g)/d + 4) * 60; }
+    return [Math.round(h), Math.round(s*100), Math.round(v*100)];
+  }
+
+  function rgbToHex(r, g, b) {
+    return '#' + [r,g,b].map(function(v){ return ('0' + v.toString(16)).slice(-2); }).join('');
+  }
+
+  function hexToRgb(hex) {
+    hex = hex.replace('#','');
+    if (hex.length === 3) hex = hex.split('').map(function(c){ return c+c; }).join('');
+    if (hex.length !== 6) return null;
+    return [
+      parseInt(hex.substring(0,2), 16),
+      parseInt(hex.substring(2,4), 16),
+      parseInt(hex.substring(4,6), 16)
+    ];
+  }
+
+  function isValidHex(hex) {
+    return /^#[0-9a-fA-F]{6}$/.test(hex);
+  }
+
+  // ── Canvas: dibuja gradiente HSV ──────────────────────────────────────────
+  function drawCanvas() {
+    var w = canvas.width, h = canvas.height;
+    // Gradiente horizontal: blanco → color puro de tono actual
+    var gH = ctx.createLinearGradient(0, 0, w, 0);
+    gH.addColorStop(0, 'white');
+    gH.addColorStop(1, 'hsl(' + state.h + ',100%,50%)');
+    ctx.fillStyle = gH;
+    ctx.fillRect(0, 0, w, h);
+    // Gradiente vertical: transparente → negro
+    var gV = ctx.createLinearGradient(0, 0, 0, h);
+    gV.addColorStop(0, 'rgba(0,0,0,0)');
+    gV.addColorStop(1, 'rgba(0,0,0,1)');
+    ctx.fillStyle = gV;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  function updateCanvasCursor() {
+    var x = (state.s / 100) * canvas.width;
+    var y = (1 - state.v / 100) * canvas.height;
+    cursor.style.left = x + 'px';
+    cursor.style.top  = y + 'px';
+  }
+
+  // ── Actualiza toda la UI del custom picker ────────────────────────────────
+  function updateCustomUI() {
+    var rgb = hsvToRgb(state.h, state.s, state.v);
+    state.hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
+    drawCanvas();
+    updateCanvasCursor();
+    hexInput.value = state.hex;
+    rInput.value   = rgb[0];
+    gInput.value   = rgb[1];
+    bInput.value   = rgb[2];
+    hueSlider.value = state.h;
+    // Preview live en el cursor (color del borde)
+    cursor.style.background = state.hex;
+  }
+
+  // ── Mapa hex → nombre ─────────────────────────────────────────────────────
+  var colorNames = {
+    '#0481ff': 'Celeste',
+    '#3209eb': 'Azul',
+    '#6e37d1': 'Violeta',
+    '#ff92b6': 'Rosa',
+    '#ce300d': 'Rojo',
+    '#eb5e00': 'Naranja',
+    '#ffda07': 'Amarillo',
+    '#078301': 'Verde',
+    '#86e0b9': 'Menta',
+    '#69e2de': 'Cian',
+    '#adb5bd': 'Gris',
+    '#ffffff': 'Blanco',
+    '#000000': 'Negro'
+  };
+
+  // ── Actualiza el header del preset y el demo preview ─────────────────────
+  function updatePreview(hex) {
+    var name = colorNames[hex.toLowerCase()] || 'Personalizado';
+    headerSwatch.style.background = hex;
+    headerHex.textContent = hex.toUpperCase();
+    demoSwatch.style.background = hex;
+    demoName.textContent = name;
+  }
+
+  // ── Aplica un color (cierra popovers, actualiza trigger) ──────────────────
+  function applyColor(hex) {
+    state.hex = hex;
+    // Actualizar estado HSV para el custom picker
+    var rgb = hexToRgb(hex);
+    if (rgb) {
+      var hsv = rgbToHsv(rgb[0], rgb[1], rgb[2]);
+      state.h = hsv[0]; state.s = hsv[1]; state.v = hsv[2];
+    }
+    updatePreview(hex);
+    // Marcar swatch activo
+    swatches.forEach(function(sw) {
+      sw.classList.toggle('is-active', sw.dataset.color.toLowerCase() === hex.toLowerCase());
+    });
+    // Cerrar popovers
+    presetsPanel.classList.add('d-none');
+    customPanel.classList.add('d-none');
+  }
+
+  // ── Toggle presets ────────────────────────────────────────────────────────
+  trigger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = !presetsPanel.classList.contains('d-none');
+    presetsPanel.classList.toggle('d-none', isOpen);
+    customPanel.classList.add('d-none');
+  });
+
+  // ── Click en un swatch de preset ─────────────────────────────────────────
+  swatches.forEach(function(sw) {
+    sw.addEventListener('click', function() {
+      applyColor(sw.dataset.color);
+    });
+  });
+
+  // ── Abrir custom picker ───────────────────────────────────────────────────
+  document.getElementById('cpOpenCustom').addEventListener('click', function(e) {
+    e.stopPropagation();
+    presetsPanel.classList.add('d-none');
+    customPanel.classList.remove('d-none');
+    updateCustomUI();
+  });
+
+  // ── Volver a presets ──────────────────────────────────────────────────────
+  document.getElementById('cpBack').addEventListener('click', function(e) {
+    e.stopPropagation();
+    customPanel.classList.add('d-none');
+    presetsPanel.classList.remove('d-none');
+  });
+
+  // ── Drag en el canvas ─────────────────────────────────────────────────────
+  var dragging = false;
+
+  function pickFromCanvas(e) {
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / rect.width;
+    var scaleY = canvas.height / rect.height;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    var x = Math.max(0, Math.min(canvas.width,  (clientX - rect.left) * scaleX));
+    var y = Math.max(0, Math.min(canvas.height, (clientY - rect.top)  * scaleY));
+    state.s = Math.round((x / canvas.width)  * 100);
+    state.v = Math.round((1 - y / canvas.height) * 100);
+    updateCustomUI();
+  }
+
+  canvas.addEventListener('mousedown', function(e) { dragging = true; pickFromCanvas(e); });
+  document.addEventListener('mousemove', function(e) { if (dragging) pickFromCanvas(e); });
+  document.addEventListener('mouseup',   function()  { dragging = false; });
+  canvas.addEventListener('touchstart', function(e) { e.preventDefault(); dragging = true; pickFromCanvas(e); }, { passive: false });
+  canvas.addEventListener('touchmove',  function(e) { e.preventDefault(); pickFromCanvas(e); }, { passive: false });
+  canvas.addEventListener('touchend',   function()  { dragging = false; });
+
+  // ── Slider de tono ────────────────────────────────────────────────────────
+  hueSlider.addEventListener('input', function() {
+    state.h = parseInt(this.value);
+    updateCustomUI();
+  });
+
+  // ── Input HEX ────────────────────────────────────────────────────────────
+  hexInput.addEventListener('input', function() {
+    var val = this.value.startsWith('#') ? this.value : '#' + this.value;
+    if (!isValidHex(val)) return;
+    var rgb = hexToRgb(val);
+    var hsv = rgbToHsv(rgb[0], rgb[1], rgb[2]);
+    state.h = hsv[0]; state.s = hsv[1]; state.v = hsv[2]; state.hex = val;
+    drawCanvas();
+    updateCanvasCursor();
+    rInput.value = rgb[0]; gInput.value = rgb[1]; bInput.value = rgb[2];
+    hueSlider.value = state.h;
+    cursor.style.background = val;
+  });
+
+  // ── Inputs RGB ────────────────────────────────────────────────────────────
+  function onRgbChange() {
+    var r = Math.min(255, Math.max(0, parseInt(rInput.value) || 0));
+    var g = Math.min(255, Math.max(0, parseInt(gInput.value) || 0));
+    var b = Math.min(255, Math.max(0, parseInt(bInput.value) || 0));
+    var hsv = rgbToHsv(r, g, b);
+    state.h = hsv[0]; state.s = hsv[1]; state.v = hsv[2];
+    updateCustomUI();
+  }
+  rInput.addEventListener('input', onRgbChange);
+  gInput.addEventListener('input', onRgbChange);
+  bInput.addEventListener('input', onRgbChange);
+
+  // ── Botón aplicar ─────────────────────────────────────────────────────────
+  document.getElementById('cpApply').addEventListener('click', function() {
+    applyColor(state.hex);
+  });
+
+  // ── Cerrar al hacer click fuera ───────────────────────────────────────────
+  document.addEventListener('click', function() {
+    presetsPanel.classList.add('d-none');
+    customPanel.classList.add('d-none');
+  });
+  presetsPanel.addEventListener('click', function(e) { e.stopPropagation(); });
+  customPanel.addEventListener('click',  function(e) { e.stopPropagation(); });
+
+  // ── Inicialización ────────────────────────────────────────────────────────
+  updatePreview(state.hex);  // muestra "Azul" al arrancar
+  drawCanvas();
+  updateCanvasCursor();
+
+})();
+</script>
+
+{{/ base }}

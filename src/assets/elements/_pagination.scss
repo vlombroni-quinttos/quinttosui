@@ -1,0 +1,143 @@
+// ============================================================
+// Pagination — Figma Design System
+// Node: 26:665 | File: dCEtw9coTRcbLRS4YZtQ1n
+//
+// Item: 38×38px | Border-radius: 8px | Gap: 4px
+// ============================================================
+
+// ── Tokens ───────────────────────────────────────────────────
+$pg-border:      #C9D1D8;   // Neutral-300
+$pg-text:        #3B424B;   // Neutral-800
+$pg-text-info:   #2E353D;   // Neutral-900
+$pg-bg:          #FDFDFD;   // Basic/White
+$pg-active-bg:   #433FFF;   // Primary-500
+$pg-active-text: #FDFDFD;
+$pg-size:        38px;
+$pg-radius:      8px;
+$pg-gap:         4px;
+
+// ── Info label (standalone — used inside bar and mobile) ─────
+.pagination-info {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.01em;   // 0.11px at 11px ≈ 1%
+  color: $pg-text-info;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// ── Wrapper bar (Desktop) ────────────────────────────────────
+// Replicates Figma's full-width bar: border container with
+// info text on the left and page buttons on the right.
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: $pg-bg;
+  border: 1px solid $pg-border;
+}
+
+// ── Core pagination ──────────────────────────────────────────
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: $pg-gap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // ── page-item reset ────────────────────────────────────
+  .page-item,
+  li {
+    margin: 0;
+  }
+
+  // ── page-link base ─────────────────────────────────────
+  .page-link,
+  li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $pg-size;
+    height: $pg-size;
+    padding: 0;
+    margin: 0;                // reset Bootstrap's -1px hack
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $pg-text;
+    background-color: $pg-bg;
+    border: 1px solid $pg-border;
+    border-radius: $pg-radius !important;
+    box-shadow: none;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $pg-text;
+      background-color: darken($pg-bg, 3%);
+      border-color: darken($pg-border, 10%);
+      z-index: auto;
+      text-decoration: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    // Material Symbols icon inside a link
+    .material-symbols-rounded {
+      font-size: 16px;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+  }
+
+  // ── Active ─────────────────────────────────────────────
+  .page-item.active .page-link,
+  li.active > a {
+    background-color: $pg-active-bg;
+    border-color: $pg-active-bg;
+    color: $pg-active-text;
+    z-index: auto;
+
+    &:hover {
+      background-color: darken($pg-active-bg, 6%);
+      border-color: darken($pg-active-bg, 6%);
+      color: $pg-active-text;
+    }
+  }
+
+  // ── Disabled ───────────────────────────────────────────
+  .page-item.disabled .page-link,
+  li.disabled > a {
+    color: $pg-border;
+    border-color: $pg-border;
+    background-color: $pg-bg;
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  // ── Ellipsis (…) ───────────────────────────────────────
+  .page-item--ellipsis .page-link {
+    background-color: transparent;
+    cursor: default;
+    pointer-events: none;
+    color: $pg-text;
+  }
+
+  // ── Prev / Next (icon-only) ────────────────────────────
+  .page-item--prev .page-link,
+  .page-item--next .page-link {
+    background-color: transparent;
+
+    &:hover {
+      background-color: darken($pg-bg, 3%);
+    }
+  }
+}
