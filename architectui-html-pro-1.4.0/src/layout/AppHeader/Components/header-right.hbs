@@ -1,0 +1,68 @@
+<!-- ── Botones de acción ───────────────────────────────────────────────────── -->
+<div class="app-header__actions">
+    <button type="button" class="app-header__action-btn" title="Apps">
+        <span class="material-symbols-rounded">apps</span>
+    </button>
+    <button type="button" class="app-header__action-btn" title="Notificaciones">
+        <span class="material-symbols-rounded">notifications</span>
+    </button>
+    <div class="tnav__btn-wrapper">
+        <button type="button" class="app-header__action-btn" title="Mensajes">
+            <span class="material-symbols-rounded">mail</span>
+        </button>
+        <span class="tnav__badge">1</span>
+    </div>
+</div>
+
+<!-- ── Separador ──────────────────────────────────────────────────────────── -->
+<div class="app-header__separator"></div>
+
+<!-- ── Usuario ────────────────────────────────────────────────────────────── -->
+<!--
+  Estructura TopNav (Figma node 151:9313):
+  .app-header__user
+    ├── .app-header__user-trigger.dropdown-toggle  [avatar + chevron 28px]
+    ├── .app-header__user-info                     [nombre + fila de rol]
+    └── .dropdown-menu                             [menú desplegable]
+-->
+<div class="dropdown app-header__user">
+    <!-- Trigger: solo avatar + chevron grande -->
+    <button type="button" class="app-header__user-trigger dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="tnav__avatar">GJ</div>
+        <span class="material-symbols-rounded app-header__user-chevron">expand_more</span>
+    </button>
+
+    <!-- Info del usuario: fuera del trigger, al costado -->
+    <div class="app-header__user-info">
+        <span class="app-header__user-name">Gonzalo Jiménez</span>
+        <div class="dropdown">
+            <button type="button" class="app-header__user-meta dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="app-header__user-role">Responsable</span>
+                <span class="material-symbols-rounded app-header__user-meta-icon">expand_more</span>
+            </button>
+            <div class="dropdown-menu tpl-select__menu app-header__role-menu">
+                <a href="index.html" class="dropdown-item tpl-select__item">Administrador</a>
+                <a href="index.html" class="dropdown-item tpl-select__item">Responsable</a>
+                <a href="dashboards-home-docente.html" class="dropdown-item tpl-select__item">Docente</a>
+                <a href="dashboards-home-preceptor.html" class="dropdown-item tpl-select__item">Preceptor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+        <button type="button" class="dropdown-item tpl-select__item">
+            <span class="material-symbols-rounded tpl-select__item-icon">lock</span>Modificar Clave
+        </button>
+        <button type="button" class="dropdown-item tpl-select__item">
+            <span class="material-symbols-rounded tpl-select__item-icon">tune</span>Mis Preferencias
+        </button>
+        <button type="button" class="dropdown-item tpl-select__item">
+            <span class="material-symbols-rounded tpl-select__item-icon">help</span>Soporte
+        </button>
+        <button type="button" class="dropdown-item tpl-select__item tpl-select__item--danger">
+            <span class="material-symbols-rounded tpl-select__item-icon">logout</span>Salir
+        </button>
+    </div>
+</div>

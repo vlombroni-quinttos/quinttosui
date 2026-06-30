@@ -1,0 +1,51 @@
+{{#> base }}
+    {{> AppSidebar/sidebar forms-datepicker=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> AppMain/page-title }}
+            <div class="row">
+                        <div class="col-md-6">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Campo de fecha</h5>
+                                    <p class="card-text text-muted mb-3" style="font-size:0.8125rem;">Click en el campo para abrir el selector. Tocá el día para seleccionarlo.</p>
+                                    <div class="form-group mb-0">
+                                        <label class="tpl-form__label" style="display:block;margin-bottom:6px;font-size:0.875rem;font-weight:500;color:#2e353d;">Fecha</label>
+                                        <div class="qdp-field" style="max-width:332px;">
+                                            <div class="form-control qdp-field__input" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="qdp-field__value">dd/mm/aaaa</span>
+                                                <span class="material-symbols-rounded">calendar_today</span>
+                                            </div>
+                                            <div class="qdp" role="dialog" aria-label="Selector de fecha">
+                                                <!-- Panel generado por JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rango de fechas</h5>
+                                    <p class="card-text text-muted mb-3" style="font-size:0.8125rem;">Click en el campo para abrir el selector. Elegí inicio y fin de rango o usá los accesos rápidos del panel lateral.</p>
+                                    <div class="form-group mb-0">
+                                        <label class="tpl-form__label" style="display:block;margin-bottom:6px;font-size:0.875rem;font-weight:500;color:#2e353d;">Período</label>
+                                        <div class="qdpr-field" style="max-width:500px;">
+                                            <div class="form-control qdpr-field__input" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="qdpr-field__value">dd/mm/aaaa – dd/mm/aaaa</span>
+                                                <span class="material-symbols-rounded">calendar_today</span>
+                                            </div>
+                                            <div class="qdpr" role="dialog" aria-label="Selector de rango de fechas">
+                                                <!-- Panel generado por JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        {{> AppFooter/footer }}
+    </div>
+{{/ base }}

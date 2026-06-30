@@ -1,0 +1,489 @@
+{{#> base }}
+{{> AppSidebar/sidebar components-notifications=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">Basic Alerts</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">Toastr Alerts</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                <div class="row">
+                    <!-- Alerts (simple) -->
+                    <div class="col-md-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Alerts</h5>
+                                <div class="alert alert-primary fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">info</i>
+                                    <span>This is a primary alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-secondary fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">campaign</i>
+                                    <span>This is a secondary alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-success fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">check_circle</i>
+                                    <span>This is a success alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-danger fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">dangerous</i>
+                                    <span>This is a danger alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-warning fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">error</i>
+                                    <span>This is a warning alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-info fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">info</i>
+                                    <span>This is an info alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-light fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">lightbulb</i>
+                                    <span>This is a light alert — check it out!</span>
+                                </div>
+                                <div class="alert alert-dark fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">circle_notifications</i>
+                                    <span>This is a dark alert — check it out!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alerts with link -->
+                    <div class="col-md-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Alerts Link Color</h5>
+                                <div class="alert alert-primary fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">info</i>
+                                    <span>Primary alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-secondary fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">campaign</i>
+                                    <span>Secondary alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-success fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">check_circle</i>
+                                    <span>Success alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-danger fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">dangerous</i>
+                                    <span>Danger alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-warning fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">error</i>
+                                    <span>Warning alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-info fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">info</i>
+                                    <span>Info alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-light fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">lightbulb</i>
+                                    <span>Light alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                                <div class="alert alert-dark fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">circle_notifications</i>
+                                    <span>Dark alert with <a href="javascript:void(0);" class="alert-link">an example link</a>. Give it a click.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alerts with title -->
+                    <div class="col-md-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Alerts with Title</h5>
+                                <div class="alert alert-primary alert-with-title fade show" role="alert">
+                                    <div class="alert-body">
+                                        <i class="alert-icon material-symbols-rounded">info</i>
+                                        <div class="alert-content">
+                                            <h5 class="alert-heading">Heads up!</h5>
+                                            <p class="mb-0">This alert needs your attention, but it's not super important.</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="alert-link">Learn more</a>
+                                </div>
+                                <div class="alert alert-success alert-with-title fade show" role="alert">
+                                    <div class="alert-body">
+                                        <i class="alert-icon material-symbols-rounded">check_circle</i>
+                                        <div class="alert-content">
+                                            <h5 class="alert-heading">Well done!</h5>
+                                            <p class="mb-0">Aww yeah, you successfully read this important alert message.</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="alert-link">View details</a>
+                                </div>
+                                <div class="alert alert-danger alert-with-title fade show" role="alert">
+                                    <div class="alert-body">
+                                        <i class="alert-icon material-symbols-rounded">dangerous</i>
+                                        <div class="alert-content">
+                                            <h5 class="alert-heading">Oh snap!</h5>
+                                            <p class="mb-0">Change a few things up and try submitting again.</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="alert-link">Try again</a>
+                                </div>
+                                <div class="alert alert-warning alert-with-title fade show" role="alert">
+                                    <div class="alert-body">
+                                        <i class="alert-icon material-symbols-rounded">error</i>
+                                        <div class="alert-content">
+                                            <h5 class="alert-heading">Warning!</h5>
+                                            <p class="mb-0">Better check yourself, you're not looking too good.</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="alert-link">More info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dismissable Alerts -->
+                    <div class="col-md-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Dismissable Alerts</h5>
+                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">info</i>
+                                    <span>Primary dismissable alert — click × to close.</span>
+                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                        <i class="material-symbols-rounded">close</i>
+                                    </button>
+                                </div>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">check_circle</i>
+                                    <span>Success! Your changes have been saved.</span>
+                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                        <i class="material-symbols-rounded">close</i>
+                                    </button>
+                                </div>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">dangerous</i>
+                                    <span>Error! Something went wrong, please try again.</span>
+                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                        <i class="material-symbols-rounded">close</i>
+                                    </button>
+                                </div>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <i class="alert-icon material-symbols-rounded">error</i>
+                                    <span>Warning! Please review before proceeding.</span>
+                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                        <i class="material-symbols-rounded">close</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <div class="card-title">TOASTR CONFIGURATOR</div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="title">Title</label>
+                                    <input id="title" type="text" class="form-control"
+                                        placeholder="Enter a title ..." />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Message</label>
+                                    <textarea class="form-control" id="message" rows="3"
+                                        placeholder="Enter a message ..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input id="closeButton" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="closeButton">
+                                            Close Button
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="addBehaviorOnToastClick" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="addBehaviorOnToastClick">
+                                            Add behavior on toast click
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input disabled id="addBehaviorOnToastCloseClick" type="checkbox"
+                                            value="checked" class="form-check-input" />
+                                        <label class="form-check-label" for="addBehaviorOnToastCloseClick">
+                                            Add behavior on toast close button click
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="debugInfo" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="debugInfo">
+                                            Debug
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="progressBar" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="progressBar">
+                                            Progress Bar
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="rtl" type="checkbox" value="checked" class="form-check-input" />
+                                        <label class="form-check-label" for="rtl">
+                                            Right-To-Left
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="preventDuplicates" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="preventDuplicates">
+                                            Prevent Duplicates
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="addClear" type="checkbox" value="checked" class="form-check-input" />
+                                        <label class="form-check-label" for="addClear">
+                                            Add button to force clearing a toast
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="newestOnTop" type="checkbox" value="checked"
+                                            class="form-check-input" />
+                                        <label class="form-check-label" for="newestOnTop">
+                                            Newest on top
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div id="toastTypeGroup">
+                                    <h5>Toast Type</h5>
+                                    <div class="form-check">
+                                        <input type="radio" name="toasts" class="form-check-input" value="success" checked />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Success
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="toasts" class="form-check-input" value="info" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Info
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="toasts" class="form-check-input" value="warning" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Warning
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="toasts" class="form-check-input" value="error" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Error
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="positionGroup">
+                                    <h5>Position</h5>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-top-right" checked />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Top Right
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-bottom-right" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Bottom Right
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-bottom-left" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Bottom Left
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-top-left" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Top Left
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-top-full-width" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Top Full Width
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-bottom-full-width" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Bottom Full Width
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-top-center" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Top Center
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="positions" class="form-check-input"
+                                            value="toast-bottom-center" />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Bottom Center
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="showEasing">Show Easing</label>
+                                    <input id="showEasing" type="text" placeholder="swing, linear" class="form-control"
+                                        value="swing" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="hideEasing">Hide Easing</label>
+                                    <input id="hideEasing" type="text" placeholder="swing, linear" class="form-control"
+                                        value="linear" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="showMethod">Show Method</label>
+                                    <input id="showMethod" type="text" placeholder="show, fadeIn, slideDown"
+                                        class="form-control" value="fadeIn" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="hideMethod">Hide Method</label>
+                                    <input id="hideMethod" type="text" placeholder="hide, fadeOut, slideUp"
+                                        class="form-control" value="fadeOut" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="showDuration">Show Duration</label>
+                                    <input id="showDuration" type="number" placeholder="ms" class="form-control"
+                                        value="300" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="hideDuration">Hide Duration</label>
+                                    <input id="hideDuration" type="number" placeholder="ms" class="form-control"
+                                        value="1000" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="timeOut">Time out</label>
+                                    <input id="timeOut" type="number" placeholder="ms" class="form-control"
+                                        value="5000" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="extendedTimeOut">Extended time out</label>
+                                    <input id="extendedTimeOut" type="number" placeholder="ms" class="form-control"
+                                        value="1000" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-block clearfix">
+                        <div class="float-left">
+                            <button type="button" class="btn btn-link text-danger" id="cleartoasts">Clear
+                                Toasts</button>
+                            <button type="button" class="btn btn-link" id="clearlasttoast">Clear Last Toast</button>
+                        </div>
+                        <div class="float-right">
+                            <button type="button" class="btn btn-success" id="showtoast">Show Toast</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Success</h5>
+                                <button type="button" data-type="success" class="btn btn-success btn-show-swal">Show
+                                    Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Question</h5>
+                                <button type="button" data-type="question" class="btn btn-primary btn-show-swal">Show
+                                    Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Danger</h5>
+                                <button type="button" data-type="danger" class="btn btn-danger btn-show-swal">Show
+                                    Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Info</h5>
+                                <button type="button" data-type="info" class="btn btn-info btn-show-swal">Show
+                                    Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Warning</h5>
+                                <button type="button" data-type="warning" class="btn btn-warning btn-show-swal">Show
+                                    Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Example 1</h5>
+                                <button type="button" class="btn btn-primary btn-show-swal-basic">Show Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Example 2</h5>
+                                <button type="button" class="btn btn-primary btn-show-swal-basic-2">Show Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 text-center card">
+                            <div class="card-body">
+                                <h5 class="card-title">Custom Animation</h5>
+                                <button type="button" class="btn btn-primary btn-show-swal-basic-3">Show Alert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

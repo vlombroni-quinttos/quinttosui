@@ -1,0 +1,230 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-icons=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <div class="row">
+            <div class="col-12">
+
+                <!-- ── Config bar ──────────────────────────────────────────── -->
+                <div class="icon-config-bar">
+                    <span class="icon-config-bar__label">Configuración activa</span>
+                    <div class="icon-config-bar__chips">
+                        <span class="icon-config-bar__chip">
+                            <span class="material-symbols-rounded">rounded_corner</span>
+                            Rounded
+                        </span>
+                        <span class="icon-config-bar__chip">
+                            <span class="material-symbols-rounded">line_weight</span>
+                            Weight 300
+                        </span>
+                        <span class="icon-config-bar__chip">
+                            <span class="material-symbols-rounded">format_color_fill</span>
+                            Fill off
+                        </span>
+                        <span class="icon-config-bar__chip">
+                            <span class="material-symbols-rounded">grade</span>
+                            Grade normal
+                        </span>
+                        <span class="icon-config-bar__chip">
+                            <span class="material-symbols-rounded">pageview</span>
+                            Optical size 24dp
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ── Notice ──────────────────────────────────────────────── -->
+                <div class="icon-notice">
+                    <span class="material-symbols-rounded icon-notice__icon">warning</span>
+                    <div class="icon-notice__body">
+                        <strong>Solo se puede usar esta librería de íconos.</strong>
+                        Si no encontrás el ícono que necesitás, no uses una librería alternativa — contactá al equipo de producto para que lo agregue a la configuración oficial.
+                    </div>
+                </div>
+
+                <!-- ── Navegación ──────────────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Navegación</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">home</span><span class="icon-item__name">home</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">menu</span><span class="icon-item__name">menu</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">close</span><span class="icon-item__name">close</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">arrow_back</span><span class="icon-item__name">arrow_back</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">arrow_forward</span><span class="icon-item__name">arrow_forward</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">chevron_left</span><span class="icon-item__name">chevron_left</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">chevron_right</span><span class="icon-item__name">chevron_right</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">expand_less</span><span class="icon-item__name">expand_less</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">expand_more</span><span class="icon-item__name">expand_more</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">first_page</span><span class="icon-item__name">first_page</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">last_page</span><span class="icon-item__name">last_page</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">search</span><span class="icon-item__name">search</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">tune</span><span class="icon-item__name">tune</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">filter_list</span><span class="icon-item__name">filter_list</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">sort</span><span class="icon-item__name">sort</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">more_vert</span><span class="icon-item__name">more_vert</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">more_horiz</span><span class="icon-item__name">more_horiz</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">open_in_new</span><span class="icon-item__name">open_in_new</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">link</span><span class="icon-item__name">link</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">drag_indicator</span><span class="icon-item__name">drag_indicator</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Acciones ────────────────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Acciones</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">add</span><span class="icon-item__name">add</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">remove</span><span class="icon-item__name">remove</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">edit</span><span class="icon-item__name">edit</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">delete</span><span class="icon-item__name">delete</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">content_copy</span><span class="icon-item__name">content_copy</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">content_cut</span><span class="icon-item__name">content_cut</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">content_paste</span><span class="icon-item__name">content_paste</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">share</span><span class="icon-item__name">share</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">download</span><span class="icon-item__name">download</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">upload</span><span class="icon-item__name">upload</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">attach_file</span><span class="icon-item__name">attach_file</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">print</span><span class="icon-item__name">print</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">refresh</span><span class="icon-item__name">refresh</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">undo</span><span class="icon-item__name">undo</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">redo</span><span class="icon-item__name">redo</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">bookmark</span><span class="icon-item__name">bookmark</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">star</span><span class="icon-item__name">star</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">favorite</span><span class="icon-item__name">favorite</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">thumb_up</span><span class="icon-item__name">thumb_up</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">flag</span><span class="icon-item__name">flag</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Contenido & Medios ──────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Contenido y medios</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">description</span><span class="icon-item__name">description</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">folder</span><span class="icon-item__name">folder</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">folder_open</span><span class="icon-item__name">folder_open</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">archive</span><span class="icon-item__name">archive</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">image</span><span class="icon-item__name">image</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">photo_camera</span><span class="icon-item__name">photo_camera</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">videocam</span><span class="icon-item__name">videocam</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">play_arrow</span><span class="icon-item__name">play_arrow</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">pause</span><span class="icon-item__name">pause</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">stop</span><span class="icon-item__name">stop</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">volume_up</span><span class="icon-item__name">volume_up</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">volume_off</span><span class="icon-item__name">volume_off</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">visibility</span><span class="icon-item__name">visibility</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">visibility_off</span><span class="icon-item__name">visibility_off</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">zoom_in</span><span class="icon-item__name">zoom_in</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">zoom_out</span><span class="icon-item__name">zoom_out</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Comunicación ────────────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Comunicación</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">email</span><span class="icon-item__name">email</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">chat</span><span class="icon-item__name">chat</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">chat_bubble</span><span class="icon-item__name">chat_bubble</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">forum</span><span class="icon-item__name">forum</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">notifications</span><span class="icon-item__name">notifications</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">notifications_none</span><span class="icon-item__name">notifications_none</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">person</span><span class="icon-item__name">person</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">person_add</span><span class="icon-item__name">person_add</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">group</span><span class="icon-item__name">group</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">groups</span><span class="icon-item__name">groups</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">call</span><span class="icon-item__name">call</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">send</span><span class="icon-item__name">send</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">inbox</span><span class="icon-item__name">inbox</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">mark_email_read</span><span class="icon-item__name">mark_email_read</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Datos & Dashboards ──────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Datos y dashboards</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">dashboard</span><span class="icon-item__name">dashboard</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">bar_chart</span><span class="icon-item__name">bar_chart</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">show_chart</span><span class="icon-item__name">show_chart</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">pie_chart</span><span class="icon-item__name">pie_chart</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">area_chart</span><span class="icon-item__name">area_chart</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">analytics</span><span class="icon-item__name">analytics</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">table_chart</span><span class="icon-item__name">table_chart</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">grid_view</span><span class="icon-item__name">grid_view</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">list</span><span class="icon-item__name">list</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">view_list</span><span class="icon-item__name">view_list</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">view_module</span><span class="icon-item__name">view_module</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">data_usage</span><span class="icon-item__name">data_usage</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">trending_up</span><span class="icon-item__name">trending_up</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">trending_down</span><span class="icon-item__name">trending_down</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Estado & Feedback ───────────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Estado y feedback</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">check_circle</span><span class="icon-item__name">check_circle</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">cancel</span><span class="icon-item__name">cancel</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">error</span><span class="icon-item__name">error</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">warning</span><span class="icon-item__name">warning</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">info</span><span class="icon-item__name">info</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">help</span><span class="icon-item__name">help</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">done</span><span class="icon-item__name">done</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">done_all</span><span class="icon-item__name">done_all</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">pending</span><span class="icon-item__name">pending</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">schedule</span><span class="icon-item__name">schedule</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">access_time</span><span class="icon-item__name">access_time</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">hourglass_empty</span><span class="icon-item__name">hourglass_empty</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">block</span><span class="icon-item__name">block</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">do_not_disturb</span><span class="icon-item__name">do_not_disturb</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Sistema & Configuración ────────────────────────────── -->
+                <div class="main-card card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistema y configuración</h5>
+                        <div class="icon-grid">
+                            <div class="icon-item"><span class="material-symbols-rounded">settings</span><span class="icon-item__name">settings</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">lock</span><span class="icon-item__name">lock</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">lock_open</span><span class="icon-item__name">lock_open</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">security</span><span class="icon-item__name">security</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">key</span><span class="icon-item__name">key</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">cloud</span><span class="icon-item__name">cloud</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">cloud_upload</span><span class="icon-item__name">cloud_upload</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">cloud_download</span><span class="icon-item__name">cloud_download</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">sync</span><span class="icon-item__name">sync</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">devices</span><span class="icon-item__name">devices</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">device_hub</span><span class="icon-item__name">device_hub</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">power_settings_new</span><span class="icon-item__name">power_settings_new</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">lightbulb</span><span class="icon-item__name">lightbulb</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">toggle_on</span><span class="icon-item__name">toggle_on</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">toggle_off</span><span class="icon-item__name">toggle_off</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">api</span><span class="icon-item__name">api</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">webhook</span><span class="icon-item__name">webhook</span></div>
+                            <div class="icon-item"><span class="material-symbols-rounded">code</span><span class="icon-item__name">code</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

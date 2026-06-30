@@ -1,0 +1,112 @@
+{{#> base }}
+    {{> AppSidebar/sidebar elements-dot-badges=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> AppMain/page-title }}
+
+            <div class="row">
+
+                <!-- Variantes -->
+                <div class="col-lg-4 mb-4">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Variantes</h5>
+                            <p class="text-muted mb-4" style="font-size:.875rem">Indicador posicionado en la esquina superior derecha de un ícono. Comunica conteo de notificaciones o presencia de actividad sin interrumpir el flujo.</p>
+
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Número</div>
+                                <div class="tag-showcase-group" style="gap:.75rem;align-items:center">
+                                    <span class="badge-notify" style="position:relative;top:auto;right:auto;box-shadow:none">3</span>
+                                    <span class="badge-notify" style="position:relative;top:auto;right:auto;box-shadow:none">+99</span>
+                                    <span class="badge-notify" style="position:relative;top:auto;right:auto;box-shadow:none">1</span>
+                                </div>
+                            </div>
+
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Dot</div>
+                                <div class="tag-showcase-group" style="align-items:center">
+                                    <span class="badge-notify badge-notify--dot" style="position:relative;top:auto;right:auto;box-shadow:none"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aplicación en botones -->
+                <div class="col-lg-8 mb-4">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Aplicación en botones</h5>
+                            <p class="text-muted mb-4" style="font-size:.875rem">Se usan sobre icon buttons de navegación para indicar notificaciones pendientes. El badge número muestra conteo exacto (o <code>+99</code> cuando supera 99). El badge dot solo indica presencia de actividad sin cantidad.</p>
+
+                            <!-- Light background -->
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Fondo claro</div>
+                                <div class="tag-showcase-group" style="gap:1.25rem">
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only btn-tertiary">
+                                            <span class="material-symbols-rounded">mail</span>
+                                        </button>
+                                        <span class="badge-notify">3</span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only btn-tertiary">
+                                            <span class="material-symbols-rounded">mail</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--dot"></span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only btn-tertiary">
+                                            <span class="material-symbols-rounded">notifications</span>
+                                        </button>
+                                        <span class="badge-notify">12</span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only btn-tertiary">
+                                            <span class="material-symbols-rounded">notifications</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--dot"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Dark background -->
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Fondo oscuro</div>
+                                <div class="tag-showcase-group" style="gap:1.25rem;background:#3b424b;padding:.75rem 1rem;border-radius:.5rem">
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only" style="background:#3b424b;color:#f6f8fa;border-color:transparent">
+                                            <span class="material-symbols-rounded">mail</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--on-dark">+99</span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only" style="background:#3b424b;color:#f6f8fa;border-color:transparent">
+                                            <span class="material-symbols-rounded">mail</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--dot badge-notify--on-dark"></span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only" style="background:#3b424b;color:#f6f8fa;border-color:transparent">
+                                            <span class="material-symbols-rounded">notifications</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--on-dark">1</span>
+                                    </span>
+                                    <span class="badge-notify-wrap">
+                                        <button type="button" class="btn btn-icon-only" style="background:#3b424b;color:#f6f8fa;border-color:transparent">
+                                            <span class="material-symbols-rounded">notifications</span>
+                                        </button>
+                                        <span class="badge-notify badge-notify--dot badge-notify--on-dark"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{> AppFooter/footer }}
+    </div>
+{{/base}}

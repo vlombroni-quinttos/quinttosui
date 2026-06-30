@@ -1,0 +1,23 @@
+{{#> base }}
+    {{> sidebar components-tree-view=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> page-title
+                    title='Tree View'
+                    description='Create stunning tree like views with this awesome React plugin.'
+                    heading_icon='pe-7s-switch icon-gradient bg-plum-plate'
+            }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic Tree Example</h5>
+                            <div id="tree"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> footer }}
+    </div>
+{{/ base }}

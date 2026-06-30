@@ -1,0 +1,263 @@
+{{#> base }}
+{{> AppSidebar/sidebar components-tooltips-popovers=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">Popovers</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">Tooltips</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Basic</h5>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" data-container="body"
+                                        data-toggle="popover" data-placement="bottom"
+                                        data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on bottom
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Custom</h5>
+                                <div class="text-center">
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="0" class="mr-2 mb-2 btn btn-primary">Primary</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="1" class="mr-2 mb-2 btn btn-secondary">Secondary</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="2" class="mr-2 mb-2 btn btn-success">Success</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="3" class="mr-2 mb-2 btn btn-info">Info</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="4" class="mr-2 mb-2 btn btn-warning ">Warning</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="0" class="mr-2 mb-2 btn btn-danger">Danger</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="1" class="mr-2 mb-2 btn btn-focus">Focus</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="2" class="mr-2 mb-2 btn btn-alternate">Alternate</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="3" class="mr-2 mb-2 btn btn-light">Light</button>
+                                    <button type="button" data-toggle="popover-custom-content" rel="popover-focus"
+                                        popover-id="4" class="mr-2 mb-2 btn btn-dark">Dark</button>
+                                </div>
+                            </div>
+
+                            <div id="popover-content-0" class="d-none">
+                                <div class="dropdown-menu-header">
+                                    <div class="dropdown-menu-header-inner bg-primary">
+                                        <div class="menu-header-image opacity-5"
+                                            style="background-image: url('assets/images/dropdown-header/abstract2.jpg');">
+                                        </div>
+                                        <div class="menu-header-content">
+                                            <h5 class="menu-header-title">Settings</h5>
+                                            <h6 class="menu-header-subtitle">Manage all of your options</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item-header nav-item">Activity</li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Chat
+                                            <div class="ml-auto badge badge-pill badge-info">8</div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                    </li>
+                                    <li class="nav-item-divider nav-item"></li>
+                                    <li class="nav-item-btn nav-item">
+                                        <button class="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="popover-content-1" class="d-none">
+                                <div class="dropdown-menu-header">
+                                    <div class="dropdown-menu-header-inner bg-secondary">
+                                        <div class="menu-header-image opacity-5"
+                                            style="background-image: url('assets/images/dropdown-header/city2.jpg');">
+                                        </div>
+                                        <div class="menu-header-content">
+                                            <h5 class="menu-header-title">Settings</h5>
+                                            <h6 class="menu-header-subtitle">Manage all of your options</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item-header nav-item">Activity</li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Chat
+                                            <div class="ml-auto badge badge-pill badge-info">8</div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                    </li>
+                                    <li class="nav-item-divider nav-item"></li>
+                                    <li class="nav-item-btn nav-item">
+                                        <button class="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="popover-content-2" class="d-none">
+                                <div class="dropdown-menu-header">
+                                    <div class="dropdown-menu-header-inner bg-success">
+                                        <div class="menu-header-image opacity-5"
+                                            style="background-image: url('assets/images/dropdown-header/abstract4.jpg');">
+                                        </div>
+                                        <div class="menu-header-content">
+                                            <h5 class="menu-header-title">Settings</h5>
+                                            <h6 class="menu-header-subtitle">Manage all of your options</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item-header nav-item">Activity</li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Chat
+                                            <div class="ml-auto badge badge-pill badge-info">8</div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                    </li>
+                                    <li class="nav-item-divider nav-item"></li>
+                                    <li class="nav-item-btn nav-item">
+                                        <button class="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="popover-content-3" class="d-none">
+                                <div class="dropdown-menu-header">
+                                    <div class="dropdown-menu-header-inner bg-danger">
+                                        <div class="menu-header-image opacity-5"
+                                            style="background-image: url('assets/images/dropdown-header/city3.jpg');">
+                                        </div>
+                                        <div class="menu-header-content">
+                                            <h5 class="menu-header-title">Settings</h5>
+                                            <h6 class="menu-header-subtitle">Manage all of your options</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item-header nav-item">Activity</li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Chat
+                                            <div class="ml-auto badge badge-pill badge-info">8</div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Recover
+                                            Password</a>
+                                        </li>
+                                    <li class="nav-item-divider nav-item"></li>
+                                    <li class="nav-item-btn nav-item">
+                                        <button class="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="popover-content-4" class="d-none">
+                                <div class="dropdown-menu-header">
+                                    <div class="dropdown-menu-header-inner bg-warning">
+                                        <div class="menu-header-image opacity-5"
+                                            style="background-image: url('assets/images/dropdown-header/abstract1.jpg');">
+                                        </div>
+                                        <div class="menu-header-content">
+                                            <h5 class="menu-header-title">Settings</h5>
+                                            <h6 class="menu-header-subtitle">Manage all of your options</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item-header nav-item">Activity</li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Chat
+                                            <div class="ml-auto badge badge-pill badge-info">8</div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                    </li>
+                                    <li class="nav-item-divider nav-item"></li>
+                                    <li class="nav-item-btn nav-item">
+                                        <button class="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Dark Tooltips</h5>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                        data-placement="top" title="Tooltip on top">
+                                        Tooltip on top
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                        data-placement="right" title="Tooltip on right">
+                                        Tooltip on right
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                        data-placement="bottom" title="Tooltip on bottom">
+                                        Tooltip on bottom
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+                                        data-placement="left" title="Tooltip on left">
+                                        Tooltip on left
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Light Tooltips</h5>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip-light"
+                                        data-placement="top" title="Tooltip on top">
+                                        Tooltip on top
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip-light"
+                                        data-placement="right" title="Tooltip on right">
+                                        Tooltip on right
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip-light"
+                                        data-placement="bottom" title="Tooltip on bottom">
+                                        Tooltip on bottom
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip-light"
+                                        data-placement="left" title="Tooltip on left">
+                                        Tooltip on left
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

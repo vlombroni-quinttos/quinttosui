@@ -1,0 +1,181 @@
+// ============================================================
+// Toggle Switch — Figma Design System
+// Node: 180-10138 | File: dCEtw9coTRcbLRS4YZtQ1n
+//
+// Track : 43 × 24 px  · border-radius: pill
+// Knob  : 18 × 18 px  · border-radius: 50%
+// Border: 1 px (unchecked only)
+// ============================================================
+
+// ── Local tokens ────────────────────────────────────────────
+$sw-w:    2.6875rem;  // 43px  track width
+$sw-h:    1.5rem;     // 24px  track height
+$sw-k:    1.125rem;   // 18px  knob diameter
+$sw-gap:  0.5rem;     // 8px   gutter between track and label text
+
+// Vertical centres relative to the label's line-height
+// ($font-size-base = 0.875rem, $line-height-base = 1.5)
+$sw-lh:        $font-size-base * $line-height-base;       // 1.3125rem
+$sw-track-top: ($sw-lh - $sw-h) / 2;                     // –0.09375rem
+$sw-knob-top:  ($sw-lh - $sw-k) / 2;                     //  0.09375rem
+
+// ── Size variants ────────────────────────────────────────────
+$sw-sizes: (
+  "sm": ("w": 2.125rem, "h": 1.25rem, "k": 0.875rem),   // 34×20px, knob 14px
+  "lg": ("w": 3.25rem,  "h": 1.875rem, "k": 1.5rem)     // 52×30px, knob 24px
+);
+
+// ── Colors (Figma tokens) ────────────────────────────────────
+$sw-track-off-bg:         #fdfdfd;
+$sw-track-off-border:     #86909c;   // Neutral-500
+$sw-track-on-bg:          $primary;  // #423ffe
+$sw-track-dis-off-border: #a7b1bb;   // Neutral-400
+$sw-track-dis-on-bg:      #9795ff;   // muted primary
+
+$sw-knob-off:             #65717e;   // Neutral-600
+$sw-knob-on:              #fdfdfd;
+$sw-knob-dis:             #a7b1bb;   // Neutral-400
+
+$sw-ring-off:             rgba(229, 229, 229, 0.9);  // 4px focus ring (unchecked)
+$sw-ring-on:              #c2c0ff;                    // 2px focus ring (checked)
+
+// ── Color variants ────────────────────────────────────────────
+$sw-color-variants: (
+  "secondary": $secondary,
+  "success":   $success,
+  "info":      $info,
+  "warning":   $warning,
+  "danger":    $danger,
+  "dark":      #2e353d
+);
+
+// ── .custom-switch overrides ─────────────────────────────────
+.custom-switch {
+  padding-left: $sw-w + $sw-gap;
+
+  .custom-control-label {
+
+    // ── Track ──────────────────────────────────────────────
+    &::before {
+      top:    $sw-track-top;
+      left:   -($sw-w + $sw-gap);
+      width:  $sw-w;
+      height: $sw-h;
+      border-radius: $sw-h;                // full pill
+      background-color: $sw-track-off-bg;
+      border: 1px solid $sw-track-off-border;
+      box-shadow: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    // ── Knob ───────────────────────────────────────────────
+    &::after {
+      top:    $sw-knob-top;
+      left:   calc(#{-($sw-w + $sw-gap)} + 3px);  // 3px from outer track left
+      width:  $sw-k;
+      height: $sw-k;
+      border-radius: 50%;
+      background-color: $sw-knob-off;
+      background-image: none;              // remove Bootstrap's SVG icon
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+  }
+
+  // ── Checked ───────────────────────────────────────────────
+  .custom-control-input:checked ~ .custom-control-label {
+    &::before {
+      background-color: $sw-track-on-bg;
+      border-color:     $sw-track-on-bg;
+    }
+    &::after {
+      background-color: $sw-knob-on;
+      transform: translateX(calc(#{$sw-w} - #{$sw-h}));  // 43 – 24 = 19px
+    }
+  }
+
+  // ── Focus: unchecked ──────────────────────────────────────
+  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: $sw-track-off-border;
+    box-shadow: 0 0 0 4px $sw-ring-off;
+  }
+
+  // ── Focus: checked ────────────────────────────────────────
+  .custom-control-input:focus:checked ~ .custom-control-label::before {
+    box-shadow: 0 0 0 2px $sw-ring-on;
+  }
+
+  // ── Disabled: unchecked ───────────────────────────────────
+  .custom-control-input:disabled ~ .custom-control-label {
+    cursor: not-allowed;
+    opacity: 1;               // don't dim the whole control, only change colors
+
+    &::before {
+      background-color: $sw-track-off-bg;
+      border-color: $sw-track-dis-off-border;
+    }
+    &::after {
+      background-color: $sw-knob-dis;
+    }
+  }
+
+  // ── Disabled: checked (overrides the generic disabled rule above) ──
+  .custom-control-input:disabled:checked ~ .custom-control-label {
+    &::before {
+      background-color: $sw-track-dis-on-bg;
+      border-color:     $sw-track-dis-on-bg;
+    }
+    &::after {
+      background-color: $sw-knob-on;
+    }
+  }
+
+  // ── Color variants ─────────────────────────────────────────
+  @each $name, $color in $sw-color-variants {
+    &.custom-switch-#{$name} {
+      .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: $color;
+        border-color:     $color;
+      }
+      .custom-control-input:focus:checked ~ .custom-control-label::before {
+        box-shadow: 0 0 0 2px rgba($color, 0.4);
+      }
+      .custom-control-input:disabled:checked ~ .custom-control-label::before {
+        background-color: mix(#fff, $color, 40%);
+        border-color:     mix(#fff, $color, 40%);
+      }
+    }
+  }
+
+  // ── Size variants ─────────────────────────────────────────
+  @each $suffix, $vals in $sw-sizes {
+    $w: map-get($vals, "w");
+    $h: map-get($vals, "h");
+    $k: map-get($vals, "k");
+    $tt: ($sw-lh - $h) / 2;
+    $kt: ($sw-lh - $k) / 2;
+
+    &.custom-switch-#{$suffix} {
+      padding-left: $w + $sw-gap;
+
+      .custom-control-label {
+        &::before {
+          top:          $tt;
+          left:         -($w + $sw-gap);
+          width:        $w;
+          height:       $h;
+          border-radius: $h;
+        }
+        &::after {
+          top:    $kt;
+          left:   calc(#{-($w + $sw-gap)} + 3px);
+          width:  $k;
+          height: $k;
+        }
+      }
+
+      .custom-control-input:checked ~ .custom-control-label::after {
+        transform: translateX(calc(#{$w} - #{$h}));
+      }
+    }
+  }
+}

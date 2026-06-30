@@ -1,0 +1,19 @@
+// ── App Page Header — layout override ────────────────────────────────────────
+// Estilos visuales → src/assets/elements/_page-header.scss
+// Este archivo solo maneja el posicionamiento dentro de app-main__inner
+
+.app-page-header {
+  // Rompe el padding de app-main__inner (24px top, 32px sides) para ir a borde a borde.
+  // Usamos calc() en lugar de margin negativo porque en flex el margin negativo
+  // no expande el elemento — solo reduce el espacio ocupado.
+  margin-top: -24px;
+  margin-left: -32px;
+  margin-bottom: 24px;
+  width: calc(100% + 64px);   // 100% content + 32px left + 32px right
+
+  @media (max-width: 768px) {
+    margin-top: -24px;
+    margin-left: -24px;
+    width: calc(100% + 48px);  // 100% + 24px left + 24px right
+  }
+}

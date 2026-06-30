@@ -1,0 +1,40 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "architectui-html-pro",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "./architectui-html-pro-1.4.0/node_modules/.bin/webpack-dev-server",
+        "--config", "./architectui-html-pro-1.4.0/webpack-dev.config.js",
+        "--watch", "--colors", "-d"
+      ],
+      "port": 8081,
+      "url": "http://localhost:8081/analytics.html"
+    },
+    {
+      "name": "architectui-html-pro-rtl",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "./architectui-html-pro-RTL-1.0/node_modules/.bin/webpack-dev-server",
+        "--config", "./architectui-html-pro-RTL-1.0/webpack-dev.config.js",
+        "--watch", "--colors", "-d"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "wireframe-reportes",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "5050", "/Users/shifta-mac007/Downloads/Reportes"],
+      "port": 5050,
+      "url": "http://localhost:5050/wireframe-completo-v4.html"
+    },
+    {
+      "name": "desempeno-actitudinal",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["/Users/shifta-mac007/Desktop/Shifta/quinttos/desempeno-actitudinal/server.js"],
+      "port": 4567,
+      "url": "http://localhost:4567/index.html"
+    }
+  ]
+}

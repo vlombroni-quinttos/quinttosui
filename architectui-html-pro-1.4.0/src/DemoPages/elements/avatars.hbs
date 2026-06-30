@@ -1,0 +1,166 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-avatars=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <!-- ── Sizes & Types ────────────────────────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Sizes &amp; Types</h5>
+
+                <!-- Initials -->
+                <p class="text-muted mb-2" style="font-size:.875rem;font-weight:600;">Initials</p>
+                <div class="d-flex align-items-center mb-4" style="gap:16px;">
+                    <!-- Large -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--lg avatar--initials">AB</div>
+                        <span style="font-size:11px;color:#86909C;">L — 60px</span>
+                    </div>
+                    <!-- Medium -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--md avatar--initials">AB</div>
+                        <span style="font-size:11px;color:#86909C;">M — 44px</span>
+                    </div>
+                    <!-- Small -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--sm avatar--initials">AB</div>
+                        <span style="font-size:11px;color:#86909C;">S — 32px</span>
+                    </div>
+                </div>
+
+                <!-- Photo -->
+                <p class="text-muted mb-2" style="font-size:.875rem;font-weight:600;">Photo</p>
+                <div class="d-flex align-items-center" style="gap:16px;">
+                    <!-- Large -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--lg avatar--photo">
+                            <img src="https://i.pravatar.cc/60?img=47" alt="Avatar L">
+                        </div>
+                        <span style="font-size:11px;color:#86909C;">L — 60px</span>
+                    </div>
+                    <!-- Medium -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--md avatar--photo">
+                            <img src="https://i.pravatar.cc/44?img=12" alt="Avatar M">
+                        </div>
+                        <span style="font-size:11px;color:#86909C;">M — 44px</span>
+                    </div>
+                    <!-- Small -->
+                    <div class="d-flex flex-column align-items-center" style="gap:8px;">
+                        <div class="avatar avatar--sm avatar--photo">
+                            <img src="https://i.pravatar.cc/32?img=5" alt="Avatar S">
+                        </div>
+                        <span style="font-size:11px;color:#86909C;">S — 32px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Patterns — Desktop ────────────────────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Patterns — Desktop</h5>
+                <p class="text-muted mb-4" style="font-size:.875rem;">Label + avatar(s) + linked name. Medium size (44px).</p>
+
+                <!-- Single avatar -->
+                <div class="avatar-pattern mb-4">
+                    <span class="avatar-pattern__label">Label:</span>
+                    <div class="avatar-pattern__body">
+                        <div class="avatar avatar--md avatar--photo">
+                            <img src="https://i.pravatar.cc/44?img=47" alt="">
+                        </div>
+                        <a href="javascript:void(0);" class="avatar-pattern__name">Lastname, Name</a>
+                    </div>
+                </div>
+
+                <!-- Two avatars -->
+                <div class="avatar-pattern mb-4">
+                    <span class="avatar-pattern__label">Label:</span>
+                    <div class="avatar-pattern__body">
+                        <div class="avatar avatar--md avatar--photo">
+                            <img src="https://i.pravatar.cc/44?img=47" alt="">
+                        </div>
+                        <a href="javascript:void(0);" class="avatar-pattern__name">Lastname, Name</a>
+                    </div>
+                    <div class="avatar-pattern__body">
+                        <div class="avatar avatar--md avatar--photo">
+                            <img src="https://i.pravatar.cc/44?img=12" alt="">
+                        </div>
+                        <a href="javascript:void(0);" class="avatar-pattern__name">Lastname, Name</a>
+                    </div>
+                </div>
+
+                <!-- Group with overflow -->
+                <div class="avatar-pattern">
+                    <span class="avatar-pattern__label">Label:</span>
+                    <div class="avatar-pattern__body">
+                        <div class="avatar-group">
+                            <div class="avatar avatar--md avatar--photo">
+                                <img src="https://i.pravatar.cc/44?img=47" alt="">
+                            </div>
+                            <div class="avatar avatar--md avatar--photo">
+                                <img src="https://i.pravatar.cc/44?img=12" alt="">
+                            </div>
+                            <div class="avatar avatar--md avatar--photo">
+                                <img src="https://i.pravatar.cc/44?img=32" alt="">
+                            </div>
+                            <div class="avatar avatar--md avatar--photo">
+                                <img src="https://i.pravatar.cc/44?img=5" alt="">
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" class="avatar-pattern__see-all">Ver todos (4)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Patterns — Mobile ─────────────────────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Patterns — Mobile</h5>
+                <p class="text-muted mb-4" style="font-size:.875rem;">Same patterns in vertical layout. Small size (32px).</p>
+
+                <div class="d-flex" style="gap:48px;flex-wrap:wrap;">
+
+                    <!-- Single avatar — mobile -->
+                    <div class="avatar-pattern avatar-pattern--mobile">
+                        <span class="avatar-pattern__label">Label:</span>
+                        <div class="avatar-pattern__body">
+                            <div class="avatar avatar--sm avatar--photo">
+                                <img src="https://i.pravatar.cc/32?img=47" alt="">
+                            </div>
+                            <a href="javascript:void(0);" class="avatar-pattern__name">Lastname, Name</a>
+                        </div>
+                    </div>
+
+                    <!-- Group with overflow — mobile -->
+                    <div class="avatar-pattern avatar-pattern--mobile">
+                        <span class="avatar-pattern__label">Label:</span>
+                        <div class="avatar-pattern__body">
+                            <div class="avatar-group avatar-group--sm">
+                                <div class="avatar avatar--sm avatar--photo">
+                                    <img src="https://i.pravatar.cc/32?img=47" alt="">
+                                </div>
+                                <div class="avatar avatar--sm avatar--photo">
+                                    <img src="https://i.pravatar.cc/32?img=12" alt="">
+                                </div>
+                                <div class="avatar avatar--sm avatar--photo">
+                                    <img src="https://i.pravatar.cc/32?img=32" alt="">
+                                </div>
+                                <div class="avatar avatar--sm avatar--photo">
+                                    <img src="https://i.pravatar.cc/32?img=5" alt="">
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="avatar-pattern__see-all">Ver todos (4)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

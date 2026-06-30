@@ -1,0 +1,1074 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-cards=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">Basic</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">Advanced</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">Widget Cards</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- Basic tab -->
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Basic Example</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    dolor. Aenean massa.</p>
+                            </div>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card with Subtitle</h5>
+                                <h6 class="card-subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h6>
+                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+                                    massa quis eni</p>
+                            </div>
+                        </div>
+                        <div class="mb-3 card card-body">
+                            <h5 class="card-title">Special Title Treatment</h5>
+                            With supporting text below as a natural lead-in to additional content.
+                            <button class="btn btn-primary">Go somewhere</button>
+                        </div>
+                        <div class="mb-3 text-center card card-body">
+                            <h5 class="card-title">Special Title Treatment</h5>
+                            With supporting text below as a natural lead-in to additional content.
+                            <button class="btn btn-danger">Go somewhere</button>
+                        </div>
+                        <div class="mb-3 text-right card card-body">
+                            <h5 class="card-title">Special Title Treatment</h5>
+                            With supporting text below as a natural lead-in to additional content.
+                            <button class="btn btn-outline-focus">Go somewhere</button>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Special Title Treatment</h5>
+                                With supporting text below as a natural lead-in to additional content.
+                                <button class="btn btn-warning">Go somewhere</button>
+                            </div>
+                            <div class="card-footer">Footer</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="card-subtitle">Card subtitle</h6>
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                <button class="btn btn-secondary">Button</button>
+                            </div>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title</h5>
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="mb-0 card-subtitle">Card subtitle</h6>
+                            </div>
+                            <div class="card-body">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                <a href="javascript:void(0);" class="card-link">Card Link</a>
+                                <a href="javascript:void(0);" class="card-link">Another Link</a>
+                            </div>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title</h5>
+                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Advanced tab -->
+            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+            {{!-- ══════════════════════════════════════════════════════════════════
+                 SECCIÓN 1 — Headers para containers individuales
+            ══════════════════════════════════════════════════════════════════════ --}}
+            <div class="row mb-2">
+                <div class="col-12">
+                    <p class="ch-demo__section-title">Headers para containers individuales</p>
+                    <p class="ch-demo__section-desc">Todas las cards comparten la misma estructura de header. Las siguientes variantes muestran los elementos que puede incorporar según la necesidad del contenido.</p>
+                </div>
+            </div>
+    
+            {{!-- ── 1. Solo título ──────────────────────────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Solo título</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">El header más simple. Solo lleva el título que identifica el contenido del container. No requiere ningún elemento adicional.</p>
+                </div>
+            </div>
+    
+            {{!-- ── 2. Título con switch view ───────────────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Título con Switch View</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <!-- Switch view: tabla ↔ grilla -->
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#" role="tab" aria-label="Vista tabla">
+                                            <span class="material-symbols-rounded">table_rows</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" role="tab" aria-label="Vista grilla">
+                                            <span class="material-symbols-rounded">grid_view</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">El <strong>Switch View</strong> permite al usuario alternar entre distintas representaciones del mismo contenido (tabla, grilla, etc.). Siempre va en el extremo derecho del header y puede convivir con botones de acción.</p>
+                </div>
+            </div>
+    
+            {{!-- ── 3. Título con acciones ─────────────────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Título con acciones</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <!-- Desktop: botones individuales (se ocultan en mobile) -->
+                                <button type="button" class="ch__tertiary-btn d-none d-sm-inline-flex">
+                                    <span class="material-symbols-rounded">settings</span>
+                                    Acción terciaria
+                                </button>
+                                <button type="button" class="ch__icon-btn d-none d-sm-flex" aria-label="Acción 1">
+                                    <span class="material-symbols-rounded">download</span>
+                                </button>
+                                <button type="button" class="ch__icon-btn d-none d-sm-flex" aria-label="Acción 2">
+                                    <span class="material-symbols-rounded">share</span>
+                                </button>
+                                <!-- Mobile: acciones agrupadas en menú ⋮ (oculto en desktop) -->
+                                <div class="dropdown d-flex d-sm-none">
+                                    <button type="button" class="ch__icon-btn dropdown-toggle" data-toggle="dropdown" aria-label="Más acciones">
+                                        <span class="material-symbols-rounded">more_vert</span>
+                                    </button>
+                                    <div class="dropdown-menu tpl-select__menu">
+                                        <button type="button" class="dropdown-item tpl-select__item">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">settings</span>Acción terciaria
+                                        </button>
+                                        <button type="button" class="dropdown-item tpl-select__item">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">download</span>Descargar
+                                        </button>
+                                        <button type="button" class="dropdown-item tpl-select__item">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">share</span>Compartir
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Botón principal (siempre visible) -->
+                                <button type="button" class="btn btn-primary">Acción principal</button>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">Los botones de acción van siempre a la derecha del título. <strong>Máximo 4 botones</strong>, de los cuales <strong>solo 1 puede ser primario</strong>. Pueden coexistir con el Switch View.</p>
+                    <p class="ch-demo__rule">Jerarquía de botones: <strong>Primario</strong> (acción principal) → <strong>Secundario outline</strong> (acción relevante) → <strong>Ícono outline</strong> (acciones complementarias) → <strong>Terciario</strong> (acciones menores).</p>
+                    <p class="ch-demo__rule">En mobile: <strong>máximo 1 botón con texto y 2 con ícono</strong>. Si hay más botones o convive con Switch View, usar el patrón de <strong>menú agrupado</strong>.</p>
+                </div>
+            </div>
+    
+            {{!-- ── 3b. Menú de acciones (overflow) ───────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Menú de acciones agrupadas</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <!-- Switch view -->
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#" role="tab" aria-label="Vista tabla">
+                                            <span class="material-symbols-rounded">table_rows</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" role="tab" aria-label="Vista grilla">
+                                            <span class="material-symbols-rounded">grid_view</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown de acciones secundarias (ícono ⋮) -->
+                                <div class="dropdown">
+                                    <button type="button" class="ch__icon-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Más acciones">
+                                        <span class="material-symbols-rounded">more_vert</span>
+                                    </button>
+                                    <div class="dropdown-menu tpl-select__menu">
+                                        <button type="button" class="dropdown-item tpl-select__item">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">download</span>Exportar
+                                        </button>
+                                        <button type="button" class="dropdown-item tpl-select__item">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">share</span>Compartir
+                                        </button>
+                                        <button type="button" class="dropdown-item tpl-select__item" style="color:#f3164e;">
+                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;color:#f3164e;">delete</span>Eliminar
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Botón principal -->
+                                <button type="button" class="btn btn-primary">Acción principal</button>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">Cuando hay Switch View <strong>y</strong> múltiples acciones secundarias, se agrupan en un botón <code>⋮</code> de menú para evitar el desbordamiento. El botón primario siempre queda visible.</p>
+                    <p class="ch-demo__rule">Este es el <strong>patrón recomendado en mobile</strong> cuando coexisten Switch View y botones de acción.</p>
+                </div>
+            </div>
+    
+            {{!-- ── 4. Título con alerta ────────────────────────────────────────── --}}
+            <div class="row mb-2">
+                <div class="col-12 mb-4">
+                    <p class="ch-demo__case-label">Alerta de advertencia</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <div class="ch__alert ch__alert--warning">
+                                    <div class="ch__alert__left">
+                                        <span class="material-symbols-rounded">warning</span>
+                                        <span>Cambios sin guardar.</span>
+                                    </div>
+                                    <div class="ch__alert__right">Guardar</div>
+                                </div>
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <div class="ch-demo__rule ch-demo__rule--warn">
+                        <span class="material-symbols-rounded">block</span>
+                        <span><strong>Alerta y botones de acción no deben convivir.</strong> Cuando hay una alerta activa, los botones se omiten para no generar ambigüedad. La acción relevante va dentro de la propia alerta (lado derecho).</span>
+                    </div>
+                </div>
+            </div>
+    
+            {{!-- ── 5. Título con filtros ───────────────────────────────────────── --}}
+            <div class="row mb-2">
+                <div class="col-12 mb-1">
+                    <p class="ch-demo__section-title">Título con filtros de contenido</p>
+                    <p class="ch-demo__section-desc">Los filtros van en una segunda fila debajo del título. Se utilizan para filtrar <em>únicamente</em> el contenido dentro del mismo container — no afectan a otros containers de la página. Pueden usarse tabs, segmented buttons o un selector.</p>
+                </div>
+            </div>
+    
+            {{!-- 5a. Tabs ──────────────────────────────────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Con tabs</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ch__filters">
+                            <div class="ch__filters-left">
+                                <!-- Tabs de contenido -->
+                                <ul class="tab-nav mb-0" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" href="#" role="tab">Todos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" role="tab">Activos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" role="tab">Inactivos</a></li>
+                                </ul>
+                                <!-- Buscador inline -->
+                                <div class="ch__search">
+                                    <span class="material-symbols-rounded">search</span>
+                                    <input type="text" placeholder="Buscar">
+                                </div>
+                            </div>
+                            <div class="ch__filters-right">
+                                <div class="ch__toggle-wrap">
+                                    <div class="custom-control custom-switch mb-0">
+                                        <input type="checkbox" class="custom-control-input" id="toggle-filter-tabs">
+                                        <label class="custom-control-label" for="toggle-filter-tabs">Mostrar inactivos</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">Los <strong>tabs</strong> se usan cuando las categorías son bien conocidas por el usuario y se navega entre ellas frecuentemente. Pueden convivir con un buscador y un toggle switch en la misma fila de filtros.</p>
+                </div>
+            </div>
+    
+            {{!-- 5b. Segmented buttons ───────────────────────────────────────── --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Con segmented buttons</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ch__filters">
+                            <div class="ch__filters-left">
+                                <!-- Segmented buttons (misma clase tab-nav, uso compacto) -->
+                                <ul class="tab-nav mb-0" role="tablist" style="width:auto;">
+                                    <li class="nav-item"><a class="nav-link active" href="#" role="tab">Semanal</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" role="tab">Mensual</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" role="tab">Anual</a></li>
+                                </ul>
+                                <div class="ch__search">
+                                    <span class="material-symbols-rounded">search</span>
+                                    <input type="text" placeholder="Buscar">
+                                </div>
+                            </div>
+                            <div class="ch__filters-right">
+                                <div class="custom-control custom-switch mb-0">
+                                    <input type="checkbox" class="custom-control-input" id="toggle-filter-seg">
+                                    <label class="custom-control-label" for="toggle-filter-seg">Mostrar archivados</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">Los <strong>segmented buttons</strong> se usan para agrupar opciones mutuamente excluyentes con un número reducido de ítems (2–4). Ideales para períodos de tiempo u otros criterios de vista acotados.</p>
+                </div>
+            </div>
+    
+            {{!-- 5c. Selector ────────────────────────────────────────────────── --}}
+            <div class="row mb-5">
+                <div class="col-12">
+                    <p class="ch-demo__case-label">Con selector (dropdown)</p>
+                    <div class="ch-demo__preview">
+                        <div class="ch__header">
+                            <h5 class="ch__title">Título del contenedor</h5>
+                            <div class="ch__actions">
+                                <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ch__filters">
+                            <div class="ch__filters-left">
+                                <!-- Selector como dropdown Bootstrap -->
+                                <div class="dropdown tpl-select" style="min-width:180px;">
+                                    <button type="button" class="form-control tpl-select__trigger d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:44px;cursor:pointer;">
+                                        <span class="tpl-select__value">Todos los cursos</span>
+                                        <span class="material-symbols-rounded" style="font-size:1.25rem;color:#86909c;">expand_more</span>
+                                    </button>
+                                    <div class="dropdown-menu tpl-select__menu">
+                                        <button type="button" class="dropdown-item tpl-select__item active" data-value="all">Todos los cursos</button>
+                                        <button type="button" class="dropdown-item tpl-select__item" data-value="mat">Matemáticas</button>
+                                        <button type="button" class="dropdown-item tpl-select__item" data-value="len">Lengua</button>
+                                        <button type="button" class="dropdown-item tpl-select__item" data-value="his">Historia</button>
+                                    </div>
+                                </div>
+                                <div class="ch__search">
+                                    <span class="material-symbols-rounded">search</span>
+                                    <input type="text" placeholder="Buscar">
+                                </div>
+                            </div>
+                            <div class="ch__filters-right">
+                                <div class="custom-control custom-switch mb-0">
+                                    <input type="checkbox" class="custom-control-input" id="toggle-filter-sel">
+                                    <label class="custom-control-label" for="toggle-filter-sel">Mostrar todos</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch-demo__content-placeholder"></div>
+                    </div>
+                    <p class="ch-demo__rule">El <strong>selector</strong> se usa cuando hay muchas opciones o las opciones son dinámicas (ej. lista de cursos, materias, usuarios). Es la opción más flexible del panel de filtros.</p>
+                </div>
+            </div>
+    
+            {{!-- ══════════════════════════════════════════════════════════════════
+                 SECCIÓN 2 — Multiple containers
+            ══════════════════════════════════════════════════════════════════════ --}}
+            <div class="row mb-2">
+                <div class="col-12">
+                    <p class="ch-demo__section-title">Headers en múltiples containers</p>
+                    <p class="ch-demo__section-desc">Cuando una pantalla tiene mucha información agrupada en distintos temas, se usa un <strong>header principal</strong> con el título general y las acciones globales, seguido de múltiples sub-containers con subtítulos H6. Cada sub-container muestra solo su propia sección de contenido.</p>
+                </div>
+            </div>
+    
+            <div class="row mb-5">
+                <div class="col-12">
+                    <!-- Wrapper transparente: igual que el template real -->
+                    <div class="tpl-cform-wrapper">
+    
+                            <!-- Header standalone (card separada) -->
+                            <div class="tpl-form tpl-form--header-only">
+                                <div class="tpl-form__header">
+                                    <h5 class="tpl-form__title">Configurar nueva cursada</h5>
+                                    <div class="tpl-form__header-actions">
+                                        <!-- Desktop: botones individuales (ocultos en mobile) -->
+                                        <button type="button" class="tpl-form__btn-outline d-none d-sm-inline-flex">Cancelar</button>
+                                        <button type="button" class="tpl-form__btn-outline d-none d-sm-inline-flex">Guardar borrador</button>
+                                        <!-- Mobile: acciones secundarias agrupadas en ⋮ -->
+                                        <div class="dropdown d-flex d-sm-none">
+                                            <button type="button" class="ch__icon-btn dropdown-toggle" data-toggle="dropdown" aria-label="Más acciones">
+                                                <span class="material-symbols-rounded">more_vert</span>
+                                            </button>
+                                            <div class="dropdown-menu tpl-select__menu">
+                                                <button type="button" class="dropdown-item tpl-select__item">
+                                                    <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">close</span>Cancelar
+                                                </button>
+                                                <button type="button" class="dropdown-item tpl-select__item">
+                                                    <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">save</span>Guardar borrador
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- Botón primario: siempre visible -->
+                                        <button type="button" class="tpl-form__btn-primary">
+                                            <span class="material-symbols-rounded">publish</span>
+                                            Publicar cursada
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Sub-card 1: Datos generales -->
+                            <div class="tpl-card">
+                                <div class="tpl-card__body">
+                                    <p class="tpl-card__title">Datos generales</p>
+                                    <div class="tpl-form__row">
+                                        <div class="tpl-form__field" style="flex:2;">
+                                            <label class="tpl-form__label">Nombre del curso</label>
+                                            <input type="text" class="form-control" placeholder="Ej: Matemáticas 1°A – 2026">
+                                        </div>
+                                        <div class="tpl-form__field" style="flex:1;">
+                                            <label class="tpl-form__label">Ciclo lectivo</label>
+                                            <input type="text" class="form-control" placeholder="2026">
+                                        </div>
+                                        <div class="tpl-form__field" style="flex:1;">
+                                            <label class="tpl-form__label">Modalidad</label>
+                                            <div class="dropdown tpl-select">
+                                                <button type="button" class="form-control tpl-select__trigger" data-toggle="dropdown">
+                                                    <span class="tpl-select__value">Presencial</span>
+                                                    <span class="material-symbols-rounded tpl-select__chevron">arrow_drop_down</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button class="dropdown-item tpl-select__item active">Presencial</button>
+                                                    <button class="dropdown-item tpl-select__item">Virtual</button>
+                                                    <button class="dropdown-item tpl-select__item">Híbrido</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tpl-form__row" style="margin-top:0;">
+                                        <div class="tpl-form__field" style="flex:1;">
+                                            <label class="tpl-form__label">Descripción</label>
+                                            <textarea class="form-control" rows="2" placeholder="Descripción opcional del curso..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                    </div>{{!-- /tpl-cform-wrapper --}}
+    
+                    <p class="ch-demo__rule mt-2">El <strong>header principal</strong> es una card standalone separada del resto. Las sub-cards van debajo como tarjetas independientes dentro del <code>tpl-cform-wrapper</code>. Los botones de acción global (Cancelar, Guardar, Publicar) van siempre en el header, nunca dentro de las sub-cards.</p>
+                </div>
+            </div>
+    
+            {{!-- ══════════════════════════════════════════════════════════════════
+                 SECCIÓN 3 — Reglas de uso (resumen)
+            ══════════════════════════════════════════════════════════════════════ --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="ch-demo__section-title">Resumen de reglas</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Acciones en el header</h6>
+                            <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                                <li>Máximo <strong>4 botones</strong> de acción visibles.</li>
+                                <li>Solo <strong>1 botón primario</strong> (acción principal).</li>
+                                <li>Si hay Switch View y muchas acciones, agrupar secundarias en un <strong>menú desplegable</strong>.</li>
+                                <li>Las acciones globales siempre van en el header de la card más externa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Alertas</h6>
+                            <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                                <li>Las alertas van en la <strong>segunda fila</strong> del header, debajo del título.</li>
+                                <li><strong>No deben convivir con botones de acción.</strong></li>
+                                <li>Pueden convivir con el Switch View.</li>
+                                <li>Usar el tipo de alerta correcto: <code>info</code>, <code>warning</code>, <code>danger</code>, <code>success</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Filtros de contenido</h6>
+                            <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                                <li>Los filtros van en una <strong>fila separada</strong> debajo del título.</li>
+                                <li>Solo filtran el contenido del <strong>mismo container</strong>.</li>
+                                <li>Usar <strong>tabs</strong> para categorías conocidas y frecuentes.</li>
+                                <li>Usar <strong>segmented buttons</strong> para opciones mutuamente excluyentes (2–4).</li>
+                                <li>Usar <strong>selector</strong> cuando las opciones son muchas o dinámicas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Multiple containers</h6>
+                            <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                                <li>Un <strong>header principal</strong> con el título general y las acciones globales.</li>
+                                <li>Sub-containers con <strong>subtítulos H6</strong>, sin header propio.</li>
+                                <li>Los sub-containers son secciones de un único formulario o flujo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Versión mobile</h6>
+                            <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                                <li>El título usa <strong>H6 (16px/500)</strong> en lugar de H5 (20px). Sin letter-spacing.</li>
+                                <li>El header tiene <code>flex-wrap</code>: el título toma el ancho completo y las acciones pasan a la segunda fila.</li>
+                                <li>Min-height del header: <strong>62px</strong> (desktop: 70px). Gap entre filas: <strong>16px</strong>.</li>
+                                <li>La alert pill pasa a <strong>ancho completo</strong> (<code>flex: 1 0 250px</code>) en la segunda fila.</li>
+                                <li>Los filtros se apilan en <strong>columna</strong>: tab nav → buscador → toggle switch, cada uno a full width.</li>
+                                <li>Los botones de acción mantienen tamaño M (46px) en mobile.</li>
+                                <li>Máximo <strong>1 botón con texto + 2 íconos</strong> en mobile. Si hay más, agrupar en menú.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>{{!-- /row Resumen de reglas --}}
+
+        </div>{{!-- /#tab-content-1 Advanced --}}
+
+        <!-- ── Widget Cards tab ──────────────────────────────────────────────────── -->
+        <div class="tab-pane tabs-animation fade" id="tab-content-2" role="tabpanel">
+
+                <!-- Fila 1: Empty State (solo) -->
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <!-- Card 1 — Empty State w/ button -->
+                        <p class="dwc-widget-label">Empty state</p>
+                        <div class="main-card mb-3 card dwc">
+                            <div class="card-header">
+                                <span class="dwc-title">Seguimientos de hoy</span>
+                                <div class="btn-actions-pane-right">
+                                    <a href="javascript:void(0);" class="dwc-link">Ver todos</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="dwc-empty">
+                                    <div class="dwc-empty-icon-wrap">
+                                        <span class="material-symbols-rounded">check_circle</span>
+                                    </div>
+                                    <p class="dwc-empty-text">No tenés seguimientos para realizar el día de hoy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Fila 2: Segmented buttons + Tabs -->
+                <div class="row">
+
+                    <!-- Card 2 — Table con Segmented buttons -->
+                    <div class="col-md-6">
+                        <p class="dwc-widget-label">Simple table with select</p>
+                        <div class="main-card mb-3 card dwc">
+                            <div class="card-header">
+                                <div class="dwc-header-left">
+                                    <span class="dwc-title">Cumpleaños del mes</span>
+                                    <span class="dwc-badge">234</span>
+                                    <button class="dwc-help-icon" type="button" title="Información">
+                                        <span class="material-symbols-rounded">help_outline</span>
+                                    </button>
+                                </div>
+                                <div class="btn-actions-pane-right dwc-header-right">
+                                    <div class="dropdown">
+                                        <button type="button" class="dwc-select dropdown-toggle"
+                                                data-toggle="dropdown" data-boundary="window"
+                                                aria-haspopup="true" aria-expanded="false">
+                                            Alumnos
+                                            <span class="material-symbols-rounded">expand_more</span>
+                                        </button>
+                                        <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                            <button type="button" class="dropdown-item tpl-select__item">Alumnos</button>
+                                            <button type="button" class="dropdown-item tpl-select__item">Responsables</button>
+                                            <button type="button" class="dropdown-item tpl-select__item">Personal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="dwc-person-list">
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/1.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">Pérez, Laura</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">Hoy</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">MG</div>
+                                            <span class="dwc-person-name">Gómez, Martín</span>
+                                            <span class="dwc-badge">Responsable</span>
+                                        </div>
+                                        <span class="dwc-person-date">Mañana</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">MM</div>
+                                            <span class="dwc-person-name">García, Marcos</span>
+                                            <span class="dwc-badge">Docente</span>
+                                        </div>
+                                        <span class="dwc-person-date">24/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/2.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">Torres, Ana</span>
+                                            <span class="dwc-badge">Responsable</span>
+                                        </div>
+                                        <span class="dwc-person-date">24/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/3.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">Rodríguez, Julia</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">25/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">SF</div>
+                                            <span class="dwc-person-name">Fernández, Sofía</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">26/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/4.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">López, Diego</span>
+                                            <span class="dwc-badge">Docente</span>
+                                        </div>
+                                        <span class="dwc-person-date">27/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">VM</div>
+                                            <span class="dwc-person-name">Martínez, Valentina</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">28/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/5.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">Sánchez, Pablo</span>
+                                            <span class="dwc-badge">Responsable</span>
+                                        </div>
+                                        <span class="dwc-person-date">29/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">CR</div>
+                                            <span class="dwc-person-name">Ramírez, Camila</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">30/4</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="avatar-icon-wrapper avatar-icon-sm"><div class="avatar-icon"><img src="assets/images/avatars/6.jpg" alt=""></div></div>
+                                            <span class="dwc-person-name">Herrera, Lucas</span>
+                                            <span class="dwc-badge">Docente</span>
+                                        </div>
+                                        <span class="dwc-person-date">1/5</span>
+                                    </div>
+                                    <div class="dwc-person-row">
+                                        <div class="dwc-person-left">
+                                            <div class="dwc-avatar-initials">NV</div>
+                                            <span class="dwc-person-name">Vargas, Natalia</span>
+                                            <span class="dwc-badge">Alumno</span>
+                                        </div>
+                                        <span class="dwc-person-date">2/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 — Table con Tabs (pill nav) -->
+                    <div class="col-md-6">
+                        <p class="dwc-widget-label">Simple table with tab nav</p>
+                        <div class="main-card mb-3 card dwc">
+                            <div class="card-header">
+                                <div class="dwc-header-left">
+                                    <span class="dwc-title">Cumpleaños del mes</span>
+                                    <span class="dwc-badge">234</span>
+                                    <button class="dwc-help-icon" type="button" title="Información">
+                                        <span class="material-symbols-rounded">help_outline</span>
+                                    </button>
+                                </div>
+                                <div class="btn-actions-pane-right dwc-header-right">
+                                    <div class="dwc-tabnav">
+                                        <span class="dwc-tabnav-item dwc-tabnav-item--active">Alumnos</span>
+                                        <span class="dwc-tabnav-item dwc-tabnav-item--inactive">Docentes</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="dwc-person-row">
+                                    <div class="dwc-person-left">
+                                        <div class="avatar-icon-wrapper avatar-icon-sm">
+                                            <div class="avatar-icon"><img src="assets/images/avatars/1.jpg" alt=""></div>
+                                        </div>
+                                        <span class="dwc-person-name">Pérez, Laura</span>
+                                        <span class="dwc-badge">Alumno</span>
+                                    </div>
+                                    <span class="dwc-person-date">Hoy</span>
+                                </div>
+                                <div class="dwc-person-row">
+                                    <div class="dwc-person-left">
+                                        <div class="dwc-avatar-initials">MG</div>
+                                        <span class="dwc-person-name">Gómez, Martín</span>
+                                        <span class="dwc-badge">Responsable</span>
+                                    </div>
+                                    <span class="dwc-person-date">Mañana</span>
+                                </div>
+                                <div class="dwc-person-row">
+                                    <div class="dwc-person-left">
+                                        <div class="dwc-avatar-initials">MG</div>
+                                        <span class="dwc-person-name">García, Marcos</span>
+                                        <span class="dwc-badge">Docente</span>
+                                    </div>
+                                    <span class="dwc-person-date">24/4</span>
+                                </div>
+                                <div class="dwc-person-row">
+                                    <div class="dwc-person-left">
+                                        <div class="avatar-icon-wrapper avatar-icon-sm">
+                                            <div class="avatar-icon"><img src="assets/images/avatars/2.jpg" alt=""></div>
+                                        </div>
+                                        <span class="dwc-person-name">Torres, Ana</span>
+                                        <span class="dwc-badge">Responsable</span>
+                                    </div>
+                                    <span class="dwc-person-date">24/4</span>
+                                </div>
+                                <div class="dwc-person-row">
+                                    <div class="dwc-person-left">
+                                        <div class="avatar-icon-wrapper avatar-icon-sm">
+                                            <div class="avatar-icon"><img src="assets/images/avatars/3.jpg" alt=""></div>
+                                        </div>
+                                        <span class="dwc-person-name">Rodríguez, Julia</span>
+                                        <span class="dwc-badge">Alumno</span>
+                                    </div>
+                                    <span class="dwc-person-date">25/4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /fila 2 -->
+
+                <!-- Fila 3: dataTable + Chart -->
+                <div class="row">
+
+                    <!-- Card 4 — dataTable con button -->
+                    <div class="col-md-6">
+                        <p class="dwc-widget-label">Data table</p>
+                        <div class="main-card mb-3 card dwc">
+                            <div class="card-header">
+                                <div class="dwc-header-left">
+                                    <span class="dwc-title">Comedor – Registros por generar</span>
+                                    <button class="dwc-help-icon" type="button" title="Información">
+                                        <span class="material-symbols-rounded">help_outline</span>
+                                    </button>
+                                </div>
+                                <div class="btn-actions-pane-right">
+                                    <a href="javascript:void(0);" class="dwc-link">Ver todos</a>
+                                </div>
+                            </div>
+                            <!-- Herramientas de tabla -->
+                            <div class="dwc-table-tools">
+                                <div class="dwc-search-wrap">
+                                    <span class="material-symbols-rounded">search</span>
+                                    <input type="text" class="dwc-table-search" placeholder="Buscar">
+                                </div>
+                                <div class="dwc-table-show">
+                                    <span>Mostrar</span>
+                                    <div class="dropdown">
+                                        <button type="button" class="dwc-select dropdown-toggle"
+                                                data-toggle="dropdown" data-boundary="window"
+                                                aria-haspopup="true" aria-expanded="false">
+                                            10
+                                            <span class="material-symbols-rounded">expand_more</span>
+                                        </button>
+                                        <div class="dropdown-menu tpl-select__menu">
+                                            <button type="button" class="dropdown-item tpl-select__item">10</button>
+                                            <button type="button" class="dropdown-item tpl-select__item">25</button>
+                                            <button type="button" class="dropdown-item tpl-select__item">50</button>
+                                        </div>
+                                    </div>
+                                    <span>resultados</span>
+                                </div>
+                            </div>
+                            <!-- Tabla -->
+                            <div class="table-responsive">
+                                <table class="dwc-table dwc-table--sm">
+                                    <thead>
+                                        <tr>
+                                            <th class="dwc-col--date">
+                                                <button class="tpl-table__sort-btn" type="button">
+                                                    Fecha Creación
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </button>
+                                            </th>
+                                            <th>
+                                                <button class="tpl-table__sort-btn" type="button">
+                                                    Apellido y Nombre
+                                                    <span class="material-symbols-rounded">swap_vert</span>
+                                                </button>
+                                            </th>
+                                            <th class="dwc-col--actions">Acciones</th>
+                                        </tr>
+                                        <tr class="dwc-filter-row">
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        <span>Todos</span>
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu">
+                                                        <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">12/04/26</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        <span>Todos</span>
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu">
+                                                        <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">APELLIDO, Nombre</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="dwc-col--actions">Ver</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/04/26</td>
+                                            <td>APELLIDO, Nombre</td>
+                                            <td class="dwc-td-actions">
+                                                <button class="dwc-action-icon" type="button">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Paginación -->
+                            <div class="dwc-pagination">
+                                <span class="dwc-pagination-info">1 – 6 de 6 resultados</span>
+                                <div class="dwc-pagination-pages">
+                                    <button class="dwc-page-btn dwc-page-btn--nav" type="button">
+                                        <span class="material-symbols-rounded">chevron_left</span>
+                                    </button>
+                                    <button class="dwc-page-btn dwc-page-btn--active" type="button">1</button>
+                                    <button class="dwc-page-btn" type="button">2</button>
+                                    <button class="dwc-page-btn dwc-page-btn--nav" type="button">
+                                        <span class="material-symbols-rounded">chevron_right</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 — Chart (donut) -->
+                    <div class="col-md-6">
+                        <p class="dwc-widget-label">Chart</p>
+                        <div class="main-card mb-3 card dwc">
+                            <div class="card-header">
+                                <span class="dwc-title">Alumnos (255)</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="dwc-chart-area">
+                                    <!--
+                                        Donut SVG — r=60, circumference=376.99
+                                        Hombre  55% → dasharray 207.35  | offset 0
+                                        Mujer   40% → dasharray 150.80  | offset -207.35
+                                        Otro     5% → dasharray  18.85  | offset -358.15
+                                        rotate(-90) → empieza desde arriba
+                                    -->
+                                    <svg class="dwc-donut-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <!-- Hombre 55% — azul ($dwc-chart-info) -->
+                                        <circle class="dwc-segment--info" cx="90" cy="90" r="60"
+                                                stroke-width="28"
+                                                stroke-dasharray="207.35 169.64"
+                                                transform="rotate(-90 90 90)"/>
+                                        <!-- Mujer 40% — rosa ($dwc-chart-secondary) -->
+                                        <circle class="dwc-segment--secondary" cx="90" cy="90" r="60"
+                                                stroke-width="28"
+                                                stroke-dasharray="150.80 226.19"
+                                                stroke-dashoffset="-207.35"
+                                                transform="rotate(-90 90 90)"/>
+                                        <!-- Otro 5% — ámbar ($dwc-chart-warning) -->
+                                        <circle class="dwc-segment--warning" cx="90" cy="90" r="60"
+                                                stroke-width="28"
+                                                stroke-dasharray="18.85 358.14"
+                                                stroke-dashoffset="-358.15"
+                                                transform="rotate(-90 90 90)"/>
+                                        <!-- Hueco central ($neutral-0) -->
+                                        <circle class="dwc-chart-hole" cx="90" cy="90" r="44"/>
+                                    </svg>
+                                    <!-- Leyenda -->
+                                    <div class="dwc-legend">
+                                        <div class="dwc-legend-row">
+                                            <span class="dwc-legend-dot dwc-legend-dot--secondary"></span>
+                                            Mujer
+                                        </div>
+                                        <div class="dwc-legend-row">
+                                            <span class="dwc-legend-dot dwc-legend-dot--info"></span>
+                                            Hombre
+                                        </div>
+                                        <div class="dwc-legend-row">
+                                            <span class="dwc-legend-dot dwc-legend-dot--warning"></span>
+                                            Otro
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /fila 3 -->
+
+            </div>
+            <!-- ── /Widget Cards tab ─────────────────────────────────────────────────── -->
+
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+
+<script>
+// ── DWC Segmented button — multiselect toggle ─────────────────────────────────
+// Vanilla JS: no depende de jQuery (el bundle carga después de este inline script)
+document.addEventListener('click', function (e) {
+  var item = e.target.closest('[data-multiselect] .dwc-seg-item');
+  if (!item) return;
+  if (item.classList.contains('dwc-seg-item--active')) {
+    item.classList.remove('dwc-seg-item--active');
+    item.classList.add('dwc-seg-item--inactive');
+  } else {
+    item.classList.remove('dwc-seg-item--inactive');
+    item.classList.add('dwc-seg-item--active');
+  }
+});
+</script>
+
+{{/ base }}

@@ -1,0 +1,309 @@
+{{#> base }}
+{{> AppSidebar/sidebar apps-desempeno-actitudinal=this }}
+<div class="app-main__outer">
+  <div class="app-main__inner p-0">
+    <div class="da-page">
+
+      <!-- ── Header ──────────────────────────────────────────────────────── -->
+      <div class="page-header da-page-header">
+        <div class="page-header__heading">
+          <div class="page-header__title-group">
+            <h4 class="page-header__title">Desempeño Actitudinal</h4>
+          </div>
+        </div>
+        <ol class="page-header__breadcrumb">
+          <li><a href="#">Calificaciones</a></li>
+          <li><span>Desempeño Actitudinal</span></li>
+        </ol>
+      </div>
+
+      <!-- ── Main content ──────────────────────────────────────────────── -->
+      <div class="da-content">
+
+        <!-- Tab navigation — pill style del design system -->
+        <ul class="nav tab-nav da-tab-nav-pill">
+          <li class="nav-item"><a class="nav-link active" href="#">Desempeño actitudinal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Informe valorativo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Conducta general del curso</a></li>
+        </ul>
+
+        <!-- Context card -->
+        <div class="ch da-context-card">
+          <div class="ch__header">
+            <div class="da-context-info">
+              <strong>Período:</strong>
+              <span id="daCurrentPeriodText">1er Trimestre 2026</span>
+              &nbsp;•&nbsp;
+              <strong>Curso:</strong> 5to A - Turno Mañana
+            </div>
+            <div class="ch__actions">
+              <button class="tpl-table__action-btn" id="daBtnEditPeriod" title="Editar período y curso">
+                <span class="material-symbols-rounded">edit</span>
+              </button>
+              <a class="tpl-table__action-btn" href="https://quinttos.zohodesk.com/portal/es/kb/institutos-secundarios/m%C3%B3dulo-de-gesti%C3%B3n-acad%C3%A9mica/conducta" target="_blank" rel="noopener" title="Ayuda">
+                <span class="material-symbols-rounded">help</span>
+              </a>
+            </div>
+          </div>
+          <div class="ch__filters">
+            <div class="ch__filters-left">
+              <div class="da-progress-section">
+                <div class="da-progress-title-row">
+                  <span class="da-progress-title">Progreso</span>
+                  <button class="tpl-table__action-btn" id="daBtnShowProgressList" title="Ver lista de alumnos">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                </div>
+                <div class="da-progress-bar-wrap">
+                  <div class="da-progress-bar-track">
+                    <div class="da-progress-bar-fill" id="daProgressBar" style="width:25%"></div>
+                  </div>
+                  <div class="da-progress-text" id="daProgressText">8 de 32 alumnos (25%)</div>
+                </div>
+              </div>
+            </div>
+            <div class="ch__filters-right">
+              <span class="da-filter-label">VER:</span>
+              <select class="form-control form-control-sm da-filter-select" id="daFilterSelect">
+                <option value="all">Todos los alumnos</option>
+                <option value="pending">Sin evaluar</option>
+                <option value="evaluated">Evaluados</option>
+                <option value="in-progress">En progreso</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info alert (admin only) -->
+        <div class="da-info-alert da-admin-only">
+          <div>
+            <span class="material-symbols-rounded">info</span>
+            Es posible ocultar/mostrar la información por Período desde la configuración de la estructura de fechas.
+          </div>
+          <button class="tpl-card__btn-sm tpl-card__btn-sm--outline" style="flex-shrink:0">Modificar</button>
+        </div>
+
+        <!-- ── Eval card ─────────────────────────────────────────────── -->
+        <div class="tpl-table da-eval-card">
+
+          <!-- Toolbar -->
+          <div class="tpl-table__tools">
+            <div class="tpl-table__search da-search">
+              <span class="material-symbols-rounded">search</span>
+              <input type="text" id="daSearchInput" placeholder="Buscar alumno…">
+            </div>
+            <div class="da-accordion-actions" id="daAccordionToolbar">
+              <button class="tpl-card__btn-sm tpl-card__btn-sm--outline" id="daExpandAllBtn">Expandir</button>
+              <button class="tpl-card__btn-sm tpl-card__btn-sm--outline" id="daToggleGradesBtn">Mostrar calificaciones de materias</button>
+            </div>
+            <div class="tpl-table__tools-spacer"></div>
+            <div class="da-view-switcher">
+              <button class="da-view-btn active" id="daViewAccordionBtn">Listado</button>
+              <button class="da-view-btn" id="daViewIndividualBtn">Individual</button>
+            </div>
+          </div>
+
+          <!-- Filter badge -->
+          <div class="da-filter-badge" id="daFilterBadge" style="display:none;">
+            <span id="daFilterBadgeText"></span>
+            <button class="da-filter-badge__close" id="daClearFilterBtn">× Limpiar filtro</button>
+          </div>
+
+          <!-- ── Accordion view ───────────────────────────────────────── -->
+          <div id="daAccordionView">
+            <div class="da-student-list" id="daStudentList"></div>
+            <div class="da-more-students">▼ 26 alumnos más ▼</div>
+          </div>
+
+          <!-- ── Individual view ─────────────────────────────────────── -->
+          <div class="da-individual-view" id="daIndividualView">
+            <div class="da-individual-container">
+            <!-- sticky nav header -->
+            <div class="da-individual-nav">
+              <div class="da-individual-nav-left">
+                <button class="tpl-card__btn-sm tpl-card__btn-sm--outline" id="daIndividualPrevBtn">
+                  <span class="material-symbols-rounded" style="font-size:1rem;line-height:1">chevron_left</span>Anterior
+                </button>
+              </div>
+              <div class="da-individual-nav-center">
+                <div class="da-individual-avatar" id="daIndividualNavAvatar">MG</div>
+                <div>
+                  <div class="da-individual-student-name" id="daIndividualNavName">GARCÍA LÓPEZ, María Fernanda</div>
+                  <div class="da-individual-student-meta" id="daIndividualNavMeta">
+                    <span>20/05/2026</span>
+                    <button class="tpl-table__action-btn da-admin-only da-meta-clock-btn" type="button" title="Ver auditoría">
+                      <span class="material-symbols-rounded">schedule</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="da-progress-circle" id="daProgressCircle">
+                  <svg viewBox="0 0 48 48">
+                    <circle class="da-progress-circle__track" cx="24" cy="24" r="18"/>
+                    <circle class="da-progress-circle__fill" cx="24" cy="24" r="18" stroke-dasharray="113.1" stroke-dashoffset="0"/>
+                  </svg>
+                  <div class="da-progress-circle__text" id="daProgressCircleText">100%</div>
+                </div>
+              </div>
+              <div class="da-individual-nav-right">
+                <button class="tpl-card__btn-sm tpl-card__btn-sm--outline" id="daIndividualNextBtn">
+                  Siguiente<span class="material-symbols-rounded" style="font-size:1rem;line-height:1">chevron_right</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- body -->
+            <div class="da-individual-body">
+              <div class="da-individual-eval-section">
+                <div id="daIndividualEvalItems">
+                  <!-- JS fills this -->
+                </div>
+              </div>
+
+              <div class="da-individual-grades-section">
+                <div class="da-individual-grades-title">
+                  OTRAS CALIFICACIONES
+                  <span>1º TRIM.</span>
+                </div>
+                <div class="da-individual-grades-grid">
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Presentismo</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Inasis.</span>
+                        <span class="da-individual-grade-value">18</span>
+                      </div>
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Imp.</span>
+                        <span class="da-individual-grade-value">17</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Prácticas del Lenguaje</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">S</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Matemática</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">MB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Ciencias Naturales</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">S</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Ciencias Sociales</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">R</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Educación Musical</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">MB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Educación Plástica</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">B</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Educación Física</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">R</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="da-individual-grade-item">
+                    <div class="da-individual-grade-subject">Ed. en Tecnologías Digitales</div>
+                    <div class="da-individual-grade-details">
+                      <div class="da-individual-grade-detail">
+                        <span class="da-individual-grade-label">Nota Trim</span>
+                        <span class="da-individual-grade-value">MB</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /da-individual-body -->
+          </div><!-- /da-individual-container -->
+        </div><!-- /da-individual-view -->
+
+        </div><!-- /da-eval-card -->
+
+      </div><!-- /da-content -->
+    </div><!-- /da-page -->
+  </div><!-- /app-main__inner -->
+</div><!-- /app-main__outer -->
+
+<!-- ── Period modal ──────────────────────────────────────────────────────── -->
+<div class="da-modal-overlay" id="daPeriodModal">
+  <div class="da-modal da-modal--sm">
+    <div class="da-modal__header">
+      <div class="da-modal__title">Cambiar período</div>
+      <button class="tpl-table__action-btn" id="daPeriodModalClose">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <div class="da-modal__footer">
+      <label class="da-modal__label">Seleccionar período</label>
+      <select class="form-control" id="daPeriodSelect">
+        <option value="1">1er Trimestre 2026</option>
+        <option value="2">2do Trimestre 2026</option>
+        <option value="3">3er Trimestre 2026</option>
+      </select>
+      <div class="da-modal__actions">
+        <button class="btn btn-sm btn-outline-secondary">Ir al listado de cursos</button>
+        <button class="btn btn-sm btn-primary" id="daBtnSavePeriod">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Progress list modal ───────────────────────────────────────────────── -->
+<div class="da-modal-overlay" id="daProgressModal">
+  <div class="da-modal">
+    <div class="da-modal__header">
+      <div class="da-modal__title">Lista de alumnos</div>
+      <button class="tpl-table__action-btn" id="daProgressModalClose">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <div class="da-modal__body" id="daProgressModalBody"></div>
+  </div>
+</div>
+
+<!-- Auto-save indicator -->
+<div class="da-autosave" id="daAutoSave">
+  <div class="da-spinner"></div>
+  <span>Guardando cambios…</span>
+</div>
+
+{{/base}}

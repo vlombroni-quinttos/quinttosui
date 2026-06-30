@@ -1,0 +1,376 @@
+{{#> base }}
+    {{> AppSidebar/sidebar elements-badges-labels=this }}
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            {{> AppMain/page-title }}
+
+            <div class="row">
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--  BADGES                                                    -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+
+                <!-- Con ícono -->
+                <div class="col-lg-4 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Con ícono</h5>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Primary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--primary"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--primary tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Secondary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--secondary"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--secondary tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Danger</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--danger"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--danger tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Success</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--success"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--success tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Warning</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--warning"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--warning tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Info</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--info"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--info tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Focus</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--focus"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--focus tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Alt</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--alt"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--alt tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Light</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--light"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--light tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Dark</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--dark"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--dark tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Closable</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--primary"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--primary tag--sm"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">New / Add</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--new"><span class="material-symbols-rounded">add</span></span>
+                                    <span class="tag tag--new tag--sm"><span class="material-symbols-rounded">add</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sin ícono -->
+                <div class="col-lg-4 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sin ícono</h5>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Primary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--primary tag--no-icon">Label</span>
+                                    <span class="tag tag--primary tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Secondary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--secondary tag--no-icon">Label</span>
+                                    <span class="tag tag--secondary tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Danger</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--danger tag--no-icon">Label</span>
+                                    <span class="tag tag--danger tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Success</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--success tag--no-icon">Label</span>
+                                    <span class="tag tag--success tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Warning</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--warning tag--no-icon">Label</span>
+                                    <span class="tag tag--warning tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Info</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--info tag--no-icon">Label</span>
+                                    <span class="tag tag--info tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Focus</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--focus tag--no-icon">Label</span>
+                                    <span class="tag tag--focus tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Alt</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--alt tag--no-icon">Label</span>
+                                    <span class="tag tag--alt tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Light</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--light tag--no-icon">Label</span>
+                                    <span class="tag tag--light tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Dark</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--dark tag--no-icon">Label</span>
+                                    <span class="tag tag--dark tag--sm tag--no-icon">Label</span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Closable</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--primary tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--primary tag--sm tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">New / Add</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--new"><span class="material-symbols-rounded">add</span></span>
+                                    <span class="tag tag--new tag--sm"><span class="material-symbols-rounded">add</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solo ícono -->
+                <div class="col-lg-4 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Solo ícono</h5>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Primary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--primary tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--primary tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Secondary</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--secondary tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--secondary tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Danger</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--danger tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--danger tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Success</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--success tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--success tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Warning</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--warning tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--warning tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Info</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--info tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--info tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Focus</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--focus tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--focus tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Alt</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--alt tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--alt tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Light</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--light tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--light tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Dark</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--dark tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                    <span class="tag tag--dark tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">New / Add</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--new"><span class="material-symbols-rounded">add</span></span>
+                                    <span class="tag tag--new tag--sm"><span class="material-symbols-rounded">add</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outline -->
+                <div class="col-lg-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Outline</h5>
+                            <p class="text-muted mb-3" style="font-size:.875rem">Fondo blanco con borde sutil. Para contextos donde se necesita menor peso visual.</p>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Default</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--outline"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--outline tag--no-icon">Label</span>
+                                    <span class="tag tag--outline tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                                <div class="tag-showcase-divider"></div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--outline tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--outline tag--sm tag--no-icon">Label</span>
+                                    <span class="tag tag--outline tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Closable</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--outline"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--outline tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                                <div class="tag-showcase-divider"></div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--outline tag--sm"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--outline tag--sm tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">New / Add</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--new"><span class="material-symbols-rounded">add</span></span>
+                                    <span class="tag tag--new tag--sm"><span class="material-symbols-rounded">add</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informative -->
+                <div class="col-lg-6 mb-3">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">Informative</h5>
+                            <p class="text-muted mb-3" style="font-size:.875rem">Fondo neutro muted. Para metadata o etiquetas de clasificación sin jerarquía semántica.</p>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Default</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--informative"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--informative tag--no-icon">Label</span>
+                                    <span class="tag tag--informative tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                                <div class="tag-showcase-divider"></div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--informative tag--sm"><span class="material-symbols-rounded">label</span> Label</span>
+                                    <span class="tag tag--informative tag--sm tag--no-icon">Label</span>
+                                    <span class="tag tag--informative tag--sm tag--icon-only"><span class="material-symbols-rounded">label</span></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">Closable</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--informative"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--informative tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                                <div class="tag-showcase-divider"></div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--informative tag--sm"><span class="material-symbols-rounded">label</span> Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                    <span class="tag tag--informative tag--sm tag--no-icon">Label <button type="button" class="tag__close"><span class="material-symbols-rounded">close</span></button></span>
+                                </div>
+                            </div>
+                            <div class="tag-showcase-row">
+                                <div class="tag-showcase-label">New / Add</div>
+                                <div class="tag-showcase-group">
+                                    <span class="tag tag--new"><span class="material-symbols-rounded">add</span></span>
+                                    <span class="tag tag--new tag--sm"><span class="material-symbols-rounded">add</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        {{> AppFooter/footer }}
+    </div>
+{{/base}}

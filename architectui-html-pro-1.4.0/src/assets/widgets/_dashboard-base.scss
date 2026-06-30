@@ -1,0 +1,360 @@
+// ============================================================
+// Dashboard Base — Quinttos Design System Uplift
+// Aplica el visual language de DWC (Widget Cards) a todos los
+// dashboards del template. Override global post-Bootstrap.
+// ============================================================
+
+// ── Tokens ────────────────────────────────────────────────────
+$db-border:       #c9d1d8;   // Neutral-300
+$db-bg:           #fdfdfd;   // Basic/White
+$db-bg-subtle:    #f6f8fa;   // Neutral-0
+$db-text-primary: #2e353d;   // Neutral-900
+$db-text-body:    #4f5863;   // Neutral-700
+$db-text-muted:   #86909c;   // Neutral-500
+$db-primary:      #423ffe;   // Primary-500
+$db-success:      #2dca72;
+$db-warning:      #ffc233;
+$db-danger:       #f3164e;
+$db-info:         #395bd7;
+
+
+// ── Card base ─────────────────────────────────────────────────
+// Asegura que todos los .card en dashboards tengan el look Quinttos
+.card.main-card,
+.card {
+  background-color: $db-bg;
+  border: 1px solid $db-border;
+  border-radius: 8px !important;
+  box-shadow: none;
+}
+
+// ── Widget numbers (stat cards) ───────────────────────────────
+// El número grande (24px) — cuando está coloreado con text-* de Bootstrap
+// conserva el color del theme; cuando no, usa Neutral-900
+.widget-numbers {
+  font-size: 1.5rem !important;   // 24px — H4
+  font-weight: 500 !important;    // Medium
+  line-height: 1.3 !important;
+
+  // Colored variants keep their hue but crisp weight
+  &.text-primary { color: $db-primary !important; }
+  &.text-success { color: $db-success !important; }
+  &.text-warning { color: $db-warning !important; }
+  &.text-danger  { color: $db-danger !important; }
+  &.text-info    { color: $db-info !important; }
+}
+
+// ── Widget heading / subheading / description ─────────────────
+.widget-heading {
+  font-size: 0.875rem;     // 14px — Body/M Strong
+  font-weight: 600;
+  color: $db-text-primary;
+  opacity: 1 !important;
+  line-height: 20px;
+}
+
+.widget-subheading {
+  font-size: 0.75rem;      // 12px — Body/S Regular
+  font-weight: 400;
+  color: $db-text-muted;
+  opacity: 1 !important;
+  line-height: 16px;
+}
+
+.widget-description {
+  font-size: 0.75rem;      // 12px — Body/S Regular
+  font-weight: 400;
+  color: $db-text-body;
+  opacity: 1 !important;
+  line-height: 16px;
+}
+
+// ── Icon wrapper (dashboard stat icons) ───────────────────────
+// Contenedor circular de ícono usado en stat cards
+.icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  // Color variants (usados con .bg-* en los dashboards)
+  &.bg-primary, &[class*="bg-primary"]  { background-color: rgba($db-primary, .12) !important; color: $db-primary; }
+  &.bg-success, &[class*="bg-success"]  { background-color: rgba($db-success, .12) !important; color: $db-success; }
+  &.bg-warning, &[class*="bg-warning"]  { background-color: rgba($db-warning, .15) !important; color: darken($db-warning, 15%); }
+  &.bg-danger,  &[class*="bg-danger"]   { background-color: rgba($db-danger, .10) !important;  color: $db-danger; }
+  &.bg-info,    &[class*="bg-info"]     { background-color: rgba($db-info, .10) !important;    color: $db-info; }
+
+  i, .pe-7s-icon, .lnr, .fa, .material-symbols-rounded {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+}
+
+// ── Progress bars ─────────────────────────────────────────────
+.progress {
+  border-radius: 100px;
+  background-color: $db-border;
+
+  .progress-bar {
+    border-radius: 100px;
+  }
+}
+
+.progress-bar-xs { height: 4px; }
+.progress-bar-sm { height: 6px; }
+
+// Default (medium) stays at Bootstrap's default height (8px from progressbar.scss)
+
+// ── Grid menu ─────────────────────────────────────────────────
+// Botones de menú en grid usados en varios dashboards
+.grid-menu {
+  border-top: 1px solid $db-border;
+
+  [class*="col-"] {
+    border-right: 1px solid $db-border;
+    border-bottom: 1px solid $db-border;
+    padding: 0;
+
+    &:last-child { border-right: 0; }
+  }
+
+  .btn {
+    width: 100%;
+    border-radius: 0 !important;
+    border: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: $db-text-body;
+    background: transparent;
+    font-size: 0.75rem;      // 12px — Body/S
+    font-weight: 600;
+
+    &:hover {
+      background-color: $db-bg-subtle;
+      color: $db-primary;
+    }
+
+    i, .material-symbols-rounded {
+      font-size: 1.375rem;
+      line-height: 1;
+    }
+  }
+}
+
+// ── Card con fondo de color (text-white cards) ─────────────────
+// Cuando una card tiene clase de fondo sólido, el header/footer
+// hereda transparencia en lugar de fondo propio
+.card[class*="bg-"]:not(.bg-white):not(.bg-light) {
+  border-color: transparent;
+
+  .card-header,
+  .card-footer {
+    background-color: rgba(0, 0, 0, .08) !important;
+    border-color: rgba(255, 255, 255, .15) !important;
+    color: rgba(255, 255, 255, .95);
+  }
+
+  .card-header-title,
+  .card-title,
+  .widget-heading,
+  .widget-numbers,
+  .widget-subheading,
+  .widget-description {
+    color: #fdfdfd !important;
+  }
+
+  .widget-subheading,
+  .widget-description { opacity: .8 !important; }
+}
+
+// ── List group en cards ────────────────────────────────────────
+.card .list-group-item {
+  border-color: $db-border;
+  font-size: 0.875rem;     // 14px — Body/M
+  color: $db-text-body;
+  padding: 12px 16px;
+}
+
+// ── Scroll areas ───────────────────────────────────────────────
+.scroll-area-sm { height: 150px; }
+.scroll-area-lg { height: 300px; }
+.scroll-area-xl { height: 400px; }
+
+// ── Card shadows — remove heavy shadows, keep subtle ──────────
+@each $color, $value in (
+  "primary": $db-primary,
+  "success": $db-success,
+  "warning": $db-warning,
+  "danger":  $db-danger,
+  "info":    $db-info
+) {
+  .card-shadow-#{$color} {
+    box-shadow: 0 2px 8px rgba($value, .12) !important;
+  }
+}
+
+// ── Stat card variation (widget-chart + text-left) ─────────────
+.widget-chart.text-left {
+  .icon-wrapper {
+    margin-right: 1rem;
+  }
+
+  .widget-chart-content {
+    .widget-numbers {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ── ApexCharts: evitar que los labels rotados sean recortados ─────────────
+// El SVG de ApexCharts tiene overflow:hidden por defecto, lo que corta los
+// labels rotados que se extienden fuera del borde izquierdo/derecho.
+#chart-apex-alumnos-curso svg {
+  overflow: visible !important;
+}
+
+// ── KPI Cards — link "básico" ──────────────────────────────────
+.kpi-link {
+  font-size: 0.75rem;   // 12px — Body/S
+  font-weight: 400;
+  color: $db-primary;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+// ── Leyenda HTML del gráfico de alumnos ───────────────────────
+// Reemplaza la leyenda interna de ApexCharts que se pisaba
+// con los labels rotados del eje X.
+.chart-alumnos-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;    // 12px — Body/S
+  font-weight: 400;
+  color: $db-text-body;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+}
+
+// ── Chart scroll wrapper (mobile horizontal scroll) ───────────
+// En desktop el gráfico ocupa el 100% del card.
+// En mobile, si el gráfico tiene muchas categorías, scrollea horizontalmente.
+.chart-alumnos-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  // Ancho mínimo del chart — suficiente para que las 22 categorías sean legibles
+  #chart-apex-alumnos-curso {
+    min-width: 900px;
+  }
+
+  // En pantallas ≥ md no hace falta scroll; el chart se adapta al contenedor
+  @media (min-width: 768px) {
+    overflow-x: visible;
+
+    #chart-apex-alumnos-curso {
+      min-width: 0;
+    }
+  }
+}
+
+// ── Dashboard Badge (alias de .badge.badge-secondary) ─────────
+// Extiende el sistema de badges global — no redefinir valores aquí.
+.dashboard-badge {
+  @extend .badge;
+  @extend .badge-secondary;
+  flex-shrink: 0;
+}
+
+// ── Avatar iniciales (32px círculo) ───────────────────────────
+.avatar-initials {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #dadaff;   // Primary-100
+  color: #1815bc;              // Primary-700
+  font-size: 0.75rem;          // 12px — Body/S Strong
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// ── Birthday list scroll container ────────────────────────────
+.birthday-list-scroll {
+  overflow-y: auto;
+  max-height: 340px;
+  padding-top: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+// ── Birthday row (lista cumpleaños del mes) ────────────────────
+// Figma: lines are inset — border-bottom no llega al borde de la card.
+// margin: 0 16px → la línea corre desde 16px hasta (ancho - 16px)
+// padding: 10px 8px → contenido adicional 8px adentro (total 24px desde borde)
+.birthday-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+  margin: 0 16px;
+  border-bottom: 1px solid $db-border;
+
+  &:last-child { border-bottom: none; }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 0.875rem;    // 14px — Body/M Regular
+    font-weight: 400;
+    color: $db-text-body;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__date {
+    font-size: 1rem;        // 16px — H6/Medium (Figma)
+    font-weight: 500;
+    color: $db-primary;     // Primary-500
+    white-space: nowrap;
+    text-align: right;
+    min-width: 70px;
+    flex-shrink: 0;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 576px) {
+  .widget-numbers {
+    font-size: 1.25rem !important;   // 20px — H5 en mobile
+  }
+}

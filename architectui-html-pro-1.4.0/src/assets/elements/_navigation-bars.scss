@@ -1,0 +1,434 @@
+// ── Navigation Bars — Quinttos Design System ────────────────────────────────
+// Side Nav · Top Nav
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · nodes 2869-46340 / 2869-45513
+
+// ── SIDE NAV ─────────────────────────────────────────────────────────────────
+
+.snav {
+  background: #65717e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  // ── Header (collapse bar) ─────────────────────────────────────────────────
+  &__header {
+    background: #3b424b;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    width: 100%;
+    flex-shrink: 0;
+    gap: 8px;
+  }
+
+  &__logo {
+    flex: 1;
+    height: 36px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fdfdfd;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+  }
+
+  &__toggle {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #fdfdfd;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    flex-shrink: 0;
+
+    .material-symbols-rounded {
+      font-size: 24px;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover { background: rgba(255, 255, 255, 0.1); }
+  }
+
+  // ── Body ──────────────────────────────────────────────────────────────────
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px 16px;
+    width: 100%;
+  }
+
+  // ── Divider ───────────────────────────────────────────────────────────────
+  &__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.18);
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  // ── Group ─────────────────────────────────────────────────────────────────
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  // ── Item ──────────────────────────────────────────────────────────────────
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 4px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .15s;
+    color: #fdfdfd;
+    text-decoration: none;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fdfdfd;
+      text-decoration: none;
+    }
+
+    &-content {
+      display: flex;
+      flex: 1;
+      gap: 8px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    // Subsection item (1 level)
+    &--sub {
+      padding-left: 20px;
+
+      .snav__item-content {
+        gap: 8px;
+      }
+    }
+
+    // Sub-subsection item (2 levels)
+    &--sub2 {
+      padding-left: 20px;
+
+      .snav__item-content {
+        padding-left: 20px;
+        gap: 12px;
+      }
+    }
+  }
+
+  // ── Icon ──────────────────────────────────────────────────────────────────
+  &__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .material-symbols-rounded {
+      font-size: 20px;
+      line-height: 1;
+      color: #fdfdfd;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    }
+  }
+
+  // ── Label ─────────────────────────────────────────────────────────────────
+  &__label {
+    font-size: 0.875rem;    // 14px
+    font-weight: 400;
+    line-height: 20px;
+    color: #fdfdfd;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // ── Arrow ─────────────────────────────────────────────────────────────────
+  &__arrow {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .material-symbols-rounded {
+      font-size: 20px;
+      line-height: 1;
+      color: #fdfdfd;
+    }
+  }
+
+  // ── Left bar (subsection indent guide) ───────────────────────────────────
+  &__bar {
+    width: 2px;
+    height: 40px;
+    background: #86909c;
+    flex-shrink: 0;
+  }
+
+  // ── BETA badge ────────────────────────────────────────────────────────────
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    background: #ffe7ad;
+    color: #523900;
+    font-size: 0.6875rem;   // 11px
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    padding: 4px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  // ── Collapsed variant ─────────────────────────────────────────────────────
+  &--collapsed {
+    min-width: 56px;
+    width: 56px;
+
+    .snav__header { justify-content: center; padding: 0; }
+    .snav__logo   { display: none; }
+    .snav__body   { padding: 0 8px 16px; }
+
+    .snav__item {
+      justify-content: center;
+      padding: 4px;
+      height: auto;
+    }
+
+    .snav__label,
+    .snav__arrow  { display: none; }
+  }
+
+  // ── Expanded variant ──────────────────────────────────────────────────────
+  &--expanded {
+    width: 312px;
+  }
+}
+
+// ── TOP NAV ──────────────────────────────────────────────────────────────────
+// Figma: dCEtw9coTRcbLRS4YZtQ1n · node 151:9313
+// Showcase component — fuente de verdad para el diseño del TopNav
+
+.tnav {
+  background: #2e353d;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 32px;           // T8 R32 B8 L32
+  width: 100%;
+  border-radius: 0;
+
+  // ── Left — heading ────────────────────────────────────────────────────────
+  // Responsable: solo texto · Admin: IconButton search + texto
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  // ── Right — options ───────────────────────────────────────────────────────
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 24px;                 // Figma: options gap:24
+  }
+
+  // ── Título de contexto ────────────────────────────────────────────────────
+  &__title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #f6f8fa;
+    white-space: nowrap;
+  }
+
+  // ── Botones de acción ─────────────────────────────────────────────────────
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;                  // Figma: buttons gap:8
+  }
+
+  // Wrapper relativo para posicionar el badge numérico
+  &__btn-wrapper {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__icon-btn {
+    width: 44px;
+    height: 44px;
+    background: #4f5863;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    .material-symbols-rounded {
+      font-size: 22px;           // icon-wrapper 30px − pad 4px×2 = 22px
+      color: #fdfdfd;
+      font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover  { background: #65717e; }
+    &:active { background: #3b424b; }
+  }
+
+  // Badge numérico — píldora 16×16 sobre el botón
+  &__badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 16px;
+    height: 16px;
+    padding: 1px 4px;
+    background: #d50b3e;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fdfdfd;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    pointer-events: none;
+  }
+
+  // ── Separador vertical ────────────────────────────────────────────────────
+  &__divider {
+    width: 1px;
+    height: 40px;
+    background: #4f5863;
+    flex-shrink: 0;
+  }
+
+  // ── Sección usuario ───────────────────────────────────────────────────────
+  // [trigger: avatar + chevron] [user-info: nombre / rol]
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;                  // Figma: menu gap:4
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    flex-shrink: 0;
+    transition: opacity .15s;
+
+    &:hover  { opacity: .9; }
+    &:focus  { outline: none; }
+  }
+
+  // Avatar — 44×44, r:38, colores según rol
+  &__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 38px;
+    background: $avatar-responsable-bg;    // #dfe8fa
+    color: $avatar-responsable-color;      // #29377f
+    font-size: 16px;
+    font-weight: 500;                      // Medium
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    user-select: none;
+
+    &--admin   { background: $danger-100;       color: $danger-900; }
+    &--docente,
+    &--alumno  { background: $avatar-warning-bg; color: $avatar-warning-text; }
+  }
+
+  // Chevron 28px dentro del trigger
+  &__user-chevron {
+    font-size: 28px;
+    color: #a7b1bb;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    flex-shrink: 0;
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;                    // Figma: name frame gap:0
+  }
+
+  &__user-name {
+    font-size: 16px;
+    font-weight: 500;          // Medium
+    line-height: 24px;
+    color: #fdfdfd;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  &__user-role-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  &__user-role {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #dbe3ea;
+    white-space: nowrap;
+  }
+
+  // Chevron 20px en la fila de rol
+  &__user-role-icon {
+    font-size: 20px;
+    color: #a7b1bb;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  }
+
+  // ── Variante Mobile ───────────────────────────────────────────────────────
+  &--mobile {
+    padding: 8px 16px;
+  }
+}
+
+// ── Showcase helpers ──────────────────────────────────────────────────────────
+.navbars-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+}

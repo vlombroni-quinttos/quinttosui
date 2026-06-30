@@ -1,0 +1,1364 @@
+// ── Desempeño Actitudinal ─────────────────────────────────────────────────────
+// Figma / wireframe: wireframe-completo-v2.html
+// Grayscale-first: todos los colores son neutrales excepto el foco de select.
+
+// ── Tokens locales ────────────────────────────────────────────────────────────
+$da-border:       $gray-300;
+$da-border-light: $gray-200;
+$da-bg-page:      $light;
+$da-bg-card:      #fff;
+$da-bg-gray:      $gray-100;
+$da-bg-hover:     $primary-100;
+$da-text:         $gray-900;
+$da-text-muted:   $gray-600;
+$da-text-subtle:  $gray-400;
+$da-ink:          $gray-900;
+$da-ink-dark:     $gray-900;
+$da-radius:       8px;
+$da-radius-sm:    6px;
+
+// ── Layout wrapper ────────────────────────────────────────────────────────────
+.da-page {
+  background: $da-bg-page;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.da-content {
+  flex: 1;
+  padding: 16px 24px 24px;
+  overflow-y: auto;
+}
+
+// ── Tab navigation wrapper ────────────────────────────────────────────────────
+// El pill tab-nav vive directamente dentro de da-content con padding-top heredado.
+// Solo necesitamos alinear el margin-bottom para separarlo del context-bar.
+.da-tab-nav-pill {
+  margin-bottom: 0 !important; // el context-bar provee su propio spacing visual
+}
+
+// ── Context card ──────────────────────────────────────────────────────────────
+// Usa el componente .ch (ContainerHeader) del design system.
+// Solo overrides necesarios para el contenido específico.
+
+.da-context-card {
+  // El .ch ya provee bg, border y border-radius.
+  // Reducimos min-height del header para que sea más compacto que el default (70px)
+  .ch__header {
+    min-height: 52px;
+    padding: 10px 16px;
+  }
+
+  .ch__filters {
+    padding: 10px 16px;
+  }
+}
+
+.da-context-info {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: $gray-700;
+  line-height: 1.43;
+
+  strong { color: $gray-900; font-weight: 600; }
+}
+
+// Íconos compactos en las acciones del header de la context card
+.da-context-card .ch__actions .tpl-table__action-btn {
+  .material-symbols-rounded { font-size: 1.125rem; }
+}
+
+// ── Progress + filter row ─────────────────────────────────────────────────────
+.da-progress-filter {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.da-progress-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.da-progress-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.da-progress-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+// .da-btn-eye → reemplazado por .tpl-table__action-btn en el HTML
+// El ícono de progreso usa el mismo override de tamaño que .da-context-actions
+.da-progress-title-row .tpl-table__action-btn {
+  .material-symbols-rounded { font-size: 1rem; }
+}
+
+.da-progress-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.da-progress-bar-track {
+  background: $da-border-light;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 140px;
+  min-width: 140px;
+}
+
+.da-progress-bar-fill {
+  background: $primary;
+  height: 100%;
+  width: 25%;
+  transition: width .3s;
+}
+
+.da-progress-text {
+  font-size: 0.625rem;
+  color: $da-text-muted;
+  white-space: nowrap;
+}
+
+.da-filter-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.da-filter-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: $da-text-muted;
+  white-space: nowrap;
+}
+
+.da-filter-select {
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  font-family: $font-family-base;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color .15s;
+
+  &:hover { border-color: #bbb; }
+  &:focus { outline: none; border-color: $primary; }
+}
+
+// ── Info alert ────────────────────────────────────────────────────────────────
+// Usa ch__alert--info del design system como referencia visual
+.da-info-alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #eaf3ff;              // info tint — mismo que ch__alert--info
+  border: 1px solid #b3cfef;
+  border-radius: $da-radius;
+  margin: 16px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #3b424b;
+
+  // Icon + text container
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .material-symbols-rounded {
+    font-size: 1.25rem;
+    color: #395bd7;               // $info
+    flex-shrink: 0;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+// ── Eval card ─────────────────────────────────────────────────────────────────
+// Wrapper tpl-table que contiene toolbar + lista + vista individual.
+// tpl-table provee bg, border, border-radius, overflow:hidden.
+.da-eval-card {
+  margin-top: 16px;
+
+  // El split view pierde su propio chrome (la card exterior lo provee)
+  .da-split-view {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    max-height: calc(100vh - 320px);
+  }
+
+  // El contenedor individual también pierde su chrome
+  .da-individual-container {
+    border: none;
+    border-radius: 0;
+  }
+
+  // El filter badge dentro de la card: sin márgenes externos, con borde inferior
+  .da-filter-badge {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid $gray-200;
+    border-left: 3px solid $primary;
+  }
+}
+
+// ── Search — override ancho para el contexto compacto de la toolbar ───────────
+.da-search {
+  &.tpl-table__search { width: 200px; }
+}
+
+.da-accordion-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// ── Toggle active state para botones outline de la toolbar ────────────────────
+.da-accordion-actions .tpl-card__btn-sm--outline.active {
+  background: $primary;
+  color: #fdfdfd;
+  border-color: $primary;
+
+  &:hover  { background: #1815bc; border-color: #1815bc; }
+  &:active { background: #020078; border-color: #020078; }
+}
+
+// ── View switcher — misma visual que el pill tab-nav del design system ─────────
+.da-view-switcher {
+  display: inline-flex;
+  align-items: center;
+  background-color: #dbe3ea;   // igual que .tab-nav
+  padding: 4px;
+  border-radius: 30px;
+}
+
+.da-view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 16px;
+  border-radius: 30px;
+  font-size: 0.875rem;          // 14px — mismo que .tab-nav .nav-link
+  font-weight: 400;
+  line-height: 1.4286;
+  color: #2e353d;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  font-family: $font-family-base;
+  cursor: pointer;
+  transition: background .15s;
+
+  &.active {
+    background: #fdfdfd;        // igual que .tab-nav .nav-link.active
+    font-weight: 600;
+  }
+
+  &:not(.active):hover { background: rgba(255,255,255,.4); }
+}
+
+// ── Filter badge ──────────────────────────────────────────────────────────────
+.da-filter-badge {
+  background: $primary-100;
+  border: 1px solid $da-border;
+  border-left: 3px solid $primary;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  border-radius: $da-radius;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $da-ink-dark;
+
+  &__close {
+    font-size: 0.75rem;
+    color: $da-text-muted;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: $font-family-base;
+    &:hover { color: $da-ink-dark; }
+  }
+}
+
+// ── Student list / accordion ──────────────────────────────────────────────────
+.da-student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.da-student-card {
+  background: $da-bg-card;
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+
+  &.evaluated { background: #f9f9f9; }
+  &.in-progress { background: $da-bg-gray; border-color: #bbb; }
+
+  &.expanded {
+    border-color: $primary;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+}
+
+// ── Student header ────────────────────────────────────────────────────────────
+.da-student-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background .15s;
+  user-select: none;
+
+  &:hover { background: $da-bg-hover; }
+}
+
+.da-expand-icon {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: $da-text-muted;
+  flex-shrink: 0;
+  background: #fff;
+  transition: all .2s;
+
+  .da-student-card.expanded & {
+    background: $primary-100;
+    border-color: $primary;
+    color: $primary;
+    transform: rotate(180deg);
+  }
+}
+
+.da-student-avatar {
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: $primary-100;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: $primary;
+}
+
+.da-student-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.da-student-name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $da-ink-dark;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.da-student-meta {
+  font-size: 0.6875rem;
+  color: $da-text-subtle;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+// ── Meta clock btn — overrides tpl-table__action-btn para contexto compacto ───
+// Reduce el botón de 32px a 24px para que quepa en la fila de meta (altura 20px)
+.da-meta-clock-btn {
+  width: 24px !important;
+  height: 24px !important;
+  margin-left: 4px;
+  flex-shrink: 0;
+
+  .material-symbols-rounded { font-size: 0.875rem !important; } // 14px
+}
+
+.da-student-status {
+  text-align: right;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.da-status-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: $da-text-muted;
+
+  .evaluated & { color: $da-ink-dark; }
+}
+
+.da-status-count {
+  font-size: 0.625rem;
+  color: $da-text-subtle;
+}
+
+// ── Toggle grades button en la lista izquierda del split ─────────────────────
+// Visual de tpl-card__btn-sm pero más pequeño para el contexto de lista compacta
+.da-btn-toggle-grades {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  background: $neutral-0;
+  border: 1px solid $gray-300;
+  border-radius: 38px;
+  font-family: $font-family-base;
+  font-size: 0.625rem;            // 10px — muy compacto en la lista
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  color: $gray-600;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s;
+
+  &:hover { background: $primary-100; border-color: $primary; color: $primary; }
+
+  &.active {
+    background: $primary;
+    color: #fdfdfd;
+    border-color: $primary;
+  }
+}
+
+// ── Student body ──────────────────────────────────────────────────────────────
+.da-student-body {
+  display: none;
+  border-top: 1px solid $da-border-light;
+
+  .da-student-card.expanded & { display: flex; }
+}
+
+.da-student-body-main {
+  flex: 1;
+  max-height: calc(100vh - 360px);
+  min-height: 200px;
+  overflow-y: auto;
+  padding: 12px 16px;
+  min-width: 0;
+}
+
+.da-student-body-sidebar {
+  width: 280px;
+  border-left: 1px solid $da-border-light;
+  background: $da-bg-gray;
+  max-height: calc(100vh - 360px);
+  min-height: 200px;
+  overflow-y: auto;
+  padding: 12px;
+  display: none;
+  flex-shrink: 0;
+
+  &.visible { display: block; }
+}
+
+// ── Evaluation items ──────────────────────────────────────────────────────────
+.da-eval-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 -16px;
+}
+
+.da-eval-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  height: 48px;
+  box-sizing: border-box;
+
+  &:nth-child(odd)  { background: $da-bg-gray; }
+  &:nth-child(even) { background: #fff; }
+}
+
+.da-eval-label {
+  flex: 1;
+  font-size: 0.75rem;
+  color: $da-ink-dark;
+  line-height: 1.3;
+  padding-right: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.da-rating-select {
+  width: 70px;
+  padding: 5px 8px;
+  border: 1px solid $da-border;
+  background: #fff;
+  font-family: $font-family-base;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: $da-radius-sm;
+  transition: border-color .15s;
+  color: $da-ink-dark;
+
+  &:hover { border-color: #bbb; }
+  &:focus { outline: none; border-color: $primary; box-shadow: 0 0 0 2px rgba(66,63,254,.12); }
+}
+
+// ── Student navigation (prev/next inside accordion) ───────────────────────────
+.da-student-nav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid $da-border-light;
+  margin-top: 8px;
+
+  .da-student-card.expanded & { display: flex; }
+}
+
+.da-nav-arrow {
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  font-family: $font-family-base;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+
+  &:hover:not(:disabled) { background: $da-bg-gray; border-color: #bbb; }
+  &:disabled { opacity: .3; cursor: not-allowed; }
+}
+
+.da-nav-position {
+  font-size: 0.6875rem;
+  color: $da-text-muted;
+  font-weight: 500;
+}
+
+// ── Grades sidebar content ────────────────────────────────────────────────────
+.da-sidebar-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.da-sidebar-grade-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $da-border-light;
+
+  &:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+}
+
+.da-sidebar-subject {
+  font-size: 0.6875rem;
+  color: $da-ink-dark;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.da-sidebar-grade-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.da-sidebar-grade-label {
+  font-size: 0.5625rem;
+  color: $da-text-subtle;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  margin-bottom: 2px;
+}
+
+.da-sidebar-grade-value {
+  font-weight: 500;
+  color: $da-ink-dark;
+  font-size: 0.625rem;
+}
+
+// ── Individual view ───────────────────────────────────────────────────────────
+.da-individual-view {
+  display: none;
+
+  &.active { display: block; }
+}
+
+.da-individual-container {
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  background: #fff;
+}
+
+.da-individual-nav {
+  padding: 14px 20px;
+  border-bottom: 1px solid $da-border-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.da-individual-nav-left,
+.da-individual-nav-right { min-width: 130px; }
+.da-individual-nav-right { display: flex; justify-content: flex-end; }
+
+.da-individual-nav-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+// .da-individual-nav-btn → reemplazado por tpl-card__btn-sm--outline en el HTML
+// Disabled state override (tpl-card__btn-sm no tiene :disabled por defecto)
+.da-individual-nav-left .tpl-card__btn-sm,
+.da-individual-nav-right .tpl-card__btn-sm {
+  gap: 2px;
+
+  &:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.da-individual-avatar {
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: $primary-100;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: $primary;
+}
+
+.da-individual-student-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+  margin-bottom: 2px;
+}
+
+.da-individual-student-meta {
+  font-size: 0.75rem;
+  color: $da-text-muted;
+  display: flex;
+  align-items: center;
+}
+
+// Progress circle
+.da-progress-circle {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  position: relative;
+
+  svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+  }
+
+  .da-progress-circle__track {
+    fill: none;
+    stroke: $da-border-light;
+    stroke-width: 4;
+  }
+
+  .da-progress-circle__fill {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset .3s;
+  }
+
+  .da-progress-circle__text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    color: $da-ink-dark;
+  }
+}
+
+// ── Individual body ───────────────────────────────────────────────────────────
+.da-individual-body {
+  padding: 20px;
+}
+
+.da-individual-eval-section { margin-bottom: 28px; }
+
+.da-individual-eval-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child { border-bottom: none; }
+}
+
+.da-individual-eval-label {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: $da-ink-dark;
+}
+
+.da-individual-eval-select {
+  min-width: 80px;
+  padding: 6px 10px;
+  border: 1px solid $da-border;
+  border-radius: $da-radius-sm;
+  font-family: $font-family-base;
+  font-size: 0.75rem;
+  background: #fff;
+  cursor: pointer;
+
+  &:focus { outline: none; border-color: $primary; }
+}
+
+// ── Individual grades section ─────────────────────────────────────────────────
+.da-individual-grades-section {
+  padding-top: 20px;
+  border-top: 2px solid $da-border-light;
+}
+
+.da-individual-grades-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $da-text-muted;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span { font-size: 0.6875rem; }
+}
+
+.da-individual-grades-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.da-individual-grade-item {
+  padding: 7px 0;
+  border-bottom: 1px solid $da-border-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.da-individual-grade-subject {
+  font-size: 0.75rem;
+  color: $da-ink-dark;
+  font-weight: 500;
+  flex: 1;
+}
+
+.da-individual-grade-details {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.da-individual-grade-detail {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.da-individual-grade-label {
+  font-size: 0.5625rem;
+  color: $da-text-subtle;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.da-individual-grade-value {
+  font-weight: 600;
+  color: $da-ink-dark;
+  font-size: 0.75rem;
+}
+
+// ── Belgrano mode — flat card (no accordion) ──────────────────────────────────
+.da-belgrano-card {
+  background: $da-bg-card;
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  overflow: hidden;
+  cursor: default;
+
+  .da-belgrano-inner {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .da-belgrano-row {
+    display: grid;
+    grid-template-columns: 240px 1fr 1fr;
+    column-gap: 20px;
+    align-items: flex-start;
+    flex: 1;
+    padding: 14px 20px;
+
+    &:has(~ .da-student-body-sidebar.visible) {
+      grid-template-columns: 240px 1fr;
+    }
+  }
+
+  .da-belgrano-student-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    grid-row: 1;
+  }
+
+  .da-belgrano-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .da-belgrano-field-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $da-ink-dark;
+  }
+
+  .da-belgrano-select,
+  .da-belgrano-textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid $da-border;
+    border-radius: $da-radius;
+    font-family: $font-family-base;
+    font-size: 0.8125rem;
+    color: $da-ink-dark;
+    background: #fff;
+    transition: border-color .15s;
+
+    &:focus { outline: none; border-color: $primary; }
+  }
+
+  .da-belgrano-textarea {
+    resize: vertical;
+    min-height: 72px;
+    max-height: 160px;
+  }
+
+  .da-belgrano-hint {
+    font-size: 0.6875rem;
+    color: $da-text-subtle;
+  }
+}
+
+// ── Split master-detail view (Listado) ───────────────────────────────────────
+.da-split-view {
+  display: flex;
+  border: 1px solid $da-border;
+  border-radius: $da-radius;
+  overflow: hidden;
+  background: #fff;
+  min-height: 520px;
+  max-height: calc(100vh - 340px);
+  box-shadow: 0 2px 12px $shadow-float;
+}
+
+// ── Panel izquierdo — listado de alumnos (Figma node 16158:212750) ────────────
+.da-split-list {
+  width: 360px;
+  min-width: 280px;
+  border-right: 1px solid $da-border;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// Fila de alumno — tabla flat con border-bottom
+.da-split-student-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $gray-300;
+  background: #fff;
+  cursor: pointer;
+  transition: background .15s;
+
+  &:last-child { border-bottom: none; }
+  &:hover { background: $primary-100; }
+
+  // Estado activo: fondo Primary-50 (#ECECFF), sin borde izquierdo especial
+  &.active { background: #ececff; }
+}
+
+// Avatar 44px circular (usa iniciales como fallback)
+.da-split-avatar-fig {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $primary-100;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $primary;
+  overflow: hidden;
+}
+
+// Contenedor de info (ocupa el espacio restante)
+.da-split-student-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// Nombre: 16px SemiBold #3B424B
+.da-split-student-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3b424b;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Fila inferior: contador + badge | acciones
+.da-split-student-row2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+// Grupo contador + badge
+.da-split-count-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Contador X/X — 14px Regular #3B424B
+.da-split-count {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #3b424b;
+  white-space: nowrap;
+}
+
+// ── Icon buttons circulares (3 por fila) ──────────────────────────────────────
+// 32×32px, border-radius: 30px, fondo #FDFDFD
+.da-split-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.da-split-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  background: #fdfdfd;
+  border: 1px solid $gray-300;           // inactivo: borde neutral
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  flex-shrink: 0;
+
+  .material-symbols-rounded {
+    font-size: 1.125rem;
+    color: #a7b1bb;                      // neutral-400 — inactivo
+  }
+
+  // Variante activa — borde primario
+  &--active {
+    border-color: $primary;
+    .material-symbols-rounded { color: $primary; }
+
+    &:hover {
+      background: $primary-100;
+    }
+  }
+
+  // Variante inactiva (sin evaluación) — gris
+  &--inactive {
+    border-color: $gray-200;
+    cursor: default;
+    .material-symbols-rounded { color: #c9d1d8; }
+  }
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────────
+.da-split-detail {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+}
+
+.da-split-detail-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid $da-border-light;
+  background: $gray-100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.da-split-detail-student-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+  margin-bottom: 2px;
+}
+
+.da-split-detail-student-meta {
+  font-size: 0.6875rem;
+  color: $da-text-muted;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.da-split-detail-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+// Eval items inside split detail — sin margen negativo
+.da-split-detail .da-eval-items {
+  margin: 0;
+}
+
+// ── Grades section inside detail ──────────────────────────────────────────────
+.da-split-grades {
+  border-top: 1px solid $da-border-light;
+  padding: 16px 20px;
+  background: $gray-100;
+  display: none;
+
+  &.visible { display: block; }
+}
+
+.da-split-grades-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.da-split-grades-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.da-split-grade-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid $da-border-light;
+
+  &:last-child { border-bottom: none; }
+}
+
+.da-split-grade-subject {
+  font-size: 0.6875rem;
+  color: $da-ink-dark;
+  font-weight: 500;
+  flex: 1;
+}
+
+.da-split-grade-details {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.da-split-grade-detail {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.da-split-grade-label {
+  font-size: 0.5625rem;
+  color: $da-text-subtle;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+}
+
+.da-split-grade-value {
+  font-weight: 600;
+  color: $da-ink-dark;
+  font-size: 0.6875rem;
+}
+
+// Empty state when no student selected
+.da-split-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $da-text-subtle;
+  font-size: 0.8125rem;
+  padding: 40px;
+}
+
+// ── Auto-save indicator ───────────────────────────────────────────────────────
+.da-autosave {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background: $primary;
+  color: #fff;
+  border-radius: $da-radius;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1050;
+
+  &.visible { opacity: 1; }
+
+  .da-spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: da-spin .6s linear infinite;
+  }
+}
+
+@keyframes da-spin {
+  to { transform: rotate(360deg); }
+}
+
+// ── Modals ────────────────────────────────────────────────────────────────────
+.da-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+
+  &.visible { display: flex; }
+}
+
+.da-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  overflow: hidden;
+}
+
+.da-modal--sm { width: 420px; }
+
+.da-modal__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid $da-border-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $gray-100;
+}
+
+.da-modal__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $da-ink-dark;
+}
+
+// .da-modal__close → reemplazado por tpl-table__action-btn en el HTML
+
+.da-modal__body {
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.da-modal__footer {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.da-modal__label {
+  font-size: 0.6875rem;          // 11px — Caption
+  font-weight: 500;
+  color: $gray-500;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  margin: 0;
+}
+
+.da-modal__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.da-modal-student-item {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child { border-bottom: none; }
+}
+
+.da-modal-status-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $da-text-muted;
+}
+
+.da-modal-student-name {
+  flex: 1;
+  font-size: 0.75rem;
+  color: $da-ink-dark;
+}
+
+.da-modal-student-meta {
+  font-size: 0.6875rem;
+  color: $da-text-subtle;
+  margin-right: 8px;
+}
+
+// .da-modal-go-btn → reemplazado por tpl-table__action-btn en el HTML (JS generated)
+
+// ── Status badges — usan tpl-table__badge del design system ──────────────────
+// evaluated   → tpl-table__badge tpl-table__badge--active  (verde)
+// in-progress → tpl-table__badge tpl-table__badge--pending (amarillo)
+// pending     → tpl-table__badge da-badge--neutral         (gris, variante local)
+
+// Variante gris (sin evaluar) — no existe en tpl-table__badge base
+.da-badge--neutral {
+  background: $gray-200;    // $te-badge-info-bg
+  color: $gray-700;         // $te-badge-info-text aprox.
+}
+
+// ── Page header — p-0 context override ───────────────────────────────────────
+.da-page-header {
+  margin-bottom: 0;
+}
+
+// ── Role-based visibility ─────────────────────────────────────────────────────
+body[data-da-role="docente"] .da-admin-only {
+  display: none !important;
+}
+
+// ── More students indicator ───────────────────────────────────────────────────
+.da-more-students {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: $da-text-subtle;
+}

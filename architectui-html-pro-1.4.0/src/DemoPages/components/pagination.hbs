@@ -1,0 +1,178 @@
+{{#> base }}
+{{> AppSidebar/sidebar components-pagination=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <!-- ── Desktop: full bar ──────────────────────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Pagination Bar — Desktop</h5>
+            </div>
+            <!-- pagination-bar: info left · pages right -->
+            <div class="pagination-bar">
+                <span class="pagination-info">1 - 10 de 201 mensajes</span>
+                <nav aria-label="Paginación">
+                    <ul class="pagination">
+                        <!-- Prev -->
+                        <li class="page-item page-item--prev">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Anterior">
+                                <i class="material-symbols-rounded">chevron_left</i>
+                            </a>
+                        </li>
+                        <!-- Page 1 -->
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">1</a>
+                        </li>
+                        <!-- Ellipsis -->
+                        <li class="page-item page-item--ellipsis">
+                            <a href="javascript:void(0);" class="page-link">
+                                <i class="material-symbols-rounded">more_horiz</i>
+                            </a>
+                        </li>
+                        <!-- Pages 4–5 -->
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">5</a>
+                        </li>
+                        <!-- Active page -->
+                        <li class="page-item active">
+                            <a href="javascript:void(0);" class="page-link">6</a>
+                        </li>
+                        <!-- Pages 7–8 -->
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">7</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">8</a>
+                        </li>
+                        <!-- Ellipsis -->
+                        <li class="page-item page-item--ellipsis">
+                            <a href="javascript:void(0);" class="page-link">
+                                <i class="material-symbols-rounded">more_horiz</i>
+                            </a>
+                        </li>
+                        <!-- Last page -->
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">20</a>
+                        </li>
+                        <!-- Next -->
+                        <li class="page-item page-item--next">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Siguiente">
+                                <i class="material-symbols-rounded">chevron_right</i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ── Mobile: centrada + texto debajo ───────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Pagination Bar — Mobile</h5>
+                <div class="d-flex flex-column align-items-center" style="gap:8px">
+                    <nav aria-label="Paginación mobile">
+                        <ul class="pagination">
+                            <li class="page-item page-item--prev">
+                                <a href="javascript:void(0);" class="page-link" aria-label="Anterior">
+                                    <i class="material-symbols-rounded">chevron_left</i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="javascript:void(0);" class="page-link">1</a>
+                            </li>
+                            <li class="page-item page-item--ellipsis">
+                                <a href="javascript:void(0);" class="page-link">
+                                    <i class="material-symbols-rounded">more_horiz</i>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a href="javascript:void(0);" class="page-link">6</a>
+                            </li>
+                            <li class="page-item page-item--ellipsis">
+                                <a href="javascript:void(0);" class="page-link">
+                                    <i class="material-symbols-rounded">more_horiz</i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="javascript:void(0);" class="page-link">20</a>
+                            </li>
+                            <li class="page-item page-item--next">
+                                <a href="javascript:void(0);" class="page-link" aria-label="Siguiente">
+                                    <i class="material-symbols-rounded">chevron_right</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <span class="pagination-info">1 - 10 de 201 mensajes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Estados ───────────────────────────────────────── -->
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Estados</h5>
+                <p class="text-muted mb-3" style="font-size:.875rem">First / Last page — prev o next deshabilitados.</p>
+                <!-- First page: prev disabled -->
+                <nav class="mb-3" aria-label="Primera página">
+                    <ul class="pagination">
+                        <li class="page-item page-item--prev disabled">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Anterior">
+                                <i class="material-symbols-rounded">chevron_left</i>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a href="javascript:void(0);" class="page-link">1</a>
+                        </li>
+                        <li class="page-item page-item--ellipsis">
+                            <a href="javascript:void(0);" class="page-link">
+                                <i class="material-symbols-rounded">more_horiz</i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">20</a>
+                        </li>
+                        <li class="page-item page-item--next">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Siguiente">
+                                <i class="material-symbols-rounded">chevron_right</i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Last page: next disabled -->
+                <nav aria-label="Última página">
+                    <ul class="pagination">
+                        <li class="page-item page-item--prev">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Anterior">
+                                <i class="material-symbols-rounded">chevron_left</i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a href="javascript:void(0);" class="page-link">1</a>
+                        </li>
+                        <li class="page-item page-item--ellipsis">
+                            <a href="javascript:void(0);" class="page-link">
+                                <i class="material-symbols-rounded">more_horiz</i>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a href="javascript:void(0);" class="page-link">20</a>
+                        </li>
+                        <li class="page-item page-item--next disabled">
+                            <a href="javascript:void(0);" class="page-link" aria-label="Siguiente">
+                                <i class="material-symbols-rounded">chevron_right</i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

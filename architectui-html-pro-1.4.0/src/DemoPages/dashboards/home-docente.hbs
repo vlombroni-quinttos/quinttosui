@@ -1,0 +1,392 @@
+{{#> base }}
+{{> AppSidebar/sidebar dashboards-home-docente=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        <div class="tabs-animation">
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- ═══════════════════════════════════════════════════════════════
+                         Widget Card: Mis Cursos
+                         Componente: dwc (Dashboard Widget Card) — mismo patrón que
+                         elements > cards > Widget Cards > Data table
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div class="main-card mb-3 card dwc">
+
+                        <!-- ── Header ──────────────────────────────────────────── -->
+                        <div class="card-header">
+                            <div class="dwc-header-left">
+                                <span class="dwc-title">Mis Cursos</span>
+                                <span class="dwc-badge" id="cursos-count">—</span>
+                            </div>
+                        </div>
+
+                        <!-- ── Toolbar: solo buscador ──────────────────────────── -->
+                        <div class="dwc-table-tools">
+                            <div class="dwc-search-wrap">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" class="dwc-table-search" placeholder="Buscar">
+                            </div>
+                        </div>
+
+                        <!-- ── Tabla con scroll (~5 filas visibles) ────────────── -->
+                        <!-- data-boundary="window" en cada toggle evita clipping   -->
+                        <!-- por overflow-y:auto del contenedor                     -->
+                        <div class="dwc-table-scroll">
+                            <table class="dwc-table">
+                                <thead>
+
+                                    <!-- Encabezados con ícono de ordenamiento -->
+                                    <tr>
+                                        <th>
+                                            Cursada
+                                            <span class="material-symbols-rounded">unfold_more</span>
+                                        </th>
+                                        <th>
+                                            Materias
+                                            <span class="material-symbols-rounded">unfold_more</span>
+                                        </th>
+                                        <th>
+                                            Tipo
+                                            <span class="material-symbols-rounded">unfold_more</span>
+                                        </th>
+                                        <th>
+                                            Aula
+                                            <span class="material-symbols-rounded">unfold_more</span>
+                                        </th>
+                                        <th>
+                                            Turno
+                                            <span class="material-symbols-rounded">unfold_more</span>
+                                        </th>
+                                        <th class="dwc-col--actions-wide">Acciones</th>
+                                    </tr>
+
+                                    <!-- Filtros por columna -->
+                                    <tr class="dwc-filter-row">
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                        data-toggle="dropdown" data-boundary="window"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    <span>Todos</span>
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">1.J1</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">2.J1</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">3.J1</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                        data-toggle="dropdown" data-boundary="window"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    <span>Todos</span>
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Ciencias Naturales</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Ciencias Sociales</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Matemática</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Prácticas del Lenguaje</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Educación Física</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                        data-toggle="dropdown" data-boundary="window"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    <span>Todos</span>
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Titular</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Reemplazante</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                        data-toggle="dropdown" data-boundary="window"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    <span>Todos</span>
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="dwc-filter-select dropdown-toggle"
+                                                        data-toggle="dropdown" data-boundary="window"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    <span>Todos</span>
+                                                    <span class="material-symbols-rounded">expand_more</span>
+                                                </button>
+                                                <div class="dropdown-menu tpl-select__menu">
+                                                    <button type="button" class="dropdown-item tpl-select__item">— Todos —</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Mañana</button>
+                                                    <button type="button" class="dropdown-item tpl-select__item">Tarde</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="dwc-col--actions-wide"></td>
+                                    </tr>
+
+                                </thead>
+                                <tbody id="docente-cursos-body">
+
+                                    <tr>
+                                        <td>1.J1CSNAT</td>
+                                        <td>Ciencias Naturales</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1.J1CSSOC</td>
+                                        <td>Ciencias Sociales</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1.J1MATH</td>
+                                        <td>Matemática</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1.J1PRLEN</td>
+                                        <td>Prácticas del Lenguaje</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2.J1CSNAT</td>
+                                        <td>Ciencias Naturales</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2.J1MATH</td>
+                                        <td>Matemática</td>
+                                        <td>Reemplazante</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3.J1ED.FIS</td>
+                                        <td>Educación Física</td>
+                                        <td>Titular</td>
+                                        <td>—</td>
+                                        <td>Mañana</td>
+                                        <td class="dwc-td-actions dwc-col--actions-wide">
+                                            <div class="dwc-row-actions">
+                                                <button class="dwc-action-icon" title="Ver detalle del curso">
+                                                    <span class="material-symbols-rounded">visibility</span>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="tpl-table__cal-btn dropdown-toggle"
+                                                            data-toggle="dropdown" data-boundary="window"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                        Calificaciones
+                                                        <span class="material-symbols-rounded">expand_more</span>
+                                                    </button>
+                                                    <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">grid_view</span>Por materia
+                                                        </button>
+                                                        <button type="button" class="dropdown-item tpl-select__item">
+                                                            <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">person</span>Por alumno
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- fin dwc-table-scroll -->
+
+                    </div>
+                    <!-- fin card dwc -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Badge: total real de filas en runtime -->
+<script>
+  (function () {
+    var rows  = document.querySelectorAll('#docente-cursos-body tr');
+    var badge = document.getElementById('cursos-count');
+    if (badge) badge.textContent = rows.length;
+  })();
+</script>
+
+{{/base}}

@@ -1,0 +1,201 @@
+// ============================================================
+// Alerts — Figma Design System
+// Node: 295-1324 | File: dCEtw9coTRcbLRS4YZtQ1n
+//
+// Shape : border-radius 8px, border 1px
+// Layout: flex row, align-items center, gap 8px
+// Padding: 8px 16px (simple) / 16px (with title)
+// ============================================================
+
+// ── Local tokens ─────────────────────────────────────────────
+$alt-text:   #2E353D;   // body text  (Neutral-700)
+$alt-title:  #3B424B;   // heading    (Neutral-600)
+
+// ── Color map: (bg, border, icon, link) ─────────────────────
+// Figma states: primary=Default, success, danger=Error, warning
+// Derived:      info, secondary, light, dark
+$alt-variants: (
+  "primary":   (#ECECFF, #9795FF, #1815BC, #020078),
+  "success":   (#EEFBF4, #84E4AE, #1E874C, #17663A),
+  "danger":    (#FEF0F4, #F98BA6, #F3164E, #AF0932),
+  "warning":   (#FFF9EB, #FFCE5C, #8A6100, #8A6100),
+  "info":      (#EAF0FE, #8BA4E9, #395bd7, #1E3DAB),
+  "secondary": (#FFF0F3, #FCA4B3, #fe4a6b, #C72153),
+  "light":     (#F8F9FA, #DEE2E6, #6C757D, #495057),
+  "dark":      (#F0F0F1, #ADB5BD, #2E353D, #1A1E23)
+);
+
+// ── Icon map: alert color → Material Symbols glyph ───────────
+$alt-icons: (
+  "primary":   "info",
+  "success":   "check_circle",
+  "danger":    "dangerous",
+  "warning":   "error",
+  "info":      "info",
+  "secondary": "campaign",
+  "light":     "lightbulb",
+  "dark":      "circle_notifications"
+);
+
+// ── Base .alert override ─────────────────────────────────────
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;               // 8px between icon and text
+  padding: 0.5rem 1rem;      // 8px 16px
+  border-radius: 0.5rem;     // 8px
+  border-width: 1px;
+  font-size: 0.875rem;       // 14px
+  line-height: 1.4286;       // ≈ 20px
+
+  // Icon slot
+  .alert-icon {
+    font-size: 1.25rem;      // 20px
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  // Inner text wrapper (allows link/icon to coexist properly)
+  .alert-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // Heading for content alerts
+  .alert-heading {
+    font-size: 1rem;         // 16px
+    font-weight: 600;
+    line-height: 1.5;        // 24px
+    color: $alt-title;
+    margin-bottom: 0.25rem;
+  }
+
+  // Link colour
+  .alert-link {
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  hr {
+    border-top-color: currentColor;
+    opacity: 0.2;
+    margin: 0.75rem 0;
+  }
+
+  // ── Dismissible close button ────────────────────────────────
+  &.alert-dismissible {
+    padding-right: 3rem;
+
+    .close {
+      position: absolute;
+      top: 50%;
+      right: 0.75rem;
+      transform: translateY(-50%);
+      padding: 0;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      opacity: 0.6;
+
+      // Hide the Bootstrap × character
+      > span:not(.material-symbols-rounded) {
+        display: none;
+      }
+
+      .material-symbols-rounded {
+        font-size: 1.125rem;
+        line-height: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // ── Title + Text variant ────────────────────────────────────
+  &.alert-with-title {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;           // 16px all sides
+    gap: 0.75rem;            // 12px between body and link row
+    width: 100%;             // ensure full width for right-align to work
+
+    // Action link goes bottom-right (Figma: align-items MAX on outer container)
+    > .alert-link {
+      align-self: flex-end;
+    }
+
+    .alert-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;           // 8px icon ↔ content
+
+      .alert-icon {
+        margin-top: 0.125rem; // optical align with first text line
+      }
+    }
+
+    .alert-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;           // 8px title ↔ body text
+    }
+
+    .alert-heading {
+      margin-bottom: 0;
+    }
+
+    // Dismissible title alerts: close in top-right corner
+    &.alert-dismissible {
+      padding-right: 1rem;   // reset right padding, close goes in title row
+
+      .close {
+        position: static;
+        transform: none;
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+
+      .alert-title-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 0.75rem;
+      }
+    }
+  }
+}
+
+// ── Color variants ────────────────────────────────────────────
+@each $name, $vals in $alt-variants {
+  $bg:     nth($vals, 1);
+  $border: nth($vals, 2);
+  $icon:   nth($vals, 3);
+  $link:   nth($vals, 4);
+
+  .alert-#{$name} {
+    background-color: $bg;
+    border-color:     $border;
+    color:            $alt-text;
+
+    .alert-icon {
+      color: $icon;
+    }
+
+    .alert-heading {
+      color: $alt-title;
+    }
+
+    .alert-link {
+      color: $link;
+    }
+
+    hr {
+      border-top-color: $border;
+    }
+  }
+}

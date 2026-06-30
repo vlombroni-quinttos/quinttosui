@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "architectui-dev",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["watch"],
+      "port": 8081
+    }
+  ]
+}

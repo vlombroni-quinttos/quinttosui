@@ -1,0 +1,460 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-advanced-cards=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+
+        {{!-- ══════════════════════════════════════════════════════════════════
+             SECCIÓN 1 — Headers para containers individuales
+        ══════════════════════════════════════════════════════════════════════ --}}
+        <div class="row mb-2">
+            <div class="col-12">
+                <p class="ch-demo__section-title">Headers para containers individuales</p>
+                <p class="ch-demo__section-desc">Todas las cards comparten la misma estructura de header. Las siguientes variantes muestran los elementos que puede incorporar según la necesidad del contenido.</p>
+            </div>
+        </div>
+
+        {{!-- ── 1. Solo título ──────────────────────────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Solo título</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">El header más simple. Solo lleva el título que identifica el contenido del container. No requiere ningún elemento adicional.</p>
+            </div>
+        </div>
+
+        {{!-- ── 2. Título con switch view ───────────────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Título con Switch View</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <!-- Switch view: tabla ↔ grilla -->
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" role="tab" aria-label="Vista tabla">
+                                        <span class="material-symbols-rounded">table_rows</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" role="tab" aria-label="Vista grilla">
+                                        <span class="material-symbols-rounded">grid_view</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">El <strong>Switch View</strong> permite al usuario alternar entre distintas representaciones del mismo contenido (tabla, grilla, etc.). Siempre va en el extremo derecho del header y puede convivir con botones de acción.</p>
+            </div>
+        </div>
+
+        {{!-- ── 3. Título con acciones ─────────────────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Título con acciones</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <!-- Switch view -->
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" role="tab" aria-label="Vista tabla">
+                                        <span class="material-symbols-rounded">table_rows</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" role="tab" aria-label="Vista grilla">
+                                        <span class="material-symbols-rounded">grid_view</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Botón terciario (con ícono) -->
+                            <button type="button" class="ch__tertiary-btn">
+                                <span class="material-symbols-rounded">settings</span>
+                                Acción terciaria
+                            </button>
+                            <!-- Icon buttons secundarios -->
+                            <button type="button" class="ch__icon-btn" aria-label="Acción 1">
+                                <span class="material-symbols-rounded">download</span>
+                            </button>
+                            <button type="button" class="ch__icon-btn" aria-label="Acción 2">
+                                <span class="material-symbols-rounded">share</span>
+                            </button>
+                            <button type="button" class="ch__icon-btn" aria-label="Acción 3">
+                                <span class="material-symbols-rounded">more_vert</span>
+                            </button>
+                            <!-- Botón principal -->
+                            <button type="button" class="btn btn-primary">Acción principal</button>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">Los botones de acción van siempre a la derecha del título. <strong>Máximo 4 botones</strong>, de los cuales <strong>solo 1 puede ser primario</strong>. Pueden coexistir con el Switch View.</p>
+                <p class="ch-demo__rule">Jerarquía de botones: <strong>Primario</strong> (acción principal) → <strong>Secundario outline</strong> (acción relevante) → <strong>Ícono outline</strong> (acciones complementarias) → <strong>Terciario</strong> (acciones menores).</p>
+            </div>
+        </div>
+
+        {{!-- ── 3b. Menú de acciones (overflow) ───────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Menú de acciones agrupadas</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <!-- Switch view -->
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" role="tab" aria-label="Vista tabla">
+                                        <span class="material-symbols-rounded">table_rows</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" role="tab" aria-label="Vista grilla">
+                                        <span class="material-symbols-rounded">grid_view</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Dropdown de acciones secundarias -->
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
+                                    <button type="button" class="dropdown-item tpl-select__item">
+                                        <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">download</span>Exportar
+                                    </button>
+                                    <button type="button" class="dropdown-item tpl-select__item">
+                                        <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;">share</span>Compartir
+                                    </button>
+                                    <button type="button" class="dropdown-item tpl-select__item" style="color:#f3164e;">
+                                        <span class="material-symbols-rounded" style="font-size:1.125rem;vertical-align:-4px;margin-right:6px;color:#f3164e;">delete</span>Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Botón principal -->
+                            <button type="button" class="btn btn-primary">Acción principal</button>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">Cuando hay Switch View <strong>y</strong> múltiples acciones secundarias, se agrupan en un botón de menú para evitar el desbordamiento. El botón primario siempre queda visible.</p>
+            </div>
+        </div>
+
+        {{!-- ── 4. Título con alerta ────────────────────────────────────────── --}}
+        <div class="row mb-2">
+            <div class="col-12 mb-4">
+                <p class="ch-demo__case-label">Alerta de advertencia</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <div class="ch__alert ch__alert--warning">
+                                <div class="ch__alert__left">
+                                    <span class="material-symbols-rounded">warning</span>
+                                    <span>Cambios sin guardar.</span>
+                                </div>
+                                <div class="ch__alert__right">Guardar</div>
+                            </div>
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <div class="ch-demo__rule ch-demo__rule--warn">
+                    <span class="material-symbols-rounded">block</span>
+                    <span><strong>Alerta y botones de acción no deben convivir.</strong> Cuando hay una alerta activa, los botones se omiten para no generar ambigüedad. La acción relevante va dentro de la propia alerta (lado derecho).</span>
+                </div>
+            </div>
+        </div>
+
+        {{!-- ── 5. Título con filtros ───────────────────────────────────────── --}}
+        <div class="row mb-2">
+            <div class="col-12 mb-1">
+                <p class="ch-demo__section-title">Título con filtros de contenido</p>
+                <p class="ch-demo__section-desc">Los filtros van en una segunda fila debajo del título. Se utilizan para filtrar <em>únicamente</em> el contenido dentro del mismo container — no afectan a otros containers de la página. Pueden usarse tabs, segmented buttons o un selector.</p>
+            </div>
+        </div>
+
+        {{!-- 5a. Tabs ──────────────────────────────────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Con tabs</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ch__filters">
+                        <div class="ch__filters-left">
+                            <!-- Tabs de contenido -->
+                            <ul class="tab-nav mb-0" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" href="#" role="tab">Todos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" role="tab">Activos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" role="tab">Inactivos</a></li>
+                            </ul>
+                            <!-- Buscador inline -->
+                            <div class="ch__search">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" placeholder="Buscar">
+                            </div>
+                        </div>
+                        <div class="ch__filters-right">
+                            <div class="ch__toggle-wrap">
+                                <div class="custom-control custom-switch mb-0">
+                                    <input type="checkbox" class="custom-control-input" id="toggle-filter-tabs">
+                                    <label class="custom-control-label" for="toggle-filter-tabs">Mostrar inactivos</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">Los <strong>tabs</strong> se usan cuando las categorías son bien conocidas por el usuario y se navega entre ellas frecuentemente. Pueden convivir con un buscador y un toggle switch en la misma fila de filtros.</p>
+            </div>
+        </div>
+
+        {{!-- 5b. Segmented buttons ───────────────────────────────────────── --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Con segmented buttons</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ch__filters">
+                        <div class="ch__filters-left">
+                            <!-- Segmented buttons (misma clase tab-nav, uso compacto) -->
+                            <ul class="tab-nav mb-0" role="tablist" style="width:auto;">
+                                <li class="nav-item"><a class="nav-link active" href="#" role="tab">Semanal</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" role="tab">Mensual</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" role="tab">Anual</a></li>
+                            </ul>
+                            <div class="ch__search">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" placeholder="Buscar">
+                            </div>
+                        </div>
+                        <div class="ch__filters-right">
+                            <div class="custom-control custom-switch mb-0">
+                                <input type="checkbox" class="custom-control-input" id="toggle-filter-seg">
+                                <label class="custom-control-label" for="toggle-filter-seg">Mostrar archivados</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">Los <strong>segmented buttons</strong> se usan para agrupar opciones mutuamente excluyentes con un número reducido de ítems (2–4). Ideales para períodos de tiempo u otros criterios de vista acotados.</p>
+            </div>
+        </div>
+
+        {{!-- 5c. Selector ────────────────────────────────────────────────── --}}
+        <div class="row mb-5">
+            <div class="col-12">
+                <p class="ch-demo__case-label">Con selector (dropdown)</p>
+                <div class="ch-demo__preview">
+                    <div class="ch__header">
+                        <h5 class="ch__title">Título del contenedor</h5>
+                        <div class="ch__actions">
+                            <ul class="tab-nav tab-nav--view mb-0" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" href="#" aria-label="Vista tabla"><span class="material-symbols-rounded">table_rows</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" aria-label="Vista grilla"><span class="material-symbols-rounded">grid_view</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ch__filters">
+                        <div class="ch__filters-left">
+                            <!-- Selector como dropdown Bootstrap -->
+                            <div class="dropdown tpl-select" style="min-width:180px;">
+                                <button type="button" class="form-control tpl-select__trigger d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:44px;cursor:pointer;">
+                                    <span class="tpl-select__value">Todos los cursos</span>
+                                    <span class="material-symbols-rounded" style="font-size:1.25rem;color:#86909c;">expand_more</span>
+                                </button>
+                                <div class="dropdown-menu tpl-select__menu">
+                                    <button type="button" class="dropdown-item tpl-select__item active" data-value="all">Todos los cursos</button>
+                                    <button type="button" class="dropdown-item tpl-select__item" data-value="mat">Matemáticas</button>
+                                    <button type="button" class="dropdown-item tpl-select__item" data-value="len">Lengua</button>
+                                    <button type="button" class="dropdown-item tpl-select__item" data-value="his">Historia</button>
+                                </div>
+                            </div>
+                            <div class="ch__search">
+                                <span class="material-symbols-rounded">search</span>
+                                <input type="text" placeholder="Buscar">
+                            </div>
+                        </div>
+                        <div class="ch__filters-right">
+                            <div class="custom-control custom-switch mb-0">
+                                <input type="checkbox" class="custom-control-input" id="toggle-filter-sel">
+                                <label class="custom-control-label" for="toggle-filter-sel">Mostrar todos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ch-demo__content-placeholder"></div>
+                </div>
+                <p class="ch-demo__rule">El <strong>selector</strong> se usa cuando hay muchas opciones o las opciones son dinámicas (ej. lista de cursos, materias, usuarios). Es la opción más flexible del panel de filtros.</p>
+            </div>
+        </div>
+
+        {{!-- ══════════════════════════════════════════════════════════════════
+             SECCIÓN 2 — Multiple containers
+        ══════════════════════════════════════════════════════════════════════ --}}
+        <div class="row mb-2">
+            <div class="col-12">
+                <p class="ch-demo__section-title">Headers en múltiples containers</p>
+                <p class="ch-demo__section-desc">Cuando una pantalla tiene mucha información agrupada en distintos temas, se usa un <strong>header principal</strong> con el título general y las acciones globales, seguido de múltiples sub-containers con subtítulos H6. Cada sub-container muestra solo su propia sección de contenido.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <!-- Wrapper transparente: igual que el template real -->
+                <div class="tpl-cform-wrapper">
+
+                        <!-- Header standalone (card separada) -->
+                        <div class="tpl-form tpl-form--header-only">
+                            <div class="tpl-form__header">
+                                <h5 class="tpl-form__title">Configurar nueva cursada</h5>
+                                <div class="tpl-form__header-actions">
+                                    <button type="button" class="tpl-form__btn-outline">Cancelar</button>
+                                    <button type="button" class="tpl-form__btn-outline">Guardar borrador</button>
+                                    <button type="button" class="tpl-form__btn-primary">
+                                        <span class="material-symbols-rounded">publish</span>
+                                        Publicar cursada
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-card 1: Datos generales -->
+                        <div class="tpl-card">
+                            <div class="tpl-card__body">
+                                <p class="tpl-card__title">Datos generales</p>
+                                <div class="tpl-form__row">
+                                    <div class="tpl-form__field" style="flex:2;">
+                                        <label class="tpl-form__label">Nombre del curso</label>
+                                        <input type="text" class="form-control" placeholder="Ej: Matemáticas 1°A – 2026">
+                                    </div>
+                                    <div class="tpl-form__field" style="flex:1;">
+                                        <label class="tpl-form__label">Ciclo lectivo</label>
+                                        <input type="text" class="form-control" placeholder="2026">
+                                    </div>
+                                    <div class="tpl-form__field" style="flex:1;">
+                                        <label class="tpl-form__label">Modalidad</label>
+                                        <div class="dropdown tpl-select">
+                                            <button type="button" class="form-control tpl-select__trigger" data-toggle="dropdown">
+                                                <span class="tpl-select__value">Presencial</span>
+                                                <span class="material-symbols-rounded tpl-select__chevron">arrow_drop_down</span>
+                                            </button>
+                                            <div class="dropdown-menu tpl-select__menu">
+                                                <button class="dropdown-item tpl-select__item active">Presencial</button>
+                                                <button class="dropdown-item tpl-select__item">Virtual</button>
+                                                <button class="dropdown-item tpl-select__item">Híbrido</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tpl-form__row" style="margin-top:0;">
+                                    <div class="tpl-form__field" style="flex:1;">
+                                        <label class="tpl-form__label">Descripción</label>
+                                        <textarea class="form-control" rows="2" placeholder="Descripción opcional del curso..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>{{!-- /tpl-cform-wrapper --}}
+
+                <p class="ch-demo__rule mt-2">El <strong>header principal</strong> es una card standalone separada del resto. Las sub-cards van debajo como tarjetas independientes dentro del <code>tpl-cform-wrapper</code>. Los botones de acción global (Cancelar, Guardar, Publicar) van siempre en el header, nunca dentro de las sub-cards.</p>
+            </div>
+        </div>
+
+        {{!-- ══════════════════════════════════════════════════════════════════
+             SECCIÓN 3 — Reglas de uso (resumen)
+        ══════════════════════════════════════════════════════════════════════ --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="ch-demo__section-title">Resumen de reglas</p>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="main-card card">
+                    <div class="card-body">
+                        <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Acciones en el header</h6>
+                        <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                            <li>Máximo <strong>4 botones</strong> de acción visibles.</li>
+                            <li>Solo <strong>1 botón primario</strong> (acción principal).</li>
+                            <li>Si hay Switch View y muchas acciones, agrupar secundarias en un <strong>menú desplegable</strong>.</li>
+                            <li>Las acciones globales siempre van en el header de la card más externa.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="main-card card">
+                    <div class="card-body">
+                        <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Alertas</h6>
+                        <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                            <li>Las alertas van en la <strong>segunda fila</strong> del header, debajo del título.</li>
+                            <li><strong>No deben convivir con botones de acción.</strong></li>
+                            <li>Pueden convivir con el Switch View.</li>
+                            <li>Usar el tipo de alerta correcto: <code>info</code>, <code>warning</code>, <code>danger</code>, <code>success</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="main-card card">
+                    <div class="card-body">
+                        <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Filtros de contenido</h6>
+                        <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                            <li>Los filtros van en una <strong>fila separada</strong> debajo del título.</li>
+                            <li>Solo filtran el contenido del <strong>mismo container</strong>.</li>
+                            <li>Usar <strong>tabs</strong> para categorías conocidas y frecuentes.</li>
+                            <li>Usar <strong>segmented buttons</strong> para opciones mutuamente excluyentes (2–4).</li>
+                            <li>Usar <strong>selector</strong> cuando las opciones son muchas o dinámicas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="main-card card">
+                    <div class="card-body">
+                        <h6 class="font-weight-600 mb-3" style="color:#2e353d;">Multiple containers</h6>
+                        <ul class="pl-3 mb-0" style="font-size:0.875rem;color:#2e353d;line-height:1.8;">
+                            <li>Un <strong>header principal</strong> con el título general y las acciones globales.</li>
+                            <li>Sub-containers con <strong>subtítulos H6</strong>, sin header propio.</li>
+                            <li>Los sub-containers son secciones de un único formulario o flujo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

@@ -1,0 +1,857 @@
+// ── Dashboard Widget Cards (DWC) ─────────────────────────────────────────────
+// Basado en Figma node 2563:43306 — 5 variantes del componente DashboardWidgetCard
+
+// ── Paleta interna del gráfico de dona ───────────────────────────────────────
+// Valores derivados de los tokens semánticos del sistema.
+// No usar directamente fuera de este componente — usar los tokens primitivos.
+
+$dwc-chart-info:       #6f9beb;  // azul claro  (tono de $info: #395bd7)
+$dwc-chart-secondary:  #ffc2cd;  // rosa claro  (tono de $secondary: #fe4a6b)
+$dwc-chart-warning:    #efbe2d;  // ámbar       (tono de $warning: #ffc233)
+
+// ── Altura de controles de formulario ────────────────────────────────────────
+// (misma que $te-control-height en _templates.scss — definida localmente porque
+//  _widget-cards.scss se importa antes que _templates.scss en base.scss)
+
+$dwc-input-height: 40px;
+
+// ── Label de tipo de widget (showcase) ───────────────────────────────────────
+
+.dwc-widget-label {
+  font-size: $font-size-11;     // 11px — Caption
+  font-weight: 500;
+  color: $gray-500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 6px 2px;
+}
+
+// ── Columnas de tabla con ancho fijo ─────────────────────────────────────────
+
+.dwc-col--date         { width: 168px; }
+.dwc-col--actions      { width: 106px; text-align: center; }
+.dwc-col--actions-wide { width: 210px; text-align: center; }  // eye btn + pill btn
+
+// ── Fila de acciones dentro de td (múltiples botones) ────────────────────────
+
+.dwc-row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $grid-gutter-width * 0.5;  // 8px
+}
+
+// ── Tabla con scroll vertical interno ────────────────────────────────────────
+// Mantiene th + filter-row visibles y hace scroll solo sobre los datos.
+// max-height: th(40) + filter-row(48) + ~5 filas×44px = 308px → 310px
+
+.dwc-table-scroll {
+  max-height: 310px;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar { width: 4px; height: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background: $gray-300;
+    border-radius: $border-radius * 0.5;
+  }
+  &::-webkit-scrollbar-thumb:hover { background: $gray-500; }
+}
+
+// ── Grupos internos del card-header ──────────────────────────────────────────
+
+.dwc-header-left  {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;          // título + badge + ícono de ayuda
+}
+
+.dwc-header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: $grid-gutter-width * 0.5;  // 8px — controles del lado derecho
+}
+
+// ── Card base reset ───────────────────────────────────────────────────────────
+// El .card-header global tiene text-transform:uppercase, height fijo y padding
+// asimétrico — los neutralizamos para las DWC cards.
+
+.dwc {
+  .card-body {
+    padding: $grid-gutter-width;
+  }
+
+  .card-header {
+    text-transform: none;
+    font-weight: normal;
+    color: inherit;
+    font-size: inherit;
+    border-bottom: none !important;
+    padding-left: $grid-gutter-width !important;
+    padding-right: $grid-gutter-width !important;
+    height: auto !important;
+    min-height: 3.5rem;
+    flex-wrap: wrap;
+    gap: $grid-gutter-width * 0.5;
+  }
+}
+
+// ── Título del card ───────────────────────────────────────────────────────────
+
+.dwc-title {
+  font-size: $font-size-base;     // 14px — Body/M Strong
+  font-weight: 600;
+  color: $gray-900;
+  line-height: 1.43;
+  margin: 0;
+  text-transform: none !important;
+  letter-spacing: 0;
+}
+
+// ── Badge informativo pequeño ─────────────────────────────────────────────────
+
+.dwc-badge {
+  display: inline-flex;
+  align-items: center;
+  background: $gray-200;
+  color: $gray-800;
+  font-size: $font-size-11;       // 11px — Caption
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  padding: 4px 6px;
+  border-radius: $border-radius * 0.5;  // 4px
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// ── Enlace de acción en el header (ej: "Ver todos") ──────────────────────────
+
+.dwc-link-action {
+  font-size: $font-size-base;   // 14px — Body/M
+  font-weight: 500;
+  color: $primary;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.43;
+
+  &:hover {
+    color: $primary-600;
+    text-decoration: underline;
+  }
+}
+
+// ── Modificadores de color del badge ─────────────────────────────────────────
+
+.dwc-badge--info {
+  background: $info-200;   // #cadaf8 — Info-200
+  color: $info-700;        // #3049c5 — Info-700
+}
+
+// ── Ícono de ayuda ────────────────────────────────────────────────────────────
+
+.dwc-help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: $gray-400;
+  flex-shrink: 0;
+  line-height: 1;
+
+  &:hover { color: $gray-600; }
+
+  .material-symbols-rounded {
+    font-size: 18px;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  }
+}
+
+// ── Link "Ver todos" ──────────────────────────────────────────────────────────
+
+.dwc-link {
+  font-size: $font-size-12;       // 12px — Body/S
+  font-weight: 400;
+  color: $primary;
+  text-decoration: underline;
+  white-space: nowrap;
+  line-height: 16px;
+  cursor: pointer;
+
+  &:hover { color: $primary-600; text-decoration: underline; }
+}
+
+// ── Segmented button — estilo Figma: badges individuales ─────────────────────
+// Activo: badge primary con ícono check
+// Inactivo: badge blanco con borde $gray-300
+
+.dwc-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: $grid-gutter-width * 0.5;
+}
+
+.dwc-seg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: $border-radius * 0.5;  // 4px
+  font-size: $font-size-11;             // 11px — Caption
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+
+  &--active {
+    background: $primary;
+    color: $neutral-0;
+    font-weight: 600;
+    padding-left: 2px;
+
+    .material-symbols-rounded {
+      display: inline-flex;
+      font-size: 12px;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 16;
+      flex-shrink: 0;
+    }
+  }
+
+  &--inactive {
+    background: $neutral-0;
+    border: 1px solid $gray-300;
+    color: $gray-700;
+    font-weight: 400;
+
+    .material-symbols-rounded { display: none; }
+  }
+}
+
+// ── Tab nav (pill style) ──────────────────────────────────────────────────────
+
+.dwc-tabnav {
+  display: inline-flex;
+  align-items: center;
+  background: $gray-200;
+  border-radius: 50rem;
+  padding: 4px;
+}
+
+.dwc-tabnav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $grid-gutter-width * 0.5 $grid-gutter-width;
+  border-radius: 50rem;
+  font-size: $font-size-12;   // 12px — Body/S
+  line-height: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+
+  &--active {
+    background: $neutral-0;
+    font-weight: 600;
+    color: $gray-900;
+  }
+
+  &--inactive {
+    font-weight: 400;
+    color: $gray-900;
+    background: transparent;
+  }
+}
+
+// ── Lista de personas ─────────────────────────────────────────────────────────
+
+.dwc-person-list {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background: $gray-300;
+    border-radius: $border-radius * 0.5;
+  }
+  &::-webkit-scrollbar-thumb:hover { background: $gray-500; }
+}
+
+.dwc-person-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $grid-gutter-width * 0.5 $grid-gutter-width;
+  border-bottom: 1px solid $gray-300;
+
+  &:last-child { border-bottom: none; }
+}
+
+.dwc-person-left {
+  display: flex;
+  align-items: center;
+  gap: $grid-gutter-width * 0.5;
+  min-width: 0;
+}
+
+.dwc-person-name {
+  font-size: $font-size-base;  // 14px — Body/M Regular
+  font-weight: 400;
+  color: $gray-800;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dwc-person-date {
+  font-size: $font-size-base;  // 14px — Body/M Medium
+  font-weight: 500;
+  color: $primary;
+  line-height: 20px;
+  white-space: nowrap;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+// Avatar iniciales (para cuando no hay foto)
+.dwc-avatar-initials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: $primary-tint;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family-base;
+  font-weight: 500;
+  font-size: $font-size-base;
+  color: $primary-600;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+
+.dwc-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $grid-gutter-width;
+  padding: $grid-gutter-width 0;
+}
+
+.dwc-empty-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: $primary-200;
+  border-radius: 66px;  // > 28px (mitad del elemento) → círculo garantizado
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .material-symbols-rounded {
+    font-size: 32px;
+    color: $primary;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 32;
+  }
+}
+
+.dwc-empty-text {
+  font-size: $font-size-base;  // 14px
+  font-weight: 400;
+  color: $gray-900;
+  line-height: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+// ── Tabla con herramientas ────────────────────────────────────────────────────
+
+.dwc-table-tools {
+  display: flex;
+  align-items: center;
+  gap: $grid-gutter-width;
+  padding: $grid-gutter-width;
+  border-bottom: 1px solid $gray-300;
+  flex-wrap: wrap;
+}
+
+.dwc-search-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: 1;
+  min-width: 120px;
+
+  .material-symbols-rounded {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: $gray-500;
+    pointer-events: none;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  }
+}
+
+.dwc-table-search {
+  height: $dwc-input-height;
+  width: 100%;
+  background: $neutral-0;
+  border: 1px solid $gray-300;
+  border-radius: $border-radius;
+  padding: 9px 12px 9px 36px;   // margen izquierdo para el ícono de búsqueda
+  font-size: $font-size-base;
+  color: $gray-700;
+  font-family: $font-family-base;
+
+  &::placeholder { color: $gray-500; }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: none;
+  }
+}
+
+.dwc-table-show {
+  display: flex;
+  align-items: center;
+  gap: $grid-gutter-width * 0.5;
+  font-size: $font-size-base;
+  color: $gray-900;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// El wrapper .dwc-select-wrap pasa a ser el .dropdown Bootstrap —
+// ya no necesita position:relative propio.
+
+// Trigger del "Mostrar X resultados" — botón con aspecto de input
+.dwc-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: $dwc-input-height;
+  min-width: 64px;
+  background: $neutral-0;
+  border: 1px solid $gray-300;
+  border-radius: $border-radius;
+  padding: 9px 8px 9px 14px;
+  font-size: $font-size-base;
+  color: $gray-700;
+  font-family: $font-family-base;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &.dropdown-toggle::after { display: none; }   // oculta la flecha de Bootstrap
+  &:focus { outline: none; border-color: $primary; box-shadow: none; }
+
+  // Chevron inline (material-symbols-rounded dentro del botón)
+  .material-symbols-rounded {
+    font-size: 20px;
+    color: $gray-700;
+    pointer-events: none;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    flex-shrink: 0;
+  }
+}
+
+// Trigger de los filtros de columna — ancho completo de la celda
+.dwc-filter-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: $dwc-input-height;
+  background: $neutral-0;
+  border: 1px solid $gray-300;
+  border-radius: $border-radius;
+  padding: 9px 8px 9px 12px;
+  font-size: $font-size-base;
+  color: $gray-700;
+  font-family: $font-family-base;
+  cursor: pointer;
+  text-align: left;
+
+  &.dropdown-toggle::after { display: none; }
+  &:focus { outline: none; border-color: $primary; box-shadow: none; }
+
+  .material-symbols-rounded {
+    font-size: 20px;
+    color: $gray-500;
+    pointer-events: none;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    flex-shrink: 0;
+  }
+}
+
+// ── Data table ────────────────────────────────────────────────────────────────
+
+.dwc-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+
+  // Bordes exteriores: los proporciona el .card, no las celdas
+  thead tr:first-child th { border-top: none; }
+
+  thead th:first-child,
+  .dwc-filter-row td:first-child,
+  tbody td:first-child { border-left: none; }
+
+  thead th:last-child,
+  .dwc-filter-row td:last-child,
+  tbody td:last-child { border-right: none; }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  thead th {
+    height: 40px;
+    padding: 10px $grid-gutter-width;
+    font-size: $font-size-12;      // 12px — Body/S Strong
+    font-weight: 600;
+    color: $gray-800;
+    background: $neutral-0;
+    border: 1px solid $gray-300;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 20px;
+
+    .material-symbols-rounded {
+      font-size: 20px;
+      vertical-align: middle;
+      color: $gray-400;
+      margin-left: 4px;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      cursor: pointer;
+    }
+  }
+
+  // Fila de filtros inline
+  .dwc-filter-row td {
+    height: 48px;
+    padding: 6px $grid-gutter-width * 0.5;
+    background: $neutral-0;
+    border: 1px solid $gray-300;
+    vertical-align: middle;
+
+    // Celda de la columna "Acciones" — muestra solo un label de texto
+    &.dwc-col--actions {
+      font-size: $font-size-11;   // 11px — Caption
+      color: $gray-800;
+      letter-spacing: 0.01em;
+    }
+
+    select {
+      width: 100%;
+      height: $dwc-input-height;
+      background: $neutral-0;
+      border: 1px solid $gray-300;
+      border-radius: $border-radius;
+      padding: 9px 28px 9px 12px;
+      font-size: $font-size-base;
+      color: $gray-700;
+      font-family: $font-family-base;
+      appearance: auto;
+
+      &:focus { outline: none; border-color: $primary; }
+    }
+  }
+
+  tbody tr:nth-child(odd) td  { background: $neutral-0; }
+  tbody tr:nth-child(even) td { background: $light; }    // #f6f8fa — Neutral-50
+
+  tbody td {
+    height: 44px;
+    padding: 6px $grid-gutter-width;
+    font-size: $font-size-base;  // 14px — Body/M Regular
+    font-weight: 400;
+    color: $gray-800;
+    border: 1px solid $gray-300;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+
+  // Columna de acciones
+  .dwc-td-actions {
+    text-align: center;
+    padding: $grid-gutter-width * 0.5;
+  }
+
+  .dwc-action-icon {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $primary;
+    transition: background .15s;
+
+    &:hover { background: rgba($primary, .08); }
+
+    .material-symbols-rounded {
+      font-size: 24px;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  }
+}
+
+// ── Paginación ────────────────────────────────────────────────────────────────
+
+.dwc-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $grid-gutter-width;
+  height: 70px;
+  border-top: 1px solid $gray-300;
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.dwc-pagination-info {
+  font-size: $font-size-11;   // 11px — Caption
+  font-weight: 400;
+  color: $gray-900;
+  letter-spacing: 0.01em;
+}
+
+.dwc-pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dwc-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  font-weight: 400;
+  color: $gray-800;
+  background: $neutral-0;
+  border: 1px solid $gray-300;
+  cursor: pointer;
+  transition: background .15s;
+
+  &--active {
+    background: $primary;
+    color: $neutral-0;
+    border-color: $primary;
+  }
+
+  &--nav {
+    border-color: $gray-500;
+    color: $gray-900;
+  }
+
+  &:not(.dwc-page-btn--active):hover {
+    background: $light;
+  }
+
+  .material-symbols-rounded {
+    font-size: 16px;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  }
+}
+
+// ── Gráfico de dona ───────────────────────────────────────────────────────────
+
+.dwc-chart-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $grid-gutter-width * 1.5;  // 24px
+  padding: $grid-gutter-width 0;
+}
+
+.dwc-donut-svg {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+// Segmentos del SVG — el fill/stroke se controla por clase, no por atributo
+[class^="dwc-segment--"] { fill: none; }
+.dwc-segment--info      { stroke: $dwc-chart-info; }
+.dwc-segment--secondary { stroke: $dwc-chart-secondary; }
+.dwc-segment--warning   { stroke: $dwc-chart-warning; }
+.dwc-chart-hole         { fill: $neutral-0; stroke: none; }
+
+.dwc-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dwc-legend-row {
+  display: flex;
+  align-items: center;
+  gap: $grid-gutter-width * 0.5;
+  font-size: $font-size-base;   // 14px
+  font-weight: 400;
+  color: $gray-900;
+  line-height: 20px;
+}
+
+.dwc-legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &--info      { background: $dwc-chart-info; }
+  &--secondary { background: $dwc-chart-secondary; }
+  &--warning   { background: $dwc-chart-warning; }
+}
+
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+//
+// Estrategia:
+//  • clamp() en tamaños de texto clave → escala fluida entre breakpoints
+//  • media-breakpoint-down(md) → ajustes de layout cuando las cards pasan a
+//    ancho completo (<768px)
+//  • media-breakpoint-down(sm) → pantallas muy chicas (<576px)
+
+// ── Escalado fluido (aplica siempre, en todos los anchos) ─────────────────────
+
+.dwc-person-name {
+  font-size: clamp($font-size-11, 2vw, $font-size-base);
+}
+.dwc-person-date {
+  font-size: clamp($font-size-11, 2vw, $font-size-base);
+}
+
+.dwc-table tbody td {
+  font-size: clamp($font-size-11, 1.3vw, $font-size-base);
+}
+
+.dwc-table thead th {
+  font-size: clamp($font-size-11, 1.0vw, $font-size-12);
+}
+
+// ── Variante compacta — padding mobile aplicado en cualquier viewport ─────────
+// Usar cuando la tabla está en un contenedor estrecho (ej: col-md-6 con pocas columnas).
+
+.dwc-table--sm {
+  thead th          { padding: $grid-gutter-width * 0.5 10px; }
+  .dwc-filter-row td { padding: 6px $grid-gutter-width * 0.5; height: auto; }
+  tbody td          { padding: 6px 10px; height: auto; min-height: 44px; }
+  .dwc-td-actions   { padding: 4px $grid-gutter-width * 0.5; }
+}
+
+// ── ≤ 991px: las cards col-md-6 pasan a ancho completo ───────────────────────
+
+@include media-breakpoint-down(md) {
+
+  .dwc .card-header {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .dwc-table-tools { gap: 12px; }
+
+  .dwc-table-show { flex-shrink: 0; }
+}
+
+// ── ≤ 767px ───────────────────────────────────────────────────────────────────
+
+@include media-breakpoint-down(sm) {
+
+  .dwc-title { font-size: $font-size-12; }
+
+  .dwc .card-header {
+    padding-top: $grid-gutter-width * 0.5 !important;
+    padding-bottom: $grid-gutter-width * 0.5 !important;
+    gap: 6px !important;
+  }
+
+  .dwc-seg-item { padding: 5px 10px; }
+
+  .dwc-tabnav-item { padding: 6px 10px; }
+
+  .dwc-person-row { padding: 7px 12px; }
+
+  .dwc-badge { font-size: 0.625rem; padding: 3px 5px; }
+
+  .dwc-chart-area {
+    flex-direction: column;
+    align-items: center;
+    gap: $grid-gutter-width;
+  }
+
+  .dwc-pagination {
+    height: auto;
+    padding: 12px $grid-gutter-width;
+    flex-wrap: wrap;
+    gap: $grid-gutter-width * 0.5;
+  }
+
+  .dwc-table {
+    thead th { padding: $grid-gutter-width * 0.5 10px; }
+    .dwc-filter-row td { padding: 6px $grid-gutter-width * 0.5; height: auto; }
+    tbody td { padding: 6px 10px; height: auto; min-height: 44px; }
+    .dwc-td-actions { padding: 4px $grid-gutter-width * 0.5; }
+  }
+
+  .dwc-table-tools { gap: $grid-gutter-width * 0.5; }
+  .dwc-table-show {
+    font-size: 0.8125rem;
+    select { height: 36px; font-size: $font-size-base; }
+  }
+}
+
+// ── ≤ 575px ───────────────────────────────────────────────────────────────────
+
+@include media-breakpoint-down(xs) {
+
+  .dwc-title        { font-size: $font-size-12; }
+  .dwc-person-name  { font-size: $font-size-12; }
+  .dwc-person-date  { font-size: $font-size-12; }
+  .dwc-badge        { font-size: 0.5625rem; }
+
+  .dwc-person-row { padding: 6px 12px; gap: 4px; }
+
+  .dwc-donut-svg { width: 130px; height: 130px; }
+
+  .dwc-link { font-size: $font-size-11; }
+
+  .dwc-seg-item { padding: 2px 4px; font-size: 0.625rem; }
+  .dwc-tabnav-item { padding: 5px $grid-gutter-width * 0.5; font-size: $font-size-11; }
+
+  .dwc-table {
+    thead th { padding: 6px $grid-gutter-width * 0.5; }
+    tbody td { padding: 5px $grid-gutter-width * 0.5; }
+  }
+
+  .dwc-page-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8125rem;
+  }
+}

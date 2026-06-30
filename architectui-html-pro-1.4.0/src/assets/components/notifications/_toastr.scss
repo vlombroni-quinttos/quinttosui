@@ -1,0 +1,218 @@
+// ============================================================
+// Toastr — styled to match Basic Alerts (Figma Design System)
+// Light bg + colored border + Material Symbols icon
+// Width: 300px | Position: top-right, 16px below nav bar
+// ============================================================
+
+// ── Local tokens (mirror _alerts.scss) ──────────────────────
+$toast-text:      #2E353D;   // Neutral-700
+$toast-title-col: #3B424B;   // Neutral-600
+
+// bg / border / icon-color / icon-glyph per variant
+$toast-variants: (
+  "success": (#EEFBF4, #84E4AE, #1E874C, "check_circle"),
+  "error":   (#FEF0F4, #F98BA6, #F3164E, "dangerous"),
+  "warning": (#FFF9EB, #FFCE5C, #8A6100, "error"),
+  "info":    (#EAF0FE, #8BA4E9, #395bd7,  "info")
+);
+
+// ── Typography helpers ───────────────────────────────────────
+.toast-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4286;
+  color: $toast-title-col;
+  margin-bottom: 0.125rem;
+}
+
+.toast-message {
+  font-size: 0.875rem;
+  line-height: 1.4286;
+  color: $toast-text;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+
+  a,
+  label {
+    color: $toast-text;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: $toast-title-col;
+    text-decoration: underline;
+  }
+}
+
+// ── Close button ─────────────────────────────────────────────
+.toast-close-button {
+  position: relative;
+  right: -0.2em;
+  top: -0.2em;
+  float: right;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $toast-text;
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    color: $toast-text;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+// ── Position helpers ─────────────────────────────────────────
+.toast-top-center    { top: 0;    right: 0;  width: 100%; }
+.toast-bottom-center { bottom: 0; right: 0;  width: 100%; }
+.toast-top-full-width    { top: 0;    right: 0; width: 100%; }
+.toast-bottom-full-width { bottom: 0; right: 0; width: 100%; }
+.toast-top-left    { top: 76px;   left: 16px;  }   // 60px header + 16px
+.toast-top-right   { top: 76px;   right: 16px; }   // 60px header + 16px
+.toast-bottom-right { right: 16px; bottom: 16px; }
+.toast-bottom-left  { bottom: 16px; left: 16px; }
+
+// ── Container ────────────────────────────────────────────────
+#toast-container {
+  position: fixed;
+  z-index: 999999;
+}
+
+#toast-container * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// ── Base toast card ──────────────────────────────────────────
+// opacity: 1 (no partial opacity — conflicts with jQuery fadeIn)
+// no transition on opacity (jQuery handles the animation)
+#toast-container > div {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 0.5rem;
+  padding: 0.625rem 1rem 0.625rem 2.75rem; // left room for icon
+  width: 300px !important;
+  border-radius: 0.5rem;       // 8px — matches alerts
+  border: 1px solid transparent;
+  background-image: none !important; // remove base64 icons
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: $toast-text;
+  opacity: 1;          // override Bootstrap's .toast { opacity: 0 }
+  transition: none !important; // prevent Bootstrap's .toast { transition: opacity .15s } from fighting jQuery's fadeIn/fadeOut
+
+  // ── Material Symbols icon slot ───────────────────────────
+  &::before {
+    font-family: 'Material Symbols Rounded';
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -moz-font-feature-settings: 'liga';
+    font-size: 1.25rem;   // 20px — matches .alert-icon
+    line-height: 1;
+    position: absolute;
+    left: 0.875rem;       // 14px from left edge
+    top: 50%;
+    transform: translateY(-50%);
+    flex-shrink: 0;
+  }
+}
+
+#toast-container > div:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+// ── Variant colors + icons ───────────────────────────────────
+@each $type, $vals in $toast-variants {
+  #toast-container > .toast-#{$type} {
+    background-color: nth($vals, 1) !important;
+    border-color:     nth($vals, 2) !important;
+
+    .toast-title   { color: nth($vals, 3); }
+
+    &::before {
+      content: nth($vals, 4);
+      color:   nth($vals, 3);
+    }
+  }
+}
+
+// ── Fallback: unstyled .toast ────────────────────────────────
+.toast {
+  background-color: #ECECFF;
+  border-color:     #9795FF;
+
+  &::before {
+    content: 'notifications';
+    color:   #1815BC;
+  }
+}
+
+// ── Center / full-width overrides ────────────────────────────
+#toast-container.toast-top-center > div,
+#toast-container.toast-bottom-center > div {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ── Progress bar ─────────────────────────────────────────────
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: currentColor;
+  opacity: 0.25;
+}
+
+// ── Responsive ───────────────────────────────────────────────
+@media all and (max-width: 240px) {
+  #toast-container > div {
+    padding: 8px 8px 8px 2.5rem;
+    width: 11em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+
+@media all and (min-width: 241px) and (max-width: 480px) {
+  #toast-container > div {
+    padding: 8px 12px 8px 2.5rem;
+    width: 18em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+  #toast-container > div {
+    padding: 10px 16px 10px 2.75rem;
+    width: 25em;
+  }
+}

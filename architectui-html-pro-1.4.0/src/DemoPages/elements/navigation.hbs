@@ -1,0 +1,728 @@
+{{#> base }}
+{{> AppSidebar/sidebar elements-navigation=this }}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        {{> AppMain/page-title }}
+        <ul class="tab-nav nav" role="tablist">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-1" data-toggle="tab" href="#tab-content-1">Vertical Menus</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-3" data-toggle="tab" href="#tab-content-3">Mega Menus</a>
+            </li>
+            <li class="nav-item">
+                <a role="tab" class="nav-link" id="tab-0" data-toggle="tab" href="#tab-content-0">Grid Menus</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- ── Tab Vertical Menus ─────────────────────────────────────────── -->
+            <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
+
+                <!-- ── Card 1: Sin header ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Sin header</h5>
+                                <div class="mm-showcase-row">
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Con divisor</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item-divider"></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Sin ícono</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Con header ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header</h5>
+                                <div class="mm-showcase-row">
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Con divisor</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item-divider"></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Sin ícono</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 3: Con header + botones ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header + botones</h5>
+                                <div class="mm-showcase-row">
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                                <div class="mm-header__actions">
+                                                    <button class="mm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="mm-header__btn mm-header__btn--outline">Button</button>
+                                                    <button class="mm-header__btn mm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Con divisor</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                                <div class="mm-header__actions">
+                                                    <button class="mm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="mm-header__btn mm-header__btn--outline">Button</button>
+                                                    <button class="mm-header__btn mm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item-divider"></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mm-showcase-label">Sin ícono</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header mm-header--stacked">
+                                                <span class="mm-header__title">VERTICAL MENU HEADER</span>
+                                                <div class="mm-header__actions">
+                                                    <button class="mm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="mm-header__btn mm-header__btn--outline">Button</button>
+                                                    <button class="mm-header__btn mm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ── /Tab Vertical Menus ────────────────────────────────────────── -->
+
+            <div class="tab-pane tabs-animation fade" id="tab-content-0" role="tabpanel">
+
+                <!-- ── Card 1: Sin header ── -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Sin header</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-grid gm-grid--1col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-grid gm-grid--2col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-grid gm-grid--3col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">shopping_cart</span></span><span class="gm-item__label">Orders</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">payments</span></span><span class="gm-item__label">Payments</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">support_agent</span></span><span class="gm-item__label">Support</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Con header ── -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                            </div>
+                                            <div class="gm-grid gm-grid--1col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                            </div>
+                                            <div class="gm-grid gm-grid--2col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header gm-header--row">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                            </div>
+                                            <div class="gm-grid gm-grid--3col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">shopping_cart</span></span><span class="gm-item__label">Orders</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">payments</span></span><span class="gm-item__label">Payments</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">support_agent</span></span><span class="gm-item__label">Support</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 3: Con header + botones ── -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header + botones</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">1 Columna</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                                <div class="gm-header__actions">
+                                                    <button class="gm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="gm-header__btn gm-header__btn--outline">Button</button>
+                                                    <button class="gm-header__btn gm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="gm-grid gm-grid--1col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                                <div class="gm-header__actions">
+                                                    <button class="gm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="gm-header__btn gm-header__btn--outline">Button</button>
+                                                    <button class="gm-header__btn gm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="gm-grid gm-grid--2col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="gm-panel">
+                                            <div class="gm-header gm-header--row">
+                                                <span class="gm-header__title">GRID MENU HEADER</span>
+                                                <div class="gm-header__actions">
+                                                    <button class="gm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="gm-header__btn gm-header__btn--outline">Button</button>
+                                                    <button class="gm-header__btn gm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="gm-grid gm-grid--3col">
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">settings</span></span><span class="gm-item__label">Settings</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">bar_chart</span></span><span class="gm-item__label">Analytics</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">mail</span></span><span class="gm-item__label">Messages</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">calendar_month</span></span><span class="gm-item__label">Calendar</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">folder</span></span><span class="gm-item__label">Files</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">person</span></span><span class="gm-item__label">Profile</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">shopping_cart</span></span><span class="gm-item__label">Orders</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">payments</span></span><span class="gm-item__label">Payments</span></div>
+                                                <div class="gm-item"><span class="gm-item__icon"><span class="material-symbols-rounded">support_agent</span></span><span class="gm-item__label">Support</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ── Tab Mega Menus ──────────────────────────────────────────── -->
+            <div class="tab-pane tabs-animation fade" id="tab-content-3" role="tabpanel">
+
+                <!-- ── Card 1: Sin header ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Sin header</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION C</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">shopping_cart</span><span class="mm-item__label">Orders</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">inventory</span><span class="mm-item__label">Products</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">payments</span><span class="mm-item__label">Payments</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">local_shipping</span><span class="mm-item__label">Shipping</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">support_agent</span><span class="mm-item__label">Support</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Con header ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header">
+                                                <span class="mm-header__title">MEGA MENU HEADER</span>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header">
+                                                <span class="mm-header__title">MEGA MENU HEADER</span>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION C</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">shopping_cart</span><span class="mm-item__label">Orders</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">inventory</span><span class="mm-item__label">Products</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">payments</span><span class="mm-item__label">Payments</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">local_shipping</span><span class="mm-item__label">Shipping</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">support_agent</span><span class="mm-item__label">Support</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 3: Con header + botones ── -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Con header + botones</h5>
+                                <div class="mm-showcase-row">
+
+                                    <div>
+                                        <div class="mm-showcase-label">2 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header">
+                                                <span class="mm-header__title">MEGA MENU HEADER</span>
+                                                <div class="mm-header__actions">
+                                                    <button class="mm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="mm-header__btn mm-header__btn--outline">Button</button>
+                                                    <button class="mm-header__btn mm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mm-showcase-label">3 Columnas</div>
+                                        <div class="mm-panel">
+                                            <div class="mm-header">
+                                                <span class="mm-header__title">MEGA MENU HEADER</span>
+                                                <div class="mm-header__actions">
+                                                    <button class="mm-header__icon-btn"><span class="material-symbols-rounded">settings</span></button>
+                                                    <button class="mm-header__btn mm-header__btn--outline">Button</button>
+                                                    <button class="mm-header__btn mm-header__btn--primary">Button</button>
+                                                </div>
+                                            </div>
+                                            <div class="mm-body">
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION A</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">settings</span><span class="mm-item__label">Dashboard</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">person</span><span class="mm-item__label">Profile</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">notifications</span><span class="mm-item__label">Notifications</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">lock</span><span class="mm-item__label">Security</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">help</span><span class="mm-item__label">Help</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION B</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">bar_chart</span><span class="mm-item__label">Analytics</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">mail</span><span class="mm-item__label">Messages</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">calendar_month</span><span class="mm-item__label">Calendar</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">folder</span><span class="mm-item__label">Files</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">logout</span><span class="mm-item__label">Logout</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm-divider"></div>
+                                                <div class="mm-col">
+                                                    <div class="mm-col__section-title">SECTION C</div>
+                                                    <ul class="mm-col__items">
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">shopping_cart</span><span class="mm-item__label">Orders</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">inventory</span><span class="mm-item__label">Products</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">payments</span><span class="mm-item__label">Payments</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">local_shipping</span><span class="mm-item__label">Shipping</span></li>
+                                                        <li class="mm-item"><span class="material-symbols-rounded mm-item__icon">support_agent</span><span class="mm-item__label">Support</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ── /Tab Mega Menus ─────────────────────────────────────────── -->
+
+        </div>
+    </div>
+    {{> AppFooter/footer }}
+</div>
+{{/ base }}

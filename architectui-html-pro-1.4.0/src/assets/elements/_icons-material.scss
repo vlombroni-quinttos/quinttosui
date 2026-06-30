@@ -1,0 +1,82 @@
+// ============================================================
+// Material Symbols Rounded — weight 300, fill 0
+// Replaces FontAwesome, PE7, Linearicons, Ionicons in layout
+// ============================================================
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.25em;          // relative to parent text size
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  vertical-align: middle;
+}
+
+// ── Spin animation (replaces fa-spin) ──────────────────────
+@keyframes ms-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.ms-spin {
+  display: inline-block;
+  animation: ms-spin 2s linear infinite;
+}
+
+// ── Sidebar metismenu icon sizing ──────────────────────────
+.metismenu-icon.material-symbols-rounded {
+  font-size: 1.5rem;
+  width: 34px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+// ── Sidebar metismenu state (caret) sizing ─────────────────
+.metismenu-state-icon.material-symbols-rounded {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+// ── Header / footer dot icons ──────────────────────────────
+.dot-btn-icon.material-symbols-rounded {
+  font-size: 1.5rem;
+}
+
+// ── Icon inside icon-wrapper circles (header dots) ─────────
+.icon.material-symbols-rounded {
+  font-size: 1.4rem;
+}
+
+// ── Navigation link icons (header mega-menu, footer menu) ──
+.nav-link-icon.material-symbols-rounded {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+// ── Dropdown item icons ────────────────────────────────────
+.dropdown-icon.material-symbols-rounded {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  opacity: 0.6;
+}
+
+// ── Large button icons (grid menu buttons) ─────────────────
+.btn-icon-lg.material-symbols-rounded {
+  font-size: 2rem;
+}
+
+// ── Inline button icons ────────────────────────────────────
+.btn-icon-wrapper.material-symbols-rounded {
+  font-size: 1.25rem;
+}
