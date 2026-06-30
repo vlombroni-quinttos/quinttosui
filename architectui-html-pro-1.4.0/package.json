@@ -6,7 +6,8 @@
   "homepage": "https://dashboardpack.com",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec yarn watch --watch src/pages.js",
+    "clean": "rm -f architectui-html-pro/assets/scripts/*.hot-update.js architectui-html-pro/assets/scripts/*.hot-update.json",
+    "start": "yarn clean && nodemon --exec yarn watch --watch src/pages.js",
     "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize",
     "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
   },
