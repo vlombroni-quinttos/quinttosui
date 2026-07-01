@@ -31,24 +31,51 @@
                                         <input name="password" id="examplePassword" placeholder="password placeholder" type="password" class="form-control">
                                     </div>
                                     <div class="position-relative form-group">
-                                        <label for="exampleSelect" class="">Select</label>
-                                        <select name="select" id="exampleSelect" class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
+                                        <label class="">Select</label>
+                                        <div class="dropdown tpl-select">
+                                            <button type="button" class="form-control tpl-select__trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="tpl-select__value tpl-select__value--ph">Seleccioná una opción</span>
+                                                <span class="material-symbols-rounded tpl-select__chevron">arrow_drop_down</span>
+                                            </button>
+                                            <div class="dropdown-menu tpl-select__menu">
+                                                <button type="button" class="dropdown-item tpl-select__item" data-value="1">1</button>
+                                                <button type="button" class="dropdown-item tpl-select__item" data-value="2">2</button>
+                                                <button type="button" class="dropdown-item tpl-select__item" data-value="3">3</button>
+                                                <button type="button" class="dropdown-item tpl-select__item" data-value="4">4</button>
+                                                <button type="button" class="dropdown-item tpl-select__item" data-value="5">5</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="position-relative form-group">
-                                        <label for="exampleSelectMulti" class="">Select Multiple</label>
-                                        <select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
+                                        <div class="select-multiple">
+                                            <div class="select-multiple__label">Select Multiple</div>
+                                            <div class="select-multiple__trigger">
+                                                <span class="select-multiple__placeholder" data-placeholder="Seleccioná una opción">Seleccioná una opción</span>
+                                                <span class="select-multiple__arrow"><span class="material-symbols-rounded">arrow_drop_down</span></span>
+                                            </div>
+                                            <div class="select-multiple__dropdown">
+                                                <div class="select-multiple__item">
+                                                    <span class="select-multiple__checkbox"><span class="material-symbols-rounded">check</span></span>
+                                                    <span class="select-multiple__item-label">1</span>
+                                                </div>
+                                                <div class="select-multiple__item">
+                                                    <span class="select-multiple__checkbox"><span class="material-symbols-rounded">check</span></span>
+                                                    <span class="select-multiple__item-label">2</span>
+                                                </div>
+                                                <div class="select-multiple__item">
+                                                    <span class="select-multiple__checkbox"><span class="material-symbols-rounded">check</span></span>
+                                                    <span class="select-multiple__item-label">3</span>
+                                                </div>
+                                                <div class="select-multiple__item">
+                                                    <span class="select-multiple__checkbox"><span class="material-symbols-rounded">check</span></span>
+                                                    <span class="select-multiple__item-label">4</span>
+                                                </div>
+                                                <div class="select-multiple__item">
+                                                    <span class="select-multiple__checkbox"><span class="material-symbols-rounded">check</span></span>
+                                                    <span class="select-multiple__item-label">5</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="position-relative form-group">
                                         <label for="exampleText" class="">Text Area</label>
@@ -122,6 +149,82 @@
                                         </label>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Toggle Switch</h5>
+                                    <div class="custom-control custom-switch mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="csw-basic-off">
+                                        <label class="custom-control-label" for="csw-basic-off">Off</label>
+                                    </div>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="csw-basic-on" checked>
+                                        <label class="custom-control-label" for="csw-basic-on">On</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Toggle Switch Sizing</h5>
+                                    <div class="custom-control custom-switch custom-switch-lg mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="csw-lg" checked>
+                                        <label class="custom-control-label" for="csw-lg">Large</label>
+                                    </div>
+                                    <div class="custom-control custom-switch mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="csw-normal" checked>
+                                        <label class="custom-control-label" for="csw-normal">Normal</label>
+                                    </div>
+                                    <div class="custom-control custom-switch custom-switch-sm">
+                                        <input type="checkbox" class="custom-control-input" id="csw-sm" checked>
+                                        <label class="custom-control-label" for="csw-sm">Small</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Toggle Switch Disabled</h5>
+                                    <div class="custom-control custom-switch mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="csw-dis-off" disabled>
+                                        <label class="custom-control-label" for="csw-dis-off">Disabled off</label>
+                                    </div>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="csw-dis-on" disabled checked>
+                                        <label class="custom-control-label" for="csw-dis-on">Disabled on</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Toggle Switch Inline</h5>
+                                    <div class="d-flex align-items-center flex-wrap" style="gap: 1.5rem;">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="csw-inline1" checked>
+                                            <label class="custom-control-label" for="csw-inline1">Enabled on</label>
+                                        </div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="csw-inline2">
+                                            <label class="custom-control-label" for="csw-inline2">Enabled off</label>
+                                        </div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="csw-inline3" disabled>
+                                            <label class="custom-control-label" for="csw-inline3">Disabled off</label>
+                                        </div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="csw-inline4" disabled checked>
+                                            <label class="custom-control-label" for="csw-inline4">Disabled on</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -292,62 +395,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="main-card mb-3 card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Form Select</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="position-relative form-group">
-                                                <label for="exampleCustomSelect" class="">Custom Select</label>
-                                                <select type="select" id="exampleCustomSelect" name="customSelect" class="custom-select">
-                                                    <option value="">Select</option>
-                                                    <option>Value 1</option>
-                                                    <option>Value 2</option>
-                                                    <option>Value 3</option>
-                                                    <option>Value 4</option>
-                                                    <option>Value 5</option>
-                                                </select>
-                                            </div>
-                                            <div class="position-relative form-group">
-                                                <label for="exampleCustomMutlipleSelect" class="">Custom Multiple Select</label>
-                                                <select multiple="" type="select" id="exampleCustomMutlipleSelect" name="customSelect"
-                                                    class="custom-select">
-                                                    <option value="">Select</option>
-                                                    <option>Value 1</option>
-                                                    <option>Value 2</option>
-                                                    <option>Value 3</option>
-                                                    <option>Value 4</option>
-                                                    <option>Value 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="position-relative form-group">
-                                                <label for="exampleCustomSelectDisabled" class="">Custom Select Disabled</label>
-                                                <select type="select" id="exampleCustomSelectDisabled" name="customSelect" disabled="" class="custom-select">
-                                                    <option value="">Select</option>
-                                                    <option>Value 1</option>
-                                                    <option>Value 2</option>
-                                                    <option>Value 3</option>
-                                                    <option>Value 4</option>
-                                                    <option>Value 5</option>
-                                                </select>
-                                            </div>
-                                            <div class="position-relative form-group">
-                                                <label for="exampleCustomMutlipleSelectDisabled" class="">Custom Multiple Select Disabled</label>
-                                                <select multiple="" type="select" id="exampleCustomMutlipleSelectDisabled" name="customSelect" disabled="" class="custom-select">
-                                                    <option value="">Select</option>
-                                                    <option>Value 1</option>
-                                                    <option>Value 2</option>
-                                                    <option>Value 3</option>
-                                                    <option>Value 4</option>
-                                                    <option>Value 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>
@@ -356,4 +403,52 @@
     </div>
     {{> AppFooter/footer }}
 </div>
+<script>
+(function(){
+  // tpl-select: captura en fase capturing (antes de stopPropagation de Bootstrap)
+  document.addEventListener('click', function(e){
+    var item = e.target.closest('.tpl-select__item');
+    if (!item) return;
+    var wrapper = item.closest('.tpl-select');
+    if (!wrapper) return;
+    var valueEl = wrapper.querySelector('.tpl-select__value');
+    if (!valueEl) return;
+    valueEl.textContent = item.textContent.trim();
+    valueEl.classList.remove('tpl-select__value--ph');
+    wrapper.querySelectorAll('.tpl-select__item').forEach(function(i){ i.classList.remove('active'); });
+    item.classList.add('active');
+    var toggle = wrapper.querySelector('[data-toggle="dropdown"]');
+    if (toggle) $(toggle).dropdown('hide');
+  }, true);
+
+  // select-multiple: cerrar al click fuera
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.select-multiple__trigger')||e.target.closest('.select-multiple__item'))return;
+    document.querySelectorAll('.select-multiple__dropdown.is-open').forEach(function(d){
+      var w=d.closest('.select-multiple');
+      d.classList.remove('is-open');
+      w.querySelector('.select-multiple__trigger').classList.remove('is-open');
+    });
+  });
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.select-multiple__trigger');
+    if(!t)return;
+    var w=t.closest('.select-multiple');
+    var d=w.querySelector('.select-multiple__dropdown');
+    t.classList.toggle('is-open');
+    d.classList.toggle('is-open');
+  });
+  document.addEventListener('click',function(e){
+    var item=e.target.closest('.select-multiple__item');
+    if(!item)return;
+    var cb=item.querySelector('.select-multiple__checkbox');
+    cb.classList.toggle('is-checked');
+    var w=item.closest('.select-multiple');
+    var ph=w.querySelector('.select-multiple__placeholder');
+    var checked=w.querySelectorAll('.select-multiple__checkbox.is-checked');
+    if(!checked.length){ph.textContent=ph.dataset.placeholder||'Seleccioná una opción';ph.classList.remove('has-value');}
+    else{ph.textContent=Array.from(checked).map(function(c){return c.closest('.select-multiple__item').querySelector('.select-multiple__item-label').textContent;}).join(', ');ph.classList.add('has-value');}
+  });
+})();
+</script>
 {{/ base }}

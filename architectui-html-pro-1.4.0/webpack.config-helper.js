@@ -58,6 +58,7 @@ module.exports = (options) => {
       datepicker: "./src/scripts-init/form-components/datepicker.js",
       input_mask: "./src/scripts-init/form-components/input-mask.js",
       input_select: "./src/scripts-init/form-components/input-select.js",
+      select_multiple: "./src/scripts-init/form-components/select-multiple.js",
       range_slider: "./src/scripts-init/form-components/range-slider.js",
       textarea_autosize:
         "./src/scripts-init/form-components/textarea-autosize.js",

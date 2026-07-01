@@ -747,16 +747,6 @@ const pages = [
     template: "./src/DemoPages/forms/widgets/input-selects.hbs",
   },
   {
-    output: "./forms-toggle-switch.html",
-    content: {
-      title: "Toggle Switch",
-      description:
-        "Instead of regular checkboxes, use these toggle widgets for a better UX.",
-      heading_icon: "pe-7s-news-paper icon-gradient bg-grow-early",
-    },
-    template: "./src/DemoPages/forms/widgets/toggle-switch.hbs",
-  },
-  {
     output: "./forms-wysiwyg-editor.html",
     content: {
       title: "WYSIWYG Editor",
