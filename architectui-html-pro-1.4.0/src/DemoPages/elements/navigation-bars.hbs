@@ -297,48 +297,9 @@
                                 <!-- ── Desktop — Responsable ───────────────────────────────────── -->
                                 <!-- Figma: dCEtw9coTRcbLRS4YZtQ1n · node 151:9313 -->
                                 <p class="mm-showcase-label mb-3">Desktop · Responsable</p>
-                                <nav class="tnav mb-4">
-                                    <!-- Left: solo texto (Responsable no tiene botón de búsqueda) -->
-                                    <div class="tnav__left">
-                                        <span class="tnav__title">Ciclo Lectivo de Trabajo: 2025</span>
-                                    </div>
-                                    <!-- Right: botones con badge numérico + separador + usuario -->
-                                    <div class="tnav__right">
-                                        <div class="tnav__buttons">
-                                            <div class="tnav__btn-wrapper">
-                                                <button class="tnav__icon-btn" title="Home">
-                                                    <span class="material-symbols-rounded">home</span>
-                                                </button>
-                                            </div>
-                                            <div class="tnav__btn-wrapper">
-                                                <button class="tnav__icon-btn" title="Mensajes">
-                                                    <span class="material-symbols-rounded">mail</span>
-                                                </button>
-                                                <span class="tnav__badge">1</span>
-                                            </div>
-                                            <div class="tnav__btn-wrapper">
-                                                <button class="tnav__icon-btn" title="Notificaciones">
-                                                    <span class="material-symbols-rounded">notifications</span>
-                                                </button>
-                                                <span class="tnav__badge">5</span>
-                                            </div>
-                                        </div>
-                                        <div class="tnav__divider"></div>
-                                        <div class="tnav__user">
-                                            <button class="tnav__user-trigger">
-                                                <div class="tnav__avatar">GJ</div>
-                                                <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
-                                            </button>
-                                            <div class="tnav__user-info">
-                                                <span class="tnav__user-name">Gonzalo Jiménez</span>
-                                                <div class="tnav__user-role-row">
-                                                    <span class="tnav__user-role">Responsable</span>
-                                                    <span class="material-symbols-rounded tnav__user-role-icon">expand_more</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </nav>
+                                <div class="mb-4">
+                                    {{> AppHeader/Components/header-desktop }}
+                                </div>
 
                                 <!-- ── Desktop — Administrador ──────────────────────────────────── -->
                                 <p class="mm-showcase-label mb-3">Desktop · Administrador</p>
@@ -391,38 +352,9 @@
 
                                 <!-- ── Mobile ────────────────────────────────────────────────────── -->
                                 <p class="mm-showcase-label mb-3">Mobile</p>
-                                <nav class="tnav tnav--mobile" style="width: 412px;">
-                                    <div class="tnav__left">
-                                        <div class="tnav__btn-wrapper">
-                                            <button class="tnav__icon-btn" title="Abrir menú">
-                                                <span class="material-symbols-rounded">dehaze</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="tnav__right">
-                                        <div class="tnav__buttons">
-                                            <div class="tnav__btn-wrapper">
-                                                <button class="tnav__icon-btn" title="Mensajes">
-                                                    <span class="material-symbols-rounded">mail</span>
-                                                </button>
-                                                <span class="tnav__badge">1</span>
-                                            </div>
-                                            <div class="tnav__btn-wrapper">
-                                                <button class="tnav__icon-btn" title="Notificaciones">
-                                                    <span class="material-symbols-rounded">notifications</span>
-                                                </button>
-                                                <span class="tnav__badge">5</span>
-                                            </div>
-                                        </div>
-                                        <div class="tnav__divider"></div>
-                                        <div class="tnav__user">
-                                            <button class="tnav__user-trigger">
-                                                <div class="tnav__avatar">GJ</div>
-                                                <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </nav>
+                                <div style="max-width: 412px;">
+                                    {{> AppHeader/Components/header-mobile }}
+                                </div>
 
                             </div>
                         </div>

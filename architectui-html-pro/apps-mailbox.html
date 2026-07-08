@@ -22,7 +22,7 @@
     <!-- Material Symbols Rounded (variable font — weight 300, fill 0) -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 
-<link href="./main.fa18e61372f291c49162.css" rel="stylesheet"></head>
+<link href="./main.41e20f6fab850933776d.css" rel="stylesheet"></head>
 
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
@@ -56,60 +56,47 @@
                         </span>
                     </button>
                 </span>
-            </div>    <div class="app-header__content">
-                <div class="app-header-left">
-                    <!-- ── Selector de contexto ────────────────────────────────────────────────── -->
-                    <div class="app-header__context">
-                        <span class="app-header__context-text">Ciclo Lectivo de Trabajo: 2025</span>
-                        <button type="button" class="app-header__context-btn" title="Cambiar ciclo">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </button>
-                    </div>
+            </div>    <nav class="tnav header-desktop-nav">
+                <div class="tnav__left">
+                    <span class="tnav__title">Ciclo Lectivo de Trabajo: 2025</span>
+                    <button type="button" class="app-header__context-btn" title="Cambiar ciclo">
+                        <span class="material-symbols-rounded">expand_more</span>
+                    </button>
                 </div>
-                <div class="app-header-right">
-                    <!-- ── Botones de acción ───────────────────────────────────────────────────── -->
-                    <div class="app-header__actions">
-                        <button type="button" class="app-header__action-btn" title="Apps">
-                            <span class="material-symbols-rounded">apps</span>
-                        </button>
-                        <button type="button" class="app-header__action-btn" title="Notificaciones">
-                            <span class="material-symbols-rounded">notifications</span>
-                        </button>
+                <div class="tnav__right">
+                    <div class="tnav__buttons">
                         <div class="tnav__btn-wrapper">
-                            <button type="button" class="app-header__action-btn" title="Mensajes">
+                            <button class="tnav__icon-btn" title="Apps">
+                                <span class="material-symbols-rounded">apps</span>
+                            </button>
+                        </div>
+                        <div class="tnav__btn-wrapper">
+                            <button class="tnav__icon-btn" title="Mensajes">
                                 <span class="material-symbols-rounded">mail</span>
                             </button>
                             <span class="tnav__badge">1</span>
                         </div>
+                        <div class="tnav__btn-wrapper">
+                            <button class="tnav__icon-btn" title="Notificaciones">
+                                <span class="material-symbols-rounded">notifications</span>
+                            </button>
+                            <span class="tnav__badge">5</span>
+                        </div>
                     </div>
-                    
-                    <!-- ── Separador ──────────────────────────────────────────────────────────── -->
-                    <div class="app-header__separator"></div>
-                    
-                    <!-- ── Usuario ────────────────────────────────────────────────────────────── -->
-                    <!--
-                      Estructura TopNav (Figma node 151:9313):
-                      .app-header__user
-                        ├── .app-header__user-trigger.dropdown-toggle  [avatar + chevron 28px]
-                        ├── .app-header__user-info                     [nombre + fila de rol]
-                        └── .dropdown-menu                             [menú desplegable]
-                    -->
-                    <div class="dropdown app-header__user">
-                        <!-- Trigger: solo avatar + chevron grande -->
-                        <button type="button" class="app-header__user-trigger dropdown-toggle"
+                    <div class="tnav__divider"></div>
+                    <div class="tnav__user dropdown">
+                        <button type="button" class="tnav__user-trigger dropdown-toggle"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="tnav__avatar">GJ</div>
-                            <span class="material-symbols-rounded app-header__user-chevron">expand_more</span>
+                            <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
                         </button>
-                    
-                        <!-- Info del usuario: fuera del trigger, al costado -->
-                        <div class="app-header__user-info">
-                            <span class="app-header__user-name">Gonzalo Jiménez</span>
-                            <div class="dropdown">
-                                <button type="button" class="app-header__user-meta dropdown-toggle"
+                        <div class="tnav__user-info">
+                            <span class="tnav__user-name">Gonzalo Jiménez</span>
+                            <div class="tnav__user-role-row">
+                                <button type="button" class="tnav__user-meta dropdown-toggle"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="app-header__user-role">Responsable</span>
-                                    <span class="material-symbols-rounded app-header__user-meta-icon">expand_more</span>
+                                    <span class="tnav__user-role">Responsable</span>
+                                    <span class="material-symbols-rounded tnav__user-role-icon">expand_more</span>
                                 </button>
                                 <div class="dropdown-menu tpl-select__menu app-header__role-menu">
                                     <a href="index.html" class="dropdown-item tpl-select__item">Administrador</a>
@@ -119,7 +106,6 @@
                                 </div>
                             </div>
                         </div>
-                    
                         <div class="dropdown-menu tpl-select__menu dropdown-menu-right">
                             <button type="button" class="dropdown-item tpl-select__item">
                                 <span class="material-symbols-rounded tpl-select__item-icon">lock</span>Modificar Clave
@@ -136,7 +122,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </nav>
+            <nav class="tnav tnav--mobile header-mobile-nav">
+                <div class="tnav__left">
+                    <div class="tnav__btn-wrapper">
+                        <button class="tnav__icon-btn mobile-toggle-nav" title="Abrir menú">
+                            <span class="material-symbols-rounded">dehaze</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="tnav__right">
+                    <div class="tnav__buttons">
+                        <div class="tnav__btn-wrapper">
+                            <button class="tnav__icon-btn" title="Mensajes">
+                                <span class="material-symbols-rounded">mail</span>
+                            </button>
+                            <span class="tnav__badge">1</span>
+                        </div>
+                        <div class="tnav__btn-wrapper">
+                            <button class="tnav__icon-btn" title="Notificaciones">
+                                <span class="material-symbols-rounded">notifications</span>
+                            </button>
+                            <span class="tnav__badge">5</span>
+                        </div>
+                    </div>
+                    <div class="tnav__divider"></div>
+                    <div class="tnav__user">
+                        <button class="tnav__user-trigger">
+                            <div class="tnav__avatar">GJ</div>
+                            <span class="material-symbols-rounded tnav__user-chevron">expand_more</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
         </div>
 <div class="app-main">
             <div class="app-sidebar sidebar-shadow sidebar-text-light">
@@ -2217,6 +2235,6 @@
             </div>
         </div>
     </div>
-    <div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="./assets/scripts/main.fa18e61372f291c49162.js"></script></body>
+    <div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="./assets/scripts/main.41e20f6fab850933776d.js"></script></body>
 
 </html>

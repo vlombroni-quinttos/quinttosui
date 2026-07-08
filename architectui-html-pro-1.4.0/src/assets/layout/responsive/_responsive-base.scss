@@ -107,79 +107,18 @@
     }
   }
 
+  // En mobile: ocultar nav desktop y logo, mostrar nav mobile
   .app-header {
-    justify-content: space-between;
+    .app-header__logo        { display: none !important; }
+    .app-header__mobile-menu { display: none !important; }
+    .app-header__menu        { display: none !important; }
+    .header-desktop-nav      { display: none !important; }
 
-    .app-header__logo {
-      display: none;
-      order: 2;
-      background: transparent !important;
-      border: 0 !important;
-    }
-
-    .app-header__content {
-      visibility: hidden;
-      opacity: 0;
-      box-shadow: $box-shadow-default;
-      position: absolute;
-      left: 5%;
-      width: 90%;
-      top: 0;
-      transition: all .2s;
-      background: $white;
-      @include border-radius(50px);
-      padding: 0 10px;
-      overflow: hidden;
-
-      .header-btn-lg {
-        margin-left: .5rem;
-        padding: 0 .5rem;
-
-        .hamburger-box {
-          margin-top: 5px;
-        }
-
-        & + .header-btn-lg {
-          display: none;
-        }
-      }
-
-      .app-header-left {
-        .nav {
-          display: none;
-        }
-      }
-
-      &.header-mobile-open {
-        visibility: visible;
-        opacity: 1;
-        top: $app-header-height + 20;
-      }
-    }
-
-    .app-header__mobile-menu {
-      display: flex;
-      order: 1;
-    }
-
-    .app-header__menu {
-      display: flex;
-      order: 3;
-    }
-
-    &.header-text-light {
-      .app-header__menu {
-        & > span .btn,
-        & > .btn {
-          background: rgba(255, 255, 255, .1);
-          border-color: rgba(255, 255, 255, .1);
-        }
-      }
-
-      .header-mobile-open {
-        background: $gray-800;
-      }
-
+    .header-mobile-nav {
+      display: flex !important;
+      flex: 1;
+      border-radius: 0;
+      width: 100%;
     }
   }
 

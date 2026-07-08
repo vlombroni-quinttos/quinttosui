@@ -257,6 +257,14 @@ $hd-padding-x:     2rem;             // 32px — padding horizontal del header
   align-items: center;
 }
 
+// Los partials de nav viven dentro de .app-header
+// Desktop: muestra header-desktop, oculta header-mobile
+// Mobile: al revés (en _responsive-base.scss)
+.app-header {
+  .header-mobile-nav  { display: none; }   // oculto en desktop
+  .header-desktop-nav { display: flex; flex: 1; background: transparent; padding: 0; height: $app-header-height; border-radius: 0; }
+}
+
 // ── Menú de cambio de rol (anclado al header, borde derecho) ─────────────────
 .app-header__role-menu {
   position: fixed !important;
