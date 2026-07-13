@@ -5,3 +5,7 @@ node_modules/
 *.hot-update.js
 *.hot-update.json
 
+# Carpetas de build internas — el output va directo a la raíz del repo
+architectui-html-pro-1.4.0/architectui-html-pro/
+architectui-html-pro/
+
